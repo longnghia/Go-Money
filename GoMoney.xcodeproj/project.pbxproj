@@ -13,6 +13,10 @@
 		08C872AC28F655CF00DC859D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C872AB28F655CF00DC859D /* Assets.xcassets */; };
 		08C872AF28F655CF00DC859D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C872AD28F655CF00DC859D /* LaunchScreen.storyboard */; };
 		08C872C028F65D8D00DC859D /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 08C872BE28F65D8C00DC859D /* readme.md */; };
+		08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872C728F6671B00DC859D /* UIView+Extension.swift */; };
+		08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872C928F6681600DC859D /* UIViewController+Extension.swift */; };
+		08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872CC28F66C1700DC859D /* GMViewController.swift */; };
+		08C872CF28F66C5100DC859D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872CE28F66C5100DC859D /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,12 @@
 		08C872AE28F655CF00DC859D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08C872B028F655CF00DC859D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08C872BE28F65D8C00DC859D /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		08C872C728F6671B00DC859D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		08C872C928F6681600DC859D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		08C872CC28F66C1700DC859D /* GMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMViewController.swift; sourceTree = "<group>"; };
+		08C872CE28F66C5100DC859D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		08C872D128F66FB800DC859D /* Proxima Nova Reg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Reg.ttf"; path = "../../../../../../../Users/goldenowl/Downloads/Proxima Nova Reg.ttf"; sourceTree = "<group>"; };
+		08C872D228F66FC100DC859D /* Proxima Nova Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Bold.ttf"; path = "../../../../../../../Users/goldenowl/Downloads/Proxima Nova Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,9 @@
 		08C872A128F655CD00DC859D /* GoMoney */ = {
 			isa = PBXGroup;
 			children = (
+				08C872CB28F66C0300DC859D /* Base */,
+				08C872C628F6670900DC859D /* Extensions */,
+				08C872C528F666FD00DC859D /* Constants */,
 				08C872BC28F65CB700DC859D /* Models */,
 				08C872B828F658A300DC859D /* Scences */,
 				08C872B728F6586D00DC859D /* AppDelegate */,
@@ -70,6 +83,7 @@
 		08C872B628F6586500DC859D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				08C872D028F66F9800DC859D /* Fonts */,
 				08C872AB28F655CF00DC859D /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -89,7 +103,6 @@
 			children = (
 				08C872A628F655CD00DC859D /* MainViewController.swift */,
 				08C872BB28F658D800DC859D /* Auth */,
-				08C872BA28F658CC00DC859D /* OnBoard */,
 				08C872B928F658C600DC859D /* Home */,
 			);
 			path = Scences;
@@ -100,13 +113,6 @@
 			children = (
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		08C872BA28F658CC00DC859D /* OnBoard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OnBoard;
 			sourceTree = "<group>";
 		};
 		08C872BB28F658D800DC859D /* Auth */ = {
@@ -121,6 +127,40 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		08C872C528F666FD00DC859D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				08C872CE28F66C5100DC859D /* Constant.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		08C872C628F6670900DC859D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08C872C728F6671B00DC859D /* UIView+Extension.swift */,
+				08C872C928F6681600DC859D /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08C872CB28F66C0300DC859D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				08C872CC28F66C1700DC859D /* GMViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		08C872D028F66F9800DC859D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				08C872D128F66FB800DC859D /* Proxima Nova Reg.ttf */,
+				08C872D228F66FC100DC859D /* Proxima Nova Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,8 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
+				08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */,
 				08C872A728F655CD00DC859D /* MainViewController.swift in Sources */,
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
+				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
+				08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */,
 				08C872A528F655CD00DC859D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
