@@ -9,8 +9,8 @@ import UIKit
 
 extension UIViewController {
     func alert(_ message: String, actionTitle: String = NSLocalizedString("OK", comment: "ok"), cancelHandler: ((UIAlertAction) -> Void)? = nil) {
-        let alc = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        alc.addAction(UIAlertAction(title: actionTitle, style: .default, handler: cancelHandler))
-        self.present(alc, animated: true, completion: nil)
+        let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: cancelHandler))
+        self.present(alertController, animated: true, completion: nil)
     }
 }
