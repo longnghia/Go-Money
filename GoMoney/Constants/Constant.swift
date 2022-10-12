@@ -19,5 +19,8 @@ struct K {
 
     enum Image {}
     
-    enum Font {}
+    enum Font {
+        static let nova = "ProximaNova-Regular"
+        static let novaBold = "ProximaNova-Bold"
+    }
 }

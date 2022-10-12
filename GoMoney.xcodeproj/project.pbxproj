@@ -17,6 +17,14 @@
 		08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872C928F6681600DC859D /* UIViewController+Extension.swift */; };
 		08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872CC28F66C1700DC859D /* GMViewController.swift */; };
 		08C872CF28F66C5100DC859D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872CE28F66C5100DC859D /* Constant.swift */; };
+		08C872D928F67F8F00DC859D /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872D828F67F8F00DC859D /* OnboardViewController.swift */; };
+		08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872DA28F680A100DC859D /* OnboardPage.swift */; };
+		08C872E028F6866000DC859D /* OnboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872DF28F6866000DC859D /* OnboardCell.swift */; };
+		08C872EA28F6C51200DC859D /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872E928F6C51200DC859D /* UserDefaultKey.swift */; };
+		08C872EE28F6C5F600DC859D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872ED28F6C5F600DC859D /* SignInViewController.swift */; };
+		08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */; };
+		08C8730828F6D16C00DC859D /* proxima_nova.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08C8730628F6D16B00DC859D /* proxima_nova.ttf */; };
+		08C8730928F6D16C00DC859D /* proxima_nova_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +40,14 @@
 		08C872C928F6681600DC859D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		08C872CC28F66C1700DC859D /* GMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMViewController.swift; sourceTree = "<group>"; };
 		08C872CE28F66C5100DC859D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		08C872D128F66FB800DC859D /* Proxima Nova Reg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Reg.ttf"; path = "../../../../../../../Users/goldenowl/Downloads/Proxima Nova Reg.ttf"; sourceTree = "<group>"; };
-		08C872D228F66FC100DC859D /* Proxima Nova Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Bold.ttf"; path = "../../../../../../../Users/goldenowl/Downloads/Proxima Nova Bold.ttf"; sourceTree = "<group>"; };
+		08C872D828F67F8F00DC859D /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		08C872DA28F680A100DC859D /* OnboardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPage.swift; sourceTree = "<group>"; };
+		08C872DF28F6866000DC859D /* OnboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCell.swift; sourceTree = "<group>"; };
+		08C872E928F6C51200DC859D /* UserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
+		08C872ED28F6C5F600DC859D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
+		08C8730628F6D16B00DC859D /* proxima_nova.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proxima_nova.ttf; sourceTree = "<group>"; };
+		08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proxima_nova_bold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +97,7 @@
 		08C872B628F6586500DC859D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				08C872E128F687A000DC859D /* Animations */,
 				08C872D028F66F9800DC859D /* Fonts */,
 				08C872AB28F655CF00DC859D /* Assets.xcassets */,
 			);
@@ -101,6 +116,7 @@
 		08C872B828F658A300DC859D /* Scences */ = {
 			isa = PBXGroup;
 			children = (
+				08C872D728F67F7C00DC859D /* Onboard */,
 				08C872A628F655CD00DC859D /* MainViewController.swift */,
 				08C872BB28F658D800DC859D /* Auth */,
 				08C872B928F658C600DC859D /* Home */,
@@ -118,6 +134,7 @@
 		08C872BB28F658D800DC859D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				08C872EC28F6C5DE00DC859D /* SignIn */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -125,6 +142,7 @@
 		08C872BC28F65CB700DC859D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				08C872DA28F680A100DC859D /* OnboardPage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				08C872CE28F66C5100DC859D /* Constant.swift */,
+				08C872E928F6C51200DC859D /* UserDefaultKey.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -142,6 +161,7 @@
 			children = (
 				08C872C728F6671B00DC859D /* UIView+Extension.swift */,
 				08C872C928F6681600DC859D /* UIViewController+Extension.swift */,
+				08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -157,10 +177,34 @@
 		08C872D028F66F9800DC859D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				08C872D128F66FB800DC859D /* Proxima Nova Reg.ttf */,
-				08C872D228F66FC100DC859D /* Proxima Nova Bold.ttf */,
+				08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */,
+				08C8730628F6D16B00DC859D /* proxima_nova.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		08C872D728F67F7C00DC859D /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				08C872D828F67F8F00DC859D /* OnboardViewController.swift */,
+				08C872DF28F6866000DC859D /* OnboardCell.swift */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		08C872E128F687A000DC859D /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		08C872EC28F6C5DE00DC859D /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				08C872ED28F6C5F600DC859D /* SignInViewController.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +223,8 @@
 			dependencies = (
 			);
 			name = GoMoney;
+			packageProductDependencies = (
+			);
 			productName = GoMoney;
 			productReference = 08C8729F28F655CD00DC859D /* GoMoney.app */;
 			productType = "com.apple.product-type.application";
@@ -207,6 +253,8 @@
 				Base,
 			);
 			mainGroup = 08C8729628F655CD00DC859D;
+			packageReferences = (
+			);
 			productRefGroup = 08C872A028F655CD00DC859D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -223,6 +271,8 @@
 			files = (
 				08C872AF28F655CF00DC859D /* LaunchScreen.storyboard in Resources */,
 				08C872C028F65D8D00DC859D /* readme.md in Resources */,
+				08C8730928F6D16C00DC859D /* proxima_nova_bold.ttf in Resources */,
+				08C8730828F6D16C00DC859D /* proxima_nova.ttf in Resources */,
 				08C872AC28F655CF00DC859D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,12 +284,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */,
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
+				08C872E028F6866000DC859D /* OnboardCell.swift in Sources */,
 				08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */,
+				08C872D928F67F8F00DC859D /* OnboardViewController.swift in Sources */,
 				08C872A728F655CD00DC859D /* MainViewController.swift in Sources */,
+				08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */,
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
+				08C872EE28F6C5F600DC859D /* SignInViewController.swift in Sources */,
 				08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */,
+				08C872EA28F6C51200DC859D /* UserDefaultKey.swift in Sources */,
 				08C872A528F655CD00DC859D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
