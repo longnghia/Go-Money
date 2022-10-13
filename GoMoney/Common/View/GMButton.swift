@@ -8,31 +8,27 @@
 import UIKit
 
 class GMButton: UIButton {
+    convenience init(
+        text: String = "",
+        size: CGFloat = 16,
+        color: UIColor = .black,
+        font: String = K.Font.nova ,
+        builder: ((GMButton) -> Void)? = nil
+    ) {
+        self.init(frame: .zero)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.setTitle(text, for: .normal)
+        self.titleLabel?.textAlignment = .center
+        self.setTitleColor(color, for: .normal)
+        self.titleLabel?.font = UIFont(name: font, size: size)
+        builder?(self)
+    }
 
-    var gmFont = K.Font.nova {
-        didSet {
-            self.titleLabel?.font  = UIFont(name: self.gmFont, size: self.gmSize)
-        }
-    }
-    
-    var gmSize: CGFloat = 16 {
-        didSet {
-            self.titleLabel?.font  = UIFont(name: gmFont, size: gmSize)
-        }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setup()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.setup()
-    }
-    
-    private func setup() {
-        self.titleLabel?.font = UIFont(name: gmFont, size: gmSize)
-        self.setTitleColor(.black, for: .normal)
     }
 }

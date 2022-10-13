@@ -1,9 +1,3 @@
-//
-//  OnboardCell.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 12/10/2022.
-//
 
 import UIKit
 
@@ -16,19 +10,21 @@ class OnboardCell: UICollectionViewCell {
         topicImage.contentMode = .scaleAspectFill
         topicImage.layer.cornerRadius = 75
         topicImage.layer.masksToBounds = true
+        topicImage.anchor(width: 200, height: 200)
     }
      
-    private lazy var topicLabel: GMLabel = .build { topicLabel in
-        topicLabel.gmSize = 28
-        topicLabel.textAlignment = .center
-    }
-     
-    private lazy var descriptionLabel: GMLabel = .build { descriptionLabel in
-        descriptionLabel.textColor = .gray
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.gmSize = 18
-    }
+    private lazy var topicLabel: GMLabel = .init(size: 28)
+    
+    private lazy var descriptionLabel: GMLabel = .init(size: 18, textColor: .gray)
+    
+    private lazy var centerView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [topicImage, topicLabel])
+        view.axis = .vertical
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.alignment = .center
+        view.spacing = 16
+        return view
+    }()
     
     var page: OnboardPageModel? {
         didSet {
@@ -52,18 +48,14 @@ class OnboardCell: UICollectionViewCell {
     // MARK: - Setup layout
 
     private func setupLayout() {
-        addSubviews(topicImage, topicLabel, descriptionLabel)
+        addSubviews(centerView, descriptionLabel)
         
-        topicImage.centerXToSuperview()
-        topicImage.centerYToSuperview(offset: -center.y / 2)
-        topicImage.anchor(width: 200, height: 200)
-        
-        topicLabel.anchor(top: topicImage.bottomAnchor, paddingTop: 16)
-        topicLabel.centerXToSuperview()
+        centerView.centerXToSuperview()
+        centerView.centerYToSuperview(offset: -(windowSafeAreaInsets?.top ?? 0))
 
         descriptionLabel.centerXToSuperview()
         descriptionLabel.anchor(
-            top: topicLabel.bottomAnchor,
+            top: centerView.bottomAnchor,
             left: leftAnchor,
             right: rightAnchor,
             paddingTop: 24,

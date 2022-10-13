@@ -8,30 +8,28 @@
 import UIKit
 
 class GMLabel: UILabel {
-    
-    var gmFont = K.Font.nova {
-        didSet {
-            self.font = UIFont(name: self.gmFont, size: self.gmSize)
-        }
-    }
-    
-    var gmSize: CGFloat = 16 {
-        didSet {
-            self.font = UIFont(name: gmFont, size: gmSize)
-        }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setup()
-    }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.setup()
     }
-    
-    private func setup() {
-        self.font = UIFont(name: self.gmFont, size: self.gmSize)
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
+    convenience init(
+        text: String = "",
+        size: CGFloat = 16,
+        textColor: UIColor = .black,
+        numberOfLines: Int = 0,
+        font: String = K.Font.nova,
+        builder: ((GMLabel) -> Void)? = nil
+    ) {
+        self.init(frame: .zero)
+        self.text = text
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.textAlignment = .center
+        self.textColor = textColor
+        self.font = UIFont(name: font, size: size)
+        builder?(self)
     }
 }

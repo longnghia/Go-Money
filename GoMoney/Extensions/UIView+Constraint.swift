@@ -1,10 +1,3 @@
-//
-//  UIView+Constraint.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 12/10/2022.
-//
-
 import UIKit
 
 struct AnchoredConstraints {
@@ -166,6 +159,6 @@ var screenHeight: CGFloat {
     return UIScreen.main.bounds.height
 }
 
-var safeAreaInsets: UIEdgeInsets? {
+var windowSafeAreaInsets: UIEdgeInsets? {
     return UIApplication.shared.windows.first?.safeAreaInsets
 }

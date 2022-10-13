@@ -1,9 +1,3 @@
-//
-//  OnboardViewController.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 12/10/2022.
-//
 
 import UIKit
 
@@ -33,18 +27,13 @@ class OnboardViewController: GMViewController {
         return collectionView
     }()
     
-    private lazy var skipButton: GMButton = .build { skipButton in
-        skipButton.setTitle("Skip", for: .normal)
-        skipButton.gmSize = 14
-        skipButton.addTarget(self, action: #selector(self.didTapSkipButton), for: .touchUpInside)
+    private lazy var skipButton: GMButton = .init(text: "Skip", size: 14) {
+        $0.addTarget(self, action: #selector(self.didTapSkipButton), for: .touchUpInside)
     }
     
-    private lazy var startButton: GMButton = .build { startButton in
-        startButton.setTitle("Start", for: .normal)
-        startButton.isHidden = true
-        startButton.gmSize = 30
-        startButton.setTitleColor(.black, for: .normal)
-        startButton.addTarget(self, action: #selector(self.didTapStartButton), for: .touchUpInside)
+    private lazy var startButton: GMButton = .init(text: "Start", size: 30) {
+        $0.isHidden = true
+        $0.addTarget(self, action: #selector(self.didTapStartButton), for: .touchUpInside)
     }
 
     private lazy var pageControl: UIPageControl = .build { pageControl in
@@ -55,6 +44,18 @@ class OnboardViewController: GMViewController {
         pageControl.isUserInteractionEnabled = false
     }
         
+    // MARK: - Life circle
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     // MARK: - Setup layout
 
     override func setupLayout() {
@@ -73,7 +74,6 @@ class OnboardViewController: GMViewController {
         skipButton.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             right: view.rightAnchor,
-            paddingTop: 8,
             paddingRight: 32)
 
         pageControl.centerXToSuperview()
@@ -134,17 +134,16 @@ extension OnboardViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardCell.identifier, for: indexPath)
-        
-        if let cell = cell as? OnboardCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardCell.identifier, for: indexPath) as? OnboardCell {
             let onboardPage = onboardPages[indexPath.row]
             cell.page = onboardPage
+            return cell
         }
-        return cell
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height - 30)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
