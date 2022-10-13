@@ -10,8 +10,6 @@ import UIKit
 class OnboardCell: UICollectionViewCell {
     static let identifier = "onboard_cell"
     
-    var onboardVC: OnboardViewController!
-    
     // MARK: - private properties
 
     private lazy var topicImage: UIImageView = .build { topicImage in

@@ -139,7 +139,6 @@ extension OnboardViewController: UICollectionViewDelegate, UICollectionViewDataS
         if let cell = cell as? OnboardCell {
             let onboardPage = onboardPages[indexPath.row]
             cell.page = onboardPage
-            cell.onboardVC = self
         }
         return cell
     }
