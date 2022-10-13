@@ -64,7 +64,13 @@ class OnboardCell: UICollectionViewCell {
         topicLabel.centerXToSuperview()
 
         descriptionLabel.centerXToSuperview()
-        descriptionLabel.anchor(top: topicLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 24, paddingLeft: 8, paddingRight: 8)
+        descriptionLabel.anchor(
+            top: topicLabel.bottomAnchor,
+            left: leftAnchor,
+            right: rightAnchor,
+            paddingTop: 24,
+            paddingLeft: 8,
+            paddingRight: 8)
     }
     
     // MARK: public methods

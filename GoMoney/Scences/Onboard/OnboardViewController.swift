@@ -64,12 +64,23 @@ class OnboardViewController: GMViewController {
         
         view.addSubviews(collectionView, skipButton, pageControl, startButton)
       
-        collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor)
+        collectionView.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            left: view.leftAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            right: view.rightAnchor)
         
-        skipButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, paddingTop: 8, paddingRight: 32)
+        skipButton.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            right: view.rightAnchor,
+            paddingTop: 8,
+            paddingRight: 32)
 
         pageControl.centerXToSuperview()
-        pageControl.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 8, height: 30)
+        pageControl.anchor(
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            paddingBottom: 8,
+            height: 30)
         
         startButton.centerXToSuperview()
         startButton.anchor(bottom: pageControl.topAnchor, paddingBottom: 8)
