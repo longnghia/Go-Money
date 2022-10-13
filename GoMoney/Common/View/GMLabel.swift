@@ -51,27 +51,6 @@ class GMLabel: UILabel {
     private func update() {
         self.font = UIFont(name: self.gmStyle.getFont(), size: self.gmStyle.getSize())
         self.textColor = self.gmStyle.getColor()
-
-        switch self.gmStyle {
-        case .small:
-            self.font = UIFont(name: K.Font.nova, size: 12)
-            self.textColor = .gray
-        case .smallBold:
-            self.font = UIFont(name: K.Font.novaBold, size: 12)
-            self.textColor = .gray
-        case .regular:
-            self.font = UIFont(name: K.Font.nova, size: 16)
-            self.textColor = .black
-        case .regularBold:
-            self.font = UIFont(name: K.Font.novaBold, size: 16)
-            self.textColor = .black
-        case .large:
-            self.font = UIFont(name: K.Font.nova, size: 24)
-            self.textColor = .black
-        case .largeBold:
-            self.font = UIFont(name: K.Font.novaBold, size: 24)
-            self.textColor = .black
-        }
     }
 
     required init?(coder: NSCoder) {
