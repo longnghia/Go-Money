@@ -99,13 +99,16 @@ class OnboardViewController: GMViewController {
         skip()
     }
         
-    func skip() {
+    private func skip() {
         UserDefaults.standard.set(true, forKey: UserDefaultKey.firstLaunch)
-    
-        let controller = SignInViewController()
-        controller.modalPresentationStyle = .fullScreen
-        present(controller, animated: true, completion: nil)
-        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: false)
+        
+        let signInVC = SignInViewController()
+        let navVC = UINavigationController(rootViewController: signInVC)
+        navVC.modalPresentationStyle = .fullScreen
+        
+        if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
+            delegate.window?.rootViewController = navVC
+        }
     }
 }
 
