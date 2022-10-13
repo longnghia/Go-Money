@@ -11,10 +11,10 @@ class OnboardViewController: GMViewController {
     // MARK: Data
 
     private let onboardPages = [
-        OnboardPage(imageName: "onboard_1", topicText: "Tracking", descriptionText: "Simply track your daily expenses."),
-        OnboardPage(imageName: "onboard_2", topicText: "Categories", descriptionText: "Manage your categories's expenses."),
-        OnboardPage(imageName: "onboard_3", topicText: "Analysis", descriptionText: "Easily find the status of your top expenses."),
-        OnboardPage(imageName: "start", topicText: "Start Go Money!", descriptionText: "Start Go Money!"),
+        OnboardPageModel(imageName: "onboard_1", topicText: "Tracking", descriptionText: "Simply track your daily expenses."),
+        OnboardPageModel(imageName: "onboard_2", topicText: "Categories", descriptionText: "Manage your categories's expenses."),
+        OnboardPageModel(imageName: "onboard_3", topicText: "Analysis", descriptionText: "Easily find the status of your top expenses."),
+        OnboardPageModel(imageName: "start", topicText: "Start Go Money!", descriptionText: "Start Go Money!"),
     ]
     
     // MARK: - Private properties

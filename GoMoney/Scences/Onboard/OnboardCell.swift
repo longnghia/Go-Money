@@ -32,7 +32,7 @@ class OnboardCell: UICollectionViewCell {
         descriptionLabel.font = UIFont(name: K.Font.nova, size: 18)
     }
     
-    var page: OnboardPage? {
+    var page: OnboardPageModel? {
         didSet {
             topicImage.image = UIImage(named: page?.imageName ?? "")
             topicLabel.text = page?.topicText
