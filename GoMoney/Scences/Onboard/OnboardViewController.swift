@@ -33,17 +33,16 @@ class OnboardViewController: GMViewController {
         return collectionView
     }()
     
-    private lazy var skipButton: UIButton = .build { skipButton in
+    private lazy var skipButton: GMButton = .build { skipButton in
         skipButton.setTitle("Skip", for: .normal)
-        skipButton.titleLabel?.font = UIFont(name: K.Font.novaBold, size: 14)
-        skipButton.setTitleColor(.black, for: .normal)
+        skipButton.gmSize = 14
         skipButton.addTarget(self, action: #selector(self.didTapSkipButton), for: .touchUpInside)
     }
     
-    private lazy var startButton: UIButton = .build { startButton in
+    private lazy var startButton: GMButton = .build { startButton in
         startButton.setTitle("Start", for: .normal)
         startButton.isHidden = true
-        startButton.titleLabel?.font = UIFont(name: K.Font.novaBold, size: 30)
+        startButton.gmSize = 30
         startButton.setTitleColor(.black, for: .normal)
         startButton.addTarget(self, action: #selector(self.didTapStartButton), for: .touchUpInside)
     }

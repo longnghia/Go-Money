@@ -20,16 +20,16 @@ class OnboardCell: UICollectionViewCell {
         topicImage.layer.masksToBounds = true
     }
      
-    private lazy var topicLabel: UILabel = .build { topicLabel in
-        topicLabel.font = UIFont(name: K.Font.nova, size: 28)
+    private lazy var topicLabel: GMLabel = .build { topicLabel in
+        topicLabel.gmSize = 28
         topicLabel.textAlignment = .center
     }
      
-    private lazy var descriptionLabel: UILabel = .build { descriptionLabel in
+    private lazy var descriptionLabel: GMLabel = .build { descriptionLabel in
         descriptionLabel.textColor = .gray
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = UIFont(name: K.Font.nova, size: 18)
+        descriptionLabel.gmSize = 18
     }
     
     var page: OnboardPageModel? {

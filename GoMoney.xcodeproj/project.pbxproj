@@ -25,6 +25,8 @@
 		08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */; };
 		08C8730828F6D16C00DC859D /* proxima_nova.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08C8730628F6D16B00DC859D /* proxima_nova.ttf */; };
 		08C8730928F6D16C00DC859D /* proxima_nova_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */; };
+		08C8730E28F7B1FD00DC859D /* GMLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8730D28F7B1FD00DC859D /* GMLabel.swift */; };
+		08C8731028F7B89D00DC859D /* GMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8730F28F7B89D00DC859D /* GMButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
 		08C8730628F6D16B00DC859D /* proxima_nova.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proxima_nova.ttf; sourceTree = "<group>"; };
 		08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proxima_nova_bold.ttf; sourceTree = "<group>"; };
+		08C8730D28F7B1FD00DC859D /* GMLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabel.swift; sourceTree = "<group>"; };
+		08C8730F28F7B89D00DC859D /* GMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		08C872A128F655CD00DC859D /* GoMoney */ = {
 			isa = PBXGroup;
 			children = (
+				08C8730B28F7B1BD00DC859D /* Common */,
 				08C872CB28F66C0300DC859D /* Base */,
 				08C872C628F6670900DC859D /* Extensions */,
 				08C872C528F666FD00DC859D /* Constants */,
@@ -207,6 +212,23 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
+		08C8730B28F7B1BD00DC859D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				08C8730C28F7B1D200DC859D /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		08C8730C28F7B1D200DC859D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08C8730D28F7B1FD00DC859D /* GMLabel.swift */,
+				08C8730F28F7B89D00DC859D /* GMButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,11 +309,13 @@
 				08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */,
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
 				08C872E028F6866000DC859D /* OnboardCell.swift in Sources */,
+				08C8731028F7B89D00DC859D /* GMButton.swift in Sources */,
 				08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */,
 				08C872D928F67F8F00DC859D /* OnboardViewController.swift in Sources */,
 				08C872A728F655CD00DC859D /* MainViewController.swift in Sources */,
 				08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */,
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
+				08C8730E28F7B1FD00DC859D /* GMLabel.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C872EE28F6C5F600DC859D /* SignInViewController.swift in Sources */,
 				08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */,
