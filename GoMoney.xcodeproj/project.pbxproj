@@ -27,8 +27,6 @@
 		08C8730928F6D16C00DC859D /* proxima_nova_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */; };
 		08C8730E28F7B1FD00DC859D /* GMLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8730D28F7B1FD00DC859D /* GMLabel.swift */; };
 		08C8731028F7B89D00DC859D /* GMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8730F28F7B89D00DC859D /* GMButton.swift */; };
-		08DB56F328F9256A00170C60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F228F9256A00170C60 /* ProfileViewController.swift */; };
-		08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F428F9280700170C60 /* GMLabelAction.swift */; };
 		08C8731228F8021100DC859D /* GMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731128F8021100DC859D /* GMTextField.swift */; };
 		08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731328F80ACA00DC859D /* ButtonAuth.swift */; };
 		08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731528F81E0D00DC859D /* GMLabelSpan.swift */; };
@@ -37,6 +35,10 @@
 		08DB56E928F9035800170C60 /* StackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56E828F9035800170C60 /* StackView+Extension.swift */; };
 		08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56EA28F9053700170C60 /* UIColor+Extension.swift */; };
 		08DB56ED28F916D500170C60 /* SignUpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */; };
+		08DB56F328F9256A00170C60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F228F9256A00170C60 /* ProfileViewController.swift */; };
+		08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F428F9280700170C60 /* GMLabelAction.swift */; };
+		08DB56F728F95C7B00170C60 /* GMCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F628F95C7B00170C60 /* GMCircleImage.swift */; };
+		08DB56F928F9637200170C60 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F828F9637200170C60 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,8 +64,6 @@
 		08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proxima_nova_bold.ttf; sourceTree = "<group>"; };
 		08C8730D28F7B1FD00DC859D /* GMLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabel.swift; sourceTree = "<group>"; };
 		08C8730F28F7B89D00DC859D /* GMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMButton.swift; sourceTree = "<group>"; };
-		08DB56F228F9256A00170C60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		08DB56F428F9280700170C60 /* GMLabelAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelAction.swift; sourceTree = "<group>"; };
 		08C8731128F8021100DC859D /* GMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMTextField.swift; sourceTree = "<group>"; };
 		08C8731328F80ACA00DC859D /* ButtonAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAuth.swift; sourceTree = "<group>"; };
 		08C8731528F81E0D00DC859D /* GMLabelSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelSpan.swift; sourceTree = "<group>"; };
@@ -72,6 +72,10 @@
 		08DB56E828F9035800170C60 /* StackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extension.swift"; sourceTree = "<group>"; };
 		08DB56EA28F9053700170C60 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDetailViewController.swift; sourceTree = "<group>"; };
+		08DB56F228F9256A00170C60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		08DB56F428F9280700170C60 /* GMLabelAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelAction.swift; sourceTree = "<group>"; };
+		08DB56F628F95C7B00170C60 /* GMCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMCircleImage.swift; sourceTree = "<group>"; };
+		08DB56F828F9637200170C60 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,7 @@
 				08C8730F28F7B89D00DC859D /* GMButton.swift */,
 				08DB56F428F9280700170C60 /* GMLabelAction.swift */,
 				08C8731128F8021100DC859D /* GMTextField.swift */,
+				08DB56F628F95C7B00170C60 /* GMCircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				08DB56F228F9256A00170C60 /* ProfileViewController.swift */,
+				08DB56F828F9637200170C60 /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -361,12 +367,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */,
+				08DB56F928F9637200170C60 /* ProfileView.swift in Sources */,
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
 				08C872E028F6866000DC859D /* OnboardCell.swift in Sources */,
 				08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */,
 				08C8731028F7B89D00DC859D /* GMButton.swift in Sources */,
 				08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */,
 				08C872D928F67F8F00DC859D /* OnboardViewController.swift in Sources */,
+				08DB56F728F95C7B00170C60 /* GMCircleImage.swift in Sources */,
 				08DB56F328F9256A00170C60 /* ProfileViewController.swift in Sources */,
 				08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */,
 				08C872A728F655CD00DC859D /* MainViewController.swift in Sources */,

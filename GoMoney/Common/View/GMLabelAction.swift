@@ -4,7 +4,8 @@ class GMLabelAction: UIView {
     private enum Constant {
         static let height: CGFloat = 40
         static let padding: CGFloat = 2
-        static let iconSize = height - 2 * padding
+        static let iconLeftSize: CGFloat = 20
+        static let iconRightSize: CGFloat = 12
     }
 
     lazy var actionLeft: UIImageView = .build {
@@ -22,17 +23,20 @@ class GMLabelAction: UIView {
         icLeft: String,
         icRight: String = "chevron.right",
         background: UIColor = .gray,
+        textColor: UIColor = K.Color.boxLabel,
         builder: ((GMLabelAction) -> Void)? = nil
     ) {
-        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: Constant.height))
+        super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
 
+        anchor(height: Constant.height)
         addSubviews(actionLeft, actionText, actionRight)
-        backgroundColor = background
 
+        backgroundColor = K.Color.contentBackground
         layer.cornerRadius = 8
 
         actionText.text = text
+        actionText.textColor = textColor
 
         actionLeft.image = UIImage(systemName: icLeft)?.withTintColor(
             K.Color.primaryColor,
@@ -40,7 +44,7 @@ class GMLabelAction: UIView {
         )
 
         actionRight.image = UIImage(systemName: icRight)?.withTintColor(
-            K.Color.contentBackground,
+            K.Color.borderOnContentBg,
             renderingMode: .alwaysOriginal
         )
 
@@ -51,8 +55,8 @@ class GMLabelAction: UIView {
         actionLeft.anchor(
             left: leftAnchor,
             paddingLeft: 8,
-            width: Constant.iconSize,
-            height: Constant.iconSize
+            width: Constant.iconLeftSize,
+            height: Constant.iconLeftSize
         )
 
         actionText.anchor(left: actionLeft.rightAnchor, paddingLeft: 8)
@@ -60,8 +64,8 @@ class GMLabelAction: UIView {
         actionRight.anchor(
             right: rightAnchor,
             paddingRight: 8,
-            width: Constant.iconSize,
-            height: Constant.iconSize
+            width: Constant.iconRightSize,
+            height: Constant.iconRightSize
         )
 
         builder?(self)

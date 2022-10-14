@@ -18,12 +18,21 @@ struct K {
 
         static let background = UIColor(red: 0.99, green: 0.99, blue: 0.99, alpha: 1.00)
         static let borderOnBg = UIColor(red: 1, green: 0.99, blue: 0.99, alpha: 1.00)
+        static let borderOnContentBg = UIColor(red: 0.55, green: 0.56, blue: 0.56, alpha: 1.00)
 
+        static let boxLabel = UIColor(red: 0.37, green: 0.40, blue: 0.46, alpha: 1.00)
+        static let title = UIColor(red: 0.19, green: 0.24, blue: 0.32, alpha: 1.00)
         static let subTitle = UIColor(red: 0.61, green: 0.65, blue: 0.68, alpha: 1.00)
     }
 
     enum Image {
         static let close = UIImage(named: "ic_back")?.withRenderingMode(.alwaysOriginal)
+        static let user = UIImage(named: "ic_user")?.withRenderingMode(.alwaysOriginal)
+        static let power = UIImage(systemName: "power.circle.fill")?.withTintColor(
+            .primary, renderingMode: .alwaysOriginal)
+        static let edit = UIImage(systemName: "pencil.circle.fill")?.withTintColor(
+            UIColor(red: 0.21, green: 0.71, blue: 0.33, alpha: 1.00),
+            renderingMode: .alwaysOriginal)
     }
 
     enum Font {

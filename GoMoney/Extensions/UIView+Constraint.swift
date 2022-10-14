@@ -113,7 +113,15 @@ internal extension UIView {
         let constraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superview, attribute: .centerY, multiplier: 1, constant: offset)
         constraint.isActive = true
     }
-        
+
+    open func centerYToView(_ toView: UIView) {
+        centerYAnchor.constraint(equalTo: toView.centerYAnchor).isActive = true
+    }
+    
+    open func centerXToView(_ toView: UIView) {
+        centerXAnchor.constraint(equalTo: toView.centerXAnchor).isActive = true
+    }
+
     open func setupShadow(opacity: Float = 0, radius: CGFloat = 0, offset: CGSize = .zero, color: UIColor = .black) {
         layer.shadowOpacity = opacity
         layer.shadowRadius = radius
