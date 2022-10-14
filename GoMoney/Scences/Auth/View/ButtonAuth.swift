@@ -21,9 +21,6 @@ class ButtonAuth: UIButton {
         stackView.spacing = Constants.spacing
         stackView.addArrangedSubview(self.btnImg)
         stackView.addArrangedSubview(self.btnText)
-        
-        self.btnImg.centerY(inView: stackView)
-        self.btnText.centerY(inView: stackView)
     }
     
     init(icon: String, text: String, background: UIColor, textColor: UIColor = .white, builder: ((ButtonAuth) -> Void)? = nil) {

@@ -21,9 +21,15 @@ class GMLabelSpan: UILabel {
         let link = NSMutableAttributedString(string: text)
         let range = (text as NSString).range(of: span)
         if underline {
-            link.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+            link.addAttribute(
+                NSAttributedString.Key.underlineStyle,
+                value: NSUnderlineStyle.single.rawValue,
+                range: range)
         }
-        link.addAttribute(NSAttributedString.Key.font, value: UIFont(name: style.getFont(), size: style.getSize())!, range: NSRangeFromString(text))
+        link.addAttribute(NSAttributedString.Key.font, value: UIFont(
+            name: style.getFont(),
+            size: style.getSize()) ?? UIFont(name: K.Font.nova, size: 16),
+        range: NSRangeFromString(text))
         link.addAttribute(NSAttributedString.Key.foregroundColor, value: K.Color.primaryColor, range: range)
         attributedText = link
 

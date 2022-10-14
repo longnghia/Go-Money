@@ -25,6 +25,7 @@ class GMTextField: UITextField {
         textColor = .black
         delegate = fieldDelegate
         returnKeyType = .done
+        keyboardType = type
 
         builder?(self)
     }

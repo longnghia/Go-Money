@@ -19,7 +19,7 @@ class GMViewController: UIViewController {
 
     func configureNavigation() {
         let attributes = [NSAttributedString.Key.font:
-            K.Font.titleFont]
+            K.Theme.titleFont]
         UINavigationBar.appearance().titleTextAttributes = attributes as [NSAttributedString.Key: Any]
     }
 

@@ -5,7 +5,7 @@ class SignUpViewController: GMViewController {
         static let padding: CGFloat = 16
     }
     
-    private enum String {
+    private enum Content {
         static let title = "Create a new account"
         static let email = "What's your mail?"
         static let password = "Enter your password"
@@ -16,16 +16,16 @@ class SignUpViewController: GMViewController {
     // MARK: - private properties
 
     private lazy var fieldEmail: TextFieldSignUp = .init(
-        title: String.email,
+        title: Content.email,
         type: .emailAddress,
         delegate: self)
     private lazy var fieldPassword: TextFieldSignUp = .init(
-        title: String.password,
+        title: Content.password,
         secure: true,
         delegate: self)
 
     private lazy var fieldRePassword: TextFieldSignUp = .init(
-        title: String.repassword,
+        title: Content.repassword,
         secure: true,
         delegate: self)
 
@@ -39,7 +39,7 @@ class SignUpViewController: GMViewController {
         return stackView
     }()
     
-    private lazy var nextButton: GMButton = .init(text: String.next, color: .white) {
+    private lazy var nextButton: GMButton = .init(text: Content.next, color: .white) {
         $0.layer.cornerRadius = 8
         $0.backgroundColor = .primary
         $0.addTarget(self, action: #selector(self.didTapNext), for: .touchUpInside)
@@ -48,7 +48,7 @@ class SignUpViewController: GMViewController {
     override func configureNavigation() {
         super.configureNavigation()
         configureBackButton()
-        title = String.title
+        title = Content.title
     }
 
     override func setupLayout() {
@@ -74,8 +74,6 @@ class SignUpViewController: GMViewController {
             paddingBottom: Constant.padding,
             paddingRight: Constant.padding,
             height: 40)
-        
-        view.addSubviews(inputFields)
     }
     
     @objc func didTapNext() {

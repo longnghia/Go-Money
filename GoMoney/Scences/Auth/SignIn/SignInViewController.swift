@@ -12,14 +12,23 @@ class SignInViewController: GMViewController {
         view.image = UIImage(named: "onboard_1")
     }
     
-    private lazy var mailButton: ButtonAuth = .init(icon: "ic_email", text: "Sign in with password", background: K.Color.actionBackground) {
+    private lazy var mailButton: ButtonAuth = .init(
+        icon: "ic_email",
+        text: "Sign in with password",
+        background: K.Color.actionBackground
+    ) {
         $0.addGestureRecognizer(UITapGestureRecognizer(
             target: self,
             action: #selector(self.didTapSignInEmail)
         ))
     }
     
-    private lazy var googleButton: ButtonAuth = .init(icon: "ic_google", text: "Sign in with gmail", background: .white, textColor: K.Color.actionBackground) {
+    private lazy var googleButton: ButtonAuth = .init(
+        icon: "ic_google",
+        text: "Sign in with gmail",
+        background: .white,
+        textColor: K.Color.actionBackground
+    ) {
         $0.addGestureRecognizer(UITapGestureRecognizer(
             target: self,
             action: #selector(self.didTapSignInGoogle)

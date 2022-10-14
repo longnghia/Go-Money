@@ -23,13 +23,15 @@ struct K {
     }
 
     enum Image {
-        static let close = UIImage(named: "ic_back")?.withRenderingMode(.alwaysTemplate).withRenderingMode(.alwaysOriginal)
+        static let close = UIImage(named: "ic_back")?.withRenderingMode(.alwaysOriginal)
     }
 
     enum Font {
         static let nova = "ProximaNova-Regular"
         static let novaBold = "ProximaNova-Bold"
+    }
 
-        static let titleFont = UIFont(name: novaBold, size: 24)
+    enum Theme {
+        static let titleFont = UIFont(name: Font.novaBold, size: 24)
     }
 }

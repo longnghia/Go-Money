@@ -5,7 +5,7 @@ class SignUpDetailViewController: GMViewController {
         static let padding: CGFloat = 16
     }
     
-    private enum String {
+    private enum Content {
         static let title = "Enter your info"
         static let name = "What's your name?"
         static let dob = "What's your date of birth?"
@@ -13,15 +13,15 @@ class SignUpDetailViewController: GMViewController {
         static let next = "Next"
     }
 
-    private lazy var fieldName: TextFieldSignUp = .init(title: String.name, delegate: self)
+    private lazy var fieldName: TextFieldSignUp = .init(title: Content.name, delegate: self)
     
     private lazy var fieldDob: TextFieldSignUp = .init(
-        title: String.dob,
+        title: Content.dob,
         type: .numberPad,
         delegate: self)
     
     private lazy var fieldIncome: TextFieldSignUp = .init(
-        title: String.income,
+        title: Content.income,
         type: .numberPad,
         delegate: self)
 
@@ -35,7 +35,7 @@ class SignUpDetailViewController: GMViewController {
         return stackView
     }()
     
-    private lazy var nextButton: GMButton = .init(text: String.next, color: .white) {
+    private lazy var nextButton: GMButton = .init(text: Content.next, color: .white) {
         $0.layer.cornerRadius = 8
         $0.backgroundColor = .primary
         $0.addTarget(self, action: #selector(self.didTapNext), for: .touchUpInside)
@@ -44,7 +44,7 @@ class SignUpDetailViewController: GMViewController {
     override func configureNavigation() {
         super.configureNavigation()
         configureBackButton()
-        title = String.title
+        title = Content.title
     }
 
     override func setupLayout() {
@@ -70,8 +70,6 @@ class SignUpDetailViewController: GMViewController {
             paddingBottom: Constant.padding,
             paddingRight: Constant.padding,
             height: 40)
-        
-        view.addSubviews(inputFields)
     }
     
     @objc func didTapNext() {
