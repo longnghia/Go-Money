@@ -21,7 +21,7 @@ class GMLabelAction: UIView {
     init(
         text: String,
         icLeft: String,
-        icRight: String = "chevron.right",
+        icRight: String? = "chevron.right",
         background: UIColor = .gray,
         textColor: UIColor = K.Color.boxLabel,
         builder: ((GMLabelAction) -> Void)? = nil
@@ -43,10 +43,14 @@ class GMLabelAction: UIView {
             renderingMode: .alwaysOriginal
         )
 
-        actionRight.image = UIImage(systemName: icRight)?.withTintColor(
-            K.Color.borderOnContentBg,
-            renderingMode: .alwaysOriginal
-        )
+        if let icRight = icRight {
+            actionRight.image = UIImage(systemName: icRight)?.withTintColor(
+                K.Color.borderOnContentBg,
+                renderingMode: .alwaysOriginal
+            )
+        } else {
+            actionRight.isHidden = true
+        }
 
         actionLeft.centerY(inView: self)
         actionText.centerY(inView: self)

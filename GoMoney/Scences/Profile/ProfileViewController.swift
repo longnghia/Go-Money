@@ -45,7 +45,8 @@ class ProfileViewController: GMViewController {
 
     private lazy var actionHelp: GMLabelAction = .init(
         text: Content.help,
-        icLeft: "questionmark.circle")
+        icLeft: "questionmark.circle",
+        icRight: nil)
 
     private lazy var stackActions: UIStackView = {
         let stackView = UIStackView()
