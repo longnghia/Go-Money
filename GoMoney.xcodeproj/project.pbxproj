@@ -27,6 +27,14 @@
 		08C8730928F6D16C00DC859D /* proxima_nova_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */; };
 		08C8730E28F7B1FD00DC859D /* GMLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8730D28F7B1FD00DC859D /* GMLabel.swift */; };
 		08C8731028F7B89D00DC859D /* GMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8730F28F7B89D00DC859D /* GMButton.swift */; };
+		08C8731228F8021100DC859D /* GMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731128F8021100DC859D /* GMTextField.swift */; };
+		08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731328F80ACA00DC859D /* ButtonAuth.swift */; };
+		08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731528F81E0D00DC859D /* GMLabelSpan.swift */; };
+		08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731828F865CA00DC859D /* SignUpViewController.swift */; };
+		08DB56E728F8FCFD00170C60 /* TextFieldSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56E628F8FCFD00170C60 /* TextFieldSignUp.swift */; };
+		08DB56E928F9035800170C60 /* StackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56E828F9035800170C60 /* StackView+Extension.swift */; };
+		08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56EA28F9053700170C60 /* UIColor+Extension.swift */; };
+		08DB56ED28F916D500170C60 /* SignUpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +60,14 @@
 		08C8730728F6D16B00DC859D /* proxima_nova_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proxima_nova_bold.ttf; sourceTree = "<group>"; };
 		08C8730D28F7B1FD00DC859D /* GMLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabel.swift; sourceTree = "<group>"; };
 		08C8730F28F7B89D00DC859D /* GMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMButton.swift; sourceTree = "<group>"; };
+		08C8731128F8021100DC859D /* GMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMTextField.swift; sourceTree = "<group>"; };
+		08C8731328F80ACA00DC859D /* ButtonAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAuth.swift; sourceTree = "<group>"; };
+		08C8731528F81E0D00DC859D /* GMLabelSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelSpan.swift; sourceTree = "<group>"; };
+		08C8731828F865CA00DC859D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		08DB56E628F8FCFD00170C60 /* TextFieldSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSignUp.swift; sourceTree = "<group>"; };
+		08DB56E828F9035800170C60 /* StackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extension.swift"; sourceTree = "<group>"; };
+		08DB56EA28F9053700170C60 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +155,8 @@
 		08C872BB28F658D800DC859D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				08DB56E528F8FC7D00170C60 /* View */,
+				08C8731728F865B200DC859D /* SignUp */,
 				08C872EC28F6C5DE00DC859D /* SignIn */,
 			);
 			path = Auth;
@@ -167,6 +185,8 @@
 				08C872C728F6671B00DC859D /* UIView+Extension.swift */,
 				08C872C928F6681600DC859D /* UIViewController+Extension.swift */,
 				08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */,
+				08DB56E828F9035800170C60 /* StackView+Extension.swift */,
+				08DB56EA28F9053700170C60 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -224,7 +244,27 @@
 			isa = PBXGroup;
 			children = (
 				08C8730D28F7B1FD00DC859D /* GMLabel.swift */,
+				08C8731528F81E0D00DC859D /* GMLabelSpan.swift */,
 				08C8730F28F7B89D00DC859D /* GMButton.swift */,
+				08C8731128F8021100DC859D /* GMTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08C8731728F865B200DC859D /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				08C8731828F865CA00DC859D /* SignUpViewController.swift */,
+				08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		08DB56E528F8FC7D00170C60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08C8731328F80ACA00DC859D /* ButtonAuth.swift */,
+				08DB56E628F8FCFD00170C60 /* TextFieldSignUp.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,15 +349,23 @@
 				08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */,
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
 				08C872E028F6866000DC859D /* OnboardCell.swift in Sources */,
+				08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */,
 				08C8731028F7B89D00DC859D /* GMButton.swift in Sources */,
 				08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */,
 				08C872D928F67F8F00DC859D /* OnboardViewController.swift in Sources */,
 				08C872A728F655CD00DC859D /* MainViewController.swift in Sources */,
+				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
 				08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */,
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
+				08C8731228F8021100DC859D /* GMTextField.swift in Sources */,
+				08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */,
 				08C8730E28F7B1FD00DC859D /* GMLabel.swift in Sources */,
+				08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
+				08DB56E728F8FCFD00170C60 /* TextFieldSignUp.swift in Sources */,
 				08C872EE28F6C5F600DC859D /* SignInViewController.swift in Sources */,
+				08DB56E928F9035800170C60 /* StackView+Extension.swift in Sources */,
+				08DB56ED28F916D500170C60 /* SignUpDetailViewController.swift in Sources */,
 				08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */,
 				08C872EA28F6C51200DC859D /* UserDefaultKey.swift in Sources */,
 				08C872A528F655CD00DC859D /* SceneDelegate.swift in Sources */,
