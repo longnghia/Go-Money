@@ -88,7 +88,8 @@ class SignInViewController: GMViewController {
     }
     
     @objc private func didTapSignInEmail() {
-        print("go to email")
+        let vc = SignInPasswordVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func didTapSignInGoogle() {

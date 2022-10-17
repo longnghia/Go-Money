@@ -6,7 +6,7 @@ class TextFieldSignUp: UIView {
         $0.textAlignment = .natural
     }
     
-    private lazy var inputField: GMTextField = {
+    lazy var inputField: GMTextField = {
         let textField = GMTextField()
         return textField
     }()
