@@ -16,7 +16,7 @@ class GMLabelAction: UIView {
         $0.contentMode = .scaleAspectFill
     }
 
-    private lazy var actionText: GMLabel = .init()
+    private lazy var actionText = GMLabel()
 
     init(
         text: String,
