@@ -13,6 +13,8 @@
 		082BF94A28FD022D0094FE94 /* GMLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94928FD022D0094FE94 /* GMLoadingView.swift */; };
 		082BF96828FD1D510094FE94 /* Podfile in Sources */ = {isa = PBXBuildFile; fileRef = 082BF96728FD1D510094FE94 /* Podfile */; };
 		082BF96A28FD319F0094FE94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 082BF96928FD319E0094FE94 /* GoogleService-Info.plist */; };
+		082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97628FD64A60094FE94 /* SignInViewModel.swift */; };
+		082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97C28FD68480094FE94 /* Notification+Name.swift */; };
 		08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872A228F655CD00DC859D /* AppDelegate.swift */; };
 		08C872A528F655CD00DC859D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872A428F655CD00DC859D /* SceneDelegate.swift */; };
 		08C872A728F655CD00DC859D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872A628F655CD00DC859D /* MainViewController.swift */; };
@@ -53,6 +55,8 @@
 		082BF94928FD022D0094FE94 /* GMLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLoadingView.swift; sourceTree = "<group>"; };
 		082BF96728FD1D510094FE94 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		082BF96928FD319E0094FE94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		082BF97628FD64A60094FE94 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		082BF97C28FD68480094FE94 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		08C8729F28F655CD00DC859D /* GoMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08C872A228F655CD00DC859D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08C872A428F655CD00DC859D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +116,22 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		082BF97828FD65910094FE94 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				082BF97928FD65CD0094FE94 /* Auth */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		082BF97928FD65CD0094FE94 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				082BF97628FD64A60094FE94 /* SignInViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		08C8729628F655CD00DC859D = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +155,7 @@
 		08C872A128F655CD00DC859D /* GoMoney */ = {
 			isa = PBXGroup;
 			children = (
+				082BF97828FD65910094FE94 /* ViewModel */,
 				082BF94628FD012B0094FE94 /* Service */,
 				08C8730B28F7B1BD00DC859D /* Common */,
 				08C872CB28F66C0300DC859D /* Base */,
@@ -224,6 +245,7 @@
 				08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */,
 				08DB56E828F9035800170C60 /* StackView+Extension.swift */,
 				08DB56EA28F9053700170C60 /* UIColor+Extension.swift */,
+				082BF97C28FD68480094FE94 /* Notification+Name.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +480,7 @@
 				08DB56F928F9637200170C60 /* ProfileView.swift in Sources */,
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
 				08C872E028F6866000DC859D /* OnboardCell.swift in Sources */,
+				082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */,
 				08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */,
 				082BF96828FD1D510094FE94 /* Podfile in Sources */,
 				08C8731028F7B89D00DC859D /* GMButton.swift in Sources */,
@@ -469,6 +492,7 @@
 				082BF94828FD01400094FE94 /* AuthService.swift in Sources */,
 				08C872A728F655CD00DC859D /* MainViewController.swift in Sources */,
 				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
+				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,
 				08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */,
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
 				08C8731228F8021100DC859D /* GMTextField.swift in Sources */,

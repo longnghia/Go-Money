@@ -1,4 +1,3 @@
-import FirebaseAuth
 import UIKit
 
 class SignInPasswordVC: GMViewController {
@@ -9,8 +8,6 @@ class SignInPasswordVC: GMViewController {
         static let email = "Enter Your Email"
         static let password = "Enter Your Password"
         static let login = "Login"
-        static let passwordLengthFailed = "Password should be at least 6 characters long"
-        static let fieldEmpty = "Make sure you fill in all fields"
     }
     
     private enum Constant {
@@ -18,6 +15,8 @@ class SignInPasswordVC: GMViewController {
     }
     
     // MARK: - private properties
+    
+    private lazy var viewModel = SignInViewModel()
 
     private lazy var fieldEmail: TextFieldSignUp = .init(
         title: Content.email,
@@ -57,6 +56,22 @@ class SignInPasswordVC: GMViewController {
         $0.layer.cornerRadius = 8
         $0.backgroundColor = .primary
         $0.addTarget(self, action: #selector(self.didTapLogin), for: .touchUpInside)
+    }
+    
+    // MARK: - LyfeCircle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onSuccessLogin), name: .loginSuccess, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func onSuccessLogin() {
+        navigateToMainVC()
     }
     
     // MARK: - Setup Layout
@@ -103,27 +118,16 @@ class SignInPasswordVC: GMViewController {
     }
 
     @objc func didTapLogin() {
-        if let error = validateTF() {
+        let email: String =
+            fieldEmail.inputField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let password: String =
+            fieldPassword.inputField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        if let error = viewModel.validateTextField(email: email, password: password) {
             errorLabel.text = error
         } else {
             errorLabel.text = ""
-            let email: String = fieldEmail.inputField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-            let password: String = fieldPassword.inputField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-            signInWithEmailAndPassword(email: email, password: password)
-        }
-    }
-    
-    private func signInWithEmailAndPassword(email: String, password: String) {
-        AuthService.shared.signIn(with: email, and: password) { [weak self] authResult in
-            switch authResult {
-            case .success:
-                // TODO: fetchUserInfo
-                let newUserInfo = Auth.auth().currentUser
-                let email = newUserInfo?.email
-                let avatar = newUserInfo?.photoURL
-                ///
-                self?.navigateToMainVC()
-            case let .failure(error):
+            viewModel.signInWithEmailAndPassword(email: email, password: password) { [weak self] error in
                 self?.errorLabel.text = error.localizedDescription
                 print("\(error.localizedDescription)")
             }
@@ -136,21 +140,6 @@ class SignInPasswordVC: GMViewController {
         if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
             delegate.window?.rootViewController = navVC
         }
-    }
-    
-    private func validateTF() -> String? {
-        let email: String = fieldEmail.inputField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let password: String = fieldPassword.inputField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
-        if email == "" || password == "" {
-            return Content.fieldEmpty
-        }
-        
-        if password.count < 6 {
-            return Content.passwordLengthFailed
-        }
-        
-        return nil
     }
 }
 
