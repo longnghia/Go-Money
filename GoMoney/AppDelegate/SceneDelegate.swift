@@ -17,13 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScence = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScence.coordinateSpace.bounds)
         window?.windowScene = windowScence
-        
+
         let onboarded = UserDefaults.standard.bool(forKey: UserDefaultKey.firstLaunch)
-        
-        if onboarded  {
-            // TODO: sign in
-            let navVC = UINavigationController(rootViewController: OnboardViewController())
-            window?.rootViewController = navVC
+
+        if onboarded {
+            // TODO: Check signed in
+            let signedIn = false
+            if signedIn {
+            } else {
+                let navVC = UINavigationController(rootViewController: SignInViewController())
+                window?.rootViewController = navVC
+            }
         } else {
             window?.rootViewController = OnboardViewController()
         }

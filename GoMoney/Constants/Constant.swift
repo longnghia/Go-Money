@@ -23,6 +23,8 @@ struct K {
         static let boxLabel = UIColor(red: 0.37, green: 0.40, blue: 0.46, alpha: 1.00)
         static let title = UIColor(red: 0.19, green: 0.24, blue: 0.32, alpha: 1.00)
         static let subTitle = UIColor(red: 0.61, green: 0.65, blue: 0.68, alpha: 1.00)
+
+        static let error = UIColor.red
     }
 
     enum Image {

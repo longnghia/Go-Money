@@ -23,6 +23,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-derivedData-cache-
 
+      - uses: actions/cache@v2
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+            
       - name: Avoid inode changes for DerivedData
         run: defaults write com.apple.dt.XCBuild IgnoreFileSystemDeviceInodeChanges -bool YES
 
@@ -33,9 +40,15 @@ jobs:
         run: /usr/bin/xcodebuild -version
 
         shell: bash
+
+
+      - name: Install Dependencies
+        run: |
+          pod install --repo-update
+        shell: bash
       - name: Xcode iOS build
         run: |
-          xcodebuild clean build -scheme GoMoney -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.0'
+          xcodebuild -workspace GoMoney.xcworkspace -scheme GoMoney -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.0'
 
       - name: cache size
         run: |
