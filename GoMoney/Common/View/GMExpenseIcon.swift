@@ -25,8 +25,7 @@ class GMExpenseIcon: UIView {
 
         icon.centerInSuperview()
         icon.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-        icon.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-    
+        icon.heightAnchor.constraint(equalTo: icon.widthAnchor).isActive = true
         layer.cornerRadius = 8
     }
 }
