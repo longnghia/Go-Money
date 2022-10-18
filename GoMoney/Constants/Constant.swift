@@ -28,8 +28,10 @@ struct K {
     }
 
     enum Image {
-        static let close = UIImage(named: "ic_back")?.withRenderingMode(.alwaysOriginal)
-        static let user = UIImage(named: "ic_user")?.withRenderingMode(.alwaysOriginal)
+        static let close: UIImage = (.init(named: "ic_back") ?? UIImage()).withRenderingMode(.alwaysOriginal)
+        static let user: UIImage = (.init(named: "ic_user") ?? UIImage()).withRenderingMode(.alwaysOriginal)
+        static let bell = UIImage(systemName: "bell")
+        static let note = UIImage(systemName: "note.text")
         static let power = UIImage(systemName: "power.circle.fill")?.withTintColor(
             .primary, renderingMode: .alwaysOriginal)
         static let edit = UIImage(systemName: "pencil.circle.fill")?.withTintColor(
@@ -43,6 +45,6 @@ struct K {
     }
 
     enum Theme {
-        static let titleFont = UIFont(name: Font.novaBold, size: 24)
+        static let titleFont: UIFont = .init(name: Font.novaBold, size: 16) ?? UIFont.systemFont(ofSize: 16)
     }
 }

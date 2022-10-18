@@ -47,4 +47,17 @@ extension UIView {
         maskLayer.path = maskPath.cgPath
         layer.mask = maskLayer
     }
+
+    func addDropShadow(
+        shadowColor: CGColor = UIColor.darkGray.cgColor,
+        shadowOffset: CGSize = CGSize(width: 3, height: 3),
+        shadowOpacity: Float = 0.4,
+        shadowRadius: CGFloat = 3)
+    {
+        layer.masksToBounds = false
+        layer.shadowColor = shadowColor
+        layer.shadowOffset = shadowOffset
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
+    }
 }
