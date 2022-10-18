@@ -10,7 +10,7 @@ class SignInViewModel {
     func signInWithEmailAndPassword(
         email: String,
         password: String,
-        onError: @escaping (Error) -> Void)
+        completion: @escaping (Error?) -> Void)
     {
         AuthService.shared.signIn(with: email, and: password) { [weak self] authResult in
             switch authResult {
@@ -19,26 +19,23 @@ class SignInViewModel {
                 let newUserInfo = Auth.auth().currentUser
                 let email = newUserInfo?.email
                 let avatar = newUserInfo?.photoURL
-                ///
-                // NotificationCenter
 
-                NotificationCenter.default.post(name: .loginSuccess, object: nil)
-
+                completion(nil)
             case let .failure(error):
-                onError(error)
+                completion(error)
             }
         }
     }
 
-    func validateTextField(email: String, password: String) -> String? {
+    func validateTextField(email: String, password: String, completion: (String?) -> Void) {
         if email == "" || password == "" {
-            return Content.fieldEmpty
+            return completion(Content.fieldEmpty)
         }
 
         if password.count < 6 {
-            return Content.passwordLengthFailed
+            return completion(Content.passwordLengthFailed)
         }
 
-        return nil
+        completion(nil)
     }
 }

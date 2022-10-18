@@ -16,7 +16,7 @@ class SignInPasswordVC: GMViewController {
     
     // MARK: - private properties
     
-    private lazy var viewModel = SignInViewModel()
+    let viewModel = SignInViewModel()
 
     private lazy var fieldEmail: TextFieldSignUp = .init(
         title: Content.email,
@@ -58,19 +58,7 @@ class SignInPasswordVC: GMViewController {
         $0.addTarget(self, action: #selector(self.didTapLogin), for: .touchUpInside)
     }
     
-    // MARK: - LyfeCircle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onSuccessLogin), name: .loginSuccess, object: nil)
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func onSuccessLogin() {
+    func onSuccessLogin() {
         navigateToMainVC()
     }
     
@@ -123,13 +111,18 @@ class SignInPasswordVC: GMViewController {
         let password: String =
             fieldPassword.inputField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         
-        if let error = viewModel.validateTextField(email: email, password: password) {
-            errorLabel.text = error
-        } else {
-            errorLabel.text = ""
-            viewModel.signInWithEmailAndPassword(email: email, password: password) { [weak self] error in
-                self?.errorLabel.text = error.localizedDescription
-                print("\(error.localizedDescription)")
+        viewModel.validateTextField(email: email, password: password) { error in
+            if error != nil {
+                errorLabel.text = error
+            } else {
+                errorLabel.text = ""
+                viewModel.signInWithEmailAndPassword(email: email, password: password) { [weak self] error in
+                    if error != nil {
+                        self?.errorLabel.text = error?.localizedDescription
+                    } else {
+                        self?.onSuccessLogin()
+                    }
+                }
             }
         }
     }
