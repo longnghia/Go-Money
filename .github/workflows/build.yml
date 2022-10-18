@@ -3,8 +3,8 @@ name: Xcode build iOS 16
 on:
   push:
     branches: ["main", "dev"]
-  pull_request:
-    branches: ["main", "dev"]
+  # pull_request:
+  #   branches: ["main", "dev"]
 
 jobs:
   build:
@@ -48,7 +48,7 @@ jobs:
         shell: bash
       - name: Xcode iOS build
         run: |
-          xcodebuild -workspace GoMoney.xcworkspace -scheme GoMoney -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.0'
+          xcodebuild -workspace GoMoney.xcworkspace -scheme GoMoney -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.0' | xcpretty
 
       - name: cache size
         run: |
