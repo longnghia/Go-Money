@@ -31,34 +31,10 @@ class HomeViewController: GMMainViewController {
     // MARK: - Setup NavBar
 
     override func configureBackButton() {
-        let leftBarImage = K.Image.note?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        let rightBarImage = K.Image.bell?.withTintColor(.white, renderingMode: .alwaysOriginal)
-
-        let leftBarIcon = UIBarButtonItem(image: leftBarImage,
-                                          style: .done,
-                                          target: self,
-                                          action: nil)
-
-        let rightBarIcon = UIBarButtonItem(image: rightBarImage,
-                                           style: .done,
-                                           target: self,
-                                           action: nil)
-
-        let leftBarTitle = UIBarButtonItem(
-            title: Content.myExpense,
-            style: .plain,
-            target: self,
-            action: nil)
-
-        leftBarTitle.setTitleTextAttributes([.foregroundColor: UIColor.white, .font: K.Theme.titleFont], for: .disabled)
-
-        leftBarIcon.isEnabled = false
-        leftBarTitle.isEnabled = false
-
-        navigationItem.leftBarButtonItems = [leftBarIcon, leftBarTitle]
-        navigationItem.rightBarButtonItem = rightBarIcon
-
-        navigationController?.navigationBar.barTintColor = .white
+        configureRootTitle(
+            leftImage: K.Image.note,
+            leftTitle: Content.myExpense,
+            rightImage: K.Image.bell)
     }
 
     // MARK: - Setup layout

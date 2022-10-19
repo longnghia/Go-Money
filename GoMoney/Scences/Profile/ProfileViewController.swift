@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfileViewController: GMViewController {
+class ProfileViewController: GMMainViewController {
     // MARK: - Content
 
     private enum Constant {
@@ -76,10 +76,10 @@ class ProfileViewController: GMViewController {
 
     // MARK: - Setup nav bar
 
-    override func configureNavigation() {
-        super.configureNavigation()
-
-        title = Content.title
+    override func configureBackButton() {
+        configureRootTitle(
+            leftImage: K.Image.profile,
+            leftTitle: Content.title)
     }
 
     // MARK: - Setup layout

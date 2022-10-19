@@ -25,9 +25,11 @@
 		08C1F25B28FE8B2A00590512 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F25A28FE8B2A00590512 /* Expense.swift */; };
 		08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F25C28FE93E900590512 /* DateFormatter+Extension.swift */; };
 		08C1F26028FE947E00590512 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F25F28FE947E00590512 /* HomeViewModel.swift */; };
+		08C1F26228FEA16F00590512 /* RollingPitTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F26128FEA16F00590512 /* RollingPitTabBar.swift */; };
+		08C1F26828FF95FD00590512 /* GMTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F26728FF95FC00590512 /* GMTabBarViewController.swift */; };
+		08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F26928FFBAD500590512 /* UIImage+Extension.swift */; };
 		08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872A228F655CD00DC859D /* AppDelegate.swift */; };
 		08C872A528F655CD00DC859D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872A428F655CD00DC859D /* SceneDelegate.swift */; };
-		08C872A728F655CD00DC859D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C872A628F655CD00DC859D /* MainViewController.swift */; };
 		08C872AC28F655CF00DC859D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C872AB28F655CF00DC859D /* Assets.xcassets */; };
 		08C872AF28F655CF00DC859D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C872AD28F655CF00DC859D /* LaunchScreen.storyboard */; };
 		08C872C028F65D8D00DC859D /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 08C872BE28F65D8C00DC859D /* readme.md */; };
@@ -80,10 +82,13 @@
 		08C1F25A28FE8B2A00590512 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		08C1F25C28FE93E900590512 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		08C1F25F28FE947E00590512 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		08C1F26128FEA16F00590512 /* RollingPitTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollingPitTabBar.swift; sourceTree = "<group>"; };
+		08C1F26428FEA1C200590512 /* GMTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMTabBarViewController.swift; sourceTree = "<group>"; };
+		08C1F26728FF95FC00590512 /* GMTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMTabBarViewController.swift; sourceTree = "<group>"; };
+		08C1F26928FFBAD500590512 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		08C8729F28F655CD00DC859D /* GoMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08C872A228F655CD00DC859D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08C872A428F655CD00DC859D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		08C872A628F655CD00DC859D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		08C872AB28F655CF00DC859D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08C872AE28F655CF00DC859D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08C872B028F655CF00DC859D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,6 +169,7 @@
 				08C1F24428FE67CE00590512 /* ChartView.swift */,
 				08C1F24228FE67CE00590512 /* HomeViewController.swift */,
 				08C1F24528FE67CE00590512 /* RecentExpenseCell.swift */,
+				08C1F26428FEA1C200590512 /* GMTabBarViewController.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 		08C1F25228FE68EB00590512 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				08C1F26728FF95FC00590512 /* GMTabBarViewController.swift */,
 				08C1F25428FE68EB00590512 /* MainNavigationController.swift */,
 			);
 			path = Navigation;
@@ -191,6 +198,14 @@
 				08C1F25F28FE947E00590512 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		08C1F26628FEA3EB00590512 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				08C1F26128FEA16F00590512 /* RollingPitTabBar.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		08C8729628F655CD00DC859D = {
@@ -259,7 +274,6 @@
 			children = (
 				08DB56F128F9255500170C60 /* Profile */,
 				08C872D728F67F7C00DC859D /* Onboard */,
-				08C872A628F655CD00DC859D /* MainViewController.swift */,
 				08C872BB28F658D800DC859D /* Auth */,
 				08C872B928F658C600DC859D /* Home */,
 			);
@@ -313,6 +327,7 @@
 				08DB56EA28F9053700170C60 /* UIColor+Extension.swift */,
 				082BF97C28FD68480094FE94 /* Notification+Name.swift */,
 				08C1F25C28FE93E900590512 /* DateFormatter+Extension.swift */,
+				08C1F26928FFBAD500590512 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,6 +378,7 @@
 		08C8730B28F7B1BD00DC859D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				08C1F26628FEA3EB00590512 /* TabBar */,
 				08C8730C28F7B1D200DC859D /* View */,
 			);
 			path = Common;
@@ -553,6 +569,7 @@
 				082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */,
 				08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */,
 				082BF96828FD1D510094FE94 /* Podfile in Sources */,
+				08C1F26228FEA16F00590512 /* RollingPitTabBar.swift in Sources */,
 				08C8731028F7B89D00DC859D /* GMButton.swift in Sources */,
 				08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */,
 				08C872D928F67F8F00DC859D /* OnboardViewController.swift in Sources */,
@@ -562,7 +579,6 @@
 				082BF94828FD01400094FE94 /* AuthService.swift in Sources */,
 				08C1F25628FE68EB00590512 /* MainNavigationController.swift in Sources */,
 				08C1F24D28FE68A100590512 /* ChartView.swift in Sources */,
-				08C872A728F655CD00DC859D /* MainViewController.swift in Sources */,
 				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
 				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,
 				08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */,
@@ -570,11 +586,13 @@
 				08C8731228F8021100DC859D /* GMTextField.swift in Sources */,
 				08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */,
 				08C1F25B28FE8B2A00590512 /* Expense.swift in Sources */,
+				08C1F26828FF95FD00590512 /* GMTabBarViewController.swift in Sources */,
 				082BF94528FCF0D00094FE94 /* SignInPasswordVC.swift in Sources */,
 				08C1F25128FE68BA00590512 /* GMMainViewController.swift in Sources */,
 				08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
+				08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */,
 				08DB56E728F8FCFD00170C60 /* TextFieldSignUp.swift in Sources */,
 				082BF94A28FD022D0094FE94 /* GMLoadingView.swift in Sources */,
 				08C1F25928FE849300590512 /* GMExpenseIcon.swift in Sources */,

@@ -36,4 +36,42 @@ class GMMainViewController: GMViewController {
                                                            action: #selector(didTapBack))
         navigationController?.navigationBar.barTintColor = .white
     }
+
+    func configureRootTitle(leftImage: UIImage? = nil, leftTitle: String? = nil, rightImage: UIImage? = nil) {
+        if let leftBarImage =
+            leftImage?.white(),
+            let leftTitle = leftTitle
+        {
+            let leftBarIcon = UIBarButtonItem(
+                image: leftBarImage,
+                style: .done,
+                target: self,
+                action: nil)
+
+            let leftBarTitle = UIBarButtonItem(
+                title: leftTitle,
+                style: .plain,
+                target: self,
+                action: nil)
+
+            leftBarTitle.setTitleTextAttributes(
+                [.foregroundColor: UIColor.white, .font: K.Theme.titleFont],
+                for: .disabled)
+
+            leftBarIcon.isEnabled = false
+            leftBarTitle.isEnabled = false
+
+            navigationItem.leftBarButtonItems = [leftBarIcon, leftBarTitle]
+        }
+        if let rightBarImage = rightImage?.white() {
+            let rightBarIcon = UIBarButtonItem(
+                image: rightBarImage,
+                style: .done,
+                target: self,
+                action: nil)
+            navigationItem.rightBarButtonItem = rightBarIcon
+        }
+
+        navigationController?.navigationBar.barTintColor = .white
+    }
 }
