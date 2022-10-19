@@ -24,8 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // TODO: Check signed in
             let signedIn = true
             if signedIn {
-                let navVC = MainNavigationController(rootViewController: HomeViewController())
-                window?.rootViewController = navVC
+                let tabBarVC = GMTabBarViewController()
+                window?.rootViewController = tabBarVC
             } else {
                 let navVC = UINavigationController(rootViewController: SignInViewController())
                 window?.rootViewController = navVC

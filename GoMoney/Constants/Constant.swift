@@ -37,6 +37,9 @@ struct K {
         static let edit = UIImage(systemName: "pencil.circle.fill")?.withTintColor(
             UIColor(red: 0.21, green: 0.71, blue: 0.33, alpha: 1.00),
             renderingMode: .alwaysOriginal)
+        static let statistic: UIImage = .init(named: "ic_statistic") ?? UIImage()
+        static let profile: UIImage = .init(named: "ic_profile") ?? UIImage()
+        static let dashboard: UIImage = .init(named: "ic_home") ?? UIImage()
     }
 
     enum Font {

@@ -304,10 +304,6 @@ public extension CGFloat {
         circle.fillColor = circleBackColor.cgColor
         
         layoutElements(selectedChanged: false)
-        
-        items?.forEach { item in
-            item.image?.size.equalTo(.init(width: 20, height: 20))
-        }
     }
     
     override func prepareForInterfaceBuilder() {
