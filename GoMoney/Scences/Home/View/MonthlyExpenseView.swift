@@ -1,0 +1,37 @@
+import UIKit
+
+class MonthlyExpenseView: UIView {
+    lazy var label = GMLabel(style: .small)
+    lazy var amount = GMLabel(style: .largeBold)
+    lazy var stackView: UIStackView = .build { [self] in
+        $0.axis = .vertical
+        $0.spacing = 8
+        $0.addArrangedSubviews(label, amount)
+    }
+
+    init(text: String = "", amount: Double = 0, builder: ((MonthlyExpenseView) -> Void)? = nil) {
+        super.init(frame: .zero)
+        label.text = text
+        self.amount.text = String(amount)
+        setView()
+        builder?(self)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setView(text: String, amount: Double) {
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    private func setView() {
+        addSubview(stackView)
+        stackView.anchor(
+            top: topAnchor,
+            left: leftAnchor,
+            right: rightAnchor
+        )
+    }
+}

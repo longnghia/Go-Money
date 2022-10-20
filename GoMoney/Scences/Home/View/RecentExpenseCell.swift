@@ -6,8 +6,8 @@ class RecentExpenseCell: UITableViewCell {
     var expense: Expense? {
         didSet {
             if let expense = expense {
-                labelName.text = expense.title
-                labelDate.text = DateFormatter.ddmmyyyy.string(from: expense.occuredOn)
+                labelName.text = expense.tag
+                labelDate.text = expense.getDate(.occured)
                 labelPrice.text = String(expense.amount)
             }
         }

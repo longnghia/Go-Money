@@ -25,6 +25,9 @@ struct K {
         static let subTitle = UIColor(red: 0.61, green: 0.65, blue: 0.68, alpha: 1.00)
 
         static let error = UIColor.red
+
+        static let saving = UIColor(red: 0.39, green: 0.73, blue: 0.38, alpha: 1.00)
+        static let debt = UIColor.red
     }
 
     enum Image {
