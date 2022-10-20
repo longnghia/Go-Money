@@ -50,6 +50,7 @@
 		08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731328F80ACA00DC859D /* ButtonAuth.swift */; };
 		08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731528F81E0D00DC859D /* GMLabelSpan.swift */; };
 		08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731828F865CA00DC859D /* SignUpViewController.swift */; };
+		08CFDFDD29000CD200359B02 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CFDFDC29000CD200359B02 /* DataService.swift */; };
 		08DB56E728F8FCFD00170C60 /* TextFieldSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56E628F8FCFD00170C60 /* TextFieldSignUp.swift */; };
 		08DB56E928F9035800170C60 /* StackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56E828F9035800170C60 /* StackView+Extension.swift */; };
 		08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56EA28F9053700170C60 /* UIColor+Extension.swift */; };
@@ -58,6 +59,8 @@
 		08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F428F9280700170C60 /* GMLabelAction.swift */; };
 		08DB56F728F95C7B00170C60 /* GMCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F628F95C7B00170C60 /* GMCircleImage.swift */; };
 		08DB56F928F9637200170C60 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F828F9637200170C60 /* ProfileView.swift */; };
+		08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */; };
+		08DEE9C8290109CC00EA9A2A /* MonthlyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +114,7 @@
 		08C8731328F80ACA00DC859D /* ButtonAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAuth.swift; sourceTree = "<group>"; };
 		08C8731528F81E0D00DC859D /* GMLabelSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelSpan.swift; sourceTree = "<group>"; };
 		08C8731828F865CA00DC859D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		08CFDFDC29000CD200359B02 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		08DB56E628F8FCFD00170C60 /* TextFieldSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSignUp.swift; sourceTree = "<group>"; };
 		08DB56E828F9035800170C60 /* StackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extension.swift"; sourceTree = "<group>"; };
 		08DB56EA28F9053700170C60 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		08DB56F428F9280700170C60 /* GMLabelAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelAction.swift; sourceTree = "<group>"; };
 		08DB56F628F95C7B00170C60 /* GMCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMCircleImage.swift; sourceTree = "<group>"; };
 		08DB56F828F9637200170C60 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpenseView.swift; sourceTree = "<group>"; };
 		1B112C91231231F4F5451123 /* Pods-GoMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoMoney.release.xcconfig"; path = "Target Support Files/Pods-GoMoney/Pods-GoMoney.release.xcconfig"; sourceTree = "<group>"; };
 		7E5F2838C4EFDE6C361D48A6 /* Pods-GoMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoMoney.debug.xcconfig"; path = "Target Support Files/Pods-GoMoney/Pods-GoMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		91E2DECB5E188E1306C43188 /* Pods_GoMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				082BF94728FD01400094FE94 /* AuthService.swift */,
+				08CFDFDC29000CD200359B02 /* DataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 			children = (
 				08C1F24A28FE68A000590512 /* ChartView.swift */,
 				08C1F24B28FE68A000590512 /* RecentExpenseCell.swift */,
+				08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 				082BF97C28FD68480094FE94 /* Notification+Name.swift */,
 				08C1F25C28FE93E900590512 /* DateFormatter+Extension.swift */,
 				08C1F26928FFBAD500590512 /* UIImage+Extension.swift */,
+				08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -570,6 +579,7 @@
 				08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */,
 				082BF96828FD1D510094FE94 /* Podfile in Sources */,
 				08C1F26228FEA16F00590512 /* RollingPitTabBar.swift in Sources */,
+				08CFDFDD29000CD200359B02 /* DataService.swift in Sources */,
 				08C8731028F7B89D00DC859D /* GMButton.swift in Sources */,
 				08C872CD28F66C1700DC859D /* GMViewController.swift in Sources */,
 				08C872D928F67F8F00DC859D /* OnboardViewController.swift in Sources */,
@@ -589,7 +599,9 @@
 				08C1F26828FF95FD00590512 /* GMTabBarViewController.swift in Sources */,
 				082BF94528FCF0D00094FE94 /* SignInPasswordVC.swift in Sources */,
 				08C1F25128FE68BA00590512 /* GMMainViewController.swift in Sources */,
+				08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */,
 				08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */,
+				08DEE9C8290109CC00EA9A2A /* MonthlyExpenseView.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
 				08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */,

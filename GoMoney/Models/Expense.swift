@@ -1,29 +1,61 @@
+import RealmSwift
 import UIKit
 
-struct Expense {
-    var id: String
-    var createdAt: Date?
-    var occuredOn: Date
-    var type: String?
-    var title: String?
-    var note: String?
-    var amount: Double
+class Expense: Object {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var type: String?
+    @Persisted var title: String?
+    @Persisted var tag: String?
+    @Persisted var amount: Double
+    @Persisted var note: String?
+    @Persisted var occuredOn: Date
+    @Persisted var createdAt: Date?
+    @Persisted var updatedAt: Date?
+
+    convenience init(type: ExpenseType = .expense, title: String? = nil, tag: String? = nil, amount: Double, note: String? = nil, occuredOn: Date, createdAt: Date? = Date(), updatedAt: Date? = nil) {
+        self.init()
+        self.type = type.rawValue
+        self.title = title
+        self.tag = tag
+        self.amount = amount
+        self.note = note
+        self.occuredOn = occuredOn
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+    }
+}
+
+enum ExpenseType: String {
+    case income, expense
+}
+
+enum ExpenseSort: String {
+    case createdAt
+    case updatedAt
+    case occuredOn
+}
+
+enum ExpenseFilter {
+    case all
+    case week
+    case month
 }
 
 extension Expense {
-    static let mock: [Expense] = [
-        Expense(id: "0", occuredOn: Date(), title: "Expense 0", amount: 100),
-        Expense(id: "1", occuredOn: Date(), title: "Expense 1", amount: 110),
-        Expense(id: "2", occuredOn: Date(), title: "Expense 2", amount: 120),
-        Expense(id: "3", occuredOn: Date(), title: "Expense 3", amount: 130),
-        Expense(id: "4", occuredOn: Date(), title: "Expense 4", amount: 140),
-        Expense(id: "5", occuredOn: Date(), title: "Expense 5", amount: 150),
-        Expense(id: "6", occuredOn: Date(), title: "Expense 6", amount: 160),
-        Expense(id: "7", occuredOn: Date(), title: "Expense75", amount: 7150),
-        Expense(id: "8", occuredOn: Date(), title: "Expense 8", amount: 180),
-        Expense(id: "9", occuredOn: Date(), title: "Expense 9", amount: 190),
-        Expense(id: "10", occuredOn: Date(), title: "Expense 10", amount: 1100),
-        Expense(id: "11", occuredOn: Date(), title: "Expense 11", amount: 1100),
-        Expense(id: "12", occuredOn: Date(), title: "Expense 12", amount: 11200)
-    ]
+    enum ExpenseDateType {
+        case occured, created, updated
+    }
+
+    func getDate(_ type: ExpenseDateType = .occured, formatter: DateFormatter = DateFormatter.ddmmyyyy) -> String {
+        var date: Date?
+        switch type {
+        case .created:
+            date = createdAt
+        case .updated:
+            date = updatedAt
+        case .occured:
+            date = occuredOn
+        }
+        return formatter.string(from: date ?? Date())
+    }
 }

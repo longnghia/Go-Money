@@ -1,3 +1,4 @@
+import Charts
 import UIKit
 
 class HomeViewController: GMMainViewController {
@@ -27,6 +28,14 @@ class HomeViewController: GMMainViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
+
+    // MARK: - LyfeCircle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.delegate = self
+        viewModel.loadExpenses()
+    }
 
     // MARK: - Setup NavBar
 
@@ -108,5 +117,29 @@ extension HomeViewController {
         static let padding: CGFloat = 24
         static let chartPaddingTop: CGFloat = 8
         static let rowHeight: CGFloat = 65
+    }
+}
+
+extension HomeViewController: DataServiceDelegate {
+    func dataDidAdd() {}
+
+    func dataDidUpdate() {}
+
+    func dataDidRemove() {}
+
+    func dataWillLoad() {
+        GMLoadingView.shared.startLoadingAnimation()
+    }
+
+    func dataDidLoad() {
+        DispatchQueue.main.async { [weak self] in
+            GMLoadingView.shared.endLoadingAnimation()
+
+            self?.tableView.reloadData()
+            self?.chartView.setData(
+                self?.viewModel.expenses,
+                incomeSum: self?.viewModel.incomeSum,
+                expenseSum: self?.viewModel.expenseSum)
+        }
     }
 }
