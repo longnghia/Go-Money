@@ -15,8 +15,8 @@ class HomeViewModel {
         }
     }
     
-    var incomeSum: Double? = 0
-    var expenseSum: Double? = 0
+    var incomeSum: Double?
+    var expenseSum: Double?
     
     func loadExpenses() {
         delegate?.dataWillLoad()

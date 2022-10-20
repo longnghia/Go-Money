@@ -15,6 +15,7 @@ class DataService {
     private var itemsToken: NotificationToken?
 
     private init() {
+        // JUST FOR DEBUGGING
         let expenses = realm.objects(Expense.self)
         itemsToken = expenses.observe { changes in
             switch changes {
@@ -36,7 +37,7 @@ class DataService {
         let expense = realm.objects(Expense.self).sorted(
             byKeyPath: sortBy.rawValue,
             ascending: ascending).filter {
-            let endDate: Date = .init()
+            let endDate = Date()
             switch filerBy {
             case .week:
                 let startDate: Date = .init().getLast7Day() ?? endDate

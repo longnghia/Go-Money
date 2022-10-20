@@ -22,11 +22,8 @@ class MonthlyExpenseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setView(text: String, amount: Double) {
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-
     private func setView() {
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
         stackView.anchor(
             top: topAnchor,
