@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		01F387D48924C03C5CC98BA4 /* Pods_GoMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E2DECB5E188E1306C43188 /* Pods_GoMoney.framework */; };
+		081DC8982901A99C0005374F /* AddExpenseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8972901A99C0005374F /* AddExpenseForm.swift */; };
+		081DC89A2901AD5F0005374F /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8992901AD5F0005374F /* AccessoryView.swift */; };
+		081DC8A029025C8F0005374F /* GMImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC89F29025C8F0005374F /* GMImageButton.swift */; };
+		081DC8A2290274990005374F /* CategoryPickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8A1290274990005374F /* CategoryPickerInputView.swift */; };
+		081DC8A429027C1D0005374F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8A329027C1D0005374F /* Config.swift */; };
 		082BF94528FCF0D00094FE94 /* SignInPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94428FCF0D00094FE94 /* SignInPasswordVC.swift */; };
 		082BF94828FD01400094FE94 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94728FD01400094FE94 /* AuthService.swift */; };
 		082BF94A28FD022D0094FE94 /* GMLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94928FD022D0094FE94 /* GMLoadingView.swift */; };
@@ -15,6 +20,10 @@
 		082BF96A28FD319F0094FE94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 082BF96928FD319E0094FE94 /* GoogleService-Info.plist */; };
 		082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97628FD64A60094FE94 /* SignInViewModel.swift */; };
 		082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97C28FD68480094FE94 /* Notification+Name.swift */; };
+		088D691C29015865003D0660 /* AddExpenseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691B29015865003D0660 /* AddExpenseField.swift */; };
+		088D692029015FBC003D0660 /* DatePickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691E29015FBC003D0660 /* DatePickerInputView.swift */; };
+		088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691F29015FBC003D0660 /* ExpenseTextField.swift */; };
+		08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */; };
 		08C1F24D28FE68A100590512 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F24A28FE68A000590512 /* ChartView.swift */; };
 		08C1F24E28FE68A100590512 /* RecentExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F24B28FE68A000590512 /* RecentExpenseCell.swift */; };
 		08C1F24F28FE68A100590512 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F24C28FE68A000590512 /* HomeViewController.swift */; };
@@ -61,9 +70,15 @@
 		08DB56F928F9637200170C60 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F828F9637200170C60 /* ProfileView.swift */; };
 		08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */; };
 		08DEE9C8290109CC00EA9A2A /* MonthlyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */; };
+		08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		081DC8972901A99C0005374F /* AddExpenseForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseForm.swift; sourceTree = "<group>"; };
+		081DC8992901AD5F0005374F /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
+		081DC89F29025C8F0005374F /* GMImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMImageButton.swift; sourceTree = "<group>"; };
+		081DC8A1290274990005374F /* CategoryPickerInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerInputView.swift; sourceTree = "<group>"; };
+		081DC8A329027C1D0005374F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		082BF94428FCF0D00094FE94 /* SignInPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPasswordVC.swift; sourceTree = "<group>"; };
 		082BF94728FD01400094FE94 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		082BF94928FD022D0094FE94 /* GMLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLoadingView.swift; sourceTree = "<group>"; };
@@ -71,6 +86,10 @@
 		082BF96928FD319E0094FE94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		082BF97628FD64A60094FE94 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		082BF97C28FD68480094FE94 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		088D691B29015865003D0660 /* AddExpenseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseField.swift; sourceTree = "<group>"; };
+		088D691E29015FBC003D0660 /* DatePickerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputView.swift; sourceTree = "<group>"; };
+		088D691F29015FBC003D0660 /* ExpenseTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTextField.swift; sourceTree = "<group>"; };
+		08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		08C1F1C528FE662600590512 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		08C1F1C728FE662600590512 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		08C1F24228FE67CE00590512 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +144,7 @@
 		08DB56F828F9637200170C60 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpenseView.swift; sourceTree = "<group>"; };
+		08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		1B112C91231231F4F5451123 /* Pods-GoMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoMoney.release.xcconfig"; path = "Target Support Files/Pods-GoMoney/Pods-GoMoney.release.xcconfig"; sourceTree = "<group>"; };
 		7E5F2838C4EFDE6C361D48A6 /* Pods-GoMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoMoney.debug.xcconfig"; path = "Target Support Files/Pods-GoMoney/Pods-GoMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		91E2DECB5E188E1306C43188 /* Pods_GoMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +162,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		081DC8A529027C240005374F /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				081DC8A329027C1D0005374F /* Config.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		082BF94628FD012B0094FE94 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +194,17 @@
 				082BF97628FD64A60094FE94 /* SignInViewModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		088D691D29015F1D003D0660 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				088D691E29015FBC003D0660 /* DatePickerInputView.swift */,
+				081DC8992901AD5F0005374F /* AccessoryView.swift */,
+				088D691F29015FBC003D0660 /* ExpenseTextField.swift */,
+				081DC8A1290274990005374F /* CategoryPickerInputView.swift */,
+			);
+			path = InputView;
 			sourceTree = "<group>";
 		};
 		08C1F1CD28FE675E00590512 /* Recovered References */ = {
@@ -240,6 +279,7 @@
 		08C872A128F655CD00DC859D /* GoMoney */ = {
 			isa = PBXGroup;
 			children = (
+				081DC8A529027C240005374F /* DataSource */,
 				08C1F25228FE68EB00590512 /* Navigation */,
 				082BF97828FD65910094FE94 /* ViewModel */,
 				082BF94628FD012B0094FE94 /* Service */,
@@ -280,6 +320,7 @@
 		08C872B828F658A300DC859D /* Scences */ = {
 			isa = PBXGroup;
 			children = (
+				08DEE9C929013E2A00EA9A2A /* AddExpense */,
 				08DB56F128F9255500170C60 /* Profile */,
 				08C872D728F67F7C00DC859D /* Onboard */,
 				08C872BB28F658D800DC859D /* Auth */,
@@ -337,6 +378,7 @@
 				08C1F25C28FE93E900590512 /* DateFormatter+Extension.swift */,
 				08C1F26928FFBAD500590512 /* UIImage+Extension.swift */,
 				08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */,
+				08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +429,7 @@
 		08C8730B28F7B1BD00DC859D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				088D691D29015F1D003D0660 /* InputView */,
 				08C1F26628FEA3EB00590512 /* TabBar */,
 				08C8730C28F7B1D200DC859D /* View */,
 			);
@@ -404,6 +447,7 @@
 				08DB56F628F95C7B00170C60 /* GMCircleImage.swift */,
 				082BF94928FD022D0094FE94 /* GMLoadingView.swift */,
 				08C1F25828FE849300590512 /* GMExpenseIcon.swift */,
+				081DC89F29025C8F0005374F /* GMImageButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -433,6 +477,16 @@
 				08DB56F828F9637200170C60 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		08DEE9C929013E2A00EA9A2A /* AddExpense */ = {
+			isa = PBXGroup;
+			children = (
+				08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */,
+				088D691B29015865003D0660 /* AddExpenseField.swift */,
+				081DC8972901A99C0005374F /* AddExpenseForm.swift */,
+			);
+			path = AddExpense;
 			sourceTree = "<group>";
 		};
 		2A40CADA7D1F29A21E4B01AF /* Frameworks */ = {
@@ -574,10 +628,13 @@
 				08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */,
 				08DB56F928F9637200170C60 /* ProfileView.swift in Sources */,
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
+				088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */,
 				08C872E028F6866000DC859D /* OnboardCell.swift in Sources */,
 				082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */,
 				08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */,
 				082BF96828FD1D510094FE94 /* Podfile in Sources */,
+				088D691C29015865003D0660 /* AddExpenseField.swift in Sources */,
+				081DC89A2901AD5F0005374F /* AccessoryView.swift in Sources */,
 				08C1F26228FEA16F00590512 /* RollingPitTabBar.swift in Sources */,
 				08CFDFDD29000CD200359B02 /* DataService.swift in Sources */,
 				08C8731028F7B89D00DC859D /* GMButton.swift in Sources */,
@@ -587,15 +644,20 @@
 				08DB56F328F9256A00170C60 /* ProfileViewController.swift in Sources */,
 				08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */,
 				082BF94828FD01400094FE94 /* AuthService.swift in Sources */,
+				081DC8982901A99C0005374F /* AddExpenseForm.swift in Sources */,
 				08C1F25628FE68EB00590512 /* MainNavigationController.swift in Sources */,
 				08C1F24D28FE68A100590512 /* ChartView.swift in Sources */,
+				081DC8A429027C1D0005374F /* Config.swift in Sources */,
+				08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */,
 				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
 				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,
 				08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */,
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
+				08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */,
 				08C8731228F8021100DC859D /* GMTextField.swift in Sources */,
 				08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */,
 				08C1F25B28FE8B2A00590512 /* Expense.swift in Sources */,
+				081DC8A029025C8F0005374F /* GMImageButton.swift in Sources */,
 				08C1F26828FF95FD00590512 /* GMTabBarViewController.swift in Sources */,
 				082BF94528FCF0D00094FE94 /* SignInPasswordVC.swift in Sources */,
 				08C1F25128FE68BA00590512 /* GMMainViewController.swift in Sources */,
@@ -609,6 +671,7 @@
 				082BF94A28FD022D0094FE94 /* GMLoadingView.swift in Sources */,
 				08C1F25928FE849300590512 /* GMExpenseIcon.swift in Sources */,
 				08C872EE28F6C5F600DC859D /* SignInViewController.swift in Sources */,
+				088D692029015FBC003D0660 /* DatePickerInputView.swift in Sources */,
 				08DB56E928F9035800170C60 /* StackView+Extension.swift in Sources */,
 				08C1F24E28FE68A100590512 /* RecentExpenseCell.swift in Sources */,
 				08C1F24F28FE68A100590512 /* HomeViewController.swift in Sources */,
@@ -617,6 +680,7 @@
 				08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */,
 				08C872EA28F6C51200DC859D /* UserDefaultKey.swift in Sources */,
 				08C872A528F655CD00DC859D /* SceneDelegate.swift in Sources */,
+				081DC8A2290274990005374F /* CategoryPickerInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

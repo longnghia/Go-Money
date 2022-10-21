@@ -29,6 +29,13 @@ class HomeViewController: GMMainViewController {
         return tableView
     }()
 
+    private lazy var addExpenseButton = GMImageButton(
+        size: 36,
+        image: UIImage(systemName: "plus"),
+        didTapButton: {
+            self.didTapAddExpense()
+        })
+
     // MARK: - LyfeCircle
 
     override func viewDidLoad() {
@@ -50,7 +57,7 @@ class HomeViewController: GMMainViewController {
 
     override func setupLayout() {
         super.setupLayout()
-        view.addSubviews(backImage, chartView, recentExpenseLabel, tableView)
+        view.addSubviews(backImage, chartView, recentExpenseLabel, tableView, addExpenseButton)
 
         let chartSize = view.bounds.size.width - 2 * Constant.padding
 
@@ -78,6 +85,18 @@ class HomeViewController: GMMainViewController {
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             right: chartView.rightAnchor,
             paddingTop: 32)
+
+        addExpenseButton.anchor(
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            right: view.rightAnchor,
+            paddingRight: Constant.padding)
+    }
+
+    // MARK: Actions
+
+    @objc
+    private func didTapAddExpense() {
+        navigationController?.pushViewController(AddExpenseViewController(), animated: true)
     }
 }
 
@@ -117,6 +136,7 @@ extension HomeViewController {
         static let padding: CGFloat = 24
         static let chartPaddingTop: CGFloat = 8
         static let rowHeight: CGFloat = 65
+        static let buttonSize: CGFloat = 36
     }
 }
 

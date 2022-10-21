@@ -60,4 +60,24 @@ extension UIView {
         layer.shadowOpacity = shadowOpacity
         layer.shadowRadius = shadowRadius
     }
+
+    func showTapAnimation(_ completion: (() -> Void)? = nil) {
+        isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.1,
+                       delay: 0,
+                       options: .curveLinear,
+                       animations: { [weak self] in
+                           self?.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                       }) { _ in
+            UIView.animate(withDuration: 0.1,
+                           delay: 0,
+                           options: .curveLinear,
+                           animations: { [weak self] in
+                               self?.transform = CGAffineTransform(scaleX: 1, y: 1)
+                           }) { [weak self] _ in
+                self?.isUserInteractionEnabled = true
+                completion?()
+            }
+        }
+    }
 }
