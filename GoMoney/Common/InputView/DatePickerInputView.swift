@@ -3,8 +3,8 @@
 import UIKit
 
 public class DatePickerInputView: UIView {
-    var didSelect: ((Date) -> Void)?
-    var pickerMode: UIDatePicker.Mode = .dateAndTime
+    private(set) var didSelect: ((Date) -> Void)?
+    private(set) var pickerMode: UIDatePicker.Mode = .dateAndTime
 
     lazy var pickerView: UIDatePicker = {
         let pickerView = UIDatePicker()

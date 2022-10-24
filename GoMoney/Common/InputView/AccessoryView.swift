@@ -29,7 +29,7 @@ public class AccessoryView: UIView {
     var title = ""
     var doneTapped: (() -> Void)?
     var addTapped: (() -> Void)?
-    var shouldShowAdd: (() -> Bool) = { false }
+    var shouldShowAdd = false
     var height: CGFloat = 44
 
     override public func didMoveToWindow() {
@@ -57,7 +57,7 @@ public class AccessoryView: UIView {
 
         title.isEnabled = false
 
-        if shouldShowAdd() {
+        if shouldShowAdd {
             toolBar.setItems([addItem, spaceBefore, title, spaceAfter, doneItem], animated: true)
         } else {
             toolBar.setItems([spaceBefore, title, spaceAfter, doneItem], animated: true)
@@ -68,7 +68,7 @@ public class AccessoryView: UIView {
         _ title: String = "",
         doneTapped: (() -> Void)? = nil,
         addTapped: (() -> Void)? = nil,
-        shouldShowAdd: @escaping (() -> Bool) = { false },
+        shouldShowAdd: Bool = false,
         height: CGFloat = 44
     ) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: height))

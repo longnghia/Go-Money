@@ -12,7 +12,6 @@
 		081DC89A2901AD5F0005374F /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8992901AD5F0005374F /* AccessoryView.swift */; };
 		081DC8A029025C8F0005374F /* GMImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC89F29025C8F0005374F /* GMImageButton.swift */; };
 		081DC8A2290274990005374F /* CategoryPickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8A1290274990005374F /* CategoryPickerInputView.swift */; };
-		081DC8A429027C1D0005374F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8A329027C1D0005374F /* Config.swift */; };
 		082BF94528FCF0D00094FE94 /* SignInPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94428FCF0D00094FE94 /* SignInPasswordVC.swift */; };
 		082BF94828FD01400094FE94 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94728FD01400094FE94 /* AuthService.swift */; };
 		082BF94A28FD022D0094FE94 /* GMLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94928FD022D0094FE94 /* GMLoadingView.swift */; };
@@ -20,6 +19,7 @@
 		082BF96A28FD319F0094FE94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 082BF96928FD319E0094FE94 /* GoogleService-Info.plist */; };
 		082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97628FD64A60094FE94 /* SignInViewModel.swift */; };
 		082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97C28FD68480094FE94 /* Notification+Name.swift */; };
+		083EA336290659660079605F /* TransactionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA335290659660079605F /* TransactionTag.swift */; };
 		088D691C29015865003D0660 /* AddExpenseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691B29015865003D0660 /* AddExpenseField.swift */; };
 		088D692029015FBC003D0660 /* DatePickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691E29015FBC003D0660 /* DatePickerInputView.swift */; };
 		088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691F29015FBC003D0660 /* ExpenseTextField.swift */; };
@@ -78,7 +78,6 @@
 		081DC8992901AD5F0005374F /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		081DC89F29025C8F0005374F /* GMImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMImageButton.swift; sourceTree = "<group>"; };
 		081DC8A1290274990005374F /* CategoryPickerInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerInputView.swift; sourceTree = "<group>"; };
-		081DC8A329027C1D0005374F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		082BF94428FCF0D00094FE94 /* SignInPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPasswordVC.swift; sourceTree = "<group>"; };
 		082BF94728FD01400094FE94 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		082BF94928FD022D0094FE94 /* GMLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLoadingView.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		082BF96928FD319E0094FE94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		082BF97628FD64A60094FE94 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		082BF97C28FD68480094FE94 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		083EA335290659660079605F /* TransactionTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTag.swift; sourceTree = "<group>"; };
 		088D691B29015865003D0660 /* AddExpenseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseField.swift; sourceTree = "<group>"; };
 		088D691E29015FBC003D0660 /* DatePickerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputView.swift; sourceTree = "<group>"; };
 		088D691F29015FBC003D0660 /* ExpenseTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTextField.swift; sourceTree = "<group>"; };
@@ -162,14 +162,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		081DC8A529027C240005374F /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				081DC8A329027C1D0005374F /* Config.swift */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
 		082BF94628FD012B0094FE94 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,7 +271,6 @@
 		08C872A128F655CD00DC859D /* GoMoney */ = {
 			isa = PBXGroup;
 			children = (
-				081DC8A529027C240005374F /* DataSource */,
 				08C1F25228FE68EB00590512 /* Navigation */,
 				082BF97828FD65910094FE94 /* ViewModel */,
 				082BF94628FD012B0094FE94 /* Service */,
@@ -353,6 +344,7 @@
 			children = (
 				08C872DA28F680A100DC859D /* OnboardPage.swift */,
 				08C1F25A28FE8B2A00590512 /* Expense.swift */,
+				083EA335290659660079605F /* TransactionTag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -647,10 +639,10 @@
 				081DC8982901A99C0005374F /* AddExpenseForm.swift in Sources */,
 				08C1F25628FE68EB00590512 /* MainNavigationController.swift in Sources */,
 				08C1F24D28FE68A100590512 /* ChartView.swift in Sources */,
-				081DC8A429027C1D0005374F /* Config.swift in Sources */,
 				08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */,
 				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
 				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,
+				083EA336290659660079605F /* TransactionTag.swift in Sources */,
 				08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */,
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
 				08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */,

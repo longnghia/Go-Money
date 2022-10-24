@@ -16,7 +16,7 @@ class AddExpenseForm: UIView {
     lazy var categoryField = {
         let field = AddExpenseField(name: "Category") { textField in
             textField.inputView = CategoryPickerInputView(type: .expense) { tag in
-                textField.text = tag.name
+                textField.text = tag.getName()
                 textField.resignFirstResponder()
             }
             textField.inputAccessoryView = AccessoryView("Select Category", doneTapped: {

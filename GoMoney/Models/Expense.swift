@@ -25,11 +25,6 @@ class Expense: Object {
     }
 }
 
-struct TransactionTag {
-    var name: String
-    var image: String
-}
-
 enum ExpenseType: String {
     case income, expense
 }
