@@ -1,0 +1,55 @@
+name: Xcode build iOS 14
+
+on:
+  push:
+    branches: ["main", "dev"]
+  # pull_request:
+  #   branches: ["main", "dev"]
+
+jobs:
+  build:
+    runs-on: macos-11
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        name: "Cache Derived Data"
+        with:
+          path: |
+            ~/Library/Developer/Xcode/DerivedData/GoMoney-*/Build
+            ~/Library/Developer/Xcode/DerivedData/GoMoney-*/SourcePackages
+          key: ${{ runner.os }}-derivedData-cache-${{ hashFiles('GoMoney.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-derivedData-cache-
+
+      - uses: actions/cache@v2
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+            
+      - name: Avoid inode changes for DerivedData
+        run: defaults write com.apple.dt.XCBuild IgnoreFileSystemDeviceInodeChanges -bool YES
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_12.4.app
+
+      - name: Xcode version
+        run: /usr/bin/xcodebuild -version
+
+        shell: bash
+
+
+      - name: Install Dependencies
+        run: |
+          pod install --repo-update
+        shell: bash
+      - name: Xcode iOS build
+        run: |
+          xcodebuild -workspace GoMoney.xcworkspace -scheme GoMoney -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.4' | xcpretty
+
+      - name: cache size
+        run: |
+          du -sh  ~/Library/Developer/Xcode/DerivedData/GoMoney-*
