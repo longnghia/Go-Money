@@ -10,8 +10,8 @@ class AddExpenseField: UIView {
         $0.tintColor = .clear
     }
     
-    var name: String = ""
-    var defaultValue: String = ""
+    private(set) var name: String = ""
+    private(set) var defaultValue: String = ""
     
     init(name: String, defaultValue: String = "", makeInputView: ((ExpenseTextField) -> Void)? = nil) {
         super.init(frame: .zero)

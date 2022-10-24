@@ -26,11 +26,11 @@ public class AccessoryView: UIView {
         return addItem
     }()
 
-    var title = ""
-    var doneTapped: (() -> Void)?
-    var addTapped: (() -> Void)?
-    var shouldShowAdd = false
-    var height: CGFloat = 44
+    private(set) var title = ""
+    private(set) var doneTapped: (() -> Void)?
+    private(set) var addTapped: (() -> Void)?
+    private(set) var shouldShowAdd = false
+    private(set) var height: CGFloat = 44
 
     override public func didMoveToWindow() {
         super.didMoveToWindow()
