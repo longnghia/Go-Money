@@ -52,5 +52,6 @@ struct K {
 
     enum Theme {
         static let titleFont: UIFont = .init(name: Font.novaBold, size: 16) ?? UIFont.systemFont(ofSize: 16)
+        static let locale: Locale = .init(identifier: "en_US")
     }
 }

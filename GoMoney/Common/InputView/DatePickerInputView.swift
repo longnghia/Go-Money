@@ -9,6 +9,7 @@ public class DatePickerInputView: UIView {
     lazy var pickerView: UIDatePicker = {
         let pickerView = UIDatePicker()
         pickerView.preferredDatePickerStyle = .wheels
+        pickerView.locale = K.Theme.locale
         pickerView.translatesAutoresizingMaskIntoConstraints = false
         return pickerView
     }()

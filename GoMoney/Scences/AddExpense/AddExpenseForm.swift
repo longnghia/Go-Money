@@ -3,8 +3,8 @@ import UIKit
 class AddExpenseForm: UIView {
     lazy var dateField = {
         let field = AddExpenseField(name: "Date", defaultValue: DateFormatter.today) { textField in
-            textField.inputView = DatePickerInputView(mode: .dateAndTime) { date in
-                textField.text = DateFormatter.date.string(from: date)
+            textField.inputView = DatePickerInputView(mode: .date) { date in
+                textField.text = DateFormatter.ddmmyyyy.string(from: date)
             }
             textField.inputAccessoryView = AccessoryView("Select Date", doneTapped: {
                 textField.resignFirstResponder()
