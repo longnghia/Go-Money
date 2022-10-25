@@ -16,7 +16,8 @@ struct K {
         static let actionBackground = UIColor(red: 0.05, green: 0.16, blue: 0.28, alpha: 1.00)
         static let contentBackground = UIColor(red: 0.94, green: 0.95, blue: 0.96, alpha: 1.00)
 
-        static let background = UIColor(red: 0.99, green: 0.99, blue: 0.99, alpha: 1.00)
+        static let background = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.00)
+        static let white = UIColor(red: 0.99, green: 0.99, blue: 0.99, alpha: 1.00)
         static let borderOnBg = UIColor(red: 1, green: 0.99, blue: 0.99, alpha: 1.00)
         static let borderOnContentBg = UIColor(red: 0.55, green: 0.56, blue: 0.56, alpha: 1.00)
 
