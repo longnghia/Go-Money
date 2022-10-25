@@ -8,6 +8,27 @@ extension DateFormatter {
         return dateFormater
     }()
 
+    static let eee = {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "EEE"
+        dateFormater.locale = K.Theme.locale
+        return dateFormater
+    }()
+
+    static let mmm = {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MMM"
+        dateFormater.locale = K.Theme.locale
+        return dateFormater
+    }()
+
+    static let dd = {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd"
+        dateFormater.locale = K.Theme.locale
+        return dateFormater
+    }()
+
     static let date = {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd-MMM-yyyy hh:mm a"

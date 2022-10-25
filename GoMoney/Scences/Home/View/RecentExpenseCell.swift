@@ -7,7 +7,7 @@ class RecentExpenseCell: UITableViewCell {
         didSet {
             if let expense = expense {
                 labelName.text = expense.tag
-                labelDate.text = expense.getDate(.occured)
+                labelDate.text = expense.getDate(.occuredOn)
                 labelPrice.text = String(expense.amount)
             }
         }
@@ -39,7 +39,7 @@ class RecentExpenseCell: UITableViewCell {
     }
 
     private func setView() {
-        backgroundColor = K.Color.contentBackground
+        backgroundColor = K.Color.background
         addSubviews(icon, stackInfo, labelPrice)
 
         icon.anchor(left: leftAnchor, paddingLeft: 4)

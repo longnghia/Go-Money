@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		01F387D48924C03C5CC98BA4 /* Pods_GoMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E2DECB5E188E1306C43188 /* Pods_GoMoney.framework */; };
+		081CB3112906F5310007D426 /* LineChartXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB3102906F5310007D426 /* LineChartXAxisFormatter.swift */; };
+		081CB31429077BF20007D426 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB31329077BF20007D426 /* DayAxisValueFormatter.swift */; };
+		081CB3162907829C0007D426 /* Expense+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB3152907829C0007D426 /* Expense+Extension.swift */; };
 		081DC8982901A99C0005374F /* AddExpenseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8972901A99C0005374F /* AddExpenseForm.swift */; };
 		081DC89A2901AD5F0005374F /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8992901AD5F0005374F /* AccessoryView.swift */; };
 		081DC8A029025C8F0005374F /* GMImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC89F29025C8F0005374F /* GMImageButton.swift */; };
 		081DC8A2290274990005374F /* CategoryPickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8A1290274990005374F /* CategoryPickerInputView.swift */; };
+		0828A815290639B500243CB4 /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A814290639B500243CB4 /* StatViewController.swift */; };
+		0828A81929063BB600243CB4 /* StatBarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A81829063BB600243CB4 /* StatBarChartCell.swift */; };
+		0828A81B29063BCF00243CB4 /* StatTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A81A29063BCF00243CB4 /* StatTableCell.swift */; };
 		082BF94528FCF0D00094FE94 /* SignInPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94428FCF0D00094FE94 /* SignInPasswordVC.swift */; };
 		082BF94828FD01400094FE94 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94728FD01400094FE94 /* AuthService.swift */; };
 		082BF94A28FD022D0094FE94 /* GMLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF94928FD022D0094FE94 /* GMLoadingView.swift */; };
@@ -20,6 +26,8 @@
 		082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97628FD64A60094FE94 /* SignInViewModel.swift */; };
 		082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97C28FD68480094FE94 /* Notification+Name.swift */; };
 		083EA336290659660079605F /* TransactionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA335290659660079605F /* TransactionTag.swift */; };
+		083EA339290676EB0079605F /* StatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA338290676EB0079605F /* StatViewModel.swift */; };
+		083EA33B2906933A0079605F /* StatLineChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA33A2906933A0079605F /* StatLineChartCell.swift */; };
 		088D691C29015865003D0660 /* AddExpenseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691B29015865003D0660 /* AddExpenseField.swift */; };
 		088D692029015FBC003D0660 /* DatePickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691E29015FBC003D0660 /* DatePickerInputView.swift */; };
 		088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691F29015FBC003D0660 /* ExpenseTextField.swift */; };
@@ -74,10 +82,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		081CB3102906F5310007D426 /* LineChartXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartXAxisFormatter.swift; sourceTree = "<group>"; };
+		081CB31329077BF20007D426 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
+		081CB3152907829C0007D426 /* Expense+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+Extension.swift"; sourceTree = "<group>"; };
 		081DC8972901A99C0005374F /* AddExpenseForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseForm.swift; sourceTree = "<group>"; };
 		081DC8992901AD5F0005374F /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		081DC89F29025C8F0005374F /* GMImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMImageButton.swift; sourceTree = "<group>"; };
 		081DC8A1290274990005374F /* CategoryPickerInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerInputView.swift; sourceTree = "<group>"; };
+		0828A814290639B500243CB4 /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
+		0828A81829063BB600243CB4 /* StatBarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBarChartCell.swift; sourceTree = "<group>"; };
+		0828A81A29063BCF00243CB4 /* StatTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableCell.swift; sourceTree = "<group>"; };
 		082BF94428FCF0D00094FE94 /* SignInPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPasswordVC.swift; sourceTree = "<group>"; };
 		082BF94728FD01400094FE94 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		082BF94928FD022D0094FE94 /* GMLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLoadingView.swift; sourceTree = "<group>"; };
@@ -86,6 +100,8 @@
 		082BF97628FD64A60094FE94 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		082BF97C28FD68480094FE94 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		083EA335290659660079605F /* TransactionTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTag.swift; sourceTree = "<group>"; };
+		083EA338290676EB0079605F /* StatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewModel.swift; sourceTree = "<group>"; };
+		083EA33A2906933A0079605F /* StatLineChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatLineChartCell.swift; sourceTree = "<group>"; };
 		088D691B29015865003D0660 /* AddExpenseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseField.swift; sourceTree = "<group>"; };
 		088D691E29015FBC003D0660 /* DatePickerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputView.swift; sourceTree = "<group>"; };
 		088D691F29015FBC003D0660 /* ExpenseTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTextField.swift; sourceTree = "<group>"; };
@@ -162,6 +178,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		081CB30F2906F5290007D426 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				081CB31229077BCE0007D426 /* Formatter */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		081CB31229077BCE0007D426 /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				081CB3102906F5310007D426 /* LineChartXAxisFormatter.swift */,
+				081CB31329077BF20007D426 /* DayAxisValueFormatter.swift */,
+			);
+			path = Formatter;
+			sourceTree = "<group>";
+		};
+		0828A813290639A600243CB4 /* Stat */ = {
+			isa = PBXGroup;
+			children = (
+				0828A814290639B500243CB4 /* StatViewController.swift */,
+				0828A81829063BB600243CB4 /* StatBarChartCell.swift */,
+				0828A81A29063BCF00243CB4 /* StatTableCell.swift */,
+				083EA33A2906933A0079605F /* StatLineChartCell.swift */,
+			);
+			path = Stat;
+			sourceTree = "<group>";
+		};
 		082BF94628FD012B0094FE94 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +218,7 @@
 		082BF97828FD65910094FE94 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				083EA337290676DC0079605F /* Stat */,
 				08C1F25E28FE946F00590512 /* Home */,
 				082BF97928FD65CD0094FE94 /* Auth */,
 			);
@@ -186,6 +231,14 @@
 				082BF97628FD64A60094FE94 /* SignInViewModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		083EA337290676DC0079605F /* Stat */ = {
+			isa = PBXGroup;
+			children = (
+				083EA338290676EB0079605F /* StatViewModel.swift */,
+			);
+			path = Stat;
 			sourceTree = "<group>";
 		};
 		088D691D29015F1D003D0660 /* InputView */ = {
@@ -312,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				08DEE9C929013E2A00EA9A2A /* AddExpense */,
+				0828A813290639A600243CB4 /* Stat */,
 				08DB56F128F9255500170C60 /* Profile */,
 				08C872D728F67F7C00DC859D /* Onboard */,
 				08C872BB28F658D800DC859D /* Auth */,
@@ -371,6 +425,7 @@
 				08C1F26928FFBAD500590512 /* UIImage+Extension.swift */,
 				08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */,
 				08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */,
+				081CB3152907829C0007D426 /* Expense+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -421,6 +476,7 @@
 		08C8730B28F7B1BD00DC859D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				081CB30F2906F5290007D426 /* Chart */,
 				088D691D29015F1D003D0660 /* InputView */,
 				08C1F26628FEA3EB00590512 /* TabBar */,
 				08C8730C28F7B1D200DC859D /* View */,
@@ -616,14 +672,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0828A815290639B500243CB4 /* StatViewController.swift in Sources */,
 				08C1F25728FE702A00590512 /* GMLabel.swift in Sources */,
 				08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */,
 				08DB56F928F9637200170C60 /* ProfileView.swift in Sources */,
+				0828A81B29063BCF00243CB4 /* StatTableCell.swift in Sources */,
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
 				088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */,
 				08C872E028F6866000DC859D /* OnboardCell.swift in Sources */,
+				081CB3162907829C0007D426 /* Expense+Extension.swift in Sources */,
+				0828A81929063BB600243CB4 /* StatBarChartCell.swift in Sources */,
 				082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */,
 				08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */,
+				083EA339290676EB0079605F /* StatViewModel.swift in Sources */,
 				082BF96828FD1D510094FE94 /* Podfile in Sources */,
 				088D691C29015865003D0660 /* AddExpenseField.swift in Sources */,
 				081DC89A2901AD5F0005374F /* AccessoryView.swift in Sources */,
@@ -636,9 +697,12 @@
 				08DB56F328F9256A00170C60 /* ProfileViewController.swift in Sources */,
 				08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */,
 				082BF94828FD01400094FE94 /* AuthService.swift in Sources */,
+				083EA33B2906933A0079605F /* StatLineChartCell.swift in Sources */,
 				081DC8982901A99C0005374F /* AddExpenseForm.swift in Sources */,
+				081CB31429077BF20007D426 /* DayAxisValueFormatter.swift in Sources */,
 				08C1F25628FE68EB00590512 /* MainNavigationController.swift in Sources */,
 				08C1F24D28FE68A100590512 /* ChartView.swift in Sources */,
+				081CB3112906F5310007D426 /* LineChartXAxisFormatter.swift in Sources */,
 				08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */,
 				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
 				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,

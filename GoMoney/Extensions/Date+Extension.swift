@@ -21,6 +21,10 @@ extension Date {
         return Calendar.current.date(byAdding: .day, value: -30, to: self)
     }
     
+    func getLastYearDay() -> Date? {
+        return Calendar.current.date(byAdding: .day, value: -365, to: self)
+    }
+    
     func getPreviousMonth() -> Date? {
         return Calendar.current.date(byAdding: .month, value: -1, to: self)
     }
@@ -50,4 +54,16 @@ extension Date {
         components.day -= 1
         return Calendar.current.date(from: components as DateComponents)
     }
+  
+    func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
+        calendar.isDate(self, equalTo: date, toGranularity: component)
+    }
+    
+    func isSameDayAs(_ other: Date) -> Bool {
+        return Calendar.current.isDate(self, inSameDayAs: other)
+    }
+    
+    func isInSameYear(as date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
+    func isInSameMonth(as date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
+    func isInSameWeek(as date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
 }

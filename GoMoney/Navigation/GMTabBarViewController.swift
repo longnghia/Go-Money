@@ -31,7 +31,7 @@ class GMTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let statisticVC = MainNavigationController(rootViewController: GMMainViewController())
+        let statisticVC = MainNavigationController(rootViewController: StatViewController())
         statisticVC.tabBarItem = UITabBarItem(
             title: "",
             image: statBlackIcon,

@@ -606,6 +606,7 @@ PODS:
     - Charts/Core (= 4.1.0)
   - Charts/Core (4.1.0):
     - SwiftAlgorithms (~> 1.0)
+  - DropDown (2.3.13)
   - FirebaseAuth (9.6.0):
     - FirebaseCore (~> 9.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
@@ -729,6 +730,7 @@ PODS:
 
 DEPENDENCIES:
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
+  - DropDown
   - FirebaseAuth
   - FirebaseCore
   - FirebaseFirestore
@@ -738,6 +740,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - DropDown
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -770,6 +773,7 @@ SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   Charts: 354f86803d11d9c35de280587fef50d1af063978
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   FirebaseAuth: e4a5d3c36e778e41141b91cc861103a441d80bcc
   FirebaseCore: 2082fffcd855f95f883c0a1641133eb9bbe76d40
   FirebaseCoreDiagnostics: 99a495094b10a57eeb3ae8efa1665700ad0bdaa6
@@ -788,6 +792,6 @@ SPEC CHECKSUMS:
   RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 88d2cc93299ad34cd9d334b30850677145f14ecc
+PODFILE CHECKSUM: 4445b897e5437085edd9558603534414181b7bbe
 
 COCOAPODS: 1.11.3
