@@ -20,7 +20,7 @@ class HomeViewController: GMMainViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(RecentExpenseCell.self, forCellReuseIdentifier: RecentExpenseCell.identifier)
-        tableView.backgroundColor = K.Color.contentBackground
+        tableView.backgroundColor = K.Color.background
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = Constant.rowHeight

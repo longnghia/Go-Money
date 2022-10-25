@@ -304,6 +304,8 @@ public extension CGFloat {
         circle.fillColor = circleBackColor.cgColor
         
         layoutElements(selectedChanged: false)
+        
+        addDropShadow()
     }
     
     override func prepareForInterfaceBuilder() {

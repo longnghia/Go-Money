@@ -3,6 +3,7 @@ import UIKit
 class GMTabBarViewController: UITabBarController {
     private lazy var customTabBar: RollingPitTabBar = {
         let tabBar = RollingPitTabBar()
+        tabBar.barBackColor = K.Color.white
         tabBar.barHeight = 65
         tabBar.circleBackColor = .red
         tabBar.circleRadius = 35

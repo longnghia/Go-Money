@@ -11,7 +11,7 @@ import UIKit
 class GMMainViewController: GMViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = K.Color.contentBackground
+        view.backgroundColor = K.Color.background
     }
 
     override func configureNavigation() {

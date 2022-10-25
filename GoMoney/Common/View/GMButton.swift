@@ -8,11 +8,14 @@
 import UIKit
 
 class GMButton: UIButton {
+    private(set) var tapAction: (() -> Void)?
+
     convenience init(
         text: String = "",
         size: CGFloat = 16,
         color: UIColor = .black,
-        font: String = K.Font.nova ,
+        font: String = K.Font.nova,
+        tapAction: (() -> Void)? = nil,
         builder: ((GMButton) -> Void)? = nil
     ) {
         self.init(frame: .zero)
@@ -21,6 +24,8 @@ class GMButton: UIButton {
         self.titleLabel?.textAlignment = .center
         self.setTitleColor(color, for: .normal)
         self.titleLabel?.font = UIFont(name: font, size: size)
+        self.tapAction = tapAction
+        self.addTarget(self, action: #selector(self.didTapButton), for: .touchUpInside)
         builder?(self)
     }
 
@@ -30,5 +35,10 @@ class GMButton: UIButton {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+
+    @objc
+    private func didTapButton() {
+        self.tapAction?()
     }
 }
