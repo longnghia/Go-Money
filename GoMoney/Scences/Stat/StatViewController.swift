@@ -34,8 +34,7 @@ class StatViewController: GMMainViewController {
         dropDown.dataSource = ExpenseFilter.allFilters.map { $0.getName() }
         dropDown.anchorView = filterBtn
 
-        dropDown.selectionAction = { [weak self] (index: Int, item: String) in // 8
-            guard let _ = self else { return }
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in
             self?.filterBtn.setTitle(item, for: .normal)
             self?.viewModel.filterBy = ExpenseFilter.allFilters[index]
         }
@@ -43,8 +42,8 @@ class StatViewController: GMMainViewController {
 
     private lazy var filterBtn = GMButton(
         text: ExpenseFilter.week.getName(),
-        tapAction: {
-            self.dropDown.show()
+        tapAction: { [weak self] in
+            self?.dropDown.show()
         }) {
             $0.backgroundColor = .clear
         }
