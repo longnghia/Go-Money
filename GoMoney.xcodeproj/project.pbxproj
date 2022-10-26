@@ -25,6 +25,7 @@
 		082BF96A28FD319F0094FE94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 082BF96928FD319E0094FE94 /* GoogleService-Info.plist */; };
 		082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97628FD64A60094FE94 /* SignInViewModel.swift */; };
 		082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97C28FD68480094FE94 /* Notification+Name.swift */; };
+		083629E72908E97B003B7E9D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083629E62908E97B003B7E9D /* UIFont+Extension.swift */; };
 		083EA336290659660079605F /* TransactionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA335290659660079605F /* TransactionTag.swift */; };
 		083EA339290676EB0079605F /* StatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA338290676EB0079605F /* StatViewModel.swift */; };
 		083EA33B2906933A0079605F /* StatLineChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA33A2906933A0079605F /* StatLineChartCell.swift */; };
@@ -99,6 +100,7 @@
 		082BF96928FD319E0094FE94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		082BF97628FD64A60094FE94 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		082BF97C28FD68480094FE94 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		083629E62908E97B003B7E9D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		083EA335290659660079605F /* TransactionTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTag.swift; sourceTree = "<group>"; };
 		083EA338290676EB0079605F /* StatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewModel.swift; sourceTree = "<group>"; };
 		083EA33A2906933A0079605F /* StatLineChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatLineChartCell.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */,
 				08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */,
 				081CB3152907829C0007D426 /* Expense+Extension.swift */,
+				083629E62908E97B003B7E9D /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				08C1F25628FE68EB00590512 /* MainNavigationController.swift in Sources */,
 				08C1F24D28FE68A100590512 /* ChartView.swift in Sources */,
 				081CB3112906F5310007D426 /* LineChartXAxisFormatter.swift in Sources */,
+				083629E72908E97B003B7E9D /* UIFont+Extension.swift in Sources */,
 				08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */,
 				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
 				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,

@@ -21,7 +21,7 @@ class GMTextField: UITextField {
         placeholder = placeText
         translatesAutoresizingMaskIntoConstraints = false
         clearButtonMode = .whileEditing
-        font = UIFont(name: K.Font.nova, size: 16)
+        font = .nova()
         textColor = .black
         delegate = fieldDelegate
         returnKeyType = .done

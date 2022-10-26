@@ -14,8 +14,8 @@ class GMLabelSpan: UILabel {
         span: String,
         style: GMLabelStyle,
         underline: Bool = false,
-        builder: ((GMLabelSpan) -> Void)? = nil
-    ) {
+        builder: ((GMLabelSpan) -> Void)? = nil)
+    {
         super.init(frame: .zero)
 
         let link = NSMutableAttributedString(string: text)
@@ -28,7 +28,7 @@ class GMLabelSpan: UILabel {
         }
         link.addAttribute(NSAttributedString.Key.font, value: UIFont(
             name: style.getFont(),
-            size: style.getSize()) ?? UIFont(name: K.Font.nova, size: 16),
+            size: style.getSize()) ?? .nova(),
         range: NSRangeFromString(text))
         link.addAttribute(NSAttributedString.Key.foregroundColor, value: K.Color.primaryColor, range: range)
         attributedText = link

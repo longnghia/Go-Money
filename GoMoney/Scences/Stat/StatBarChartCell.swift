@@ -29,7 +29,7 @@ class StatBarChartCell: UITableViewCell {
 
         let xAxis = chartView.xAxis
         xAxis.labelPosition = .bottom
-        xAxis.labelFont = UIFont(name: K.Font.nova, size: 10) ?? .systemFont(ofSize: 10)
+        xAxis.labelFont = .nova(10)
         xAxis.granularity = 1
 
         chartView.delegate = self

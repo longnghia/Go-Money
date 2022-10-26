@@ -12,7 +12,7 @@ public class AccessoryView: UIView {
             action: #selector(doneButtonTapped)
         )
 
-        doneItem.setTextAttributes(font: UIFont(name: K.Font.nova, size: 16))
+        doneItem.setTextAttributes(font: .nova())
 
         return doneItem
     }()
@@ -53,7 +53,7 @@ public class AccessoryView: UIView {
             action: nil
         )
 
-        title.setTextAttributes(font: UIFont(name: K.Font.novaBold, size: 16.0), state: .disabled)
+        title.setTextAttributes(font: .novaBold(), state: .disabled)
 
         title.isEnabled = false
 
