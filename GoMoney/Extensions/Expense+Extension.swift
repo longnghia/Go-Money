@@ -23,7 +23,7 @@ extension [Expense] {
         return reduce(0) { $0 + $1.amount }
     }
 
-    func medium() -> Double {
+    func average() -> Double {
         guard count > 0 else {
             return 0
         }
@@ -108,13 +108,13 @@ extension [Expense] {
         return result
     }
 
-    func getTopExpenses(quanlity: Int = 7) -> [Expense] {
-        let mediumExpense = medium()
-        if count < quanlity {
+    func getTopExpenses(quantity: Int = 7) -> [Expense] {
+        let mediumExpense = average()
+        if count < quantity {
             return sorted { $0.amount > $1.amount }
         }
         let slice = filter { $0.amount > mediumExpense }
-            .sorted { $0.amount > $1.amount }.prefix(quanlity)
+            .sorted { $0.amount > $1.amount }.prefix(quantity)
         return Array(slice)
     }
 }
