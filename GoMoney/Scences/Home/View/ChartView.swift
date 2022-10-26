@@ -69,7 +69,7 @@ class ChartView: UIView {
 
         let data = PieChartData(dataSet: set)
 
-        data.setValueFont(UIFont(name: K.Font.novaBold, size: 11) ?? .systemFont(ofSize: 11, weight: .light))
+        data.setValueFont(.novaBold(11))
         data.setValueTextColor(.black)
 
         pieChartView.data = data

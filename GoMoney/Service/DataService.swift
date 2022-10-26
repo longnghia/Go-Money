@@ -33,22 +33,46 @@ class DataService {
         itemsToken?.invalidate()
     }
 
-    func getExpenses(filerBy: ExpenseFilter = .month, sortBy: ExpenseSort = .occuredOn, ascending: Bool = false, completion: @escaping ([Expense]) -> Void) {
-        let expense = realm.objects(Expense.self).sorted(
-            byKeyPath: sortBy.rawValue,
-            ascending: ascending).filter {
-            let endDate = Date()
-            switch filerBy {
-            case .week:
-                let startDate: Date = .init().getLast7Day() ?? endDate
-                return $0.occuredOn >= startDate && $0.occuredOn <= endDate
-            case .month:
-                let startDate: Date = .init().getLast30Day() ?? endDate
-                return $0.occuredOn >= startDate && $0.occuredOn <= endDate
-            default:
-                return true
-            }
+    func getExpenses(type: ExpenseType? = .expense, filerBy: ExpenseFilter = .month, sortBy: ExpenseSort = .occuredOn, ascending: Bool = false, completion: @escaping ([Expense]) -> Void) {
+        let endDate = Date()
+        let startDate: Date?
+
+        switch filerBy {
+        case .week:
+            startDate = Date().getLast7Day() ?? endDate
+        case .month:
+            startDate = Date().getLast30Day() ?? endDate
+        case .year:
+            startDate = Date().getLastYearDay() ?? endDate
+        case .all:
+            startDate = Date(timeIntervalSince1970: 0)
         }
-        completion(Array(expense))
+
+        guard let startDate = startDate else {
+            completion([])
+            return
+        }
+
+        var expenses: Results<Expense>?
+
+        if let type = type {
+            expenses = realm.objects(Expense.self)
+                .where { $0.type == type.rawValue && $0.occuredOn >= startDate && $0.occuredOn <= endDate }
+                .sorted(
+                    byKeyPath: sortBy.rawValue,
+                    ascending: ascending)
+        } else {
+            expenses = realm.objects(Expense.self)
+                .where { $0.occuredOn >= startDate && $0.occuredOn <= endDate }
+                .sorted(
+                    byKeyPath: sortBy.rawValue,
+                    ascending: ascending)
+        }
+
+        if let expense = expenses {
+            completion(Array(expense))
+        } else {
+            completion([])
+        }
     }
 }
