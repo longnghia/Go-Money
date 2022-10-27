@@ -25,6 +25,7 @@
 		082BF96A28FD319F0094FE94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 082BF96928FD319E0094FE94 /* GoogleService-Info.plist */; };
 		082BF97728FD64A60094FE94 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97628FD64A60094FE94 /* SignInViewModel.swift */; };
 		082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BF97C28FD68480094FE94 /* Notification+Name.swift */; };
+		08357BC22909174E00007F88 /* AddExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08357BC12909174E00007F88 /* AddExpenseViewModel.swift */; };
 		083629E72908E97B003B7E9D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083629E62908E97B003B7E9D /* UIFont+Extension.swift */; };
 		083EA336290659660079605F /* TransactionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA335290659660079605F /* TransactionTag.swift */; };
 		083EA339290676EB0079605F /* StatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA338290676EB0079605F /* StatViewModel.swift */; };
@@ -100,6 +101,7 @@
 		082BF96928FD319E0094FE94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		082BF97628FD64A60094FE94 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		082BF97C28FD68480094FE94 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		08357BC12909174E00007F88 /* AddExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModel.swift; sourceTree = "<group>"; };
 		083629E62908E97B003B7E9D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		083EA335290659660079605F /* TransactionTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTag.swift; sourceTree = "<group>"; };
 		083EA338290676EB0079605F /* StatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewModel.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		082BF97828FD65910094FE94 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				08357BC02909173D00007F88 /* AddExpense */,
 				083EA337290676DC0079605F /* Stat */,
 				08C1F25E28FE946F00590512 /* Home */,
 				082BF97928FD65CD0094FE94 /* Auth */,
@@ -233,6 +236,14 @@
 				082BF97628FD64A60094FE94 /* SignInViewModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		08357BC02909173D00007F88 /* AddExpense */ = {
+			isa = PBXGroup;
+			children = (
+				08357BC12909174E00007F88 /* AddExpenseViewModel.swift */,
+			);
+			path = AddExpense;
 			sourceTree = "<group>";
 		};
 		083EA337290676DC0079605F /* Stat */ = {
@@ -724,6 +735,7 @@
 				08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */,
 				08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */,
 				08DEE9C8290109CC00EA9A2A /* MonthlyExpenseView.swift in Sources */,
+				08357BC22909174E00007F88 /* AddExpenseViewModel.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
 				08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */,
