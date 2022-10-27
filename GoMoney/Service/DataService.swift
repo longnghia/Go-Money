@@ -75,4 +75,15 @@ class DataService {
             completion([])
         }
     }
+
+    func addExpense(_ expense: Expense, completion: ((Error?) -> Void)? = nil) {
+        do {
+            try realm.write {
+                realm.add(expense)
+            }
+            completion?(nil)
+        } catch {
+            completion?(error)
+        }
+    }
 }
