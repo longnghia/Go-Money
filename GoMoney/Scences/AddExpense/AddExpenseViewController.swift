@@ -17,8 +17,6 @@ class AddExpenseViewController: GMMainViewController {
         $0.numberOfLines = 0
     }
 
-    var curExpense: Expense?
-
     // MARK: - ViewModel
 
     private let viewModel = AddExpenseViewModel()
