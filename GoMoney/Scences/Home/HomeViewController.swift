@@ -30,26 +30,26 @@ class HomeViewController: GMMainViewController {
         return tableView
     }()
 
-    private lazy var fab: Floaty = {
-        let fab = Floaty()
+    private lazy var floatingButton: Floaty = {
+        let floatingButton = Floaty()
 
-        fab.size = Constant.buttonSize
-        fab.itemSize = Constant.buttonSize
-        fab.plusColor = .white
-        fab.buttonColor = K.Color.actionBackground
+        floatingButton.size = Constant.buttonSize
+        floatingButton.itemSize = Constant.buttonSize
+        floatingButton.plusColor = .white
+        floatingButton.buttonColor = K.Color.actionBackground
 
-        fab.addItem("Add Income", icon: UIImage(named: "ic_add_income")?.color(K.Color.saving), titlePosition: .left) { _ in
-            self.navigateToAddTransaction(type: .income)
-            self.fab.close()
+        floatingButton.addItem("Add Income", icon: UIImage(named: "ic_add_income")?.color(K.Color.saving), titlePosition: .left) { [weak self] _ in
+            self?.navigateToAddTransaction(type: .income)
+            self?.floatingButton.close()
         }
 
-        fab.addItem("Add Expense", icon: UIImage(named: "ic_add_expense")?.color(K.Color.debt)) { _ in
-            self.navigateToAddTransaction(type: .expense)
-            self.fab.close()
+        floatingButton.addItem("Add Expense", icon: UIImage(named: "ic_add_expense")?.color(K.Color.debt)) { [weak self] _ in
+            self?.navigateToAddTransaction(type: .expense)
+            self?.floatingButton.close()
         }
 
-        fab.translatesAutoresizingMaskIntoConstraints = false
-        return fab
+        floatingButton.translatesAutoresizingMaskIntoConstraints = false
+        return floatingButton
     }()
 
     // MARK: - LyfeCircle
@@ -74,7 +74,7 @@ class HomeViewController: GMMainViewController {
     override func setupLayout() {
         super.setupLayout()
 
-        view.addSubviews(backImage, chartView, recentExpenseLabel, tableView, fab)
+        view.addSubviews(backImage, chartView, recentExpenseLabel, tableView, floatingButton)
 
         let chartSize = view.bounds.size.width - 2 * Constant.padding
 
@@ -103,7 +103,7 @@ class HomeViewController: GMMainViewController {
             right: chartView.rightAnchor,
             paddingTop: 32)
 
-        fab.anchor(
+        floatingButton.anchor(
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             right: view.rightAnchor,
             paddingRight: Constant.padding,
