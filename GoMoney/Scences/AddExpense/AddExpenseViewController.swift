@@ -62,7 +62,6 @@ class AddExpenseViewController: GMMainViewController {
         let date = addExpenseForm.curDate
         let tag = addExpenseForm.curTag
         let amount: String = addExpenseForm.getAmount()
-        let note: String? = addExpenseForm.getNote()
 
         viewModel.validateFields(
             date: date,
@@ -80,29 +79,32 @@ class AddExpenseViewController: GMMainViewController {
 
     private func addExpense() {
         if let expense = addExpenseForm.getExpense() {
-            viewModel.addExpense(expense: expense) { err in
-                if let err = err {
-                    self.alert(err.localizedDescription, actionTitle: "Error!")
-                } else {
-                    let alert = UIAlertController(
-                        title: "Success!",
-                        message: "Continue adding transactions?",
-                        preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(
-                        title: "Cancel",
-                        style: .default,
-                        handler: { _ in
-                            // TODO: Notify Data Changed
+            viewModel.addExpense(expense: expense) { [weak self] err in
+                DispatchQueue.main.async {
+                    if let err = err {
+                        self?.alert(err.localizedDescription, actionTitle: "Error!")
+                    } else {
+                        let alert = UIAlertController(
+                            title: "Success!",
+                            message: "Continue adding transactions?",
+                            preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(
+                            title: "Cancel",
+                            style: .default,
+                            handler: { _ in
 
-                            self.didTapBack()
-                        }))
-                    alert.addAction(UIAlertAction(
-                        title: "OK",
-                        style: .default,
-                        handler: { _ in
-                            self.addExpenseForm.clearFields()
-                        }))
-                    self.present(alert, animated: true, completion: nil)
+                                // TODO: Notify Data Changed
+
+                                self?.didTapBack()
+                            }))
+                        alert.addAction(UIAlertAction(
+                            title: "OK",
+                            style: .default,
+                            handler: { _ in
+                                self?.addExpenseForm.clearFields()
+                            }))
+                        self?.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
         } else {
