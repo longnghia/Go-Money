@@ -637,6 +637,7 @@ PODS:
     - "gRPC-C++ (~> 1.44.0)"
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - Floaty (4.2.0)
   - GoogleDataTransport (9.2.0):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
@@ -734,7 +735,8 @@ DEPENDENCIES:
   - FirebaseAuth
   - FirebaseCore
   - FirebaseFirestore
-  - RealmSwift (~> 10)
+  - Floaty
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
@@ -746,6 +748,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCoreInternal
     - FirebaseFirestore
+    - Floaty
     - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"
@@ -779,6 +782,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 99a495094b10a57eeb3ae8efa1665700ad0bdaa6
   FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3
   FirebaseFirestore: c09ce6d050745a45fb75ebd901005ed3279c3caf
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
@@ -792,6 +796,6 @@ SPEC CHECKSUMS:
   RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 4445b897e5437085edd9558603534414181b7bbe
+PODFILE CHECKSUM: 01e8cb05820190b57c44f730c721408be6a1e6e5
 
 COCOAPODS: 1.11.3

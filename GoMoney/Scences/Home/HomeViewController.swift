@@ -1,4 +1,5 @@
 import Charts
+import Floaty
 import UIKit
 
 class HomeViewController: GMMainViewController {
@@ -29,12 +30,27 @@ class HomeViewController: GMMainViewController {
         return tableView
     }()
 
-    private lazy var addExpenseButton = GMImageButton(
-        size: 36,
-        image: UIImage(systemName: "plus"),
-        didTapButton: {
-            self.didTapAddExpense()
-        })
+    private lazy var floatingButton: Floaty = {
+        let floatingButton = Floaty()
+
+        floatingButton.size = Constant.buttonSize
+        floatingButton.itemSize = Constant.buttonSize
+        floatingButton.plusColor = .white
+        floatingButton.buttonColor = K.Color.actionBackground
+
+        floatingButton.addItem("Add Income", icon: UIImage(named: "ic_add_income")?.color(K.Color.saving), titlePosition: .left) { [weak self] _ in
+            self?.navigateToAddTransaction(type: .income)
+            self?.floatingButton.close()
+        }
+
+        floatingButton.addItem("Add Expense", icon: UIImage(named: "ic_add_expense")?.color(K.Color.debt)) { [weak self] _ in
+            self?.navigateToAddTransaction(type: .expense)
+            self?.floatingButton.close()
+        }
+
+        floatingButton.translatesAutoresizingMaskIntoConstraints = false
+        return floatingButton
+    }()
 
     // MARK: - LyfeCircle
 
@@ -57,7 +73,8 @@ class HomeViewController: GMMainViewController {
 
     override func setupLayout() {
         super.setupLayout()
-        view.addSubviews(backImage, chartView, recentExpenseLabel, tableView, addExpenseButton)
+
+        view.addSubviews(backImage, chartView, recentExpenseLabel, tableView, floatingButton)
 
         let chartSize = view.bounds.size.width - 2 * Constant.padding
 
@@ -86,17 +103,20 @@ class HomeViewController: GMMainViewController {
             right: chartView.rightAnchor,
             paddingTop: 32)
 
-        addExpenseButton.anchor(
+        floatingButton.anchor(
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             right: view.rightAnchor,
-            paddingRight: Constant.padding)
+            paddingRight: Constant.padding,
+            width: Constant.buttonSize,
+            height: Constant.buttonSize)
     }
 
     // MARK: Actions
 
-    @objc
-    private func didTapAddExpense() {
-        navigationController?.pushViewController(AddExpenseViewController(), animated: true)
+    private func navigateToAddTransaction(type: ExpenseType) {
+        let vc = AddExpenseViewController()
+        vc.type = type
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
