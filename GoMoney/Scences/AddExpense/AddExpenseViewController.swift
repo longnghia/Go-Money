@@ -90,9 +90,6 @@ class AddExpenseViewController: GMMainViewController {
                             title: "Cancel",
                             style: .default,
                             handler: { _ in
-
-                                // TODO: Notify Data Changed
-
                                 self?.didTapBack()
                             }))
                         alert.addAction(UIAlertAction(

@@ -57,6 +57,10 @@ class HomeViewController: GMMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         viewModel.loadExpenses()
     }
 

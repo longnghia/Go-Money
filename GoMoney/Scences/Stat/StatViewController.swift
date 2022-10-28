@@ -63,6 +63,11 @@ class StatViewController: GMMainViewController {
         setupViewModel()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadData()
+    }
+    
     // MARK: ViewModel
 
     func setupViewModel() {
@@ -71,7 +76,6 @@ class StatViewController: GMMainViewController {
                 self?.tableView.reloadData()
             }
         }
-        viewModel.getFilteredExpense()
     }
 
     // MARK: Setup Layout
@@ -93,6 +97,10 @@ class StatViewController: GMMainViewController {
             right: tableView.rightAnchor,
             paddingTop: 28,
             width: 90)
+    }
+
+    private func loadData() {
+        viewModel.getFilteredExpense()
     }
 }
 

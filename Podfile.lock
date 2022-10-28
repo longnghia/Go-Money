@@ -736,7 +736,7 @@ DEPENDENCIES:
   - FirebaseCore
   - FirebaseFirestore
   - Floaty
-  - RealmSwift
+  - RealmSwift (~> 10)
 
 SPEC REPOS:
   trunk:
@@ -796,6 +796,6 @@ SPEC CHECKSUMS:
   RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 01e8cb05820190b57c44f730c721408be6a1e6e5
+PODFILE CHECKSUM: b082899d56ee076f2a64ea1521633bdc9e50575d
 
 COCOAPODS: 1.11.3
