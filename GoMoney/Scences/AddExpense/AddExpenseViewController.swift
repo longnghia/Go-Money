@@ -82,6 +82,8 @@ class AddExpenseViewController: GMMainViewController {
                     if let err = err {
                         self?.alert(err.localizedDescription, actionTitle: "Error!")
                     } else {
+                        NotificationCenter.default.post(name: .dataChanged, object: nil)
+
                         let alert = UIAlertController(
                             title: "Success!",
                             message: "Continue adding transactions?",

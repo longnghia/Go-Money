@@ -63,11 +63,14 @@ class StatViewController: GMMainViewController {
         setupViewModel()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        loadData()
+    override func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: .dataChanged, object: nil)
     }
-    
+
+    override func removeObservers() {
+        NotificationCenter.default.removeObserver(self, name: .dataChanged, object: nil)
+    }
+
     // MARK: ViewModel
 
     func setupViewModel() {
@@ -76,6 +79,7 @@ class StatViewController: GMMainViewController {
                 self?.tableView.reloadData()
             }
         }
+        loadData()
     }
 
     // MARK: Setup Layout
@@ -99,6 +103,7 @@ class StatViewController: GMMainViewController {
             width: 90)
     }
 
+    @objc
     private func loadData() {
         viewModel.getFilteredExpense()
     }

@@ -8,11 +8,19 @@
 import UIKit
 
 class GMViewController: UIViewController {
+    open func addObservers() {}
+    open func removeObservers() {}
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = K.Color.contentBackground
         configureNavigation()
         setupLayout()
+        addObservers()
+    }
+
+    deinit {
+        removeObservers()
     }
 
     open func setupLayout() {}
