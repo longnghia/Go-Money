@@ -137,12 +137,12 @@ class HomeViewController: GMMainViewController {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.expenses?.count ?? 0
+        return viewModel.transactions?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: RecentExpenseCell.identifier) as? RecentExpenseCell {
-            if let expense = viewModel.expenses?[indexPath.row] {
+            if let expense = viewModel.transactions?[indexPath.row] {
                 cell.expense = expense
                 return cell
             }
@@ -190,7 +190,7 @@ extension HomeViewController: DataServiceDelegate {
 
             self?.tableView.reloadData()
             self?.chartView.setData(
-                self?.viewModel.expenses,
+                self?.viewModel.groupedExpenses,
                 incomeSum: self?.viewModel.incomeSum,
                 expenseSum: self?.viewModel.expenseSum)
         }

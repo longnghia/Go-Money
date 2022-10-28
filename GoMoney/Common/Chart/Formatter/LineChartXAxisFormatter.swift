@@ -15,7 +15,8 @@ class LineChartXAxisFormatter: IndexAxisValueFormatter {
             let dateAmount = dateAmount,
             let dateType = dateType,
             dateAmount.count > 0,
-            dateAmount.count > Int(value)
+            dateAmount.count > Int(value),
+            value >= 0
         else {
             return ""
         }

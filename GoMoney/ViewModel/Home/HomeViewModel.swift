@@ -8,21 +8,35 @@ class HomeViewModel {
     
     weak var delegate: DataServiceDelegate?
     
-    var expenses: [Expense]? = [] {
+    var transactions: [Expense]? = [] {
         didSet {
-            incomeSum = expenses?.filter { $0.type == ExpenseType.income.rawValue }.reduce(0) { $0 + $1.amount }
-            expenseSum = expenses?.filter { $0.type == ExpenseType.expense.rawValue }.reduce(0) { $0 + $1.amount }
+            guard let transactions = transactions else {
+                return
+            }
+            transactions.forEach {
+                if $0.isExpense() {
+                    expenses.append($0)
+                } else {
+                    incomes.append($0)
+                }
+            }
+            incomeSum = incomes.reduce(0) { $0 + $1.amount }
+            expenseSum = expenses.reduce(0) { $0 + $1.amount }
+            groupedExpenses = expenses.groupExpensesByTag()
         }
     }
     
     var incomeSum: Double?
     var expenseSum: Double?
+    var expenses: [Expense] = []
+    var incomes: [Expense] = []
+    var groupedExpenses: [TagAmount] = []
     
     func loadExpenses() {
         delegate?.dataWillLoad()
         
-        service.getExpenses { result in
-            self.expenses = result
+        service.getExpenses(type: nil) { result in
+            self.transactions = result
             self.delegate?.dataDidLoad()
         }
     }
