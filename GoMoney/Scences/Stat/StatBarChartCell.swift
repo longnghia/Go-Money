@@ -66,7 +66,7 @@ class StatBarChartCell: UITableViewCell {
 
         let dataSet = BarChartDataSet(entries: entries, label: "")
         dataSet.drawIconsEnabled = false
-        dataSet.colors = [.primary]
+        dataSet.colors = [K.Color.actionBackground]
         dataSet.barShadowColor = K.Color.contentBackground
 
         let data = BarChartData(dataSet: dataSet)

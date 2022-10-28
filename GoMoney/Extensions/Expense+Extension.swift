@@ -13,6 +13,10 @@ extension Expense {
         }
         return formatter.string(from: date ?? Date())
     }
+
+    func isExpense() -> Bool {
+        return type == ExpenseType.expense.rawValue
+    }
 }
 
 extension [Expense] {
@@ -77,7 +81,7 @@ extension [Expense] {
     }
 
     /// Group expense by tags then calculate sum.
-    func groupExpensesByTag() -> [TagAmount] {
+    func groupExpensesByTag(maxTag: Int = 5) -> [TagAmount] {
         guard count > 0 else {
             return []
         }
@@ -103,6 +107,15 @@ extension [Expense] {
             } else {
                 result.append(allTagAmount[i + 1])
             }
+        }
+
+        // split maxTag and others
+        if maxTag > 0, result.count > maxTag {
+            let sortedResult = result.sorted { $0.totalAmount > $1.totalAmount }
+            let topTags = sortedResult[0 ..< maxTag]
+            let othersAmount = sortedResult[maxTag ... sortedResult.endIndex - 1].reduce(0) { $0 + $1.totalAmount }
+            let otherTags = TagAmount(tag: TransactionTag.other.getName(), totalAmount: othersAmount)
+            return topTags + [otherTags]
         }
 
         return result

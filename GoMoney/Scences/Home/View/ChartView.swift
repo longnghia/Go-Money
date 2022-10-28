@@ -2,7 +2,10 @@ import Charts
 import UIKit
 
 class ChartView: UIView {
-    lazy var pieChartView: PieChartView = .build { _ in }
+    lazy var pieChartView: PieChartView = .build {
+        $0.drawEntryLabelsEnabled = false
+    }
+
     lazy var monthlyExpenses = MonthlyExpenseView(text: "Monthly Expenses")
     lazy var monthlyIncomes = MonthlyExpenseView(text: "Monthly Incomes")
     lazy var monthlySavings = MonthlyExpenseView(text: "Monthly Savings")
@@ -42,15 +45,14 @@ class ChartView: UIView {
         )
     }
 
-    func setData(_ expenses: [Expense]?, incomeSum: Double?, expenseSum: Double?) {
-        guard let expenses = expenses?.filter({ $0.type == ExpenseType.expense.rawValue }) else {
+    func setData(_ expenses: [TagAmount]?, incomeSum: Double?, expenseSum: Double?) {
+        guard let expenses = expenses else {
             return
         }
-
-        let sum: Double = expenses.reduce(0) { $0 + $1.amount }
+        let sum: Double = expenses.reduce(0) { $0 + $1.totalAmount }
         let entries = expenses.map { expense in
             PieChartDataEntry(
-                value: expense.amount / sum * 100,
+                value: expense.totalAmount / sum * 100,
                 label: expense.tag,
                 icon: nil
             )
