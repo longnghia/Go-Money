@@ -57,7 +57,15 @@ class HomeViewController: GMMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.loadExpenses()
+        loadData()
+    }
+
+    override func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: .dataChanged, object: nil)
+    }
+
+    override func removeObservers() {
+        NotificationCenter.default.removeObserver(self, name: .dataChanged, object: nil)
     }
 
     // MARK: - Setup NavBar
@@ -117,6 +125,11 @@ class HomeViewController: GMMainViewController {
         let vc = AddExpenseViewController()
         vc.type = type
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc
+    private func loadData() {
+        viewModel.loadExpenses()
     }
 }
 
