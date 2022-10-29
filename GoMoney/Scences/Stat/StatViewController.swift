@@ -64,7 +64,7 @@ class StatViewController: GMMainViewController {
     }
 
     override func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: .dataChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDataChanged), name: .dataChanged, object: nil)
     }
 
     override func removeObservers() {
@@ -103,9 +103,18 @@ class StatViewController: GMMainViewController {
             width: 90)
     }
 
-    @objc
+    // MARK: Methods
+
     private func loadData() {
         viewModel.getFilteredExpense()
+    }
+
+    @objc
+    private func onDataChanged(notification: Notification) {
+        guard notification.object as? UIViewController != self else {
+            return
+        }
+        loadData()
     }
 }
 

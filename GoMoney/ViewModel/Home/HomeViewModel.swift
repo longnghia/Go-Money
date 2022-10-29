@@ -44,4 +44,23 @@ class HomeViewModel {
             self.delegate?.dataDidLoad()
         }
     }
+    
+    func deleteTransaction(_ expense: Expense, completion: ((Error?) -> Void)? = nil) {
+        let index = transactions?.firstIndex(of: expense)
+        
+        guard let index = index else {
+            completion?(DataError.transactionNotFound(expense))
+            return
+        }
+        
+        transactions?.remove(at: index)
+
+        service.deleteExpense(expense: expense) { err in
+            if err != nil {
+                completion?(err)
+                return
+            }
+        }
+        completion?(nil)
+    }
 }
