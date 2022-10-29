@@ -428,12 +428,12 @@
 		08C872C628F6670900DC859D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				082BF97C28FD68480094FE94 /* Notification+Name.swift */,
 				08C872C728F6671B00DC859D /* UIView+Extension.swift */,
 				08C872C928F6681600DC859D /* UIViewController+Extension.swift */,
 				08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */,
 				08DB56E828F9035800170C60 /* StackView+Extension.swift */,
 				08DB56EA28F9053700170C60 /* UIColor+Extension.swift */,
-				082BF97C28FD68480094FE94 /* Notification+Name.swift */,
 				08C1F25C28FE93E900590512 /* DateFormatter+Extension.swift */,
 				08C1F26928FFBAD500590512 /* UIImage+Extension.swift */,
 				08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */,

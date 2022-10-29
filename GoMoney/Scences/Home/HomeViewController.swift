@@ -131,6 +131,13 @@ class HomeViewController: GMMainViewController {
     private func loadData() {
         viewModel.loadExpenses()
     }
+
+    private func loadChartView() {
+        chartView.setData(
+            viewModel.groupedExpenses,
+            incomeSum: viewModel.incomeSum,
+            expenseSum: viewModel.expenseSum)
+    }
 }
 
 // MARK: - Table Delegate
@@ -189,10 +196,7 @@ extension HomeViewController: DataServiceDelegate {
             GMLoadingView.shared.endLoadingAnimation()
 
             self?.tableView.reloadData()
-            self?.chartView.setData(
-                self?.viewModel.groupedExpenses,
-                incomeSum: self?.viewModel.incomeSum,
-                expenseSum: self?.viewModel.expenseSum)
+            self?.loadChartView()
         }
     }
 }

@@ -80,7 +80,7 @@ class AddExpenseViewController: GMMainViewController {
             viewModel.addExpense(expense: expense) { [weak self] err in
                 DispatchQueue.main.async {
                     if let err = err {
-                        self?.alert(err.localizedDescription, actionTitle: "Error!")
+                        self?.alert(title: "Error", message: err.localizedDescription, actionTitle: "Cancel")
                     } else {
                         NotificationCenter.default.post(name: .dataChanged, object: nil)
 
@@ -105,7 +105,7 @@ class AddExpenseViewController: GMMainViewController {
                 }
             }
         } else {
-            alert("Can't add transaction!", actionTitle: "Error")
+            alert(title: "Can't add transaction!", actionTitle: "Error")
         }
     }
 }
