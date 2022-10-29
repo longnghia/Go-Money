@@ -13,6 +13,10 @@ class HomeViewModel {
             guard let transactions = transactions else {
                 return
             }
+            
+            expenses = []
+            incomes = []
+            
             transactions.forEach {
                 if $0.isExpense() {
                     expenses.append($0)
