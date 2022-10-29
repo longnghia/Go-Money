@@ -74,4 +74,8 @@ class GMMainViewController: GMViewController {
 
         navigationController?.navigationBar.barTintColor = .white
     }
+
+    func notifyDataDidChange() {
+        NotificationCenter.default.post(name: .dataChanged, object: self)
+    }
 }
