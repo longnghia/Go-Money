@@ -38,7 +38,7 @@ class SignInPasswordVC: GMViewController {
                                 for: .editingChanged)
     }
     
-    private lazy var errorLabel: GMLabel = .init(style: .smallBold) {
+    private lazy var errorLabel: GMLabel = .init(style: .smallBold, isCenter: true) {
         $0.textColor = K.Color.error
         $0.numberOfLines = 0
     }

@@ -12,7 +12,7 @@ class ButtonAuth: UIButton {
         icon.contentMode = .scaleAspectFill
     }
     
-    private lazy var btnText: GMLabel = .init(style: .regular) {
+    private lazy var btnText: GMLabel = .init(style: .regular, isCenter: true) {
         $0.textColor = .white
     }
     

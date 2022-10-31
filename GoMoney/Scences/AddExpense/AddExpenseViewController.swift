@@ -12,7 +12,7 @@ class AddExpenseViewController: GMMainViewController {
             self?.errorLabel.text = nil
         })
 
-    lazy var errorLabel: GMLabel = .init(style: .smallBold) {
+    lazy var errorLabel: GMLabel = .init(style: .smallBold, isCenter: true) {
         $0.textColor = K.Color.error
         $0.numberOfLines = 0
     }
@@ -57,22 +57,14 @@ class AddExpenseViewController: GMMainViewController {
     private func saveExpense() {
         view.endEditing(true)
 
-        let date = addExpenseForm.curDate
-        let tag = addExpenseForm.curTag
-        let amount: String = addExpenseForm.getAmount()
-
-        viewModel.validateFields(
-            date: date,
-            category: tag,
-            amount: amount,
-            completion: { err in
-                if let err = err {
-                    errorLabel.text = err
-                } else {
-                    errorLabel.text = ""
-                    addExpense()
-                }
-            })
+        addExpenseForm.validateFields { err in
+            if let err = err {
+                errorLabel.text = err
+            } else {
+                errorLabel.text = ""
+                addExpense()
+            }
+        }
     }
 
     private func addExpense() {

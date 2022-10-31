@@ -67,7 +67,7 @@ class AddExpenseForm: UIView {
         }
     }
 
-    init(delegate: UITextFieldDelegate, transType: ExpenseType = .expense, textFieldOnChange: (() -> Void)? = nil) {
+    init(delegate: UITextFieldDelegate? = nil, transType: ExpenseType = .expense, textFieldOnChange: (() -> Void)? = nil) {
         super.init(frame: .zero)
 
         self.delegate = delegate
@@ -131,5 +131,22 @@ class AddExpenseForm: UIView {
         [amountField, noteField].forEach {
             $0.inputField.text = nil
         }
+    }
+
+    func validateFields(completion: (String?) -> Void) {
+        if getAmount().isEmpty {
+            return completion(Content.fieldEmpty)
+        }
+
+        // TODO: validate amount field
+
+        completion(nil)
+    }
+}
+
+extension AddExpenseForm {
+    enum Content {
+        static let amountInvalid = "Amount is invalid"
+        static let fieldEmpty = "Make sure you fill in all fields"
     }
 }
