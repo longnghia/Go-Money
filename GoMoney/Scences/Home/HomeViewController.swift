@@ -159,6 +159,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: RecentExpenseCell.identifier) as? RecentExpenseCell {
             if let expense = viewModel.transactions?[indexPath.row] {
+                cell.selectionStyle = .none
                 cell.expense = expense
                 return cell
             }
