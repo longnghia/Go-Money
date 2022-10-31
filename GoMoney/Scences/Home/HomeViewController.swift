@@ -61,7 +61,7 @@ class HomeViewController: GMMainViewController {
     }
 
     override func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: .dataChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDataChanged), name: .dataChanged, object: nil)
     }
 
     override func removeObservers() {
@@ -127,7 +127,6 @@ class HomeViewController: GMMainViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    @objc
     private func loadData() {
         viewModel.loadExpenses()
     }
@@ -137,6 +136,16 @@ class HomeViewController: GMMainViewController {
             viewModel.groupedExpenses,
             incomeSum: viewModel.incomeSum,
             expenseSum: viewModel.expenseSum)
+    }
+
+    // MARK: Methods
+
+    @objc
+    open func onDataChanged(notification: Notification) {
+        guard notification.object as? UIViewController != self else {
+            return
+        }
+        loadData()
     }
 }
 
@@ -150,6 +159,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: RecentExpenseCell.identifier) as? RecentExpenseCell {
             if let expense = viewModel.transactions?[indexPath.row] {
+                cell.selectionStyle = .none
                 cell.expense = expense
                 return cell
             }
@@ -161,6 +171,73 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // TODO: go to detail
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "Delete") { _, _, completionHandler in
+            completionHandler(true)
+            if let transaction = self.viewModel.transactions?[indexPath.row] {
+                self.alertDeleteTransaction(
+                    transaction: transaction,
+                    indexPath: indexPath,
+                    handler: completionHandler)
+            }
+        }
+
+        delete.image = UIImage(systemName: "trash")
+        delete.backgroundColor = .red
+
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
+
+        return swipe
+    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
+            // TODO: Go to edit
+            let vc = GMMainViewController()
+
+            self.navigationController?.pushViewController(vc, animated: true)
+
+            completionHandler(true)
+        }
+
+        edit.image = UIImage(systemName: "highlighter")
+        edit.backgroundColor = .green
+
+        let swipe = UISwipeActionsConfiguration(actions: [edit])
+
+        return swipe
+    }
+}
+
+// MARK: - Alert
+
+extension HomeViewController {
+    func alertDeleteTransaction(transaction: Expense, indexPath: IndexPath, handler: @escaping (Bool) -> Void) {
+        let alert = UIAlertController(
+            title: "Delete Transaction",
+            message: "Are you sure to delete \(transaction.tag)?",
+            preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+
+            self.viewModel.deleteTransaction(transaction) { err in
+
+                if let err = err {
+                    self.alert(title: "Error", message: err.localizedDescription)
+                } else {
+                    self.notifyDataDidChange()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.tableView.deleteRows(at: [indexPath], with: .left)
+                        self?.loadChartView()
+                    }
+                }
+            }
+        })
+        present(alert, animated: true)
     }
 }
 

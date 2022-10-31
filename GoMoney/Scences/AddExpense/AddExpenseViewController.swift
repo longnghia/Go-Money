@@ -82,7 +82,7 @@ class AddExpenseViewController: GMMainViewController {
                     if let err = err {
                         self?.alert(title: "Error", message: err.localizedDescription, actionTitle: "Cancel")
                     } else {
-                        NotificationCenter.default.post(name: .dataChanged, object: nil)
+                        self?.notifyDataDidChange()
 
                         let alert = UIAlertController(
                             title: "Success!",

@@ -9,6 +9,20 @@ protocol DataServiceDelegate: AnyObject {
     func dataDidRemove()
 }
 
+enum DataError: Error {
+    case transactionNotFound(_ transaction: Expense)
+    case noTransactions
+
+    var localizedDescription: String {
+        switch self {
+        case .transactionNotFound(let transaction):
+            return "Transaction \(transaction._id) not found!"
+        case .noTransactions:
+            return "There is no transactions!"
+        }
+    }
+}
+
 class DataService {
     let realm: Realm = try! Realm()
     static let shared = DataService()
@@ -80,6 +94,17 @@ class DataService {
         do {
             try realm.write {
                 realm.add(expense)
+            }
+            completion?(nil)
+        } catch {
+            completion?(error)
+        }
+    }
+
+    func deleteExpense(expense: Expense, completion: ((Error?) -> Void)? = nil) {
+        do {
+            try realm.write {
+                realm.delete(expense)
             }
             completion?(nil)
         } catch {
