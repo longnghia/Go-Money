@@ -175,31 +175,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { _, _, completionHandler in
+            completionHandler(true)
             if let transaction = self.viewModel.transactions?[indexPath.row] {
-                let alert = UIAlertController(
-                    title: "Delete Transaction",
-                    message: "Are you sure to delete \(transaction.tag)?",
-                    preferredStyle: .alert)
-
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-
-                alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
-
-                    self.viewModel.deleteTransaction(transaction) { err in
-
-                        if let err = err {
-                            self.alert(title: "Error", message: err.localizedDescription)
-                        } else {
-                            self.notifyDataDidChange()
-                            DispatchQueue.main.async { [weak self] in
-                                self?.tableView.deleteRows(at: [indexPath], with: .left)
-                                self?.loadChartView()
-                            }
-                        }
-                    }
-                })
-                completionHandler(true)
-                self.present(alert, animated: true)
+                self.alertDeleteTransaction(
+                    transaction: transaction,
+                    indexPath: indexPath,
+                    handler: completionHandler)
             }
         }
 
@@ -227,6 +208,36 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let swipe = UISwipeActionsConfiguration(actions: [edit])
 
         return swipe
+    }
+}
+
+// MARK: - Alert
+
+extension HomeViewController {
+    func alertDeleteTransaction(transaction: Expense, indexPath: IndexPath, handler: @escaping (Bool) -> Void) {
+        let alert = UIAlertController(
+            title: "Delete Transaction",
+            message: "Are you sure to delete \(transaction.tag)?",
+            preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+
+            self.viewModel.deleteTransaction(transaction) { err in
+
+                if let err = err {
+                    self.alert(title: "Error", message: err.localizedDescription)
+                } else {
+                    self.notifyDataDidChange()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.tableView.deleteRows(at: [indexPath], with: .left)
+                        self?.loadChartView()
+                    }
+                }
+            }
+        })
+        present(alert, animated: true)
     }
 }
 
