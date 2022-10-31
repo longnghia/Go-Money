@@ -3,7 +3,6 @@ import UIKit
 class TextFieldSignUp: UIView {
     private lazy var inputTitle: GMLabel = .init(style: .regular) {
         $0.textColor = K.Color.subTitle
-        $0.textAlignment = .natural
     }
     
     lazy var inputField: GMTextField = {

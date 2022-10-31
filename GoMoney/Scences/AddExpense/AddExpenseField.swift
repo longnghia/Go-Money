@@ -1,9 +1,14 @@
 import UIKit
 
 class AddExpenseField: UIView {
+    var text: String? {
+        didSet {
+            inputField.text = text
+        }
+    }
+    
     lazy var label = GMLabel {
         $0.textColor = .darkGray
-        $0.textAlignment = .left
     }
 
     lazy var inputField: ExpenseTextField = .build {

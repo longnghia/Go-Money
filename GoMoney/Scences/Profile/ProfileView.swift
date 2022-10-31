@@ -7,13 +7,9 @@ class ProfileView: UIView {
 
     lazy var avatar: GMCircleImage = .init(size: Constant.height)
 
-    lazy var name: GMLabel = .init(style: .regularBold) {
-        $0.textAlignment = .natural
-    }
+    lazy var name: GMLabel = .init(style: .regularBold, isCenter: true)
 
-    lazy var email: GMLabel = .init(style: .small) {
-        $0.textAlignment = .natural
-    }
+    lazy var email: GMLabel = .init(style: .small, isCenter: true)
 
     private lazy var stackNameEmail: UIStackView = {
         let stackView = UIStackView()

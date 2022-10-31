@@ -8,7 +8,7 @@ enum GMLabelStyle {
     case smallBold
     case regularBold
     case largeBold
-    
+
     func getSize() -> CGFloat {
         switch self {
         case .small,
@@ -61,11 +61,13 @@ class GMLabel: UILabel {
         text: String = "",
         style: GMLabelStyle = .regular,
         numberOfLines: Int = 0,
+        isCenter: Bool = false,
         builder: ((GMLabel) -> Void)? = nil
     ) {
         super.init(frame: .zero)
-        
+
         self.text = text
+        self.textAlignment = isCenter ? .center : .natural
         self.gmStyle = style
 
         self.setup()
@@ -75,6 +77,5 @@ class GMLabel: UILabel {
 
     func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        textAlignment = .center
     }
 }

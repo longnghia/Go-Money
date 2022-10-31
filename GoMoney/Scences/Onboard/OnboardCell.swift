@@ -13,9 +13,9 @@ class OnboardCell: UICollectionViewCell {
         topicImage.anchor(width: 200, height: 200)
     }
      
-    private lazy var topicLabel: GMLabel = .init(style: .largeBold)
+    private lazy var topicLabel: GMLabel = .init(style: .largeBold, isCenter: true)
     
-    private lazy var descriptionLabel: GMLabel = .init(style: .regular)
+    private lazy var descriptionLabel: GMLabel = .init(style: .regular, isCenter: true)
     
     private lazy var centerView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [topicImage, topicLabel])
