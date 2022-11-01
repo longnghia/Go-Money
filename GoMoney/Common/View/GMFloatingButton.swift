@@ -4,29 +4,23 @@ class GMFloatingButton: UIControl {
     private(set) var onTap: (() -> Void)?
     private let height: CGFloat = 54
     
-    lazy var imageView: UIImageView = {
+    lazy var buttonIcon: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         img.contentMode = .scaleAspectFit
         return img
     }()
     
-    lazy var label = GMLabel(style: .regular, isCenter: true) {
+    lazy var buttonLabel = GMLabel(style: .regular, isCenter: true) {
         $0.textColor = .white
-    }
-    
-    lazy var stackView: UIStackView = .build { stackView in
-        stackView.axis = .horizontal
-        stackView.spacing = 12
-        stackView.addArrangedSubviews(self.imageView, self.label)
     }
     
     init(image: UIImage? = K.Image.edit, text: String = "Edit", textColor: UIColor? = .white, background: UIColor? = K.Color.actionBackground, onTap: (() -> Void)? = nil) {
         super.init(frame: CGRect(x: 0, y: 0, width: 120, height: 64))
         
         backgroundColor = background
-        imageView.image = image
-        label.text = text
+        buttonIcon.image = image
+        buttonLabel.text = text
         
         self.onTap = onTap
         addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
@@ -43,15 +37,15 @@ class GMFloatingButton: UIControl {
         translatesAutoresizingMaskIntoConstraints = false
         anchor(width: 120, height: height)
         
-        addSubviews(imageView, label)
+        addSubviews(buttonIcon, buttonLabel)
 
         let padding = height / 2 - 10
-        imageView.anchor(left: leftAnchor, paddingLeft: padding, width: 24, height: 30)
-        imageView.centerYToView(self)
+        buttonIcon.anchor(left: leftAnchor, paddingLeft: padding, width: 24, height: 30)
+        buttonIcon.centerYToView(self)
         
-        label.anchor(
+        buttonLabel.anchor(
             top: topAnchor,
-            left: imageView.rightAnchor,
+            left: buttonIcon.rightAnchor,
             bottom: bottomAnchor,
             right: rightAnchor,
             paddingLeft: 12,

@@ -77,25 +77,29 @@ class DetailViewController: GMMainViewController {
         let vc = EditViewController()
         vc.transaction = transaction
         vc.onApply = { newTrans in
-            self.detailView.transaction = newTrans
-            self.viewModel.applyTransaction(newTrans: newTrans) { [weak self] err in
-                DispatchQueue.main.async {
-                    if let err = err {
-                        self?.alert(
-                            title: "Error",
-                            message: err.localizedDescription,
-                            actionTitle: "Cancel")
-                    } else {
-                        self?.notifyDataDidChange()
-                        self?.snackBar(
-                            message: "Transaction updated successfully!",
-                            actionText: "OK")
-                    }
-                }
-            }
+            self.applyNewTransaction(newTrans)
         }
         
         present(vc, animated: true)
+    }
+    
+    private func applyNewTransaction(_ newTrans: Expense) {
+        detailView.transaction = newTrans
+        viewModel.applyTransaction(newTrans: newTrans) { [weak self] err in
+            DispatchQueue.main.async {
+                if let err = err {
+                    self?.alert(
+                        title: "Error",
+                        message: err.localizedDescription,
+                        actionTitle: "Cancel")
+                } else {
+                    self?.notifyDataDidChange()
+                    self?.snackBar(
+                        message: "Transaction updated successfully!",
+                        actionText: "OK")
+                }
+            }
+        }
     }
     
     @objc func deleteTransaction() {

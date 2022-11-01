@@ -13,18 +13,14 @@ class DetailViewModel {
         DataService.shared.updateExpense(
             oldTrans: transaction,
             newTrans: newTrans,
-            completion: { _ in
-                completion?(nil)
+            completion: { err in
+                completion?(err)
             })
     }
 
     func deleteTransaction(_ expense: Expense, completion: ((Error?) -> Void)? = nil) {
         service.deleteExpense(expense: expense) { err in
-            if err != nil {
-                completion?(err)
-                return
-            }
+            completion?(err)
         }
-        completion?(nil)
     }
 }

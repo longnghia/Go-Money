@@ -10,7 +10,7 @@ class EditViewController: GMMainViewController {
             guard let transaction = transaction else {
                 return
             }
-            setView(transaction)
+            setView(with: transaction)
         }
     }
 
@@ -82,7 +82,7 @@ class EditViewController: GMMainViewController {
             paddingRight: 16)
     }
 
-    private func setView(_ transaction: Expense) {
+    private func setView(with transaction: Expense) {
         let type: ExpenseType = transaction.type == ExpenseType.expense.rawValue ? .expense : .income
         form = AddExpenseForm(transType: type, textFieldOnChange: { [weak self] in
             self?.errorLabel.text = nil
