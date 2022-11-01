@@ -9,9 +9,10 @@ pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
 
 pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
-pod 'RealmSwift', '~>10'
+pod 'RealmSwift', '~> 10.32'
 pod 'DropDown'
 pod 'Floaty'
 pod "TTGSnackbar"
+pod 'lottie-ios'
 
 end
