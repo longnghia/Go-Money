@@ -4,6 +4,13 @@ class AddExpenseViewController: GMMainViewController {
     // MARK: - Public properties
 
     var type: ExpenseType = .expense
+    var transaction: Expense? {
+        didSet {
+            if let transaction = transaction {
+                addExpenseForm.fillTransaction(transaction)
+            }
+        }
+    }
 
     lazy var addExpenseForm = AddExpenseForm(
         delegate: self,

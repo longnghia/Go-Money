@@ -111,4 +111,19 @@ class DataService {
             completion?(error)
         }
     }
+
+    func updateExpense(oldTrans: Expense, newTrans: Expense, completion: ((Error?) -> Void)? = nil) {
+        do {
+            try realm.write {
+                oldTrans.amount = newTrans.amount
+                oldTrans.tag = newTrans.tag
+                oldTrans.note = newTrans.note
+                oldTrans.occuredOn = newTrans.occuredOn
+                oldTrans.updatedAt = newTrans.updatedAt
+            }
+            completion?(nil)
+        } catch {
+            completion?(error)
+        }
+    }
 }
