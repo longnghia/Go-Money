@@ -716,6 +716,7 @@ PODS:
   - Libuv-gRPC/Implementation (0.0.10):
     - Libuv-gRPC/Interface (= 0.0.10)
   - Libuv-gRPC/Interface (0.0.10)
+  - lottie-ios (3.5.0)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -737,7 +738,8 @@ DEPENDENCIES:
   - FirebaseCore
   - FirebaseFirestore
   - Floaty
-  - RealmSwift (~> 10)
+  - lottie-ios
+  - RealmSwift (~> 10.32)
   - TTGSnackbar
 
 SPEC REPOS:
@@ -758,6 +760,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - Libuv-gRPC
+    - lottie-ios
     - nanopb
     - PromisesObjC
     - Realm
@@ -793,6 +796,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
+  lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Realm: a00e93347b8d26d372c7a82f6c0b08d6536a21c8
@@ -800,6 +804,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   TTGSnackbar: fea91c62637b5662f808a4c3b55f7631cb7e1ef7
 
-PODFILE CHECKSUM: 23c5e3c39cf6caa4399845b3cd6b78273004abca
+PODFILE CHECKSUM: 07544b5e3fa0e62d2d8321ebb753e163cf819b22
 
 COCOAPODS: 1.11.3
