@@ -32,13 +32,19 @@ class EditViewController: GMMainViewController {
         text: "Apply",
         color: K.Color.actionBackground,
         tapAction: { [weak self] in
-            guard let updated = self?.form?.getExpense() else {
-                self?.alert(title: "Error", message: "Transaction nil", actionTitle: "Cancel")
-                return
+            self?.form?.validateFields { err in
+                if let err = err {
+                    self?.errorLabel.text = err
+                    return
+                }
+                guard let updated = self?.form?.getExpense() else {
+                    self?.alert(title: "Error", message: "Transaction nil", actionTitle: "Cancel")
+                    return
+                }
+                updated.updatedAt = Date()
+                self?.onApply?(updated)
+                self?.dismiss(animated: true)
             }
-            updated.updatedAt = Date()
-            self?.onApply?(updated)
-            self?.dismiss(animated: true)
         })
 
     override func setupLayout() {
