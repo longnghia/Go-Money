@@ -121,6 +121,13 @@ internal extension UIView {
     open func centerXToView(_ toView: UIView) {
         centerXAnchor.constraint(equalTo: toView.centerXAnchor).isActive = true
     }
+    
+    open func fillSuperview() {
+        self.anchor(top: superview?.topAnchor,
+                    left: superview?.leftAnchor,
+                    bottom: superview?.bottomAnchor,
+                    right: superview?.rightAnchor)
+    }
 
     open func setupShadow(opacity: Float = 0, radius: CGFloat = 0, offset: CGSize = .zero, color: UIColor = .black) {
         layer.shadowOpacity = opacity

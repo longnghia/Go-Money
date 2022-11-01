@@ -133,6 +133,13 @@ class AddExpenseForm: UIView {
         }
     }
 
+    func fillTransaction(_ transaction: Expense) {
+        dateField.text = DateFormatter.ddmmyyyy.string(from: transaction.occuredOn)
+        categoryField.text = transaction.tag
+        amountField.text = String(transaction.amount)
+        noteField.text = transaction.note
+    }
+
     func validateFields(completion: (String?) -> Void) {
         if getAmount().isEmpty {
             return completion(Content.fieldEmpty)

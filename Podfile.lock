@@ -728,6 +728,7 @@ PODS:
   - RealmSwift (10.32.0):
     - Realm (= 10.32.0)
   - SwiftAlgorithms (1.0.0)
+  - TTGSnackbar (1.11.1)
 
 DEPENDENCIES:
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
@@ -737,6 +738,7 @@ DEPENDENCIES:
   - FirebaseFirestore
   - Floaty
   - RealmSwift (~> 10)
+  - TTGSnackbar
 
 SPEC REPOS:
   trunk:
@@ -761,6 +763,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SwiftAlgorithms
+    - TTGSnackbar
 
 EXTERNAL SOURCES:
   Charts:
@@ -795,7 +798,8 @@ SPEC CHECKSUMS:
   Realm: a00e93347b8d26d372c7a82f6c0b08d6536a21c8
   RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
+  TTGSnackbar: fea91c62637b5662f808a4c3b55f7631cb7e1ef7
 
-PODFILE CHECKSUM: b082899d56ee076f2a64ea1521633bdc9e50575d
+PODFILE CHECKSUM: 23c5e3c39cf6caa4399845b3cd6b78273004abca
 
 COCOAPODS: 1.11.3

@@ -170,7 +170,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // TODO: go to detail
+        if let transaction = viewModel.transactions?[indexPath.row] {
+            let vc = DetailViewController()
+            vc.transaction = transaction
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

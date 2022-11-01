@@ -12,5 +12,6 @@ pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'm
 pod 'RealmSwift', '~>10'
 pod 'DropDown'
 pod 'Floaty'
+pod "TTGSnackbar"
 
 end
