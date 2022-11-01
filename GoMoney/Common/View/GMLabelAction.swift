@@ -1,6 +1,6 @@
 import UIKit
 
-class GMLabelAction: UIView {
+class GMLabelAction: UIControl {
     private enum Constant {
         static let height: CGFloat = 40
         static let padding: CGFloat = 2
@@ -16,18 +16,23 @@ class GMLabelAction: UIView {
         $0.contentMode = .scaleAspectFill
     }
 
+    private(set) var action: (() -> Void)?
+
     private lazy var actionText = GMLabel()
 
     init(
         text: String,
-        icLeft: String,
-        icRight: String? = "chevron.right",
+        icLeft: UIImage?,
+        icRight: UIImage? = UIImage(systemName: "chevron.right"),
         background: UIColor = .gray,
         textColor: UIColor = K.Color.boxLabel,
-        builder: ((GMLabelAction) -> Void)? = nil
+        action: (() -> Void)? = nil
     ) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+
+        self.action = action
+        addTarget(self, action: #selector(onTap), for: .touchUpInside)
 
         anchor(height: Constant.height)
         addSubviews(actionLeft, actionText, actionRight)
@@ -38,13 +43,13 @@ class GMLabelAction: UIView {
         actionText.text = text
         actionText.textColor = textColor
 
-        actionLeft.image = UIImage(systemName: icLeft)?.withTintColor(
+        actionLeft.image = icLeft?.withTintColor(
             K.Color.primaryColor,
             renderingMode: .alwaysOriginal
         )
 
         if let icRight = icRight {
-            actionRight.image = UIImage(systemName: icRight)?.withTintColor(
+            actionRight.image = icRight.withTintColor(
                 K.Color.borderOnContentBg,
                 renderingMode: .alwaysOriginal
             )
@@ -71,12 +76,56 @@ class GMLabelAction: UIView {
             width: Constant.iconRightSize,
             height: Constant.iconRightSize
         )
-
-        builder?(self)
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Actions
+
+    @objc
+    private func onTap() {
+        action?()
+    }
+
+    // MARK: - Touches
+
+    var touchAlpha: TouchAlphaValues = .untouched {
+        didSet {
+            updateTouchAlpha()
+        }
+    }
+
+    var pressed: Bool = false {
+        didSet {
+            touchAlpha = pressed ? .touched : .untouched
+        }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        pressed = true
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        pressed = false
+    }
+
+    func updateTouchAlpha() {
+        if alpha != touchAlpha.rawValue {
+            UIView.animate(withDuration: 0.3) {
+                self.alpha = self.touchAlpha.rawValue
+            }
+        }
+    }
+}
+
+extension GMLabelAction {
+    enum TouchAlphaValues: CGFloat {
+        case touched = 0.7
+        case untouched = 1.0
     }
 }

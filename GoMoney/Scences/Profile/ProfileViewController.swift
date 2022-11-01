@@ -14,6 +14,7 @@ class ProfileViewController: GMMainViewController {
         static let aboutUs = "About Us"
         static let help = "Help & Support"
         static let logout = "Logout"
+        static let tool = "Tools"
     }
 
     // MARK: - Private properties
@@ -33,19 +34,23 @@ class ProfileViewController: GMMainViewController {
 
     private lazy var actionNotification: GMLabelAction = .init(
         text: Content.notification,
-        icLeft: "bell")
+        icLeft: UIImage(systemName: "bell"))
 
     private lazy var actionSettings: GMLabelAction = .init(
         text: Content.settings,
-        icLeft: "gearshape")
+        icLeft: UIImage(systemName: "gearshape"))
+
+    private lazy var actionTool: GMLabelAction = .init(
+        text: Content.tool,
+        icLeft: UIImage(systemName: "wrench.and.screwdriver"))
 
     private lazy var actionAbout: GMLabelAction = .init(
         text: Content.aboutUs,
-        icLeft: "info.circle")
+        icLeft: UIImage(systemName: "info.circle"))
 
     private lazy var actionHelp: GMLabelAction = .init(
         text: Content.help,
-        icLeft: "questionmark.circle",
+        icLeft: UIImage(systemName: "questionmark.circle"),
         icRight: nil)
 
     private lazy var stackActions: UIStackView = {
@@ -56,6 +61,7 @@ class ProfileViewController: GMMainViewController {
         stackView.addArrangedSubviews(
             actionNotification,
             actionSettings,
+            actionTool,
             actionAbout,
             actionHelp)
         return stackView
