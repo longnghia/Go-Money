@@ -1,3 +1,4 @@
+import DropDown
 import UIKit
 
 class DetailViewController: GMMainViewController {
@@ -14,6 +15,19 @@ class DetailViewController: GMMainViewController {
         self?.editTransaction()
     }
     
+    private lazy var dropDown: DropDown = .build { [weak self] dropDown in
+        dropDown.dataSource = ["Share as Text", "Share as Image"]
+        dropDown.anchorView = self?.navigationItem.rightBarButtonItems![0]
+
+        dropDown.selectionAction = { (index: Int, _: String) in
+            if index == 0 {
+                self?.shareAsText()
+            } else if index == 1 {
+                self?.shareAsImage()
+            }
+        }
+    }
+    
     var transaction: Expense? {
         didSet {
             guard let transaction = transaction else {
@@ -24,6 +38,8 @@ class DetailViewController: GMMainViewController {
         }
     }
     
+    private var newTransaction: Expense?
+    
     // MARK: - LifeCircle
     
     override func configureBackButton() {
@@ -33,7 +49,7 @@ class DetailViewController: GMMainViewController {
             UIBarButtonItem(image: UIImage(systemName: "personalhotspot")?.color(.white),
                             style: .done,
                             target: self,
-                            action: #selector(shareTransaction)),
+                            action: #selector(dropDownMenu)),
             
             UIBarButtonItem(image: UIImage(systemName: "trash")?.color(.white),
                             style: .done,
@@ -77,6 +93,7 @@ class DetailViewController: GMMainViewController {
         let vc = EditViewController()
         vc.transaction = transaction
         vc.onApply = { newTrans in
+            self.newTransaction = newTrans
             self.applyNewTransaction(newTrans)
         }
         
@@ -120,7 +137,27 @@ class DetailViewController: GMMainViewController {
         }
     }
     
-    @objc func shareTransaction() {
-        print("share transaction")
+    private func shareAsText(completion: ((Error?) -> Void)? = nil) {
+        let transaction = newTransaction ?? transaction
+        guard let transaction = transaction else {
+            return
+        }
+        
+        let shareText = transaction.createShareText()
+        
+        let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        present(activityVC, animated: true)
+    }
+
+    private func shareAsImage() {
+        let image = detailView.asImage()
+        
+        let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(activityVC, animated: true)
+    }
+    
+    @objc
+    private func dropDownMenu() {
+        dropDown.show()
     }
 }

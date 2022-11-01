@@ -17,6 +17,19 @@ extension Expense {
     func isExpense() -> Bool {
         return type == ExpenseType.expense.rawValue
     }
+
+    func createShareText() -> String {
+        return """
+        ~~~~~~~~~~~~~~~~~
+        Transaction type: \(type)
+        Category:         \(tag)
+        Amount:           \(String(amount))
+        Date:             \(DateFormatter.date.string(from: occuredOn))
+        Note:             \(note)
+        ~~~~~~~~~~~~~~~~~
+        Shared from GoMoney with ❤️
+        """
+    }
 }
 
 extension [Expense] {
