@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// This is called in HomeViewController viewDidLoad.
     func setSyncInterval() {
         //  TODO: UserDefaults value
-        let interval: Double = 5
+        let interval: Double = 60
 
         // firebase
         let remote = RemoteService.shared
