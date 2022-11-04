@@ -38,11 +38,19 @@ class ProfileViewController: GMMainViewController {
 
     private lazy var actionSettings: GMLabelAction = .init(
         text: Content.settings,
-        icLeft: UIImage(systemName: "gearshape"))
+        icLeft: UIImage(systemName: "gearshape"),
+        action: { [weak self] in
+            let toolVC = SettingsViewController()
+            self?.navigationController?.pushViewController(toolVC, animated: true)
+        })
 
     private lazy var actionTool: GMLabelAction = .init(
         text: Content.tool,
-        icLeft: UIImage(systemName: "wrench.and.screwdriver"))
+        icLeft: UIImage(systemName: "wrench.and.screwdriver"),
+        action: { [weak self] in
+            let toolVC = ToolsViewController()
+            self?.navigationController?.pushViewController(toolVC, animated: true)
+        })
 
     private lazy var actionAbout: GMLabelAction = .init(
         text: Content.aboutUs,

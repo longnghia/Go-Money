@@ -11,9 +11,30 @@ class GMViewController: UIViewController {
     open func addObservers() {}
     open func removeObservers() {}
 
+    open func getTitle() -> String? {
+        return nil
+    }
+
+    open func getBackground() -> UIColor? {
+        return K.Color.background
+    }
+
+    func setTitle(_ title: String? = nil) {
+        if let title = title {
+            self.title = title
+        }
+    }
+
+    open func setBackground(_ color: UIColor? = K.Color.background) {
+        if let color = color {
+            view.backgroundColor = color
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = K.Color.contentBackground
+        setTitle(getTitle())
+        setBackground(getBackground())
         configureNavigation()
         setupLayout()
         addObservers()
