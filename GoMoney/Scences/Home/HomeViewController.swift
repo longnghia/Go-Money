@@ -58,6 +58,13 @@ class HomeViewController: GMMainViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         loadData()
+        configureSyncInterval()
+    }
+
+    private func configureSyncInterval() {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.setSyncInterval()
+        }
     }
 
     override func addObservers() {
