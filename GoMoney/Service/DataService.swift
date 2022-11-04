@@ -102,15 +102,9 @@ class DataService {
         do {
             try realm.write {
                 realm.add(expense)
+                // add new transaction to temp-table
+                realm.add(TransactionTracking(id: expense._id, status: .updated))
             }
-
-            // add updated transaction to temp-table
-            tracking.addTransactionTracking(TransactionTracking(id: expense._id, status: .updated)) { err in
-                if err == nil {
-                    completion?(err)
-                }
-            }
-
             completion?(nil)
         } catch {
             completion?(error)
@@ -119,14 +113,9 @@ class DataService {
 
     func deleteExpense(expense: Expense, completion: ((Error?) -> Void)? = nil) {
         do {
-            // add deleted transaction to temp-table
-            tracking.addTransactionTracking(TransactionTracking(id: expense._id, status: .deleted)) { err in
-                if err == nil {
-                    completion?(err)
-                }
-            }
-
             try realm.write {
+                // add deleted transaction to temp-table
+                realm.add(TransactionTracking(id: expense._id, status: .deleted))
                 realm.delete(expense)
             }
             completion?(nil)
@@ -143,16 +132,10 @@ class DataService {
                 oldTrans.note = newTrans.note
                 oldTrans.occuredOn = newTrans.occuredOn
                 oldTrans.updatedAt = newTrans.updatedAt
-            }
 
-            // add updated transaction to temp-table
-            tracking.addTransactionTracking(TransactionTracking(id: oldTrans._id, status: .updated)) { err in
-                if err == nil {
-                    completion?(err)
-                }
+                // add updated transaction to temp-table
+                realm.add(TransactionTracking(id: oldTrans._id, status: .updated))
             }
-
-            completion?(nil)
         } catch {
             completion?(error)
         }
