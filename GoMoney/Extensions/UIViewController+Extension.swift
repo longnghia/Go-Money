@@ -32,7 +32,7 @@ extension UIViewController {
         snackbar.show()
     }
 
-    func snackBar(message: String, duration: TTGSnackbarDuration = .middle) {
+    func snackBar(message: String, duration: TTGSnackbarDuration = .middle, actionIcon: UIImage? = nil) {
         let snackbar = TTGSnackbar(
             message: message,
             duration: duration
@@ -41,6 +41,11 @@ extension UIViewController {
         snackbar.actionTextFont = .novaBold(14)
         snackbar.actionTextColor = .red
         snackbar.animationType = .slideFromBottomToTop
+
+        if let actionIcon = actionIcon {
+            snackbar.actionIcon = actionIcon
+            snackbar.actionBlock = { _ in }
+        }
 
         snackbar.show()
     }
