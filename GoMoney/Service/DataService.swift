@@ -136,6 +136,7 @@ class DataService {
                 // add updated transaction to temp-table
                 realm.add(TransactionTracking(id: oldTrans._id, status: .updated))
             }
+            completion?(nil)
         } catch {
             completion?(error)
         }
