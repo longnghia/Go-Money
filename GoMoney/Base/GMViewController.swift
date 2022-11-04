@@ -20,9 +20,7 @@ class GMViewController: UIViewController {
     }
 
     func setTitle(_ title: String? = nil) {
-        if let title = title {
-            self.title = title
-        }
+        self.title = title
     }
 
     open func setBackground(_ color: UIColor? = K.Color.background) {

@@ -8,8 +8,8 @@ class SettingsViewController: GMMainViewController {
             switch self {
             case .display: return "Display"
             case .system: return "System"
-            case .database: return "Database"
-            case .about: return "GoMoney"
+            case .database: return "Data"
+            case .about: return "App"
             }
         }
 
@@ -51,6 +51,7 @@ class SettingsViewController: GMMainViewController {
             target: self,
             action: #selector(dismissSettings))
 
+        doneButton.setTextAttributes(font: .nova(), color: .white)
         return doneButton
     }()
 
@@ -188,7 +189,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 let syncCell = SettingsTableViewAccessoryCell(style: .value1, reuseIdentifier: "accessoryCell")
                 syncCell.labelText = Setting.intervalSync.rawValue
-                syncCell.accessoryLabelText = String(settings.getValue(for: .intervalSync) as? Int ?? 0)
+                syncCell.accessoryLabelText = String(settings.getValue(for: .intervalSync) as? Int ?? 0) + "s"
                 cell = syncCell
             } else {
                 cell = setupToggleCell(indexPath: indexPath)
@@ -221,8 +222,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func toggleForIndexPath(_ indexPath: IndexPath) -> BlockerToggle {
-        guard let toggle = toggles[indexPath.section]?[indexPath.row]
-        else { return BlockerToggle(label: "Error", setting: Setting.syncOnWifi) }
+        guard let toggle = toggles[indexPath.section]?[indexPath.row] else {
+            return BlockerToggle(label: "Error", setting: Setting.syncOnWifi)
+        }
         return toggle
     }
 
@@ -231,7 +233,14 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return sections[section] == .database ? 50 : 30
+        switch sections[section] {
+        case .display:
+            return 70
+        case .database:
+            return 50
+        default:
+            return 30
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

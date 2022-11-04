@@ -2,14 +2,18 @@ import UIKit
 
 class SettingsTableViewAccessoryCell: SettingsTableViewCell {
     var labelText: String? {
-        get { return textLabel?.text }
+        get {
+            return textLabel?.text
+        }
         set {
             textLabel?.text = newValue
         }
     }
 
     var accessoryLabelText: String? {
-        get { return detailTextLabel?.text }
+        get {
+            return detailTextLabel?.text
+        }
         set {
             detailTextLabel?.text = newValue
         }
