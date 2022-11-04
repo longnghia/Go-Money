@@ -12,6 +12,7 @@ protocol DataServiceDelegate: AnyObject {
 enum DataError: Error {
     case transactionNotFound(_ transaction: Expense)
     case noTransactions
+    case userNotFound
 
     var localizedDescription: String {
         switch self {
@@ -19,12 +20,19 @@ enum DataError: Error {
             return "Transaction \(transaction._id) not found!"
         case .noTransactions:
             return "There is no transactions!"
+        case .userNotFound:
+            return "User not found!"
         }
     }
 }
 
 class DataService {
     let realm: Realm = try! Realm()
+
+    let tracking = TrackingService.shared
+
+    typealias ServiceCompletion = (Error) -> Void
+
     static let shared = DataService()
     private var itemsToken: NotificationToken?
 
@@ -94,6 +102,8 @@ class DataService {
         do {
             try realm.write {
                 realm.add(expense)
+                // add new transaction to temp-table
+                realm.add(TransactionTracking(id: expense._id, status: .updated))
             }
             completion?(nil)
         } catch {
@@ -104,6 +114,8 @@ class DataService {
     func deleteExpense(expense: Expense, completion: ((Error?) -> Void)? = nil) {
         do {
             try realm.write {
+                // add deleted transaction to temp-table
+                realm.add(TransactionTracking(id: expense._id, status: .deleted))
                 realm.delete(expense)
             }
             completion?(nil)
@@ -120,10 +132,20 @@ class DataService {
                 oldTrans.note = newTrans.note
                 oldTrans.occuredOn = newTrans.occuredOn
                 oldTrans.updatedAt = newTrans.updatedAt
+
+                // add updated transaction to temp-table
+                realm.add(TransactionTracking(id: oldTrans._id, status: .updated))
             }
             completion?(nil)
         } catch {
             completion?(error)
         }
+    }
+
+    /// get Transaction by id.
+    func getTransaction(by id: String, completion: ((Expense?) -> Void)? = nil) {
+        let transaction = realm.objects(Expense.self)
+            .first(where: { $0._id.stringValue == id })
+        completion?(transaction)
     }
 }

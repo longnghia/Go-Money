@@ -5,13 +5,24 @@
 //  Created by Golden Owl on 12/10/2022.
 //
 
+import Reachability
 import UIKit
 
 /// BaseMainViewController with colored navigationBar and colored Background
 class GMMainViewController: GMViewController {
+    var networkAvailable = true
+    let reachability = try! Reachability()
+
+    deinit {
+        reachability.stopNotifier()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = K.Color.background
+
+        configureReachability()
+        startNotifier()
     }
 
     override func configureNavigation() {
@@ -77,5 +88,48 @@ class GMMainViewController: GMViewController {
 
     func notifyDataDidChange() {
         NotificationCenter.default.post(name: .dataChanged, object: self)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        reachability.stopNotifier()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startNotifier()
+    }
+
+    private func configureReachability() {
+        reachability.whenReachable = { [weak self] _ in
+
+            ConnectionService.shared.connection = self?.reachability.connection
+
+            if self?.networkAvailable == false {
+                self?.snackBar(
+                    message: "Connection restored",
+                    actionIcon: UIImage(named: "ic_wifi")?.color(.green))
+                self?.networkAvailable = true
+            }
+        }
+
+        reachability.whenUnreachable = { [weak self] _ in
+
+            ConnectionService.shared.connection = self?.reachability.connection
+
+            self?.networkAvailable = false
+
+            self?.snackBar(
+                message: "Connection lost",
+                actionIcon: UIImage(named: "ic_wifi_off")?.color(.red))
+        }
+    }
+
+    private func startNotifier() {
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
 }
