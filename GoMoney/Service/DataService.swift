@@ -12,6 +12,7 @@ protocol DataServiceDelegate: AnyObject {
 enum DataError: Error {
     case transactionNotFound(_ transaction: Expense)
     case noTransactions
+    case userNotFound
 
     var localizedDescription: String {
         switch self {
@@ -19,12 +20,19 @@ enum DataError: Error {
             return "Transaction \(transaction._id) not found!"
         case .noTransactions:
             return "There is no transactions!"
+        case .userNotFound:
+            return "User not found!"
         }
     }
 }
 
 class DataService {
     let realm: Realm = try! Realm()
+
+    let tracking = TrackingService.shared
+
+    typealias ServiceCompletion = (Error) -> Void
+
     static let shared = DataService()
     private var itemsToken: NotificationToken?
 
@@ -95,6 +103,14 @@ class DataService {
             try realm.write {
                 realm.add(expense)
             }
+
+            // add updated transaction to temp-table
+            tracking.addTransactionTracking(TransactionTracking(id: expense._id, status: .updated)) { err in
+                if err == nil {
+                    completion?(err)
+                }
+            }
+
             completion?(nil)
         } catch {
             completion?(error)
@@ -103,6 +119,13 @@ class DataService {
 
     func deleteExpense(expense: Expense, completion: ((Error?) -> Void)? = nil) {
         do {
+            // add deleted transaction to temp-table
+            tracking.addTransactionTracking(TransactionTracking(id: expense._id, status: .deleted)) { err in
+                if err == nil {
+                    completion?(err)
+                }
+            }
+
             try realm.write {
                 realm.delete(expense)
             }
@@ -121,9 +144,24 @@ class DataService {
                 oldTrans.occuredOn = newTrans.occuredOn
                 oldTrans.updatedAt = newTrans.updatedAt
             }
+
+            // add updated transaction to temp-table
+            tracking.addTransactionTracking(TransactionTracking(id: oldTrans._id, status: .updated)) { err in
+                if err == nil {
+                    completion?(err)
+                }
+            }
+
             completion?(nil)
         } catch {
             completion?(error)
         }
+    }
+
+    /// get Transaction by id.
+    func getTransaction(by id: String, completion: ((Expense?) -> Void)? = nil) {
+        let transaction = realm.objects(Expense.self)
+            .first(where: { $0._id.stringValue == id })
+        completion?(transaction)
     }
 }
