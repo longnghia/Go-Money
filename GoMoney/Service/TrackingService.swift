@@ -35,6 +35,15 @@ class TrackingService {
         }
     }
 
+    /// if transaction is already on tracking, update it.
+    func checkAndAdd(_ transaction: TransactionTracking) {
+        if let trans = realm.objects(TransactionTracking.self).first(where: { $0._id == transaction._id }) {
+            trans.status = transaction.status
+        } else {
+            realm.add(transaction)
+        }
+    }
+
     /// remove from temp-table
     func deleteTransactionTracking(by id: ObjectId, completion: ((Error?) -> Void)? = nil) {
         do {
