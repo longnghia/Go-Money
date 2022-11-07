@@ -16,5 +16,6 @@ pod 'Floaty'
 pod "TTGSnackbar"
 pod 'lottie-ios'
 pod 'ReachabilitySwift'
+pod 'GradientLoadingBar', '~> 3.0'
 
 end

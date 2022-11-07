@@ -47,6 +47,12 @@
 		088D691C29015865003D0660 /* AddExpenseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691B29015865003D0660 /* AddExpenseField.swift */; };
 		088D692029015FBC003D0660 /* DatePickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691E29015FBC003D0660 /* DatePickerInputView.swift */; };
 		088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691F29015FBC003D0660 /* ExpenseTextField.swift */; };
+		089CC73C29190C080070A108 /* ExportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089CC73A29190C070070A108 /* ExportViewModel.swift */; };
+		089CC73D29190C080070A108 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089CC73B29190C080070A108 /* ExportViewController.swift */; };
+		089CC74129190CA60070A108 /* DataExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089CC73E29190CA50070A108 /* DataExporter.swift */; };
+		089CC74229190CA60070A108 /* PathKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089CC73F29190CA50070A108 /* PathKit.swift */; };
+		089CC74329190CA60070A108 /* CSVDataExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089CC74029190CA50070A108 /* CSVDataExporter.swift */; };
+		089CC74529190CCC0070A108 /* TextDataExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089CC74429190CCB0070A108 /* TextDataExporter.swift */; };
 		08A272AB290FD780002B3574 /* GMFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A272AA290FD780002B3574 /* GMFloatingButton.swift */; };
 		08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */; };
 		08C1F24D28FE68A100590512 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F24A28FE68A000590512 /* ChartView.swift */; };
@@ -96,6 +102,7 @@
 		08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F428F9280700170C60 /* GMLabelAction.swift */; };
 		08DB56F728F95C7B00170C60 /* GMCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F628F95C7B00170C60 /* GMCircleImage.swift */; };
 		08DB56F928F9637200170C60 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F828F9637200170C60 /* ProfileView.swift */; };
+		08DDEB552918B4E700327474 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DDEB542918B4E700327474 /* FileUtil.swift */; };
 		08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */; };
 		08DEE9C8290109CC00EA9A2A /* MonthlyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */; };
 		08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */; };
@@ -141,6 +148,12 @@
 		088D691B29015865003D0660 /* AddExpenseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseField.swift; sourceTree = "<group>"; };
 		088D691E29015FBC003D0660 /* DatePickerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputView.swift; sourceTree = "<group>"; };
 		088D691F29015FBC003D0660 /* ExpenseTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTextField.swift; sourceTree = "<group>"; };
+		089CC73A29190C070070A108 /* ExportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportViewModel.swift; sourceTree = "<group>"; };
+		089CC73B29190C080070A108 /* ExportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
+		089CC73E29190CA50070A108 /* DataExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExporter.swift; sourceTree = "<group>"; };
+		089CC73F29190CA50070A108 /* PathKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathKit.swift; sourceTree = "<group>"; };
+		089CC74029190CA50070A108 /* CSVDataExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVDataExporter.swift; sourceTree = "<group>"; };
+		089CC74429190CCB0070A108 /* TextDataExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDataExporter.swift; sourceTree = "<group>"; };
 		08A272AA290FD780002B3574 /* GMFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMFloatingButton.swift; sourceTree = "<group>"; };
 		08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		08C1F1C528FE662600590512 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -198,6 +211,7 @@
 		08DB56F428F9280700170C60 /* GMLabelAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelAction.swift; sourceTree = "<group>"; };
 		08DB56F628F95C7B00170C60 /* GMCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMCircleImage.swift; sourceTree = "<group>"; };
 		08DB56F828F9637200170C60 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		08DDEB542918B4E700327474 /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
 		08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpenseView.swift; sourceTree = "<group>"; };
 		08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
@@ -481,6 +495,7 @@
 		08C872B828F658A300DC859D /* Scences */ = {
 			isa = PBXGroup;
 			children = (
+				08DDEB4E2918B1B600327474 /* Export */,
 				085F75242912158E0094A026 /* Setting */,
 				080ADD1C290F7F21005DCF86 /* Edit */,
 				080ADD19290F7C5A005DCF86 /* Detail */,
@@ -592,6 +607,8 @@
 		08C8730B28F7B1BD00DC859D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				08DDEB532918B4C800327474 /* File */,
+				08DDEB402918A0FE00327474 /* RealmConverter */,
 				081CB30F2906F5290007D426 /* Chart */,
 				088D691D29015F1D003D0660 /* InputView */,
 				08C1F26628FEA3EB00590512 /* TabBar */,
@@ -642,6 +659,34 @@
 				08DB56F828F9637200170C60 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		08DDEB402918A0FE00327474 /* RealmConverter */ = {
+			isa = PBXGroup;
+			children = (
+				089CC74429190CCB0070A108 /* TextDataExporter.swift */,
+				089CC74029190CA50070A108 /* CSVDataExporter.swift */,
+				089CC73E29190CA50070A108 /* DataExporter.swift */,
+				089CC73F29190CA50070A108 /* PathKit.swift */,
+			);
+			path = RealmConverter;
+			sourceTree = "<group>";
+		};
+		08DDEB4E2918B1B600327474 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				089CC73B29190C080070A108 /* ExportViewController.swift */,
+				089CC73A29190C070070A108 /* ExportViewModel.swift */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		08DDEB532918B4C800327474 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				08DDEB542918B4E700327474 /* FileUtil.swift */,
+			);
+			path = File;
 			sourceTree = "<group>";
 		};
 		08DEE9C929013E2A00EA9A2A /* AddExpense */ = {
@@ -798,6 +843,7 @@
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
 				085F752E29124D750094A026 /* SettingsManager.swift in Sources */,
 				088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */,
+				089CC74229190CA60070A108 /* PathKit.swift in Sources */,
 				08C872E028F6866000DC859D /* OnboardCell.swift in Sources */,
 				081CB3162907829C0007D426 /* Expense+Extension.swift in Sources */,
 				085F752A2912490E0094A026 /* SettingsTableViewCell.swift in Sources */,
@@ -821,6 +867,7 @@
 				080ADD24290F8ADA005DCF86 /* DetailViewController.swift in Sources */,
 				08DB56F328F9256A00170C60 /* ProfileViewController.swift in Sources */,
 				08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */,
+				089CC73D29190C080070A108 /* ExportViewController.swift in Sources */,
 				082BF94828FD01400094FE94 /* AuthService.swift in Sources */,
 				083EA33B2906933A0079605F /* StatLineChartCell.swift in Sources */,
 				081DC8982901A99C0005374F /* AddExpenseForm.swift in Sources */,
@@ -837,11 +884,13 @@
 				083EA336290659660079605F /* TransactionTag.swift in Sources */,
 				080ADD30290FB068005DCF86 /* DetailView.swift in Sources */,
 				08C872F028F6CAAB00DC859D /* UIView+Constraint.swift in Sources */,
+				089CC74129190CA60070A108 /* DataExporter.swift in Sources */,
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
 				08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */,
 				08C8731228F8021100DC859D /* GMTextField.swift in Sources */,
 				08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */,
 				08C1F25B28FE8B2A00590512 /* Expense.swift in Sources */,
+				089CC74329190CA60070A108 /* CSVDataExporter.swift in Sources */,
 				08C6894B2913AF06002071CC /* TransactionTracking.swift in Sources */,
 				081DC8A029025C8F0005374F /* GMImageButton.swift in Sources */,
 				085F7539291278100094A026 /* ConnectionService.swift in Sources */,
@@ -856,7 +905,9 @@
 				088149242911682C00BB3A79 /* ToolsViewController.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
+				08DDEB552918B4E700327474 /* FileUtil.swift in Sources */,
 				08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */,
+				089CC73C29190C080070A108 /* ExportViewModel.swift in Sources */,
 				08DB56E728F8FCFD00170C60 /* TextFieldSignUp.swift in Sources */,
 				082BF94A28FD022D0094FE94 /* GMLoadingView.swift in Sources */,
 				08C6894929136A00002071CC /* RemoteService.swift in Sources */,
@@ -870,6 +921,7 @@
 				08C1F26028FE947E00590512 /* HomeViewModel.swift in Sources */,
 				08DB56ED28F916D500170C60 /* SignUpDetailViewController.swift in Sources */,
 				08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */,
+				089CC74529190CCC0070A108 /* TextDataExporter.swift in Sources */,
 				08C872EA28F6C51200DC859D /* UserDefaultKey.swift in Sources */,
 				08C872A528F655CD00DC859D /* SceneDelegate.swift in Sources */,
 				081DC8A2290274990005374F /* CategoryPickerInputView.swift in Sources */,

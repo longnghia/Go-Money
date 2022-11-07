@@ -24,7 +24,7 @@ class ToolsViewController: GMMainViewController {
         text: "Export Data",
         icLeft: UIImage(named: "ic_export"),
         action: { [weak self] in
-            let exportVC = GMMainViewController()
+            let exportVC = ExportViewController()
             self?.navigationController?.pushViewController(exportVC, animated: true)
         })
 
