@@ -4,7 +4,7 @@ import UIKit
 class ToolsViewController: GMMainViewController {
     // MARK: Views
 
-    private lazy var actionCalculator: GMLabelAction = .init(
+    private lazy var calculatorActionViews: GMLabelActionView = .init(
         text: "Calculator",
         icLeft: UIImage(named: "ic_calculator"),
         action: { [weak self] in
@@ -12,7 +12,7 @@ class ToolsViewController: GMMainViewController {
             self?.navigationController?.pushViewController(calculatorVC, animated: true)
         })
 
-    private lazy var actionCurrency: GMLabelAction = .init(
+    private lazy var currencyActionViews: GMLabelActionView = .init(
         text: "Currency Exchanger",
         icLeft: UIImage(named: "ic_currency"),
         action: { [weak self] in
@@ -20,7 +20,7 @@ class ToolsViewController: GMMainViewController {
             self?.navigationController?.pushViewController(exchangerVC, animated: true)
         })
 
-    private lazy var actionExport: GMLabelAction = .init(
+    private lazy var exportActionViews: GMLabelActionView = .init(
         text: "Export Data",
         icLeft: UIImage(named: "ic_export"),
         action: { [weak self] in
@@ -28,15 +28,15 @@ class ToolsViewController: GMMainViewController {
             self?.navigationController?.pushViewController(exportVC, animated: true)
         })
 
-    private lazy var stackActions: UIStackView = {
+    private lazy var stackActionViews: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 24
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubviews(
-            actionCalculator,
-            actionCurrency,
-            actionExport)
+            calculatorActionViews,
+            currencyActionViews,
+            calculatorActionViews)
         return stackView
     }()
 
@@ -56,9 +56,9 @@ class ToolsViewController: GMMainViewController {
     override func setupLayout() {
         super.setupLayout()
 
-        view.addSubviews(stackActions, animationView)
+        view.addSubviews(stackActionViews, animationView)
 
-        stackActions.anchor(
+        stackActionViews.anchor(
             top: animationView.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,

@@ -98,7 +98,7 @@
 		08DB56EB28F9053700170C60 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56EA28F9053700170C60 /* UIColor+Extension.swift */; };
 		08DB56ED28F916D500170C60 /* SignUpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */; };
 		08DB56F328F9256A00170C60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F228F9256A00170C60 /* ProfileViewController.swift */; };
-		08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F428F9280700170C60 /* GMLabelAction.swift */; };
+		08DB56F528F9280700170C60 /* GMLabelActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F428F9280700170C60 /* GMLabelActionView.swift */; };
 		08DB56F728F95C7B00170C60 /* GMCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F628F95C7B00170C60 /* GMCircleImage.swift */; };
 		08DB56F928F9637200170C60 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56F828F9637200170C60 /* ProfileView.swift */; };
 		08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */; };
@@ -205,7 +205,7 @@
 		08DB56EA28F9053700170C60 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDetailViewController.swift; sourceTree = "<group>"; };
 		08DB56F228F9256A00170C60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		08DB56F428F9280700170C60 /* GMLabelAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelAction.swift; sourceTree = "<group>"; };
+		08DB56F428F9280700170C60 /* GMLabelActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelActionView.swift; sourceTree = "<group>"; };
 		08DB56F628F95C7B00170C60 /* GMCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMCircleImage.swift; sourceTree = "<group>"; };
 		08DB56F828F9637200170C60 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -628,7 +628,7 @@
 				08C8730D28F7B1FD00DC859D /* GMLabel.swift */,
 				08C8731528F81E0D00DC859D /* GMLabelSpan.swift */,
 				08C8730F28F7B89D00DC859D /* GMButton.swift */,
-				08DB56F428F9280700170C60 /* GMLabelAction.swift */,
+				08DB56F428F9280700170C60 /* GMLabelActionView.swift */,
 				08C8731128F8021100DC859D /* GMTextField.swift */,
 				08DB56F628F95C7B00170C60 /* GMCircleImage.swift */,
 				082BF94928FD022D0094FE94 /* GMLoadingView.swift */,
@@ -860,7 +860,7 @@
 				08DB56F728F95C7B00170C60 /* GMCircleImage.swift in Sources */,
 				080ADD24290F8ADA005DCF86 /* DetailViewController.swift in Sources */,
 				08DB56F328F9256A00170C60 /* ProfileViewController.swift in Sources */,
-				08DB56F528F9280700170C60 /* GMLabelAction.swift in Sources */,
+				08DB56F528F9280700170C60 /* GMLabelActionView.swift in Sources */,
 				089CC747291967F50070A108 /* RealmConverter.swift in Sources */,
 				089CC73D29190C080070A108 /* ExportViewController.swift in Sources */,
 				082BF94828FD01400094FE94 /* AuthService.swift in Sources */,

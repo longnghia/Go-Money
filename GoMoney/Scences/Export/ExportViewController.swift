@@ -10,44 +10,44 @@ class ExportViewController: GMMainViewController {
     
     // MARK: Views
     
-    private lazy var actionCSV: GMLabelAction = .init(
+    private lazy var csvActionView: GMLabelActionView = .init(
         text: "Export to CSV",
         icLeft: UIImage(named: "ic_export_csv"),
         action: { [weak self] in
             self?.export(to: .csv)
         })
     
-    private lazy var actionJSON: GMLabelAction = .init(
+    private lazy var jsonActionView: GMLabelActionView = .init(
         text: "Export to JSON",
         icLeft: UIImage(named: "ic_export_json"),
         action: { [weak self] in
             self?.export(to: .json)
         })
     
-    private lazy var actionTxt: GMLabelAction = .init(
+    private lazy var txtActionView: GMLabelActionView = .init(
         text: "Export to TXT",
         icLeft: UIImage(named: "ic_text"),
         action: { [weak self] in
             self?.export(to: .txt)
         })
     
-    private lazy var actionRealm: GMLabelAction = .init(
+    private lazy var realmActionView: GMLabelActionView = .init(
         text: "Export Realm file",
         icLeft: UIImage(named: "ic_export"),
         action: { [weak self] in
             self?.export(to: .realm)
         })
     
-    private lazy var stackActions: UIStackView = {
+    private lazy var stackActionViews: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 24
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubviews(
-            actionCSV,
-            actionJSON,
-            actionTxt,
-            actionRealm)
+            csvActionView,
+            jsonActionView,
+            txtActionView,
+            realmActionView)
         return stackView
     }()
     
@@ -58,9 +58,9 @@ class ExportViewController: GMMainViewController {
     override func setupLayout() {
         super.setupLayout()
         
-        view.addSubviews(stackActions)
+        view.addSubviews(stackActionViews)
         
-        stackActions.anchor(
+        stackActionViews.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
