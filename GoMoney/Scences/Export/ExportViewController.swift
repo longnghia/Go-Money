@@ -64,28 +64,40 @@ class ExportViewController: GMMainViewController {
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            paddingTop: 24,
+            paddingTop: 32,
             paddingLeft: 16,
             paddingRight: 16)
     }
     
-    private func completion(err: Error?) {
-        if let err = err {
-            alert(
-                title: "Export Fail",
-                message: err.localizedDescription,
-                actionTitle: "Cancel")
-        } else {
-            DispatchQueue.main.async { [weak self] in
+    private func chooseSaveDir(from url: URL) {
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = { [weak self] _, completed, _, error in
+            if completed, error == nil {
                 self?.snackBar(
                     message: "Export Successfully",
-                    actionText: "Open",
-                    block: {
-                        self?.openFile()
-                    })
+                    actionText: "OK",
+                    block: { self?.openFile(url) })
+            } else if !completed {
+                self?.snackBar(
+                    message: "Aborted",
+                    actionText: "Cancel")
             }
         }
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
+    private func completion(result: Result<URL, Error>) {
         DispatchQueue.main.async {
+            switch result {
+            case .failure(let err):
+                self.alert(
+                    title: "Export Fail",
+                    message: err.localizedDescription,
+                    actionTitle: "Cancel")
+            case .success(let url):
+                self.chooseSaveDir(from: url)
+            }
+            
             self.gradientLoadingBar.fadeOut()
         }
     }
@@ -93,13 +105,12 @@ class ExportViewController: GMMainViewController {
     private func export(to type: ExportType) {
         gradientLoadingBar.fadeIn()
 
-        viewModel.export(type: type) { [weak self] err in
-            self?.completion(err: err)
+        viewModel.export(type: type) { [weak self] result in
+            self?.completion(result: result)
         }
     }
 
-    private func openFile() {
+    private func openFile(_ url: URL) {
         // TODO: Display file.
-        UIApplication.shared.open(FileUtil.documentURL)
     }
 }

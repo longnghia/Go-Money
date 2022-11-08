@@ -5,38 +5,27 @@ enum ExportType {
 }
 
 class ExportViewModel {
-    func export(type: ExportType, outputFolderPath: String = FileUtil.documentPath, completion: @escaping (Error?) -> Void) {
+    func export(type: ExportType, completion: @escaping (Result<URL, Error>) -> Void) {
         DispatchQueue.global().async {
             do {
-                guard let realmFilePath = FileUtil.realmPath else {
-                    completion(FileError.fileNotFound)
-                    return
-                }
-
+                let exporter = RealmConverter()
+                let url: URL
                 switch type {
                 case .csv:
-                    let exporter = try CSVDataExporter(realmFilePath: realmFilePath)
-                    try exporter.exportSchemas(
-                        toFolderAtPath: outputFolderPath,
-                        schemas: [String(describing: Expense.self)])
+                    url = try exporter.exportCSV()
 
                 case .txt:
-                    let exporter = try TextDataExporter(realmFilePath: realmFilePath)
-                    try exporter.exportText(
-                        toFolderAtPath: outputFolderPath,
-                        schemas: [String(describing: Expense.self)])
+                    url = try exporter.exportTxt()
 
                 case .json:
-                    // TODO: export json
-                    break
+                    url = try exporter.exportJSON()
 
                 case .realm:
-                    // TODO: copy realm file to outputFolderPath
-                    break
+                    url = try exporter.exportRealm()
                 }
-                completion(nil)
+                completion(.success(url))
             } catch {
-                completion(error)
+                completion(.failure(error))
             }
         }
     }
