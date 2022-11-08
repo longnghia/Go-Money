@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let signedIn = true
             if signedIn {
                 let tabBarVC = GMTabBarViewController()
-                tabBarVC.selectedIndex = 1
                 window?.rootViewController = tabBarVC
             } else {
                 let navVC = UINavigationController(rootViewController: SignInViewController())

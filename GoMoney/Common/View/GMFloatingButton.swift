@@ -21,6 +21,7 @@ class GMFloatingButton: UIControl {
         backgroundColor = background
         buttonIcon.image = image
         buttonLabel.text = text
+        buttonLabel.textColor = textColor
         
         self.onTap = onTap
         addTarget(self, action: #selector(didTapButton), for: .touchUpInside)

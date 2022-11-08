@@ -12,7 +12,7 @@ extension UIViewController {
     func alert(title: String, message: String = "", actionTitle: String = NSLocalizedString("OK", comment: "ok"), cancelHandler: ((UIAlertAction) -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: cancelHandler))
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 
     func snackBar(message: String, duration: TTGSnackbarDuration = .middle, actionText: String, block: (() -> Void)? = nil) {
@@ -48,5 +48,26 @@ extension UIViewController {
         }
 
         snackbar.show()
+    }
+
+    func showGotoSettingsAlert(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+
+        let settingAction = UIAlertAction(title: "Go to settings", style: .default, handler: { _ in
+            // open settings
+            let url = URL(string: UIApplication.openSettingsURLString)
+            if UIApplication.shared.canOpenURL(url!) {
+                UIApplication.shared.open(url!, options: [:])
+            }
+        })
+
+        alertController.addAction(settingAction)
+
+        // add cancel button
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
     }
 }
