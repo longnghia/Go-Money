@@ -15,6 +15,10 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
+    func errorAlert(message: String) {
+        alert(title: "Error", message: message, actionTitle: "Cancel")
+    }
+
     func snackBar(message: String, duration: TTGSnackbarDuration = .middle, actionText: String, block: (() -> Void)? = nil) {
         let snackbar = TTGSnackbar(
             message: message,
