@@ -103,7 +103,7 @@ class DataService {
             try realm.write {
                 realm.add(expense)
                 // add new transaction to temp-table
-                realm.add(TransactionTracking(id: expense._id, status: .updated))
+                tracking.checkAndAdd(TransactionTracking(id: expense._id, status: .updated))
             }
             completion?(nil)
         } catch {
@@ -115,7 +115,7 @@ class DataService {
         do {
             try realm.write {
                 // add deleted transaction to temp-table
-                realm.add(TransactionTracking(id: expense._id, status: .deleted))
+                tracking.checkAndAdd(TransactionTracking(id: expense._id, status: .deleted))
                 realm.delete(expense)
             }
             completion?(nil)
@@ -134,7 +134,7 @@ class DataService {
                 oldTrans.updatedAt = newTrans.updatedAt
 
                 // add updated transaction to temp-table
-                realm.add(TransactionTracking(id: oldTrans._id, status: .updated))
+                tracking.checkAndAdd(TransactionTracking(id: oldTrans._id, status: .updated))
             }
             completion?(nil)
         } catch {
