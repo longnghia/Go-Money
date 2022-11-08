@@ -5,14 +5,20 @@ class AddExpenseForm: UIView {
     private(set) var curTag: TransactionTag = .food
 
     lazy var dateField = {
-        let field = AddExpenseField(name: "Date", defaultValue: DateFormatter.today) { textField in
-            textField.inputView = DatePickerInputView(mode: .date) { [weak self] date in
-                textField.text = DateFormatter.ddmmyyyy.string(from: date)
-                self?.curDate = date
-            }
-            textField.inputAccessoryView = AccessoryView("Select Date", doneTapped: {
-                textField.resignFirstResponder()
-            })
+        let field = AddExpenseField(
+            name: "Date",
+            defaultValue: DateFormatter.today
+        ) { [weak self] textField in
+            textField.inputView =
+                DatePickerInputView(mode: .date) { [weak textField] date in
+                    textField?.text = DateFormatter.ddmmyyyy.string(from: date)
+                    self?.curDate = date
+                }
+
+            textField.inputAccessoryView =
+                AccessoryView("Select Date", doneTapped: { [weak textField] in
+                    textField?.resignFirstResponder()
+                })
         }
         return field
     }()
@@ -20,14 +26,19 @@ class AddExpenseForm: UIView {
     lazy var categoryField = {
         let defaultTag: TransactionTag = transType == .expense ? .food : .salary
 
-        let field = AddExpenseField(name: "Category", defaultValue: defaultTag.getName()) { textField in
-            textField.inputView = CategoryPickerInputView(type: self.transType) { [weak self] tag in
+        let field = AddExpenseField(
+            name: "Category",
+            defaultValue: defaultTag.getName()
+        ) { [weak self] textField in
+
+            textField.inputView = CategoryPickerInputView(type: self?.transType ?? .expense) { [weak textField] tag in
                 self?.curTag = tag
-                textField.text = tag.getName()
-                textField.resignFirstResponder()
+                textField?.text = tag.getName()
+                textField?.resignFirstResponder()
             }
-            textField.inputAccessoryView = AccessoryView("Select Category", doneTapped: {
-                textField.resignFirstResponder()
+            textField.inputAccessoryView = AccessoryView("Select Category", doneTapped: { [weak textField] in
+                textField?.resignFirstResponder()
+
             })
         }
         return field
@@ -37,8 +48,8 @@ class AddExpenseForm: UIView {
         let field = AddExpenseField(name: "Amount") { textField in
             // TODO: Custom Keyboard InputView, use default keyboard temporarily.
             textField.keyboardType = .numberPad
-            textField.inputAccessoryView = AccessoryView("Select Amount", doneTapped: {
-                textField.resignFirstResponder()
+            textField.inputAccessoryView = AccessoryView("Select Amount", doneTapped: { [weak textField] in
+                textField?.resignFirstResponder()
             })
         }
         return field
@@ -46,8 +57,8 @@ class AddExpenseForm: UIView {
 
     lazy var noteField = {
         let field = AddExpenseField(name: "Note") { textField in
-            textField.inputAccessoryView = AccessoryView("Note", doneTapped: {
-                textField.resignFirstResponder()
+            textField.inputAccessoryView = AccessoryView("Note", doneTapped: { [weak textField] in
+                textField?.resignFirstResponder()
             })
         }
         return field
@@ -134,6 +145,8 @@ class AddExpenseForm: UIView {
     }
 
     func fillTransaction(_ transaction: Expense) {
+        curDate = transaction.occuredOn
+
         dateField.text = DateFormatter.ddmmyyyy.string(from: transaction.occuredOn)
         categoryField.text = transaction.tag
         amountField.text = String(transaction.amount)

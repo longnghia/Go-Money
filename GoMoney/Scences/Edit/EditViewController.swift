@@ -37,11 +37,15 @@ class EditViewController: GMMainViewController {
                     self?.errorLabel.text = err
                     return
                 }
-                guard let updated = self?.form?.getExpense() else {
+                guard
+                    let updated = self?.form?.getExpense(),
+                    let transaction = self?.transaction
+                else {
                     self?.alert(title: "Error", message: "Transaction nil", actionTitle: "Cancel")
                     return
                 }
                 updated.updatedAt = Date()
+                updated.createdAt = transaction.createdAt
                 self?.onApply?(updated)
                 self?.dismiss(animated: true)
             }

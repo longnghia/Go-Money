@@ -62,10 +62,6 @@ public class CategoryPickerInputView: UIView {
             right: rightAnchor
         )
     }
-
-    @objc func didChangeTheDate() {
-        didSelect?(selectedTag)
-    }
 }
 
 extension CategoryPickerInputView: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -102,7 +98,7 @@ class CategoryPickerCell: UICollectionViewCell {
     }
 
     lazy var image = GMExpenseIcon()
-    lazy var label = GMLabel(style: .small)
+    lazy var label = GMLabel(style: .small, isCenter: true)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
