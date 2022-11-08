@@ -36,7 +36,7 @@ class ToolsViewController: GMMainViewController {
         stackView.addArrangedSubviews(
             calculatorActionViews,
             currencyActionViews,
-            calculatorActionViews)
+            exportActionViews)
         return stackView
     }()
 

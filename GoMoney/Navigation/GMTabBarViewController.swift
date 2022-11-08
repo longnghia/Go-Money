@@ -52,5 +52,7 @@ class GMTabBarViewController: UITabBarController {
         setValue(customTabBar, forKey: "tabBar")
         
         viewControllers = [statisticVC, homeVC, profileVC]
+        
+        selectedIndex = 1
     }
 }

@@ -94,8 +94,8 @@ class SettingsViewController: GMMainViewController {
         let enablePasswordToggle = BlockerToggle(
             setting: Setting.enablePassword)
 
-        if let databaseIndex = Section.getSectionIndex(.system) {
-            toggles[databaseIndex] = [
+        if let systemIndex = Section.getSectionIndex(.system) {
+            toggles[systemIndex] = [
                 0: enablePasswordToggle,
             ]
         }
@@ -181,10 +181,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
             cell = displayCell
         case .system:
-            let systemCell = SettingsTableViewAccessoryCell(style: .value1, reuseIdentifier: "accessoryCell")
-            systemCell.labelText = Setting.enablePassword.rawValue
-            systemCell.accessoryLabelText = settings.getValue(for: .enablePassword) as? String ?? ""
-            cell = systemCell
+            cell = setupToggleCell(indexPath: indexPath)
+
         case .database:
             if indexPath.row == 0 {
                 let syncCell = SettingsTableViewAccessoryCell(style: .value1, reuseIdentifier: "accessoryCell")
