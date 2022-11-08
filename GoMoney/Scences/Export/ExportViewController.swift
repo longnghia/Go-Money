@@ -72,15 +72,22 @@ class ExportViewController: GMMainViewController {
     private func chooseSaveDir(from url: URL) {
         let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { [weak self] _, completed, _, error in
-            if completed, error == nil {
-                self?.snackBar(
-                    message: "Export Successfully",
-                    actionText: "OK",
-                    block: { self?.openFile(url) })
-            } else if !completed {
-                self?.snackBar(
-                    message: "Aborted",
-                    actionText: "Cancel")
+            if let error = error {
+                self?.alert(
+                    title: "Error",
+                    message: error.localizedDescription,
+                    actionTitle: "Cancel")
+            } else {
+                if completed {
+                    self?.snackBar(
+                        message: "Export Successfully",
+                        actionText: "OK",
+                        block: { self?.openFile(url) })
+                } else {
+                    self?.snackBar(
+                        message: "Aborted",
+                        actionText: "Cancel")
+                }
             }
         }
         present(activityViewController, animated: true, completion: nil)
