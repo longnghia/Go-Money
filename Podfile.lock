@@ -596,6 +596,7 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - BiometricAuthentication (3.1.3)
   - BoringSSL-GRPC (0.0.24):
     - BoringSSL-GRPC/Implementation (= 0.0.24)
     - BoringSSL-GRPC/Interface (= 0.0.24)
@@ -736,6 +737,7 @@ PODS:
   - TTGSnackbar (1.11.1)
 
 DEPENDENCIES:
+  - BiometricAuthentication
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
   - DropDown
   - FirebaseAuth
@@ -752,6 +754,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - abseil
+    - BiometricAuthentication
     - BoringSSL-GRPC
     - DropDown
     - FirebaseAuth
@@ -790,6 +793,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
+  BiometricAuthentication: b63d51be9260ba94165e032829ae78f074b129df
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
@@ -817,6 +821,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   TTGSnackbar: fea91c62637b5662f808a4c3b55f7631cb7e1ef7
 
-PODFILE CHECKSUM: dfbe256014788c4a35c79ca9e7292c3b30d15c95
+PODFILE CHECKSUM: e8e278ec734b5473a7e9e53aa0611fff04c63bd0
 
 COCOAPODS: 1.11.3

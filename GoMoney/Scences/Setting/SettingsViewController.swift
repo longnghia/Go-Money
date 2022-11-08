@@ -131,7 +131,37 @@ class SettingsViewController: GMMainViewController {
             .values.filter
             { $0.toggle == sender }[0]
 
-        settings.setValue(sender.isOn, for: toggle.setting)
+        if toggle.setting == .enablePassword {
+            enableBiometric(by: sender)
+        } else {
+            settings.setValue(sender.isOn, for: toggle.setting)
+        }
+    }
+
+    private func enableBiometric(by sender: UISwitch) {
+        if sender.isOn {
+            BiometricService.shared.authenticate { [weak self] err in
+                if let err = err {
+                    switch err {
+                    case .biometryNotEnrolled:
+                        self?.showGotoSettingsAlert(message: err.message())
+
+                    case .canceledBySystem, .canceledByUser:
+                        break
+
+                    default:
+                        self?.errorAlert(message: err.message())
+                    }
+
+                    self?.settings.setValue(false, for: .enablePassword)
+                    sender.setOn(false, animated: true)
+                } else {
+                    self?.settings.setValue(true, for: .enablePassword)
+                }
+            }
+        } else {
+            settings.setValue(false, for: .enablePassword)
+        }
     }
 
     @objc private func dismissSettings() {
