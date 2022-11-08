@@ -1,6 +1,6 @@
 import UIKit
 
-class GMLabelAction: UIControl {
+class GMLabelActionView: UIControl {
     private enum Constant {
         static let height: CGFloat = 40
         static let padding: CGFloat = 2
@@ -123,7 +123,7 @@ class GMLabelAction: UIControl {
     }
 }
 
-extension GMLabelAction {
+extension GMLabelActionView {
     enum TouchAlphaValues: CGFloat {
         case touched = 0.7
         case untouched = 1.0

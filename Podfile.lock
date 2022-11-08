@@ -659,6 +659,7 @@ PODS:
   - "GoogleUtilities/NSData+zlib (7.8.0)"
   - GoogleUtilities/Reachability (7.8.0):
     - GoogleUtilities/Logger
+  - GradientLoadingBar (3.0.0)
   - "gRPC-C++ (1.44.0)":
     - "gRPC-C++/Implementation (= 1.44.0)"
     - "gRPC-C++/Interface (= 1.44.0)"
@@ -742,6 +743,7 @@ DEPENDENCIES:
   - FirebaseFirestore
   - FirebaseFirestoreSwift
   - Floaty
+  - GradientLoadingBar (~> 3.0)
   - lottie-ios
   - ReachabilitySwift
   - RealmSwift (~> 10.32)
@@ -761,6 +763,7 @@ SPEC REPOS:
     - Floaty
     - GoogleDataTransport
     - GoogleUtilities
+    - GradientLoadingBar
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
@@ -799,6 +802,7 @@ SPEC CHECKSUMS:
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
+  GradientLoadingBar: 3c4246535efdedaf9b471c05caabfdb4b87b40a2
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
   GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
@@ -813,6 +817,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   TTGSnackbar: fea91c62637b5662f808a4c3b55f7631cb7e1ef7
 
-PODFILE CHECKSUM: 5a7ad8df5fd460180d02b078027ef7b9776a4aeb
+PODFILE CHECKSUM: dfbe256014788c4a35c79ca9e7292c3b30d15c95
 
 COCOAPODS: 1.11.3

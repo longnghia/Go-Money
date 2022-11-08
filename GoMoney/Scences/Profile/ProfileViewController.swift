@@ -32,11 +32,11 @@ class ProfileViewController: GMMainViewController {
         return button
     }()
 
-    private lazy var actionNotification: GMLabelAction = .init(
+    private lazy var notificationActionView: GMLabelActionView = .init(
         text: Content.notification,
         icLeft: UIImage(systemName: "bell"))
 
-    private lazy var actionSettings: GMLabelAction = .init(
+    private lazy var settingsActionView: GMLabelActionView = .init(
         text: Content.settings,
         icLeft: UIImage(systemName: "gearshape"),
         action: { [weak self] in
@@ -44,7 +44,7 @@ class ProfileViewController: GMMainViewController {
             self?.navigationController?.pushViewController(toolVC, animated: true)
         })
 
-    private lazy var actionTool: GMLabelAction = .init(
+    private lazy var toolsActionView: GMLabelActionView = .init(
         text: Content.tool,
         icLeft: UIImage(systemName: "wrench.and.screwdriver"),
         action: { [weak self] in
@@ -52,11 +52,11 @@ class ProfileViewController: GMMainViewController {
             self?.navigationController?.pushViewController(toolVC, animated: true)
         })
 
-    private lazy var actionAbout: GMLabelAction = .init(
+    private lazy var aboutActionView: GMLabelActionView = .init(
         text: Content.aboutUs,
         icLeft: UIImage(systemName: "info.circle"))
 
-    private lazy var actionHelp: GMLabelAction = .init(
+    private lazy var helpActionView: GMLabelActionView = .init(
         text: Content.help,
         icLeft: UIImage(systemName: "questionmark.circle"),
         icRight: nil)
@@ -67,11 +67,11 @@ class ProfileViewController: GMMainViewController {
         stackView.spacing = 24
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubviews(
-            actionNotification,
-            actionSettings,
-            actionTool,
-            actionAbout,
-            actionHelp)
+            notificationActionView,
+            settingsActionView,
+            toolsActionView,
+            aboutActionView,
+            helpActionView)
         return stackView
     }()
 
