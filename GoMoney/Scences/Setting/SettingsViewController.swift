@@ -204,7 +204,7 @@ class SettingsViewController: GMMainViewController {
             actions: actions)
     }
 
-    private func selectDateForamt(at indexPath: IndexPath) {
+    private func selectDateFormat(at indexPath: IndexPath) {
         let dateCell = (tableView.cellForRow(at: indexPath) as? SettingsTableViewAccessoryCell)
         let currentFormat = settings.getValue(for: .dateFormat) as? String
         let actions = DateFormat.all.map { unit in
@@ -346,7 +346,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             case 0:
                 selectCurrency(at: indexPath)
             case 1:
-                selectDateForamt(at: indexPath)
+                selectDateFormat(at: indexPath)
             default:
                 break
             }
