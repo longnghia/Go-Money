@@ -1,6 +1,14 @@
 import UIKit
 
 extension DateFormatter {
+    static let dmy = {
+        let dateFormater = DateFormatter()
+        let format = SettingsManager.shared.getValue(for: .dateFormat) as? String
+        dateFormater.dateFormat = format ?? DateFormat.dmy.rawValue
+        dateFormater.locale = K.Theme.locale
+        return dateFormater
+    }
+
     static let ddmmyyyy = {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd-MM-yyyy"
@@ -36,5 +44,5 @@ extension DateFormatter {
         return dateFormater
     }()
 
-    static let today = ddmmyyyy.string(from: Date())
+    static let today = dmy().string(from: Date())
 }

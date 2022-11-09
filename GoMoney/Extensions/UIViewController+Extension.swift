@@ -9,6 +9,22 @@ import TTGSnackbar
 import UIKit
 
 extension UIViewController {
+    func alert(type: UIAlertController.Style, with title: String?, message: String?, actions: [UIAlertAction], showCancel: Bool = true) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: type)
+
+        for action in actions {
+            alertController.addAction(action)
+        }
+
+        if showCancel {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            })
+            alertController.addAction(cancelAction)
+        }
+
+        present(alertController, animated: true, completion: nil)
+    }
+
     func alert(title: String, message: String = "", actionTitle: String = NSLocalizedString("OK", comment: "ok"), cancelHandler: ((UIAlertAction) -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: cancelHandler))

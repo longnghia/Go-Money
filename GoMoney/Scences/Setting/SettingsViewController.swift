@@ -1,6 +1,8 @@
 import UIKit
 
 class SettingsViewController: GMMainViewController {
+    private var settingChanged = false
+
     enum Section: String {
         case display, system, database, about
 
@@ -80,6 +82,13 @@ class SettingsViewController: GMMainViewController {
         super.viewWillAppear(animated)
 
         tableView.reloadData()
+    }
+
+    override func didTapBack() {
+        if settingChanged {
+            notifyDataDidChange()
+        }
+        super.didTapBack()
     }
 
     // MARK: - Methods
@@ -162,6 +171,63 @@ class SettingsViewController: GMMainViewController {
         } else {
             settings.setValue(false, for: .enablePassword)
         }
+    }
+
+    private func selectCurrency(at indexPath: IndexPath) {
+        let currencyCell = (tableView.cellForRow(at: indexPath) as? SettingsTableViewAccessoryCell)
+
+        let actions = CurrencyUnit.all.map { unit in
+            let action = UIAlertAction(title: unit.rawValue, style: .default, handler: { _ in
+                currencyCell?.accessoryLabelText = unit.rawValue
+                self.settings.setValue(unit.rawValue, for: .currencyUnit)
+                self.settingChanged = true
+            })
+
+            if action.title! == settings.getValue(for: .currencyUnit) as? String {
+                action.setValue(true, forKey: "checked")
+            }
+
+            // just support "$" and "₫" currently.
+            if action.title != CurrencyUnit.dollar.rawValue,
+               action.title != CurrencyUnit.dong.rawValue
+            {
+                action.isEnabled = false
+            }
+
+            return action
+        }
+
+        alert(
+            type: .actionSheet,
+            with: "GoMoney",
+            message: "Please Select a Currency Unit",
+            actions: actions)
+    }
+
+    private func selectDateFormat(at indexPath: IndexPath) {
+        let dateCell = (tableView.cellForRow(at: indexPath) as? SettingsTableViewAccessoryCell)
+        let currentFormat = settings.getValue(for: .dateFormat) as? String
+        let actions = DateFormat.all.map { unit in
+            let format = unit.rawValue
+
+            let action = UIAlertAction(title: format, style: .default, handler: { _ in
+                dateCell?.accessoryLabelText = format
+                self.settings.setValue(format, for: .dateFormat)
+                self.settingChanged = true
+            })
+
+            if action.title! == currentFormat {
+                action.setValue(true, forKey: "checked")
+            }
+
+            return action
+        }
+
+        alert(
+            type: .actionSheet,
+            with: "GoMoney",
+            message: "Please Select a Day Format",
+            actions: actions)
     }
 
     @objc private func dismissSettings() {
@@ -278,9 +344,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case .display:
             switch indexPath.row {
             case 0:
-                print("Change currency format")
+                selectCurrency(at: indexPath)
+            case 1:
+                selectDateFormat(at: indexPath)
             default:
-                print("Change date format")
+                break
             }
         case .system:
             break

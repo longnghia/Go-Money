@@ -1,7 +1,7 @@
 import UIKit
 
 extension Expense {
-    func getDate(_ type: ExpenseSort = .occuredOn, formatter: DateFormatter = DateFormatter.ddmmyyyy) -> String {
+    func getDate(_ type: ExpenseSort = .occuredOn, formatter: DateFormatter = DateFormatter.dmy()) -> String {
         var date: Date?
         switch type {
         case .createdAt:
