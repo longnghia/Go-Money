@@ -26,8 +26,8 @@ enum Setting: String, Equatable {
         case .syncOnWifi: return false
         case .showOnStatusBar: return false
 
-        case .currencyUnit: return "$"
-        case .dateFormat: return "\(DateFormatter.ddmmyyyy.string(from: Date()))"
+        case .currencyUnit: return CurrencyUnit.dollar.rawValue
+        case .dateFormat: return DateFormat.dmy.rawValue
         case .intervalSync: return 60
         }
     }

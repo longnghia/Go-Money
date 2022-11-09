@@ -11,7 +11,7 @@ class AddExpenseForm: UIView {
         ) { [weak self] textField in
             textField.inputView =
                 DatePickerInputView(mode: .date) { [weak textField] date in
-                    textField?.text = DateFormatter.ddmmyyyy.string(from: date)
+                    textField?.text = DateFormatter.dmy().string(from: date)
                     self?.curDate = date
                 }
 
@@ -147,7 +147,7 @@ class AddExpenseForm: UIView {
     func fillTransaction(_ transaction: Expense) {
         curDate = transaction.occuredOn
 
-        dateField.text = DateFormatter.ddmmyyyy.string(from: transaction.occuredOn)
+        dateField.text = DateFormatter.dmy().string(from: transaction.occuredOn)
         categoryField.text = transaction.tag
         amountField.text = String(transaction.amount)
         noteField.text = transaction.note

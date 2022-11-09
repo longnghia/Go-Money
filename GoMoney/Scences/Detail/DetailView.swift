@@ -106,7 +106,7 @@ class DetailView: UIView {
             DetailCell(key: "Transaction type", value: transaction.type),
             DetailCell(key: "Tag", value: transaction.tag),
             DetailCell(key: "Amount", value: String(transaction.amount)),
-            DetailCell(key: "When", value: DateFormatter.ddmmyyyy.string(from: transaction.occuredOn)),
+            DetailCell(key: "When", value: DateFormatter.dmy().string(from: transaction.occuredOn)),
             DetailCell(key: "Note", value: transaction.note))
 
         if let createdAt = transaction.createdAt {

@@ -19,6 +19,8 @@
 		081DC89A2901AD5F0005374F /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8992901AD5F0005374F /* AccessoryView.swift */; };
 		081DC8A029025C8F0005374F /* GMImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC89F29025C8F0005374F /* GMImageButton.swift */; };
 		081DC8A2290274990005374F /* CategoryPickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8A1290274990005374F /* CategoryPickerInputView.swift */; };
+		081E124F291B52FB007BD5FB /* CurrencyUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081E124E291B52FB007BD5FB /* CurrencyUnit.swift */; };
+		081E1251291B5B2B007BD5FB /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081E1250291B5B2B007BD5FB /* DateFormat.swift */; };
 		0828A815290639B500243CB4 /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A814290639B500243CB4 /* StatViewController.swift */; };
 		0828A81929063BB600243CB4 /* StatBarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A81829063BB600243CB4 /* StatBarChartCell.swift */; };
 		0828A81B29063BCF00243CB4 /* StatTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A81A29063BCF00243CB4 /* StatTableCell.swift */; };
@@ -121,6 +123,8 @@
 		081DC8992901AD5F0005374F /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		081DC89F29025C8F0005374F /* GMImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMImageButton.swift; sourceTree = "<group>"; };
 		081DC8A1290274990005374F /* CategoryPickerInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerInputView.swift; sourceTree = "<group>"; };
+		081E124E291B52FB007BD5FB /* CurrencyUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUnit.swift; sourceTree = "<group>"; };
+		081E1250291B5B2B007BD5FB /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		0828A814290639B500243CB4 /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		0828A81829063BB600243CB4 /* StatBarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBarChartCell.swift; sourceTree = "<group>"; };
 		0828A81A29063BCF00243CB4 /* StatTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableCell.swift; sourceTree = "<group>"; };
@@ -554,6 +558,8 @@
 				08C1F25A28FE8B2A00590512 /* Expense.swift */,
 				08C6894A2913AF06002071CC /* TransactionTracking.swift */,
 				083EA335290659660079605F /* TransactionTag.swift */,
+				081E124E291B52FB007BD5FB /* CurrencyUnit.swift */,
+				081E1250291B5B2B007BD5FB /* DateFormat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -848,6 +854,7 @@
 				08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */,
 				08DB56F928F9637200170C60 /* ProfileView.swift in Sources */,
 				0828A81B29063BCF00243CB4 /* StatTableCell.swift in Sources */,
+				081E1251291B5B2B007BD5FB /* DateFormat.swift in Sources */,
 				08C872CF28F66C5100DC859D /* Constant.swift in Sources */,
 				085F752E29124D750094A026 /* SettingsManager.swift in Sources */,
 				088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */,
@@ -899,6 +906,7 @@
 				08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */,
 				08C8731228F8021100DC859D /* GMTextField.swift in Sources */,
 				08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */,
+				081E124F291B52FB007BD5FB /* CurrencyUnit.swift in Sources */,
 				08C1F25B28FE8B2A00590512 /* Expense.swift in Sources */,
 				08C6894B2913AF06002071CC /* TransactionTracking.swift in Sources */,
 				081DC8A029025C8F0005374F /* GMImageButton.swift in Sources */,
