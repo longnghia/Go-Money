@@ -12,10 +12,15 @@ private struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        let midnight = Calendar.current.startOfDay(for: Date())
-        let nextMidnight = Calendar.current.date(byAdding: .day, value: 1, to: midnight)!
-        let entries = [SimpleEntry(date: midnight)]
-        let timeline = Timeline(entries: entries, policy: .after(nextMidnight))
+        let currentDate = Date()
+        let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
+
+        guard let nextDate = nextDate else {
+            return
+        }
+
+        let entries = [SimpleEntry(date: currentDate)]
+        let timeline = Timeline(entries: entries, policy: .after(nextDate))
         completion(timeline)
     }
 }
