@@ -110,7 +110,42 @@
 		08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */; };
 		08DEE9C8290109CC00EA9A2A /* MonthlyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */; };
 		08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */; };
+		08EE9FF9291CC297003B35B8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EE9FF8291CC297003B35B8 /* WidgetKit.framework */; };
+		08EE9FFB291CC297003B35B8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EE9FFA291CC297003B35B8 /* SwiftUI.framework */; };
+		08EEA000291CC29E003B35B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08EE9FFF291CC29E003B35B8 /* Assets.xcassets */; };
+		08EEA004291CC29E003B35B8 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 08EE9FF7291CC297003B35B8 /* WidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		08EEA00C291CC359003B35B8 /* UserDefaults+AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEA00B291CC359003B35B8 /* UserDefaults+AppGroup.swift */; };
+		08EEA00E291CC374003B35B8 /* Widget+Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEA00D291CC374003B35B8 /* Widget+Kind.swift */; };
+		08EEA016291CD397003B35B8 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEA011291CC3F2003B35B8 /* WidgetBundle.swift */; };
+		08EEA017291CD39E003B35B8 /* IncomeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEA014291CD373003B35B8 /* IncomeWidget.swift */; };
+		08EEA018291CD3E4003B35B8 /* UserDefaults+AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEA00B291CC359003B35B8 /* UserDefaults+AppGroup.swift */; };
+		08EEA019291CD3E7003B35B8 /* Widget+Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEA00D291CC374003B35B8 /* Widget+Kind.swift */; };
+		08EEA01C291CF94C003B35B8 /* WidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEA01B291CF94C003B35B8 /* WidgetService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08EEA002291CC29E003B35B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08C8729728F655CD00DC859D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08EE9FF6291CC297003B35B8;
+			remoteInfo = WidgetExtensionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		08EEA005291CC29F003B35B8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				08EEA004291CC29E003B35B8 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		080ADD0F290F7031005DCF86 /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +258,18 @@
 		08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpenseView.swift; sourceTree = "<group>"; };
 		08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		08EE9FF7291CC297003B35B8 /* WidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		08EE9FF8291CC297003B35B8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		08EE9FFA291CC297003B35B8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		08EE9FFF291CC29E003B35B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		08EEA001291CC29E003B35B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08EEA00B291CC359003B35B8 /* UserDefaults+AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AppGroup.swift"; sourceTree = "<group>"; };
+		08EEA00D291CC374003B35B8 /* Widget+Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widget+Kind.swift"; sourceTree = "<group>"; };
+		08EEA00F291CC39D003B35B8 /* GoMoney.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoMoney.entitlements; sourceTree = "<group>"; };
+		08EEA010291CC3A6003B35B8 /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
+		08EEA011291CC3F2003B35B8 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
+		08EEA014291CD373003B35B8 /* IncomeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeWidget.swift; sourceTree = "<group>"; };
+		08EEA01B291CF94C003B35B8 /* WidgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetService.swift; sourceTree = "<group>"; };
 		1B112C91231231F4F5451123 /* Pods-GoMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoMoney.release.xcconfig"; path = "Target Support Files/Pods-GoMoney/Pods-GoMoney.release.xcconfig"; sourceTree = "<group>"; };
 		7E5F2838C4EFDE6C361D48A6 /* Pods-GoMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoMoney.debug.xcconfig"; path = "Target Support Files/Pods-GoMoney/Pods-GoMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		91E2DECB5E188E1306C43188 /* Pods_GoMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +281,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F387D48924C03C5CC98BA4 /* Pods_GoMoney.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08EE9FF4291CC297003B35B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08EE9FFB291CC297003B35B8 /* SwiftUI.framework in Frameworks */,
+				08EE9FF9291CC297003B35B8 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +368,7 @@
 				08C6894C2913B01C002071CC /* TrackingService.swift */,
 				083B14DE2914EF300058E36E /* SyncManager.swift */,
 				089CC755291A0C0A0070A108 /* BiometricService.swift */,
+				08EEA01B291CF94C003B35B8 /* WidgetService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -461,9 +518,12 @@
 		08C8729628F655CD00DC859D = {
 			isa = PBXGroup;
 			children = (
+				08EEA010291CC3A6003B35B8 /* WidgetExtensionExtension.entitlements */,
 				082BF96728FD1D510094FE94 /* Podfile */,
 				08C872BE28F65D8C00DC859D /* readme.md */,
 				08C872A128F655CD00DC859D /* GoMoney */,
+				08EE9FFC291CC298003B35B8 /* WidgetExtension */,
+				08EEA009291CC32A003B35B8 /* Shared */,
 				08C872A028F655CD00DC859D /* Products */,
 				76C3914AA504B816E0620E72 /* Pods */,
 				2A40CADA7D1F29A21E4B01AF /* Frameworks */,
@@ -475,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				08C8729F28F655CD00DC859D /* GoMoney.app */,
+				08EE9FF7291CC297003B35B8 /* WidgetExtensionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -482,6 +543,7 @@
 		08C872A128F655CD00DC859D /* GoMoney */ = {
 			isa = PBXGroup;
 			children = (
+				08EEA00F291CC39D003B35B8 /* GoMoney.entitlements */,
 				08C1F25228FE68EB00590512 /* Navigation */,
 				082BF97828FD65910094FE94 /* ViewModel */,
 				082BF94628FD012B0094FE94 /* Service */,
@@ -719,10 +781,48 @@
 			path = AddExpense;
 			sourceTree = "<group>";
 		};
+		08EE9FFC291CC298003B35B8 /* WidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				08EEA011291CC3F2003B35B8 /* WidgetBundle.swift */,
+				08EEA013291CC404003B35B8 /* IncomeWidget */,
+				08EE9FFF291CC29E003B35B8 /* Assets.xcassets */,
+				08EEA001291CC29E003B35B8 /* Info.plist */,
+			);
+			path = WidgetExtension;
+			sourceTree = "<group>";
+		};
+		08EEA009291CC32A003B35B8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				08EEA00A291CC334003B35B8 /* Model */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		08EEA00A291CC334003B35B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08EEA00B291CC359003B35B8 /* UserDefaults+AppGroup.swift */,
+				08EEA00D291CC374003B35B8 /* Widget+Kind.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08EEA013291CC404003B35B8 /* IncomeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				08EEA014291CD373003B35B8 /* IncomeWidget.swift */,
+			);
+			path = IncomeWidget;
+			sourceTree = "<group>";
+		};
 		2A40CADA7D1F29A21E4B01AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				91E2DECB5E188E1306C43188 /* Pods_GoMoney.framework */,
+				08EE9FF8291CC297003B35B8 /* WidgetKit.framework */,
+				08EE9FFA291CC297003B35B8 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -748,15 +848,34 @@
 				08C8729C28F655CD00DC859D /* Frameworks */,
 				08C8729D28F655CD00DC859D /* Resources */,
 				8291F096518328B4CB2334CA /* [CP] Embed Pods Frameworks */,
+				08EEA005291CC29F003B35B8 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				08EEA003291CC29E003B35B8 /* PBXTargetDependency */,
 			);
 			name = GoMoney;
 			productName = GoMoney;
 			productReference = 08C8729F28F655CD00DC859D /* GoMoney.app */;
 			productType = "com.apple.product-type.application";
+		};
+		08EE9FF6291CC297003B35B8 /* WidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08EEA008291CC29F003B35B8 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */;
+			buildPhases = (
+				08EE9FF3291CC297003B35B8 /* Sources */,
+				08EE9FF4291CC297003B35B8 /* Frameworks */,
+				08EE9FF5291CC297003B35B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetExtensionExtension;
+			productName = WidgetExtensionExtension;
+			productReference = 08EE9FF7291CC297003B35B8 /* WidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -770,6 +889,9 @@
 				TargetAttributes = {
 					08C8729E28F655CD00DC859D = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					08EE9FF6291CC297003B35B8 = {
+						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
 			};
@@ -787,6 +909,7 @@
 			projectRoot = "";
 			targets = (
 				08C8729E28F655CD00DC859D /* GoMoney */,
+				08EE9FF6291CC297003B35B8 /* WidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -804,6 +927,14 @@
 				086C5D1A29150B2E00B6DE49 /* calculator.json in Resources */,
 				08C872AC28F655CF00DC859D /* Assets.xcassets in Resources */,
 				082BF96A28FD319F0094FE94 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08EE9FF5291CC297003B35B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08EEA000291CC29E003B35B8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +990,7 @@
 				0828A815290639B500243CB4 /* StatViewController.swift in Sources */,
 				08C1F25728FE702A00590512 /* GMLabel.swift in Sources */,
 				08C872DB28F680A100DC859D /* OnboardPage.swift in Sources */,
+				08EEA01C291CF94C003B35B8 /* WidgetService.swift in Sources */,
 				08DB56F928F9637200170C60 /* ProfileView.swift in Sources */,
 				0828A81B29063BCF00243CB4 /* StatTableCell.swift in Sources */,
 				081E1251291B5B2B007BD5FB /* DateFormat.swift in Sources */,
@@ -905,6 +1037,7 @@
 				089CC756291A0C0A0070A108 /* BiometricService.swift in Sources */,
 				08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */,
 				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
+				08EEA00E291CC374003B35B8 /* Widget+Kind.swift in Sources */,
 				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,
 				083EA336290659660079605F /* TransactionTag.swift in Sources */,
 				080ADD30290FB068005DCF86 /* DetailView.swift in Sources */,
@@ -930,6 +1063,7 @@
 				089CC74C2919D9660070A108 /* FileHelper.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
+				08EEA00C291CC359003B35B8 /* UserDefaults+AppGroup.swift in Sources */,
 				08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */,
 				081E1253291B8392007BD5FB /* EmptyTransactionView.swift in Sources */,
 				089CC73C29190C080070A108 /* ExportViewModel.swift in Sources */,
@@ -953,7 +1087,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08EE9FF3291CC297003B35B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08EEA017291CD39E003B35B8 /* IncomeWidget.swift in Sources */,
+				08EEA018291CD3E4003B35B8 /* UserDefaults+AppGroup.swift in Sources */,
+				08EEA016291CD397003B35B8 /* WidgetBundle.swift in Sources */,
+				08EEA019291CD3E7003B35B8 /* Widget+Kind.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		08EEA003291CC29E003B35B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 08EE9FF6291CC297003B35B8 /* WidgetExtensionExtension */;
+			targetProxy = 08EEA002291CC29E003B35B8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		08C872AD28F655CF00DC859D /* LaunchScreen.storyboard */ = {
@@ -1085,8 +1238,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E5F2838C4EFDE6C361D48A6 /* Pods-GoMoney.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GoMoney/GoMoney.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558M82PGAZ;
@@ -1114,8 +1269,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1B112C91231231F4F5451123 /* Pods-GoMoney.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GoMoney/GoMoney.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558M82PGAZ;
@@ -1139,6 +1296,64 @@
 			};
 			name = Release;
 		};
+		08EEA006291CC29F003B35B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 558M82PGAZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ln.GoMoney.WidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		08EEA007291CC29F003B35B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 558M82PGAZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ln.GoMoney.WidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1156,6 +1371,15 @@
 			buildConfigurations = (
 				08C872B428F655CF00DC859D /* Debug */,
 				08C872B528F655CF00DC859D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08EEA008291CC29F003B35B8 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08EEA006291CC29F003B35B8 /* Debug */,
+				08EEA007291CC29F003B35B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
