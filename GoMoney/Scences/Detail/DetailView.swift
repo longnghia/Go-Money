@@ -88,7 +88,7 @@ class DetailView: UIView {
 
         scrollView.fillSuperview()
 
-        stackView.fillSuperview()
+        stackView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor)
     }
 
     private func setDetail() {
