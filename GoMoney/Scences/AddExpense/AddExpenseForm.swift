@@ -64,7 +64,7 @@ class AddExpenseForm: UIView {
         return field
     }()
 
-    var delegate: UITextFieldDelegate?
+    weak var delegate: UITextFieldDelegate?
     var transType: ExpenseType = .expense
     var textFieldOnChange: (() -> Void)?
 

@@ -121,12 +121,20 @@ internal extension UIView {
     open func centerXToView(_ toView: UIView) {
         centerXAnchor.constraint(equalTo: toView.centerXAnchor).isActive = true
     }
-    
-    open func fillSuperview() {
-        self.anchor(top: superview?.topAnchor,
+
+    open func fillSuperview(paddingTop: CGFloat = 0,
+                            paddingLeft: CGFloat = 0,
+                            paddingBottom: CGFloat = 0,
+                            paddingRight: CGFloat = 0)
+    {
+        self.anchor(top: superview?.safeAreaLayoutGuide.topAnchor,
                     left: superview?.leftAnchor,
-                    bottom: superview?.bottomAnchor,
-                    right: superview?.rightAnchor)
+                    bottom: superview?.safeAreaLayoutGuide.bottomAnchor,
+                    right: superview?.rightAnchor,
+                    paddingTop: paddingTop,
+                    paddingLeft: paddingLeft,
+                    paddingBottom: paddingBottom,
+                    paddingRight: paddingRight)
     }
 
     open func setupShadow(opacity: Float = 0, radius: CGFloat = 0, offset: CGSize = .zero, color: UIColor = .black) {

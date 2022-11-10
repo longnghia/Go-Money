@@ -36,7 +36,8 @@ class GMFloatingButton: UIControl {
     
     private func setView() {
         translatesAutoresizingMaskIntoConstraints = false
-        anchor(width: 120, height: height)
+        sizeToFit()
+        anchor(height: height)
         
         addSubviews(buttonIcon, buttonLabel)
 
