@@ -53,12 +53,7 @@ class EmptyTransactionView: UIView {
             self?.didTapAddTransaction()
         })
 
-    init(
-        viewController: UIViewController,
-        label: String = "",
-        detailLabel: String = "",
-        animation: String = "")
-    {
+    init(viewController: UIViewController) {
         super.init(frame: .zero)
 
         vc = viewController
@@ -99,19 +94,23 @@ class EmptyTransactionView: UIView {
     }
 
     private func didTapAddTransaction() {
+        guard let vc = vc else {
+            return
+        }
+
         let addExpenseVC = AddExpenseViewController()
 
         let expenseBtn = UIAlertAction(title: "And an Expense", style: .default) { _ in
             addExpenseVC.type = .expense
-            self.vc?.navigationController?.pushViewController(addExpenseVC, animated: true)
+            vc.navigationController?.pushViewController(addExpenseVC, animated: true)
         }
 
         let incomeBtn = UIAlertAction(title: "Add an Income", style: .default) { _ in
             addExpenseVC.type = .income
-            self.vc?.navigationController?.pushViewController(addExpenseVC, animated: true)
+            vc.navigationController?.pushViewController(addExpenseVC, animated: true)
         }
 
-        vc?.alert(
+        vc.alert(
             type: .actionSheet,
             with: "GoMoney",
             message: "Add transaction",
