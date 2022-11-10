@@ -43,6 +43,7 @@ class ToolsViewController: GMMainViewController {
     private lazy var animationView: LottieAnimationView = .build {
         let animation = LottieAnimation.named(K.Animation.calculator)
         $0.animation = animation
+        $0.backgroundBehavior = .pauseAndRestore
         $0.loopMode = .loop
         $0.play()
     }
@@ -72,13 +73,6 @@ class ToolsViewController: GMMainViewController {
             width: 150,
             height: 150)
         animationView.centerXToView(view)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if !animationView.isAnimationPlaying {
-            animationView.play()
-        }
     }
 }
 
