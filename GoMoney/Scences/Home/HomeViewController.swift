@@ -38,12 +38,12 @@ class HomeViewController: GMMainViewController {
         floatingButton.plusColor = .white
         floatingButton.buttonColor = K.Color.actionBackground
 
-        floatingButton.addItem("Add Income", icon: UIImage(named: "ic_add_income")?.color(K.Color.saving), titlePosition: .left) { [weak self] _ in
+        floatingButton.addItem("Income", icon: UIImage(named: "ic_add_income")?.color(K.Color.saving), titlePosition: .left) { [weak self] _ in
             self?.navigateToAddTransaction(type: .income)
             self?.floatingButton.close()
         }
 
-        floatingButton.addItem("Add Expense", icon: UIImage(named: "ic_add_expense")?.color(K.Color.debt)) { [weak self] _ in
+        floatingButton.addItem("Expense", icon: UIImage(named: "ic_add_expense")?.color(K.Color.debt)) { [weak self] _ in
             self?.navigateToAddTransaction(type: .expense)
             self?.floatingButton.close()
         }
@@ -51,6 +51,8 @@ class HomeViewController: GMMainViewController {
         floatingButton.translatesAutoresizingMaskIntoConstraints = false
         return floatingButton
     }()
+
+    private var emptyView: EmptyTransactionView?
 
     // MARK: - LyfeCircle
 
@@ -218,6 +220,21 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
         return swipe
     }
+
+    private func toggleEmptyView() {
+        let empty = viewModel.transactions?.count == 0
+
+        if empty {
+            emptyView = EmptyTransactionView(viewController: self)
+            if let emptyView = emptyView {
+                view.addSubview(emptyView)
+                emptyView.fillSuperview()
+            }
+        } else {
+            emptyView?.removeFromSuperview()
+            emptyView = nil
+        }
+    }
 }
 
 // MARK: - Alert
@@ -240,6 +257,8 @@ extension HomeViewController {
                 } else {
                     self.notifyDataDidChange()
                     DispatchQueue.main.async { [weak self] in
+                        // show empty if remove all transaction.
+                        self?.toggleEmptyView()
                         self?.tableView.deleteRows(at: [indexPath], with: .left)
                         self?.loadChartView()
                     }
@@ -279,6 +298,7 @@ extension HomeViewController: DataServiceDelegate {
 
     func dataDidLoad() {
         DispatchQueue.main.async { [weak self] in
+            self?.toggleEmptyView()
             GMLoadingView.shared.endLoadingAnimation()
 
             self?.tableView.reloadData()
