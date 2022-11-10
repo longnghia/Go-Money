@@ -48,6 +48,8 @@ class StatViewController: GMMainViewController {
             $0.backgroundColor = .clear
         }
 
+    private var emptyView: EmptyTransactionView?
+
     // MARK: - NavigationBar
 
     override func configureBackButton() {
@@ -76,6 +78,7 @@ class StatViewController: GMMainViewController {
     func setupViewModel() {
         viewModel.didChangeFilter = { [weak self] in
             DispatchQueue.main.async {
+                self?.toggleEmptyView()
                 self?.tableView.reloadData()
             }
         }
@@ -115,6 +118,24 @@ class StatViewController: GMMainViewController {
             return
         }
         loadData()
+    }
+
+    private func toggleEmptyView() {
+        let empty = viewModel.tagExpenses?.count == 0
+
+        if empty {
+            emptyView = EmptyTransactionView(viewController: self)
+            if let emptyView = emptyView {
+                emptyView.label = "No Expense Yet!"
+                emptyView.detailLabel = "After your first expense you will be able to view it here"
+                view.addSubview(emptyView)
+                emptyView.fillSuperview()
+            }
+        }
+        else {
+            emptyView?.removeFromSuperview()
+            emptyView = nil
+        }
     }
 }
 

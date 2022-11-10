@@ -21,6 +21,8 @@
 		081DC8A2290274990005374F /* CategoryPickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081DC8A1290274990005374F /* CategoryPickerInputView.swift */; };
 		081E124F291B52FB007BD5FB /* CurrencyUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081E124E291B52FB007BD5FB /* CurrencyUnit.swift */; };
 		081E1251291B5B2B007BD5FB /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081E1250291B5B2B007BD5FB /* DateFormat.swift */; };
+		081E1253291B8392007BD5FB /* EmptyTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081E1252291B8392007BD5FB /* EmptyTransactionView.swift */; };
+		081E1255291B84ED007BD5FB /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 081E1254291B84EC007BD5FB /* empty.json */; };
 		0828A815290639B500243CB4 /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A814290639B500243CB4 /* StatViewController.swift */; };
 		0828A81929063BB600243CB4 /* StatBarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A81829063BB600243CB4 /* StatBarChartCell.swift */; };
 		0828A81B29063BCF00243CB4 /* StatTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0828A81A29063BCF00243CB4 /* StatTableCell.swift */; };
@@ -125,6 +127,8 @@
 		081DC8A1290274990005374F /* CategoryPickerInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerInputView.swift; sourceTree = "<group>"; };
 		081E124E291B52FB007BD5FB /* CurrencyUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUnit.swift; sourceTree = "<group>"; };
 		081E1250291B5B2B007BD5FB /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		081E1252291B8392007BD5FB /* EmptyTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTransactionView.swift; sourceTree = "<group>"; };
+		081E1254291B84EC007BD5FB /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 		0828A814290639B500243CB4 /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		0828A81829063BB600243CB4 /* StatBarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBarChartCell.swift; sourceTree = "<group>"; };
 		0828A81A29063BCF00243CB4 /* StatTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableCell.swift; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 		0881492B2911768300BB3A79 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				081E1254291B84EC007BD5FB /* empty.json */,
 				086C5D1929150B2E00B6DE49 /* calculator.json */,
 			);
 			path = Animations;
@@ -423,6 +428,7 @@
 				08C1F24A28FE68A000590512 /* ChartView.swift */,
 				08C1F24B28FE68A000590512 /* RecentExpenseCell.swift */,
 				08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */,
+				081E1252291B8392007BD5FB /* EmptyTransactionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -791,6 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08C872AF28F655CF00DC859D /* LaunchScreen.storyboard in Resources */,
+				081E1255291B84ED007BD5FB /* empty.json in Resources */,
 				08C872C028F65D8D00DC859D /* readme.md in Resources */,
 				08C8730928F6D16C00DC859D /* proxima_nova_bold.ttf in Resources */,
 				08C8730828F6D16C00DC859D /* proxima_nova.ttf in Resources */,
@@ -924,6 +931,7 @@
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
 				08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */,
+				081E1253291B8392007BD5FB /* EmptyTransactionView.swift in Sources */,
 				089CC73C29190C080070A108 /* ExportViewModel.swift in Sources */,
 				08DB56E728F8FCFD00170C60 /* TextFieldSignUp.swift in Sources */,
 				082BF94A28FD022D0094FE94 /* GMLoadingView.swift in Sources */,
