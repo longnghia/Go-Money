@@ -3,7 +3,7 @@ import Foundation
 enum Setting: String, Equatable {
     case enablePassword = "Enable password"
     case syncOnWifi = "Auto sync over Wi-fi only"
-    case showOnStatusBar = "Show wallet on status bar"
+    case lastSync = "Last synced"
     case currencyUnit = "Currency Unit"
     case dateFormat = "Date Format"
     case intervalSync = "Set interval sync time"
@@ -13,7 +13,7 @@ enum Setting: String, Equatable {
         switch self {
         case .enablePassword: return "\(base).enablePassword"
         case .syncOnWifi: return "\(base).syncOnWifi"
-        case .showOnStatusBar: return "\(base).showOnStatusBar"
+        case .lastSync: return "\(base).lastSync"
         case .currencyUnit: return "\(base).currencyUnit"
         case .dateFormat: return "\(base).dateFormat"
         case .intervalSync: return "\(base).intervalSync"
@@ -24,11 +24,10 @@ enum Setting: String, Equatable {
         switch self {
         case .enablePassword: return false
         case .syncOnWifi: return false
-        case .showOnStatusBar: return false
-
+        case .lastSync: return 0
         case .currencyUnit: return CurrencyUnit.dollar.rawValue
         case .dateFormat: return DateFormat.dmy.rawValue
-        case .intervalSync: return 60
+        case .intervalSync: return SyncInterval.min1.rawValue
         }
     }
 }

@@ -6,8 +6,7 @@ class SyncManager {
 
     /// Use Timer to fire sync in inteval.
     func setSyncInterval() {
-        //  TODO: UserDefaults value
-        let interval: Double = 60
+        let interval = Double(SettingsManager.shared.getValue(for: .intervalSync) as? Int ?? SyncInterval.min1.rawValue)
 
         // firebase
         let remote = RemoteService.shared
@@ -35,6 +34,10 @@ class SyncManager {
                                 tracking.deleteTransactionTracking(by: transaction._id) { err in
                                     if let err = err {
                                         print("deleteTransactionTracking fail: \(err)")
+                                    } else {
+                                        SettingsManager.shared.setValue(
+                                            Date().timeIntervalSince1970,
+                                            for: .lastSync)
                                     }
                                 }
                             }
@@ -49,6 +52,10 @@ class SyncManager {
                                 tracking.deleteTransactionTracking(by: transaction._id) { err in
                                     if let err = err {
                                         print("deleteTransactionTracking fail: \(err)")
+                                    } else {
+                                        SettingsManager.shared.setValue(
+                                            Date().timeIntervalSince1970,
+                                            for: .lastSync)
                                     }
                                 }
                             }

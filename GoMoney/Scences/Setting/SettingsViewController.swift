@@ -97,9 +97,6 @@ class SettingsViewController: GMMainViewController {
         let syncOnWifiToggle = BlockerToggle(
             setting: Setting.syncOnWifi)
 
-        let showOnStatusBarToggle = BlockerToggle(
-            setting: Setting.showOnStatusBar)
-
         let enablePasswordToggle = BlockerToggle(
             setting: Setting.enablePassword)
 
@@ -112,7 +109,6 @@ class SettingsViewController: GMMainViewController {
         if let databaseIndex = Section.getSectionIndex(.database) {
             toggles[databaseIndex] = [
                 1: syncOnWifiToggle,
-                2: showOnStatusBarToggle,
             ]
         }
 
@@ -250,7 +246,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case .display: return 2
         case .system: return 1
-        case .database: return 3
+        case .database: return 2
         case .about: return 2
         }
     }
@@ -283,7 +279,17 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 let syncCell = SettingsTableViewAccessoryCell(style: .value1, reuseIdentifier: "accessoryCell")
                 syncCell.labelText = Setting.intervalSync.rawValue
-                syncCell.accessoryLabelText = String(settings.getValue(for: .intervalSync) as? Int ?? 0) + "s"
+
+                let currentInterval = settings.getValue(for: .intervalSync) as? Int
+                let syncTime = SyncInterval.all.first(where: {
+                    $0.rawValue == currentInterval
+                })
+                if let syncTime = syncTime {
+                    syncCell.accessoryLabelText = syncTime.getTitle()
+                } else {
+                    syncCell.accessoryLabelText = "Not set"
+                }
+
                 cell = syncCell
             } else {
                 cell = setupToggleCell(indexPath: indexPath)
@@ -306,6 +312,22 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.textColor = .gray
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if sections[section] == .database {
+            let lastSync = getLastSync()
+
+            if lastSync.isEmpty {
+                return nil
+            }
+
+            let footer = SettingsFooterView()
+            footer.textLabel.text = "Last synced: \(lastSync)"
+
+            return footer
+        }
+        return nil
     }
 
     private func setupToggleCell(indexPath: IndexPath) -> SettingsTableViewToggleCell {
@@ -354,7 +376,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             break
         case .database:
             if indexPath.row == 0 {
-                print("Set sync interval")
+                showSyncActionSheet(at: indexPath)
             }
         case .about:
             switch indexPath.row {
@@ -364,5 +386,34 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
                 print("Rate us")
             }
         }
+    }
+}
+
+extension SettingsViewController {
+    func getLastSync() -> String {
+        guard let lastSyncEpoch = settings.getValue(for: .lastSync) as? Double else {
+            return ""
+        }
+
+        let date = Date(timeIntervalSince1970: lastSyncEpoch)
+        return date.timeAgoDisplay()
+    }
+
+    func showSyncActionSheet(at indexPath: IndexPath) {
+        let syncIntervalCell = (tableView.cellForRow(at: indexPath) as? SettingsTableViewAccessoryCell)
+
+        let actions = SyncInterval.all.map { syncTime in
+            UIAlertAction(title: syncTime.getTitle(), style: .default, handler: { _ in
+                syncIntervalCell?.accessoryLabelText = "\(syncTime.getTitle())"
+                self.settings.setValue(syncTime.rawValue, for: .intervalSync)
+            })
+        }
+
+        alert(
+            type: .actionSheet,
+            with: nil,
+            message: "Choose sync interval time",
+            actions: actions,
+            showCancel: true)
     }
 }

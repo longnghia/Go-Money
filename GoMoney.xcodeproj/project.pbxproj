@@ -110,6 +110,8 @@
 		08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */; };
 		08DEE9C8290109CC00EA9A2A /* MonthlyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */; };
 		08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */; };
+		08E4EAAB291DEEA1006D5C58 /* SettingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EAAA291DEEA1006D5C58 /* SettingFooterView.swift */; };
+		08E4EAAD291DFD91006D5C58 /* SyncInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EAAC291DFD91006D5C58 /* SyncInterval.swift */; };
 		08EE9FF9291CC297003B35B8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EE9FF8291CC297003B35B8 /* WidgetKit.framework */; };
 		08EE9FFB291CC297003B35B8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EE9FFA291CC297003B35B8 /* SwiftUI.framework */; };
 		08EEA000291CC29E003B35B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08EE9FFF291CC29E003B35B8 /* Assets.xcassets */; };
@@ -258,6 +260,8 @@
 		08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		08DEE9C7290109CC00EA9A2A /* MonthlyExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpenseView.swift; sourceTree = "<group>"; };
 		08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		08E4EAAA291DEEA1006D5C58 /* SettingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFooterView.swift; sourceTree = "<group>"; };
+		08E4EAAC291DFD91006D5C58 /* SyncInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncInterval.swift; sourceTree = "<group>"; };
 		08EE9FF7291CC297003B35B8 /* WidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		08EE9FF8291CC297003B35B8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		08EE9FFA291CC297003B35B8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -416,6 +420,7 @@
 				085F7525291215B80094A026 /* SettingsViewController.swift */,
 				085F752B29124CEC0094A026 /* BlockerToggle.swift */,
 				085F752D29124D750094A026 /* SettingsManager.swift */,
+				08E4EAAC291DFD91006D5C58 /* SyncInterval.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				085F75292912490E0094A026 /* SettingsTableViewCell.swift */,
 				085F753029124DF50094A026 /* SettingsTableViewAccessoryCell.swift */,
 				085F753229124E390094A026 /* SettingsTableViewToggleCell.swift */,
+				08E4EAAA291DEEA1006D5C58 /* SettingFooterView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1054,6 +1060,7 @@
 				08C1F26828FF95FD00590512 /* GMTabBarViewController.swift in Sources */,
 				082BF94528FCF0D00094FE94 /* SignInPasswordVC.swift in Sources */,
 				08C1F25128FE68BA00590512 /* GMMainViewController.swift in Sources */,
+				08E4EAAB291DEEA1006D5C58 /* SettingFooterView.swift in Sources */,
 				08DEE9C62900FC4C00EA9A2A /* Date+Extension.swift in Sources */,
 				08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */,
 				08DEE9C8290109CC00EA9A2A /* MonthlyExpenseView.swift in Sources */,
@@ -1074,6 +1081,7 @@
 				08C872EE28F6C5F600DC859D /* SignInViewController.swift in Sources */,
 				080ADD2B290FA4F3005DCF86 /* DetailViewModel.swift in Sources */,
 				088D692029015FBC003D0660 /* DatePickerInputView.swift in Sources */,
+				08E4EAAD291DFD91006D5C58 /* SyncInterval.swift in Sources */,
 				08DB56E928F9035800170C60 /* StackView+Extension.swift in Sources */,
 				08C1F24E28FE68A100590512 /* RecentExpenseCell.swift in Sources */,
 				08C1F24F28FE68A100590512 /* HomeViewController.swift in Sources */,
