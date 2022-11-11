@@ -6,6 +6,8 @@ class HomeViewModel {
     
     private let service = DataService.shared
     
+    private let widgetService = WidgetService()
+    
     weak var delegate: DataServiceDelegate?
     
     var transactions: [Expense]? = [] {
@@ -26,6 +28,9 @@ class HomeViewModel {
             }
             incomeSum = incomes.reduce(0) { $0 + $1.amount }
             expenseSum = expenses.reduce(0) { $0 + $1.amount }
+            
+            widgetService.updateIncomeWidget(income: incomeSum ?? 0, expense: expenseSum ?? 0)
+            
             groupedExpenses = expenses.groupExpensesByTag()
         }
     }
