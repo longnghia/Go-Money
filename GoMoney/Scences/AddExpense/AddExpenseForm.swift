@@ -2,7 +2,7 @@ import UIKit
 
 class AddExpenseForm: UIView {
     private(set) var curDate = Date()
-    private(set) var curTag: TransactionTag = .food
+    private(set) var curTag: TransactionTag?
 
     lazy var dateField = {
         let field = AddExpenseField(
@@ -24,16 +24,14 @@ class AddExpenseForm: UIView {
     }()
 
     lazy var categoryField = {
-        let defaultTag: TransactionTag = transType == .expense ? .food : .salary
-
         let field = AddExpenseField(
-            name: "Category",
-            defaultValue: defaultTag.getName()
+            name: "Category"
+
         ) { [weak self] textField in
 
             textField.inputView = CategoryPickerInputView(type: self?.transType ?? .expense) { [weak textField] tag in
                 self?.curTag = tag
-                textField?.text = tag.getName()
+                textField?.text = tag.name
                 textField?.resignFirstResponder()
             }
             textField.inputAccessoryView = AccessoryView("Select Category", doneTapped: { [weak textField] in
@@ -125,6 +123,9 @@ class AddExpenseForm: UIView {
     }
 
     func getExpense() -> Expense? {
+        guard let curTag = curTag else {
+            return nil
+        }
         if let amount = Double(getAmount()) {
             return Expense(
                 type: transType,
@@ -146,9 +147,10 @@ class AddExpenseForm: UIView {
 
     func fillTransaction(_ transaction: Expense) {
         curDate = transaction.occuredOn
-
+        curTag = transaction.tag
+        
         dateField.text = DateFormatter.dmy().string(from: transaction.occuredOn)
-        categoryField.text = transaction.tag
+        categoryField.text = transaction.tag?.name
         amountField.text = String(transaction.amount)
         noteField.text = transaction.note
     }

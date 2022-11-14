@@ -10,6 +10,7 @@ typealias RemoteCompletion = (Error?) -> Void
 class RemoteService {
     static let shared = RemoteService()
     let local = DataService.shared
+    let tagService = TagService.shared
 
     private init() {}
 
@@ -87,5 +88,35 @@ class RemoteService {
             .delete { err in
                 completion(err)
             }
+    }
+
+    /// set tags on firebase:
+    func setTags(tags: [TransactionTag], completion: @escaping RemoteCompletion) {
+        guard let userId = userId else {
+            completion(DataError.userNotFound)
+            return
+        }
+
+        let doc = self.db
+            .collection("tags")
+            .document(userId)
+
+        doc.delete { err in
+            if let err = err {
+                completion(err)
+            } else {
+                do {
+                    try doc.setData(from: ["tags": tags]) { err in
+                        if let err = err {
+                            completion(err)
+                        } else {
+                            completion(nil)
+                        }
+                    }
+                } catch {
+                    completion(error)
+                }
+            }
+        }
     }
 }
