@@ -42,9 +42,10 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let country = countries[indexPath.row]
         let cell = UITableViewCell()
-        cell.textLabel?.text = country.country
-        cell.accessoryView = UIImageView(image: UIImage(named: country.country))
-        cell.accessoryView?.bounds = CGRect(x: 0, y: 0, width: 30, height: 20)
+        cell.bindData(country: country)
+//        cell.textLabel?.text = country.country
+//        cell.accessoryView = UIImageView(image: UIImage(named: country.country))
+//        cell.accessoryView?.bounds = CGRect(x: 0, y: 0, width: 30, height: 20)
         return cell
     }
 
@@ -57,5 +58,13 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         let country = countries[indexPath.row]
         onSelectCountry?(country)
         dismiss(animated: true)
+    }
+}
+
+private extension UITableViewCell {
+    func bindData(country: CurrencyItem) {
+        textLabel?.text = country.country
+        accessoryView = UIImageView(image: UIImage(named: country.country))
+        accessoryView?.bounds = CGRect(x: 0, y: 0, width: 30, height: 20)
     }
 }

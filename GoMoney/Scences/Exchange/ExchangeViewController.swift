@@ -100,7 +100,16 @@ class ExchangeViewController: GMMainViewController {
             height: 65
         )
 
-        tableView.anchor(top: textField.bottomAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 16, paddingLeft: 16, paddingBottom: 16, paddingRight: 16)
+        tableView.anchor(
+            top: textField.bottomAnchor,
+            left: view.leftAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            right: view.rightAnchor,
+            paddingTop: 16,
+            paddingLeft: 16,
+            paddingBottom: 16,
+            paddingRight: 16
+        )
     }
 
     // MARK: - Actions

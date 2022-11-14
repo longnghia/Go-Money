@@ -2,6 +2,7 @@ import Foundation
 
 struct ServiceResources {
     static let exchangeUri = "https://api.apilayer.com/exchangerates_data/latest"
+    static let apiKey = "3NhHH9XmhDpxPSmVcPKU71r3S5BkDDX2"
 }
 
 struct ExchangeResult: Codable {
@@ -24,11 +25,9 @@ class ExchangeService {
     func getExchangeRate(from base: String, to: [CurrencyUnit], completion: @escaping ExchangeCompletion) {
         guard let url = URL(string: String(format: "%@?base=%@", ServiceResources.exchangeUri, base)) else { return }
 
-        print("url=\(url)")
-
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue("3NhHH9XmhDpxPSmVcPKU71r3S5BkDDX2", forHTTPHeaderField: "apikey")
+        request.addValue(ServiceResources.apiKey, forHTTPHeaderField: "apikey")
 
         let reachable = ConnectionService.shared.isReachable
 
@@ -36,7 +35,6 @@ class ExchangeService {
 
         if !reachable {
             let data = self.cache.cachedResponse(for: request)?.data
-            print(data)
 
             if let data = data {
                 do {
