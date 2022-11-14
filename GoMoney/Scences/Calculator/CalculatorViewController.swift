@@ -30,7 +30,12 @@ class CalculatorViewController: UIViewController {
     var dotIsHere = false
     var currentInput: Double {
         get {
-            return Double(displayLabel.text!)!
+            guard let text = displayLabel.text,
+                  let number = Double(text)
+            else {
+                return 0
+            }
+            return number
         }
         set {
             let value = "\(newValue)"
@@ -58,7 +63,7 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func numberActionPressed(_ sender: UIButton) {
         firstOperand = currentInput
-        actionSign = sender.currentTitle!
+        actionSign = sender.currentTitle ?? ""
         firstTyping = false
         dotIsHere = false
     }
@@ -79,6 +84,11 @@ class CalculatorViewController: UIViewController {
         case "-":
             operandsAction { $0 - $1 }
         case "÷":
+            if secondOperand == 0 {
+                snackBar(message: "Couldn't divide by zero")
+                clear(sender)
+                break
+            }
             operandsAction { $0 / $1 }
         case "×":
             operandsAction { $0 * $1 }
