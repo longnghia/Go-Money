@@ -43,9 +43,6 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         let country = countries[indexPath.row]
         let cell = UITableViewCell()
         cell.bindData(country: country)
-//        cell.textLabel?.text = country.country
-//        cell.accessoryView = UIImageView(image: UIImage(named: country.country))
-//        cell.accessoryView?.bounds = CGRect(x: 0, y: 0, width: 30, height: 20)
         return cell
     }
 
