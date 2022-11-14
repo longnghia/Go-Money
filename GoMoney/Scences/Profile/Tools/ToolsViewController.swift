@@ -16,8 +16,8 @@ class ToolsViewController: GMMainViewController {
         text: "Currency Exchanger",
         icLeft: UIImage(named: "ic_currency"),
         action: { [weak self] in
-            let exchangerVC = GMMainViewController()
-            self?.navigationController?.pushViewController(exchangerVC, animated: true)
+            let exchangerVC = ExchangeViewController()
+            self?.present(exchangerVC, animated: true)
         })
 
     private lazy var exportActionViews: GMLabelActionView = .init(
