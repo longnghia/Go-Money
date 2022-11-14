@@ -8,8 +8,10 @@ class ToolsViewController: GMMainViewController {
         text: "Calculator",
         icLeft: UIImage(named: "ic_calculator"),
         action: { [weak self] in
-            let calculatorVC = GMMainViewController()
-            self?.navigationController?.pushViewController(calculatorVC, animated: true)
+
+            let storyBoard: UIStoryboard = .init(name: "Calculator", bundle: nil)
+            let calculatorVC = storyBoard.instantiateViewController(withIdentifier: "calculatorStoryboardID")
+            self?.present(calculatorVC, animated: true)
         })
 
     private lazy var currencyActionViews: GMLabelActionView = .init(
