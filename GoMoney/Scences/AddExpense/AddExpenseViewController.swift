@@ -143,16 +143,27 @@ class AddExpenseViewController: GMMainViewController {
             kTitleFont: .nova(20),
             kTextFont: .nova(14),
             kButtonFont: .novaBold(14),
-            showCloseButton: false)
+            showCloseButton: false,
+            circleBackgroundColor: K.Color.actionBackground)
+
+        let btnColor = K.Color.actionBackground.withAlphaComponent(0.8)
 
         let alert = SCLAlertView(appearance: appearance)
-        alert.addButton("Add more") {
+        alert.iconTintColor = K.Color.actionBackground
+
+        alert.addButton("Add more", backgroundColor: btnColor) {
             self.addExpenseForm.clearFields()
         }
-        alert.addButton("Done") {
+        alert.addButton("Done", backgroundColor: btnColor) {
             self.didTapBack()
         }
-        alert.showSuccess("Success!", subTitle: "Transaction saved.")
+
+        alert.showTitle(
+            "Success",
+            subTitle: "Transaction saved.",
+            style: .success,
+            colorStyle: 0xEFF3F6,
+            colorTextButton: 0xFFFFFF)
     }
 }
 
