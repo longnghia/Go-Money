@@ -245,7 +245,7 @@ extension HomeViewController {
     func alertDeleteTransaction(transaction: Expense, indexPath: IndexPath, handler: @escaping (Bool) -> Void) {
         let alert = UIAlertController(
             title: "Delete Transaction",
-            message: "Are you sure to delete \(transaction.tag)?",
+            message: "Are you sure to delete \(transaction.tag?.name ?? "transaction")?",
             preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

@@ -10,15 +10,19 @@ class GMLabelActionView: UIControl {
 
     lazy var actionLeft: UIImageView = .build {
         $0.contentMode = .scaleAspectFill
+        $0.isUserInteractionEnabled = false
     }
 
     lazy var actionRight: UIImageView = .build {
         $0.contentMode = .scaleAspectFill
+        $0.isUserInteractionEnabled = false
     }
 
     private(set) var action: (() -> Void)?
 
-    private lazy var actionText = GMLabel()
+    private lazy var actionText = GMLabel {
+        $0.isUserInteractionEnabled = false
+    }
 
     init(
         text: String,

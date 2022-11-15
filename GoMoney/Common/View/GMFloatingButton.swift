@@ -46,12 +46,11 @@ class GMFloatingButton: UIControl {
         buttonIcon.centerYToView(self)
         
         buttonLabel.anchor(
-            top: topAnchor,
             left: buttonIcon.rightAnchor,
-            bottom: bottomAnchor,
             right: rightAnchor,
             paddingLeft: 12,
             paddingRight: padding)
+        buttonLabel.centerYToView(self)
     }
     
     override func layoutSubviews() {
