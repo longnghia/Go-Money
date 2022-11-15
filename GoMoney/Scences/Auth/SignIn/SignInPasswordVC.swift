@@ -116,7 +116,9 @@ class SignInPasswordVC: GMViewController {
                 errorLabel.text = error
             } else {
                 errorLabel.text = ""
+                GMLoadingView.shared.startLoadingAnimation()
                 viewModel.signInWithEmailAndPassword(email: email, password: password) { [weak self] error in
+                    GMLoadingView.shared.endLoadingAnimation()
                     if error != nil {
                         self?.errorLabel.text = error?.localizedDescription
                     } else {
@@ -128,10 +130,9 @@ class SignInPasswordVC: GMViewController {
     }
     
     private func navigateToMainVC() {
-        let mainVC = UIViewController()
-        let navVC = UINavigationController(rootViewController: mainVC)
+        let homeVC = GMTabBarViewController()
         if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
-            delegate.window?.rootViewController = navVC
+            delegate.window?.rootViewController = homeVC
         }
     }
 }

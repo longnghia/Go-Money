@@ -49,6 +49,7 @@
 		086B4FB5291FFF01005C61F6 /* CountryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086B4FB4291FFF01005C61F6 /* CountryData.plist */; };
 		086C5D1A29150B2E00B6DE49 /* calculator.json in Resources */ = {isa = PBXBuildFile; fileRef = 086C5D1929150B2E00B6DE49 /* calculator.json */; };
 		088149242911682C00BB3A79 /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ADD0F290F7031005DCF86 /* ToolsViewController.swift */; };
+		0888241B2923250F00660A9E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0888241A2923250F00660A9E /* UserManager.swift */; };
 		088D691C29015865003D0660 /* AddExpenseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691B29015865003D0660 /* AddExpenseField.swift */; };
 		088D692029015FBC003D0660 /* DatePickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691E29015FBC003D0660 /* DatePickerInputView.swift */; };
 		088D692129015FBC003D0660 /* ExpenseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691F29015FBC003D0660 /* ExpenseTextField.swift */; };
@@ -99,7 +100,7 @@
 		08C8731228F8021100DC859D /* GMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731128F8021100DC859D /* GMTextField.swift */; };
 		08C8731428F80ACA00DC859D /* ButtonAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731328F80ACA00DC859D /* ButtonAuth.swift */; };
 		08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731528F81E0D00DC859D /* GMLabelSpan.swift */; };
-		08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731828F865CA00DC859D /* SignUpViewController.swift */; };
+		08C8731928F865CA00DC859D /* SignUpPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C8731828F865CA00DC859D /* SignUpPasswordVC.swift */; };
 		08CFDFDD29000CD200359B02 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CFDFDC29000CD200359B02 /* DataService.swift */; };
 		08DB56E728F8FCFD00170C60 /* TextFieldSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56E628F8FCFD00170C60 /* TextFieldSignUp.swift */; };
 		08DB56E928F9035800170C60 /* StackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB56E828F9035800170C60 /* StackView+Extension.swift */; };
@@ -135,6 +136,8 @@
 		08F068AC29221C79005C58EC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F068AA29221C79005C58EC /* ImageLoader.swift */; };
 		08F068AD29221C79005C58EC /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F068AB29221C79005C58EC /* AsyncImageView.swift */; };
 		08F068B129221D29005C58EC /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F068B029221D29005C58EC /* TagService.swift */; };
+		08F068B329224740005C58EC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F068B229224740005C58EC /* SignUpViewModel.swift */; };
+		08F068B629225526005C58EC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F068B529225526005C58EC /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +206,7 @@
 		085F7538291278100094A026 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		086B4FB4291FFF01005C61F6 /* CountryData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = CountryData.plist; sourceTree = "<group>"; };
 		086C5D1929150B2E00B6DE49 /* calculator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calculator.json; sourceTree = "<group>"; };
+		0888241A2923250F00660A9E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		088D691B29015865003D0660 /* AddExpenseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseField.swift; sourceTree = "<group>"; };
 		088D691E29015FBC003D0660 /* DatePickerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputView.swift; sourceTree = "<group>"; };
 		088D691F29015FBC003D0660 /* ExpenseTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTextField.swift; sourceTree = "<group>"; };
@@ -261,7 +265,7 @@
 		08C8731128F8021100DC859D /* GMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMTextField.swift; sourceTree = "<group>"; };
 		08C8731328F80ACA00DC859D /* ButtonAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAuth.swift; sourceTree = "<group>"; };
 		08C8731528F81E0D00DC859D /* GMLabelSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLabelSpan.swift; sourceTree = "<group>"; };
-		08C8731828F865CA00DC859D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		08C8731828F865CA00DC859D /* SignUpPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordVC.swift; sourceTree = "<group>"; };
 		08CFDFDC29000CD200359B02 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		08DB56E628F8FCFD00170C60 /* TextFieldSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSignUp.swift; sourceTree = "<group>"; };
 		08DB56E828F9035800170C60 /* StackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extension.swift"; sourceTree = "<group>"; };
@@ -298,6 +302,8 @@
 		08F068AA29221C79005C58EC /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		08F068AB29221C79005C58EC /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		08F068B029221D29005C58EC /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
+		08F068B229224740005C58EC /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		08F068B529225526005C58EC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		1B112C91231231F4F5451123 /* Pods-GoMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoMoney.release.xcconfig"; path = "Target Support Files/Pods-GoMoney/Pods-GoMoney.release.xcconfig"; sourceTree = "<group>"; };
 		7E5F2838C4EFDE6C361D48A6 /* Pods-GoMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoMoney.debug.xcconfig"; path = "Target Support Files/Pods-GoMoney/Pods-GoMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		91E2DECB5E188E1306C43188 /* Pods_GoMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +397,7 @@
 			children = (
 				08C54523291F869B00CAD0DF /* ExchangeService.swift */,
 				082BF94728FD01400094FE94 /* AuthService.swift */,
+				0888241A2923250F00660A9E /* UserManager.swift */,
 				08CFDFDC29000CD200359B02 /* DataService.swift */,
 				08F068B029221D29005C58EC /* TagService.swift */,
 				085F7538291278100094A026 /* ConnectionService.swift */,
@@ -406,6 +413,7 @@
 		082BF97828FD65910094FE94 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				08F068B429225519005C58EC /* Profile */,
 				080ADD29290FA4E9005DCF86 /* Detail */,
 				08357BC02909173D00007F88 /* AddExpense */,
 				083EA337290676DC0079605F /* Stat */,
@@ -419,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				082BF97628FD64A60094FE94 /* SignInViewModel.swift */,
+				08F068B229224740005C58EC /* SignUpViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -777,7 +786,7 @@
 		08C8731728F865B200DC859D /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				08C8731828F865CA00DC859D /* SignUpViewController.swift */,
+				08C8731828F865CA00DC859D /* SignUpPasswordVC.swift */,
 				08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */,
 			);
 			path = SignUp;
@@ -881,6 +890,14 @@
 				08F068AB29221C79005C58EC /* AsyncImageView.swift */,
 			);
 			path = AsyncImage;
+			sourceTree = "<group>";
+		};
+		08F068B429225519005C58EC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				08F068B529225526005C58EC /* ProfileViewModel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		2A40CADA7D1F29A21E4B01AF /* Frameworks */ = {
@@ -1097,6 +1114,7 @@
 				082BF94828FD01400094FE94 /* AuthService.swift in Sources */,
 				083EA33B2906933A0079605F /* StatLineChartCell.swift in Sources */,
 				081DC8982901A99C0005374F /* AddExpenseForm.swift in Sources */,
+				08F068B329224740005C58EC /* SignUpViewModel.swift in Sources */,
 				081CB31429077BF20007D426 /* DayAxisValueFormatter.swift in Sources */,
 				08C1F25628FE68EB00590512 /* MainNavigationController.swift in Sources */,
 				080ADD26290F8CAF005DCF86 /* EditViewController.swift in Sources */,
@@ -1107,7 +1125,7 @@
 				085F7526291215B80094A026 /* SettingsViewController.swift in Sources */,
 				089CC756291A0C0A0070A108 /* BiometricService.swift in Sources */,
 				08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */,
-				08C8731928F865CA00DC859D /* SignUpViewController.swift in Sources */,
+				08C8731928F865CA00DC859D /* SignUpPasswordVC.swift in Sources */,
 				08EEA00E291CC374003B35B8 /* Widget+Kind.swift in Sources */,
 				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,
 				083EA336290659660079605F /* TransactionTag.swift in Sources */,
@@ -1117,6 +1135,7 @@
 				08C872A328F655CD00DC859D /* AppDelegate.swift in Sources */,
 				08DEE9CB29013E3D00EA9A2A /* AddExpenseViewController.swift in Sources */,
 				08C8731228F8021100DC859D /* GMTextField.swift in Sources */,
+				08F068B629225526005C58EC /* ProfileViewModel.swift in Sources */,
 				08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */,
 				081E124F291B52FB007BD5FB /* CurrencyUnit.swift in Sources */,
 				08C1F25B28FE8B2A00590512 /* Expense.swift in Sources */,
@@ -1139,6 +1158,7 @@
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
 				08EEA00C291CC359003B35B8 /* UserDefaults+AppGroup.swift in Sources */,
+				0888241B2923250F00660A9E /* UserManager.swift in Sources */,
 				08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */,
 				081E1253291B8392007BD5FB /* EmptyTransactionView.swift in Sources */,
 				089CC73C29190C080070A108 /* ExportViewModel.swift in Sources */,

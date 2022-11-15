@@ -19,6 +19,8 @@ class ProfileViewController: GMMainViewController {
 
     // MARK: - Private properties
 
+    private let viewModel = ProfileViewModel()
+
     private lazy var profileView: ProfileView = .init()
 
     private lazy var editButton: UIButton = {
@@ -96,6 +98,14 @@ class ProfileViewController: GMMainViewController {
             leftTitle: Content.title)
     }
 
+    // MARK: - LifeCircle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        loadUserInfo()
+    }
+
     // MARK: - Setup layout
 
     override func setupLayout() {
@@ -145,6 +155,29 @@ class ProfileViewController: GMMainViewController {
     }
 
     @objc private func didTapLogout() {
-        print("logout")
+        viewModel.logOut { [weak self] err in
+            if let err = err {
+                self?.errorAlert(message: err.localizedDescription)
+            } else {
+                self?.navigateToAuthVC()
+            }
+        }
+    }
+
+    private func navigateToAuthVC() {
+        let signInVC = SignInViewController()
+        let navVC = UINavigationController(rootViewController: signInVC)
+
+        if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
+            delegate.window?.rootViewController = navVC
+        }
+    }
+
+    private func loadUserInfo() {
+        viewModel.getUserInfo { user in
+            if let user = user {
+                self.profileView.bindUserData(user: user)
+            }
+        }
     }
 }

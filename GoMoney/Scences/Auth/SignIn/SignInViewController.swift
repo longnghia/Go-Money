@@ -45,6 +45,20 @@ class SignInViewController: GMViewController {
             action: #selector(self.didTapSignUp)
         ))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        img.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        mailButton.transform = CGAffineTransform(translationX: view.frame.origin.x + view.frame.width / 2, y: 0)
+        googleButton.transform = CGAffineTransform(translationX: view.frame.origin.x + view.frame.width / 2, y: 0)
+        
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.img.transform = .identity
+            self.mailButton.transform = .identity
+            self.googleButton.transform = .identity
+        })
+    }
  
     override func setupLayout() {
         title = "Login"
@@ -83,7 +97,7 @@ class SignInViewController: GMViewController {
     }
         
     @objc private func didTapSignUp() {
-        let vc = SignUpViewController()
+        let vc = SignUpPasswordVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     
