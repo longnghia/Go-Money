@@ -1,3 +1,4 @@
+import SCLAlertView
 import UIKit
 
 class AddExpenseViewController: GMMainViewController {
@@ -42,7 +43,21 @@ class AddExpenseViewController: GMMainViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setKeyboardNotification()
+        setupKeyboard()
+    }
+
+    private func setupKeyboard() {
+        setupKeyboard(onKeyboardWillShow: { height, duration in
+            UIView.animate(withDuration: duration) { [self] in
+                saveButtonAnchor?.constant = -(height + 16)
+                saveButton.layoutIfNeeded()
+            }
+        }, onKeyboardWillHide: { _, duration in
+            UIView.animate(withDuration: duration) { [self] in
+                saveButtonAnchor?.constant = -bottomInset
+                saveButton.layoutIfNeeded()
+            }
+        })
     }
 
     deinit {
@@ -92,56 +107,6 @@ class AddExpenseViewController: GMMainViewController {
         saveButtonAnchor?.isActive = true
     }
 
-    // MARK: - Keyboard
-
-    private func setKeyboardNotification() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleKeyboardWillShow(notification:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil)
-
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleKeyboardWillHide(notification:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil)
-
-        hideKeyboardOnTap()
-    }
-
-    @objc func handleKeyboardWillShow(notification: NSNotification) {
-        let kFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-        let kDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        guard let height = kFrame?.height, let duration = kDuration else { return }
-
-        UIView.animate(withDuration: duration) { [self] in
-            saveButtonAnchor?.constant = -(height + 16)
-            saveButton.layoutIfNeeded()
-        }
-    }
-
-    @objc func handleKeyboardWillHide(notification: NSNotification) {
-        let kFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-        let kDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        guard let _ = kFrame?.height, let duration = kDuration else { return }
-
-        UIView.animate(withDuration: duration) { [self] in
-            saveButtonAnchor?.constant = -bottomInset
-            saveButton.layoutIfNeeded()
-        }
-    }
-
-    func hideKeyboardOnTap() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc private func hideKeyboard() {
-        view.endEditing(true)
-    }
-
     @objc
     private func saveExpense() {
         hideKeyboard()
@@ -164,33 +129,30 @@ class AddExpenseViewController: GMMainViewController {
                         self?.alert(title: "Error", message: err.localizedDescription, actionTitle: "Cancel")
                     } else {
                         self?.notifyDataDidChange()
-
-                        let doneAction = UIAlertAction(
-                            title: "Done",
-                            style: .cancel,
-                            handler: { _ in
-                                self?.didTapBack()
-                            })
-
-                        let continueAction = UIAlertAction(
-                            title: "Add more",
-                            style: .default,
-                            handler: { _ in
-                                self?.addExpenseForm.clearFields()
-                            })
-
-                        self?.alert(
-                            type: .actionSheet,
-                            with: "Success!",
-                            message: nil,
-                            actions: [continueAction, doneAction],
-                            showCancel: false)
+                        self?.showSuccessAlert()
                     }
                 }
             }
         } else {
             alert(title: "Can't add transaction!", actionTitle: "Error")
         }
+    }
+
+    private func showSuccessAlert() {
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: .nova(20),
+            kTextFont: .nova(14),
+            kButtonFont: .novaBold(14),
+            showCloseButton: false)
+
+        let alert = SCLAlertView(appearance: appearance)
+        alert.addButton("Add more") {
+            self.addExpenseForm.clearFields()
+        }
+        alert.addButton("Done") {
+            self.didTapBack()
+        }
+        alert.showSuccess("Success!", subTitle: "Transaction saved.")
     }
 }
 
