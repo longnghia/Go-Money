@@ -24,11 +24,30 @@ class AddExpenseViewController: GMMainViewController {
         $0.numberOfLines = 0
     }
 
+    lazy var saveButton = GMFloatingButton(
+        image: UIImage(systemName: "plus.circle")?.color(.white),
+        text: "Save")
+    { [weak self] in
+        self?.saveExpense()
+    }
+
+    var saveButtonAnchor: NSLayoutConstraint?
+    var bottomInset: CGFloat = 100
+
     // MARK: - ViewModel
 
     private let viewModel = AddExpenseViewModel()
 
     // MARK: - Setup Layout
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setKeyboardNotification()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     override func configureBackButton() {
         super.configureBackButton()
@@ -43,13 +62,16 @@ class AddExpenseViewController: GMMainViewController {
     override func setupLayout() {
         title = type == .expense ? "Add Expense" : "Add Income"
 
-        view.addSubviews(addExpenseForm, errorLabel)
+        view.addSubviews(
+            addExpenseForm,
+            errorLabel,
+            saveButton)
 
         addExpenseForm.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            paddingTop: 8,
+            paddingTop: 32,
             paddingLeft: Constant.padding,
             paddingRight: Constant.padding)
 
@@ -58,6 +80,66 @@ class AddExpenseViewController: GMMainViewController {
             left: addExpenseForm.leftAnchor,
             right: addExpenseForm.rightAnchor,
             paddingTop: 24)
+
+        saveButton.anchor(
+            right: view.rightAnchor,
+            paddingRight: 16)
+
+        saveButtonAnchor = saveButton.bottomAnchor.constraint(
+            equalTo: view.bottomAnchor,
+            constant: -bottomInset)
+
+        saveButtonAnchor?.isActive = true
+    }
+
+    // MARK: - Keyboard
+
+    private func setKeyboardNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleKeyboardWillShow(notification:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleKeyboardWillHide(notification:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+
+        hideKeyboardOnTap()
+    }
+
+    @objc func handleKeyboardWillShow(notification: NSNotification) {
+        let kFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        let kDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        guard let height = kFrame?.height, let duration = kDuration else { return }
+
+        UIView.animate(withDuration: duration) { [self] in
+            saveButtonAnchor?.constant = -(height + 16)
+            saveButton.layoutIfNeeded()
+        }
+    }
+
+    @objc func handleKeyboardWillHide(notification: NSNotification) {
+        let kFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        let kDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        guard let _ = kFrame?.height, let duration = kDuration else { return }
+
+        UIView.animate(withDuration: duration) { [self] in
+            saveButtonAnchor?.constant = -bottomInset
+            saveButton.layoutIfNeeded()
+        }
+    }
+
+    func hideKeyboardOnTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
     }
 
     @objc
