@@ -154,9 +154,16 @@ class AddExpenseViewController: GMMainViewController {
         alert.addButton("Add more", backgroundColor: btnColor) {
             self.addExpenseForm.clearFields()
         }
-        alert.addButton("Done", backgroundColor: btnColor) {
+        let doneBtn = alert.addButton(
+            "Done",
+            backgroundColor: .white,
+            textColor: K.Color.actionBackground)
+        {
             self.didTapBack()
         }
+
+        doneBtn.layer.borderColor = btnColor.cgColor
+        doneBtn.layer.borderWidth = 2.0
 
         alert.showTitle(
             "Success",
