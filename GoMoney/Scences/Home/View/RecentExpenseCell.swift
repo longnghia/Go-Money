@@ -6,7 +6,8 @@ class RecentExpenseCell: UITableViewCell {
     var expense: Expense? {
         didSet {
             if let expense = expense {
-                labelName.text = expense.tag
+                icon.loadIcon(src: expense.tag?.icon)
+                labelName.text = expense.tag?.name
                 labelDate.text = expense.getDate(.occuredOn)
                 labelPrice.text = String(expense.amount)
             }

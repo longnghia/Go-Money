@@ -4,17 +4,17 @@ import UIKit
 class Expense: Object, Codable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var type: String
-    @Persisted var tag: String
+    @Persisted var tag: TransactionTag?
     @Persisted var amount: Double
     @Persisted var note: String
     @Persisted var occuredOn: Date
     @Persisted var createdAt: Date?
     @Persisted var updatedAt: Date?
 
-    convenience init(type: ExpenseType = .expense, tag: TransactionTag = .food, amount: Double, note: String = "", occuredOn: Date, createdAt: Date? = Date(), updatedAt: Date? = nil) {
+    convenience init(type: ExpenseType = .expense, tag: TransactionTag, amount: Double, note: String = "", occuredOn: Date, createdAt: Date? = Date(), updatedAt: Date? = nil) {
         self.init()
         self.type = type.rawValue
-        self.tag = tag.getName()
+        self.tag = tag
         self.amount = amount
         self.note = note
         self.occuredOn = occuredOn
@@ -37,7 +37,7 @@ class Expense: Object, Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(_id, forKey: ._id)
         try container.encode(type, forKey: .type)
-        try container.encode(tag, forKey: .tag)
+        try container.encode(tag?._id.stringValue, forKey: .tag)
         try container.encode(amount, forKey: .amount)
         try container.encode(note, forKey: .note)
         try container.encode(occuredOn, forKey: .occuredOn)

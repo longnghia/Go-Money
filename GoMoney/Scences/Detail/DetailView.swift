@@ -92,7 +92,10 @@ class DetailView: UIView {
     }
 
     private func setDetail() {
-        guard let transaction = transaction else {
+        guard
+            let transaction = transaction,
+            let tag = transaction.tag
+        else {
             return
         }
 
@@ -104,7 +107,7 @@ class DetailView: UIView {
 
         stackView.addArrangedSubviews(
             DetailCell(key: "Transaction type", value: transaction.type),
-            DetailCell(key: "Tag", value: transaction.tag),
+            DetailCell(key: "Tag", value: tag.name),
             DetailCell(key: "Amount", value: String(transaction.amount)),
             DetailCell(key: "When", value: DateFormatter.dmy().string(from: transaction.occuredOn)),
             DetailCell(key: "Note", value: transaction.note))

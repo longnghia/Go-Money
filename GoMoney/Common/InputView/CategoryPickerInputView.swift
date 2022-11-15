@@ -3,8 +3,8 @@ import UIKit
 public class CategoryPickerInputView: UIView {
     private(set) var didSelect: ((TransactionTag) -> Void)?
 
-    private let incomeTags = TransactionTag.incomeTags
-    private let expenseTags = TransactionTag.expenseTags
+    private let incomeTags = TagService.shared.incomes
+    private let expenseTags = TagService.shared.expenses
 
     lazy var collectionView: UICollectionView = {
         let numberOfItemsInSection = 4
@@ -33,7 +33,6 @@ public class CategoryPickerInputView: UIView {
     }()
 
     var type: ExpenseType = .expense
-    var selectedTag: TransactionTag = .food
 
     init(
         type: ExpenseType = .expense,
@@ -42,7 +41,6 @@ public class CategoryPickerInputView: UIView {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
         self.didSelect = didSelect
         self.type = type
-        self.selectedTag = type == .expense ? expenseTags[0] : incomeTags[0]
 
         setupView()
     }
@@ -122,7 +120,7 @@ class CategoryPickerCell: UICollectionViewCell {
     }
 
     func bindView(tag: TransactionTag) {
-        label.text = tag.getName()
-        image.icon.image = UIImage(named: tag.getIcon()) ?? K.Image.bell
+        label.text = tag.name
+        image.loadIcon(src: tag.icon)
     }
 }

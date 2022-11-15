@@ -1,0 +1,76 @@
+import RealmSwift
+
+class TagService {
+    static let shared = TagService()
+
+    private init() {
+        getAllTags()
+    }
+
+    var all = [TransactionTag]()
+    var incomes = [TransactionTag]()
+    var expenses = [TransactionTag]()
+
+    private let realm: Realm = try! Realm()
+
+    func getAllTags(completion: (()->Void)? = nil) {
+        let tags = realm.objects(TransactionTag.self)
+
+        all = Array(tags)
+        incomes = []
+        expenses = []
+
+        tags.forEach { tag in
+            switch tag.type {
+            case ExpenseType.expense.rawValue:
+                expenses.append(tag)
+            case ExpenseType.income.rawValue:
+                incomes.append(tag)
+            default:
+                break
+            }
+        }
+
+        completion?()
+    }
+
+    func getTagById(_ id: String, completion: @escaping (TransactionTag?)->Void) {
+        let tag = realm.objects(TransactionTag.self)
+            .first(where: { $0._id.stringValue == id })
+        completion(tag)
+    }
+
+    /// Create default database on first launch
+    func createDefaultDb(completion: @escaping (Error?)->Void) {
+        do {
+            try realm.write {
+                realm.add(TransactionTag.defaults)
+            }
+            completion(nil)
+        } catch {
+            completion(error)
+        }
+    }
+
+    func remove(tag: TransactionTag, completion: @escaping (Error?)->Void) {
+        do {
+            try realm.write {
+                realm.delete(tag)
+            }
+            completion(nil)
+        } catch {
+            completion(error)
+        }
+    }
+
+    func add(tag: TransactionTag, completion: @escaping (Error?)->Void) {
+        do {
+            try realm.write {
+                realm.add(tag)
+            }
+            completion(nil)
+        } catch {
+            completion(error)
+        }
+    }
+}

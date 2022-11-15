@@ -101,7 +101,7 @@ extension [Expense] {
 
         // sort expenses by tag
         let allTagAmount = map {
-            TagAmount(tag: $0.tag, totalAmount: $0.amount)
+            TagAmount(tag: $0.tag?.name ?? "Other", totalAmount: $0.amount)
         }
         .filter { $0.totalAmount > 0 }
         .sorted { $0.tag < $1.tag }
@@ -127,7 +127,7 @@ extension [Expense] {
             let sortedResult = result.sorted { $0.totalAmount > $1.totalAmount }
             let topTags = sortedResult[0 ..< maxTag]
             let othersAmount = sortedResult[maxTag ... sortedResult.endIndex - 1].reduce(0) { $0 + $1.totalAmount }
-            let otherTags = TagAmount(tag: TransactionTag.other.getName(), totalAmount: othersAmount)
+            let otherTags = TagAmount(tag: "Others", totalAmount: othersAmount)
             return topTags + [otherTags]
         }
 
