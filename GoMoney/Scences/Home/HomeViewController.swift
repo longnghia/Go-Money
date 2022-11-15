@@ -223,14 +223,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
     private func toggleEmptyView() {
         let empty = viewModel.transactions?.count == 0
-
+        let contents = [backImage, chartView, recentExpenseLabel, tableView, floatingButton]
         if empty {
+            contents.forEach { $0.isHidden = true }
             emptyView = EmptyTransactionView(viewController: self)
             if let emptyView = emptyView {
                 view.addSubview(emptyView)
                 emptyView.fillSuperview()
             }
         } else {
+            contents.forEach { $0.isHidden = false }
             emptyView?.removeFromSuperview()
             emptyView = nil
         }

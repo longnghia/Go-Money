@@ -109,7 +109,12 @@ class StatViewController: GMMainViewController {
     // MARK: Methods
 
     private func loadData() {
-        viewModel.getFilteredExpense()
+        GMLoadingView.shared.startLoadingAnimation(with: "Loading data ...")
+        viewModel.getFilteredExpense {
+            DispatchQueue.main.async {
+                GMLoadingView.shared.endLoadingAnimation()
+            }
+        }
     }
 
     @objc
@@ -122,8 +127,9 @@ class StatViewController: GMMainViewController {
 
     private func toggleEmptyView() {
         let empty = viewModel.tagExpenses?.count == 0
-
+        let contents = [tableView, filterBtn]
         if empty {
+            contents.forEach { $0.isHidden = true }
             emptyView = EmptyTransactionView(viewController: self)
             if let emptyView = emptyView {
                 emptyView.label = "No Expense Yet!"
@@ -133,6 +139,7 @@ class StatViewController: GMMainViewController {
             }
         }
         else {
+            contents.forEach { $0.isHidden = false }
             emptyView?.removeFromSuperview()
             emptyView = nil
         }

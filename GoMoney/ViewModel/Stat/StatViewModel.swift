@@ -15,7 +15,7 @@ class StatViewModel {
     var tagExpenses: [TagAmount]?
     var topExpenses: [Expense]?
 
-    func getFilteredExpense() {
+    func getFilteredExpense(completion: (() -> Void)? = nil) {
         service.getExpenses(filerBy: filterBy, ascending: true) { [self] result in
 
             dateExpenses = result.groupExpensesByDate(type: filterBy)
@@ -23,6 +23,8 @@ class StatViewModel {
             topExpenses = result.getTopExpenses()
 
             self.didChangeFilter?()
+
+            completion?()
         }
     }
 }

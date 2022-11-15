@@ -195,7 +195,7 @@ class SettingsViewController: GMMainViewController {
 
         alert(
             type: .actionSheet,
-            with: "GoMoney",
+            with: nil,
             message: "Please Select a Currency Unit",
             actions: actions)
     }
@@ -221,7 +221,7 @@ class SettingsViewController: GMMainViewController {
 
         alert(
             type: .actionSheet,
-            with: "GoMoney",
+            with: nil,
             message: "Please Select a Day Format",
             actions: actions)
     }

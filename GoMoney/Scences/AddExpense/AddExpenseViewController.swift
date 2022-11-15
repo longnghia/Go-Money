@@ -83,23 +83,26 @@ class AddExpenseViewController: GMMainViewController {
                     } else {
                         self?.notifyDataDidChange()
 
-                        let alert = UIAlertController(
-                            title: "Success!",
-                            message: "Continue adding transactions?",
-                            preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(
-                            title: "Cancel",
-                            style: .default,
+                        let doneAction = UIAlertAction(
+                            title: "Done",
+                            style: .cancel,
                             handler: { _ in
                                 self?.didTapBack()
-                            }))
-                        alert.addAction(UIAlertAction(
-                            title: "OK",
+                            })
+
+                        let continueAction = UIAlertAction(
+                            title: "Add more",
                             style: .default,
                             handler: { _ in
                                 self?.addExpenseForm.clearFields()
-                            }))
-                        self?.present(alert, animated: true, completion: nil)
+                            })
+
+                        self?.alert(
+                            type: .actionSheet,
+                            with: "Success!",
+                            message: nil,
+                            actions: [continueAction, doneAction],
+                            showCancel: false)
                     }
                 }
             }
