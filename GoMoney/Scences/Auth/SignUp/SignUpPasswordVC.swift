@@ -120,8 +120,8 @@ class SignUpPasswordVC: GMViewController {
                     if error != nil {
                         self?.errorLabel.text = error?.localizedDescription
                     } else {
-                        let vc = SignUpDetailViewController()
-                        self?.navigationController?.pushViewController(vc, animated: true)
+                        // TODO: navigateToDetailVC
+                        self?.navigateToMainVC()
                     }
                 }
             }
@@ -131,6 +131,18 @@ class SignUpPasswordVC: GMViewController {
     @objc
     private func textFieldDidChanged() {
         errorLabel.text = ""
+    }
+    
+    private func navigateToMainVC() {
+        let homeVC = GMTabBarViewController()
+        if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
+            delegate.window?.rootViewController = homeVC
+        }
+    }
+    
+    private func navigateToDetailVC() {
+        let vc = SignUpDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
