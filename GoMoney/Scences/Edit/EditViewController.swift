@@ -63,7 +63,7 @@ class EditViewController: GMMainViewController {
             top: cancelBtn.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            paddingTop: 16,
+            paddingTop: 32,
             paddingLeft: 16,
             paddingRight: 16)
 
