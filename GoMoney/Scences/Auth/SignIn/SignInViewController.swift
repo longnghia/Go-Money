@@ -15,25 +15,21 @@ class SignInViewController: GMViewController {
     private lazy var mailButton: ButtonAuth = .init(
         icon: "ic_email",
         text: "Sign in with password",
-        background: K.Color.actionBackground
-    ) {
-        $0.addGestureRecognizer(UITapGestureRecognizer(
-            target: self,
-            action: #selector(self.didTapSignInEmail)
-        ))
-    }
+        background: K.Color.actionBackground,
+        tapAction: { [weak self] in
+            self?.didTapSignInEmail()
+        }
+    )
     
     private lazy var googleButton: ButtonAuth = .init(
         icon: "ic_google",
         text: "Sign in with gmail",
         background: .white,
-        textColor: K.Color.actionBackground
-    ) {
-        $0.addGestureRecognizer(UITapGestureRecognizer(
-            target: self,
-            action: #selector(self.didTapSignInGoogle)
-        ))
-    }
+        textColor: K.Color.actionBackground,
+        tapAction: { [weak self] in
+            self?.didTapSignInGoogle()
+        }
+    )
 
     private lazy var signUpText: GMLabelSpan = .init(
         text: "Don't have an account? Signup",
@@ -101,12 +97,12 @@ class SignInViewController: GMViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func didTapSignInEmail() {
+    private func didTapSignInEmail() {
         let vc = SignInPasswordVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func didTapSignInGoogle() {
+    private func didTapSignInGoogle() {
         print("go to google")
     }
 }

@@ -1,7 +1,7 @@
 import UIKit
 
 class ButtonAuth: UIButton {
-    enum Constants {
+    private enum Constants {
         static let buttonAuthSize: CGFloat = 40
         static let cornerRadius: CGFloat = 8
         static let borderWidth: CGFloat = 1
@@ -19,11 +19,13 @@ class ButtonAuth: UIButton {
     private lazy var stackView: UIStackView = .build { stackView in
         stackView.axis = .horizontal
         stackView.spacing = Constants.spacing
-        stackView.addArrangedSubview(self.btnImg)
-        stackView.addArrangedSubview(self.btnText)
+        stackView.addArrangedSubviews(self.btnImg, self.btnText)
+        stackView.isUserInteractionEnabled = false
     }
     
-    init(icon: String, text: String, background: UIColor, textColor: UIColor = .white, builder: ((ButtonAuth) -> Void)? = nil) {
+    private var tapAction: (() -> Void)?
+    
+    init(icon: String, text: String, background: UIColor, textColor: UIColor = .white, tapAction: @escaping () -> Void, builder: ((ButtonAuth) -> Void)? = nil) {
         super.init(frame: .zero)
         setup()
         
@@ -43,6 +45,9 @@ class ButtonAuth: UIButton {
         btnText.text = text
         btnText.textColor = textColor
         
+        self.tapAction = tapAction
+        addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        
         builder?(self)
     }
     
@@ -56,5 +61,49 @@ class ButtonAuth: UIButton {
         layer.borderWidth = Constants.borderWidth
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = true
+    }
+    
+    @objc
+    private func didTapButton() {
+        tapAction?()
+    }
+
+    // MARK: - Touches
+
+    var touchAlpha: TouchAlphaValues = .untouched {
+        didSet {
+            updateTouchAlpha()
+        }
+    }
+
+    var pressed: Bool = false {
+        didSet {
+            touchAlpha = pressed ? .touched : .untouched
+        }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        pressed = true
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        pressed = false
+    }
+
+    func updateTouchAlpha() {
+        if alpha != touchAlpha.rawValue {
+            UIView.animate(withDuration: 0.2) {
+                self.alpha = self.touchAlpha.rawValue
+            }
+        }
+    }
+}
+
+extension ButtonAuth {
+    enum TouchAlphaValues: CGFloat {
+        case touched = 0.7
+        case untouched = 1.0
     }
 }

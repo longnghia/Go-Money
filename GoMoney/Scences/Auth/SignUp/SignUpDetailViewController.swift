@@ -13,15 +13,19 @@ class SignUpDetailViewController: GMViewController {
         static let next = "Next"
     }
 
-    private lazy var fieldName: TextFieldSignUp = .init(title: Content.name)
+    private lazy var fieldName: TextFieldSignUp = .init(
+        title: Content.name,
+        delegate: self)
     
     private lazy var fieldDob: TextFieldSignUp = .init(
         title: Content.dob,
-        type: .numberPad)
+        type: .numberPad,
+        delegate: self)
     
     private lazy var fieldIncome: TextFieldSignUp = .init(
         title: Content.income,
-        type: .numberPad)
+        type: .numberPad,
+        delegate: self)
 
     private lazy var inputFields: UIStackView = {
         let stackView = UIStackView()
@@ -72,5 +76,19 @@ class SignUpDetailViewController: GMViewController {
     
     @objc func didTapNext() {
         print("save info to firebase")
+    }
+}
+
+extension SignUpDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == fieldName.inputField {
+            fieldDob.inputField.becomeFirstResponder()
+        } else if textField == fieldDob.inputField {
+            fieldIncome.inputField.becomeFirstResponder()
+        } else if textField == fieldIncome.inputField {
+            fieldIncome.inputField.resignFirstResponder()
+            didTapNext()
+        }
+        return true
     }
 }

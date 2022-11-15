@@ -19,14 +19,17 @@ class SignUpPasswordVC: GMViewController {
     
     private lazy var fieldEmail: TextFieldSignUp = .init(
         title: Content.email,
-        type: .emailAddress)
+        type: .emailAddress,
+        delegate: self)
     private lazy var fieldPassword: TextFieldSignUp = .init(
         title: Content.password,
-        secure: true)
+        secure: true,
+        delegate: self)
 
     private lazy var fieldRePassword: TextFieldSignUp = .init(
         title: Content.repassword,
-        secure: true)
+        secure: true,
+        delegate: self)
     
     private lazy var errorLabel: GMLabel = .init(style: .smallBold, isCenter: true) {
         $0.textColor = K.Color.error
@@ -128,5 +131,19 @@ class SignUpPasswordVC: GMViewController {
     @objc
     private func textFieldDidChanged() {
         errorLabel.text = ""
+    }
+}
+
+extension SignUpPasswordVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == fieldEmail.inputField {
+            fieldPassword.inputField.becomeFirstResponder()
+        } else if textField == fieldPassword.inputField {
+            fieldRePassword.inputField.becomeFirstResponder()
+        } else if textField == fieldRePassword.inputField {
+            fieldRePassword.inputField.resignFirstResponder()
+            didTapNext()
+        }
+        return true
     }
 }
