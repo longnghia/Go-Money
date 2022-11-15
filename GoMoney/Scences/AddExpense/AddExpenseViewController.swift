@@ -144,7 +144,7 @@ class AddExpenseViewController: GMMainViewController {
 
     @objc
     private func saveExpense() {
-        view.endEditing(true)
+        hideKeyboard()
 
         addExpenseForm.validateFields { err in
             if let err = err {
