@@ -22,19 +22,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let onboarded = UserDefaults.standard.bool(forKey: UserDefaultKey.firstLaunch)
 
+        // onboard showed
         if onboarded {
-            let locked = SettingsManager.shared.getValue(for: .enablePassword) as? Bool ?? false
-            if locked {
-                window?.rootViewController = BioLockViewController()
-            } else {
-                let signedIn = true
-                if signedIn {
+            // user signed in
+            if UserDefaults.standard.string(forKey: "userId") != nil {
+                // biometric lock
+                let locked = SettingsManager.shared.getValue(for: .enablePassword) as? Bool ?? false
+                if locked {
+                    window?.rootViewController = BioLockViewController()
+                } else {
                     let tabBarVC = GMTabBarViewController()
                     window?.rootViewController = tabBarVC
-                } else {
-                    let navVC = UINavigationController(rootViewController: SignInViewController())
-                    window?.rootViewController = navVC
                 }
+            } else {
+                let navVC = UINavigationController(rootViewController: SignInViewController())
+                window?.rootViewController = navVC
             }
         } else {
             window?.rootViewController = OnboardViewController()

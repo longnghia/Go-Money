@@ -7,9 +7,9 @@ class ProfileView: UIView {
 
     lazy var avatar: GMCircleImage = .init(size: Constant.height)
 
-    lazy var name: GMLabel = .init(style: .regularBold, isCenter: true)
+    lazy var name: GMLabel = .init(style: .regularBold, isCenter: false)
 
-    lazy var email: GMLabel = .init(style: .small, isCenter: true)
+    lazy var email: GMLabel = .init(style: .small, isCenter: false)
 
     private lazy var stackNameEmail: UIStackView = {
         let stackView = UIStackView()
@@ -39,5 +39,11 @@ class ProfileView: UIView {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func bindUserData(user: GMUser) {
+        name.text = user.name ?? "user_\(user.uid.prefix(4))"
+        email.text = user.email
+        // TODO: Set avatar with AsyncImage
     }
 }

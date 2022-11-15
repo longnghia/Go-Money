@@ -15,25 +15,21 @@ class SignInViewController: GMViewController {
     private lazy var mailButton: ButtonAuth = .init(
         icon: "ic_email",
         text: "Sign in with password",
-        background: K.Color.actionBackground
-    ) {
-        $0.addGestureRecognizer(UITapGestureRecognizer(
-            target: self,
-            action: #selector(self.didTapSignInEmail)
-        ))
-    }
+        background: K.Color.actionBackground,
+        tapAction: { [weak self] in
+            self?.didTapSignInEmail()
+        }
+    )
     
     private lazy var googleButton: ButtonAuth = .init(
         icon: "ic_google",
         text: "Sign in with gmail",
         background: .white,
-        textColor: K.Color.actionBackground
-    ) {
-        $0.addGestureRecognizer(UITapGestureRecognizer(
-            target: self,
-            action: #selector(self.didTapSignInGoogle)
-        ))
-    }
+        textColor: K.Color.actionBackground,
+        tapAction: { [weak self] in
+            self?.didTapSignInGoogle()
+        }
+    )
 
     private lazy var signUpText: GMLabelSpan = .init(
         text: "Don't have an account? Signup",
@@ -44,6 +40,20 @@ class SignInViewController: GMViewController {
             target: self,
             action: #selector(self.didTapSignUp)
         ))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        img.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        mailButton.transform = CGAffineTransform(translationX: view.frame.origin.x + view.frame.width / 2, y: 0)
+        googleButton.transform = CGAffineTransform(translationX: view.frame.origin.x + view.frame.width / 2, y: 0)
+        
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.img.transform = .identity
+            self.mailButton.transform = .identity
+            self.googleButton.transform = .identity
+        })
     }
  
     override func setupLayout() {
@@ -83,16 +93,16 @@ class SignInViewController: GMViewController {
     }
         
     @objc private func didTapSignUp() {
-        let vc = SignUpViewController()
+        let vc = SignUpPasswordVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func didTapSignInEmail() {
+    private func didTapSignInEmail() {
         let vc = SignInPasswordVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func didTapSignInGoogle() {
+    private func didTapSignInGoogle() {
         print("go to google")
     }
 }

@@ -7,13 +7,14 @@ class TextFieldSignUp: UIView {
     
     lazy var inputField: GMTextField = {
         let textField = GMTextField()
+        textField.font = .nova(18)
         return textField
     }()
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 6
+        stackView.spacing = 10
         stackView.addArrangedSubviews(inputTitle, inputField)
         
         inputTitle.anchor(

@@ -14,7 +14,7 @@ class GMButton: UIButton {
         text: String = "",
         size: CGFloat = 16,
         color: UIColor = .black,
-        font: String = K.Font.nova,
+        font: String = K.Font.novaBold,
         tapAction: (() -> Void)? = nil,
         builder: ((GMButton) -> Void)? = nil
     ) {
