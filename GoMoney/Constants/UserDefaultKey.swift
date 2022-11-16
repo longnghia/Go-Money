@@ -8,5 +8,5 @@
 import Foundation
 
 struct UserDefaultKey {
-    static let firstLaunch = "com.ln.goMoney.firstLaunch"
+    static let firstLaunch = "com.kappa.expense.firstLaunch"
 }

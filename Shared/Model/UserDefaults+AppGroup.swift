@@ -1,7 +1,7 @@
 import Foundation
 
 extension UserDefaults {
-    static let appGroup = UserDefaults(suiteName: "group.ln.gomoney")!
+    static let appGroup = UserDefaults(suiteName: "group.kappa.expense")!
 }
 
 extension UserDefaults {

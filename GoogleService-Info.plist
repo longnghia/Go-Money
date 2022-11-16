@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>629367495624-67ouvvpn1f6q6a8v9bab98f86opda6um.apps.googleusercontent.com</string>
+	<string>629367495624-fjrc8mtsm11h155pbd1dp244kvlg33p9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.629367495624-67ouvvpn1f6q6a8v9bab98f86opda6um</string>
+	<string>com.googleusercontent.apps.629367495624-fjrc8mtsm11h155pbd1dp244kvlg33p9</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBecNbYb2GrSODr31HjqiM3Y2Gi7sHqe-8</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ln.GoMoney</string>
+	<string>com.kappa.expense</string>
 	<key>PROJECT_ID</key>
 	<string>go-money-966bc</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:629367495624:ios:add03a03425b69a4fcfefd</string>
+	<string>1:629367495624:ios:8e6a7d95f3a7a347fcfefd</string>
 </dict>
 </plist>
