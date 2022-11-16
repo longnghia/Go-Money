@@ -1344,7 +1344,7 @@
 				CODE_SIGN_ENTITLEMENTS = GoMoney/GoMoney.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 558M82PGAZ;
+				DEVELOPMENT_TEAM = 6MDZ9345M2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoMoney/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1375,7 +1375,7 @@
 				CODE_SIGN_ENTITLEMENTS = GoMoney/GoMoney.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 558M82PGAZ;
+				DEVELOPMENT_TEAM = 6MDZ9345M2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoMoney/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1404,7 +1404,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 558M82PGAZ;
+				DEVELOPMENT_TEAM = 6MDZ9345M2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
@@ -1433,7 +1433,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 558M82PGAZ;
+				DEVELOPMENT_TEAM = 6MDZ9345M2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
