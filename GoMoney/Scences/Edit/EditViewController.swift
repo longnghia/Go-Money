@@ -30,7 +30,7 @@ class EditViewController: GMMainViewController {
 
     private lazy var applyBtn = GMButton(
         text: "Apply",
-        color: K.Color.actionBackground,
+        color: .action,
         tapAction: { [weak self] in
             self?.form?.validateFields { err in
                 if let err = err {

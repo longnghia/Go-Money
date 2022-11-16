@@ -7,7 +7,7 @@ class GMImageButton: UIView {
     
     var size: CGFloat!
     
-    init(size: CGFloat = 36, image: UIImage?, tintColor: UIColor = .white, backgroundColor: UIColor = K.Color.actionBackground, padding: CGFloat = 12, didTapButton: (() -> Void)? = nil, builder: ((GMImageButton) -> Void)? = nil) {
+    init(size: CGFloat = 36, image: UIImage?, tintColor: UIColor = .white, backgroundColor: UIColor = .action, padding: CGFloat = 12, didTapButton: (() -> Void)? = nil, builder: ((GMImageButton) -> Void)? = nil) {
         super.init(frame: .zero)
         
         self.backgroundColor = backgroundColor

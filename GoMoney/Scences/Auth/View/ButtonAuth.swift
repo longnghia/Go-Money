@@ -30,7 +30,7 @@ class ButtonAuth: UIButton {
         setup()
         
         if background == .white {
-            layer.borderColor = K.Color.actionBackground.cgColor
+            layer.borderColor = .action.cgColor
         }
         
         backgroundColor = background

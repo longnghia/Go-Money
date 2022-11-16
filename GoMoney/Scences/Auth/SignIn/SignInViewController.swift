@@ -15,7 +15,7 @@ class SignInViewController: GMViewController {
     private lazy var mailButton: ButtonAuth = .init(
         icon: "ic_email",
         text: "Sign in with password",
-        background: K.Color.actionBackground,
+        background: .action,
         tapAction: { [weak self] in
             self?.didTapSignInEmail()
         }
@@ -25,7 +25,7 @@ class SignInViewController: GMViewController {
         icon: "ic_google",
         text: "Sign in with gmail",
         background: .white,
-        textColor: K.Color.actionBackground,
+        textColor: .action,
         tapAction: { [weak self] in
             self?.didTapSignInGoogle()
         }

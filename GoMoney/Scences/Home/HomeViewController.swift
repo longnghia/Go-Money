@@ -10,7 +10,7 @@ class HomeViewController: GMMainViewController {
     // MARK: - Private Properties
 
     private lazy var backImage: UIView = .build {
-        $0.backgroundColor = K.Color.actionBackground
+        $0.backgroundColor = .action
     }
 
     private lazy var chartView = ChartView()
@@ -36,7 +36,7 @@ class HomeViewController: GMMainViewController {
         floatingButton.size = Constant.buttonSize
         floatingButton.itemSize = Constant.buttonSize
         floatingButton.plusColor = .white
-        floatingButton.buttonColor = K.Color.actionBackground
+        floatingButton.buttonColor = .action
 
         floatingButton.addItem("Income", icon: UIImage(named: "ic_add_income")?.color(K.Color.saving), titlePosition: .left) { [weak self] _ in
             self?.navigateToAddTransaction(type: .income)
