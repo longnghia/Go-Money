@@ -9,7 +9,7 @@ enum Setting: String, Equatable {
     case intervalSync = "Set interval sync time"
 
     func getSettingId() -> String {
-        let base = "com.ln.gomoney"
+        let base = "com.kappa.expense"
         switch self {
         case .enablePassword: return "\(base).enablePassword"
         case .syncOnWifi: return "\(base).syncOnWifi"
@@ -36,7 +36,7 @@ class SettingsManager {
     static let shared = SettingsManager()
     private init() {}
 
-    private let prefs = UserDefaults(suiteName: "com.ln.gomoney.settings")!
+    private let prefs = UserDefaults(suiteName: "com.kappa.expense.settings")!
 
     func getValue(for key: Setting) -> Any {
         return prefs.object(forKey: key.getSettingId()) ?? key.defaultValue()

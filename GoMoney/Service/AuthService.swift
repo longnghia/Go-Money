@@ -71,7 +71,7 @@ class AuthService {
         // remove setting
 
         if let appDomain = Bundle.main.bundleIdentifier {
-            if let pref = UserDefaults(suiteName: "com.ln.gomoney.settings") {
+            if let pref = UserDefaults(suiteName: "com.kappa.expense.settings") {
                 pref.removePersistentDomain(forName: appDomain)
             }
         }

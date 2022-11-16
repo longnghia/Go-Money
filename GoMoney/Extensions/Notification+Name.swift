@@ -5,5 +5,5 @@ extension Notification.Name {
         return .init(rawValue: "UserLogin.success")
     }
 
-    static let dataChanged = Notification.Name(rawValue: "com.ln.gomoney.expense.changed")
+    static let dataChanged = Notification.Name(rawValue: "com.kappa.expense.expense.changed")
 }
