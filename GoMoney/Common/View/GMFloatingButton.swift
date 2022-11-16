@@ -15,7 +15,7 @@ class GMFloatingButton: UIControl {
         $0.textColor = .white
     }
     
-    init(image: UIImage? = K.Image.edit, text: String = "Edit", textColor: UIColor? = .white, background: UIColor? = K.Color.actionBackground, onTap: (() -> Void)? = nil) {
+    init(image: UIImage? = K.Image.edit, text: String = "Edit", textColor: UIColor? = .white, background: UIColor? = .action, onTap: (() -> Void)? = nil) {
         super.init(frame: CGRect(x: 0, y: 0, width: 120, height: 64))
         
         backgroundColor = background
