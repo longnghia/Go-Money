@@ -18,5 +18,6 @@ pod 'lottie-ios'
 pod 'ReachabilitySwift'
 pod 'GradientLoadingBar', '~> 3.0'
 pod 'BiometricAuthentication'
+pod 'SCLAlertView'
 
 end

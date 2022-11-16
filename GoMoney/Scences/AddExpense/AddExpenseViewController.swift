@@ -1,3 +1,4 @@
+import SCLAlertView
 import UIKit
 
 class AddExpenseViewController: GMMainViewController {
@@ -24,11 +25,44 @@ class AddExpenseViewController: GMMainViewController {
         $0.numberOfLines = 0
     }
 
+    lazy var saveButton = GMFloatingButton(
+        image: UIImage(systemName: "plus.circle")?.color(.white),
+        text: "Save")
+    { [weak self] in
+        self?.saveExpense()
+    }
+
+    var saveButtonAnchor: NSLayoutConstraint?
+    var bottomInset: CGFloat = 100
+
     // MARK: - ViewModel
 
     private let viewModel = AddExpenseViewModel()
 
     // MARK: - Setup Layout
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupKeyboard()
+    }
+
+    private func setupKeyboard() {
+        setupKeyboard(onKeyboardWillShow: { height, duration in
+            UIView.animate(withDuration: duration) { [self] in
+                saveButtonAnchor?.constant = -(height + 16)
+                saveButton.layoutIfNeeded()
+            }
+        }, onKeyboardWillHide: { _, duration in
+            UIView.animate(withDuration: duration) { [self] in
+                saveButtonAnchor?.constant = -bottomInset
+                saveButton.layoutIfNeeded()
+            }
+        })
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     override func configureBackButton() {
         super.configureBackButton()
@@ -43,13 +77,16 @@ class AddExpenseViewController: GMMainViewController {
     override func setupLayout() {
         title = type == .expense ? "Add Expense" : "Add Income"
 
-        view.addSubviews(addExpenseForm, errorLabel)
+        view.addSubviews(
+            addExpenseForm,
+            errorLabel,
+            saveButton)
 
         addExpenseForm.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            paddingTop: 8,
+            paddingTop: 32,
             paddingLeft: Constant.padding,
             paddingRight: Constant.padding)
 
@@ -58,11 +95,21 @@ class AddExpenseViewController: GMMainViewController {
             left: addExpenseForm.leftAnchor,
             right: addExpenseForm.rightAnchor,
             paddingTop: 24)
+
+        saveButton.anchor(
+            right: view.rightAnchor,
+            paddingRight: 16)
+
+        saveButtonAnchor = saveButton.bottomAnchor.constraint(
+            equalTo: view.bottomAnchor,
+            constant: -bottomInset)
+
+        saveButtonAnchor?.isActive = true
     }
 
     @objc
     private func saveExpense() {
-        view.endEditing(true)
+        hideKeyboard()
 
         addExpenseForm.validateFields { err in
             if let err = err {
@@ -82,33 +129,48 @@ class AddExpenseViewController: GMMainViewController {
                         self?.alert(title: "Error", message: err.localizedDescription, actionTitle: "Cancel")
                     } else {
                         self?.notifyDataDidChange()
-
-                        let doneAction = UIAlertAction(
-                            title: "Done",
-                            style: .cancel,
-                            handler: { _ in
-                                self?.didTapBack()
-                            })
-
-                        let continueAction = UIAlertAction(
-                            title: "Add more",
-                            style: .default,
-                            handler: { _ in
-                                self?.addExpenseForm.clearFields()
-                            })
-
-                        self?.alert(
-                            type: .actionSheet,
-                            with: "Success!",
-                            message: nil,
-                            actions: [continueAction, doneAction],
-                            showCancel: false)
+                        self?.showSuccessAlert()
                     }
                 }
             }
         } else {
             alert(title: "Can't add transaction!", actionTitle: "Error")
         }
+    }
+
+    private func showSuccessAlert() {
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: .nova(20),
+            kTextFont: .nova(14),
+            kButtonFont: .novaBold(14),
+            showCloseButton: false,
+            circleBackgroundColor: K.Color.actionBackground)
+
+        let btnColor = K.Color.actionBackground.withAlphaComponent(0.8)
+
+        let alert = SCLAlertView(appearance: appearance)
+        alert.iconTintColor = K.Color.actionBackground
+
+        alert.addButton("Add more", backgroundColor: btnColor) {
+            self.addExpenseForm.clearFields()
+        }
+        let doneBtn = alert.addButton(
+            "Done",
+            backgroundColor: .white,
+            textColor: K.Color.actionBackground)
+        {
+            self.didTapBack()
+        }
+
+        doneBtn.layer.borderColor = btnColor.cgColor
+        doneBtn.layer.borderWidth = 2.0
+
+        alert.showTitle(
+            "Success",
+            subTitle: "Transaction saved.",
+            style: .success,
+            colorStyle: 0xEFF3F6,
+            colorTextButton: 0xFFFFFF)
     }
 }
 

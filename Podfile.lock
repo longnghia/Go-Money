@@ -733,6 +733,7 @@ PODS:
   - Realm/Headers (10.32.0)
   - RealmSwift (10.32.0):
     - Realm (= 10.32.0)
+  - SCLAlertView (0.8)
   - SwiftAlgorithms (1.0.0)
   - TTGSnackbar (1.11.1)
 
@@ -749,6 +750,7 @@ DEPENDENCIES:
   - lottie-ios
   - ReachabilitySwift
   - RealmSwift (~> 10.32)
+  - SCLAlertView
   - TTGSnackbar
 
 SPEC REPOS:
@@ -778,6 +780,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - Realm
     - RealmSwift
+    - SCLAlertView
     - SwiftAlgorithms
     - TTGSnackbar
 
@@ -818,9 +821,10 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   Realm: a00e93347b8d26d372c7a82f6c0b08d6536a21c8
   RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   TTGSnackbar: fea91c62637b5662f808a4c3b55f7631cb7e1ef7
 
-PODFILE CHECKSUM: e8e278ec734b5473a7e9e53aa0611fff04c63bd0
+PODFILE CHECKSUM: 04a502b558c295436eb49140fbc69aa01cd975a3
 
 COCOAPODS: 1.11.3
