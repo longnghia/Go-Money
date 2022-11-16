@@ -6,7 +6,7 @@ import UIKit
 public class ExpenseTextField: UITextField {
     //  MARK: - Open variables -
     
-    open var focusedborderColor = .action
+    open var focusedborderColor = UIColor.action
     
     open var borderColor = UIColor.lightGray {
         didSet { layer.borderColor = borderColor.cgColor }

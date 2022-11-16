@@ -146,7 +146,7 @@ class AddExpenseViewController: GMMainViewController {
             showCloseButton: false,
             circleBackgroundColor: .action)
 
-        let btnColor = .action.withAlphaComponent(0.8)
+        let btnColor = UIColor.action.withAlphaComponent(0.8)
 
         let alert = SCLAlertView(appearance: appearance)
         alert.iconTintColor = .action
