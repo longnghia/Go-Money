@@ -42,9 +42,7 @@ class SyncManager {
                                 if let err = err {
                                     print("deleteTransactionTracking fail: \(err)")
                                 } else {
-                                    SettingsManager.shared.setValue(
-                                        Date().timeIntervalSince1970,
-                                        for: .lastSync)
+                                    self.setSyncTime()
                                 }
                             }
                         }
@@ -60,9 +58,7 @@ class SyncManager {
                                 if let err = err {
                                     print("deleteTransactionTracking fail: \(err)")
                                 } else {
-                                    SettingsManager.shared.setValue(
-                                        Date().timeIntervalSince1970,
-                                        for: .lastSync)
+                                    self.setSyncTime()
                                 }
                             }
                         }
@@ -81,6 +77,7 @@ class SyncManager {
                     print("[syncUserInfo] Error \(err)")
                 } else {
                     UserDefaults.standard.set(false, forKey: UserDefaultKey.needSyncUserInfo)
+                    self.setSyncTime()
                 }
             })
         }
@@ -93,8 +90,15 @@ class SyncManager {
                     print("[syncTags] Error \(err)")
                 } else {
                     UserDefaults.standard.set(false, forKey: UserDefaultKey.needSyncTag)
+                    self.setSyncTime()
                 }
             })
         }
+    }
+
+    private func setSyncTime() {
+        SettingsManager.shared.setValue(
+            Date().timeIntervalSince1970,
+            for: .lastSync)
     }
 }
