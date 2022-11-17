@@ -3,8 +3,8 @@ import UIKit
 public class CategoryPickerInputView: UIView {
     private(set) var didSelect: ((TransactionTag) -> Void)?
 
-    private let incomeTags = TagService.shared.incomes
-    private let expenseTags = TagService.shared.expenses
+    private var incomeTags = TagService.shared.incomes
+    private var expenseTags = TagService.shared.expenses
 
     lazy var collectionView: UICollectionView = {
         let numberOfItemsInSection = 4
@@ -59,6 +59,12 @@ public class CategoryPickerInputView: UIView {
             bottom: bottomAnchor,
             right: rightAnchor
         )
+    }
+
+    func reloadData() {
+        incomeTags = TagService.shared.incomes
+        expenseTags = TagService.shared.expenses
+        collectionView.reloadData()
     }
 }
 

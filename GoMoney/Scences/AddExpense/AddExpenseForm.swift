@@ -23,24 +23,47 @@ class AddExpenseForm: UIView {
         return field
     }()
 
-    lazy var categoryField = {
-        let field = AddExpenseField(
-            name: "Category"
+    lazy var categoryField = AddExpenseField(name: "Category")
 
-        ) { [weak self] textField in
+    private func setCategoryField() {
+        let field = categoryField.inputField
 
-            textField.inputView = CategoryPickerInputView(type: self?.transType ?? .expense) { [weak textField] tag in
+        field.inputView = CategoryPickerInputView(
+            type: transType,
+            didSelect: { [weak field, weak self] tag in
                 self?.curTag = tag
-                textField?.text = tag.name
-                textField?.resignFirstResponder()
+                field?.text = tag.name
+                field?.resignFirstResponder()
             }
-            textField.inputAccessoryView = AccessoryView("Select Category", doneTapped: { [weak textField] in
-                textField?.resignFirstResponder()
+        )
 
-            })
-        }
-        return field
-    }()
+        field.inputAccessoryView = AccessoryView(
+            "Select Category",
+            doneTapped: { [weak field] in
+                field?.resignFirstResponder()
+            },
+            addTapped: { [weak field, weak self] in
+                field?.resignFirstResponder()
+                self?.createNewTag { tag in
+                    if let inputView = field?.inputView as? CategoryPickerInputView {
+                        // change category type if user create different icon type.
+                        if tag.type != self?.transType.rawValue {
+                            self?.controller?.title = "Add \(tag.type)"
+                            if let changedType = ExpenseType(rawValue: tag.type) {
+                                self?.transType = changedType
+                                inputView.type = changedType
+                            }
+                        }
+                        inputView.reloadData()
+                    }
+
+                    self?.curTag = tag
+                    field?.text = tag.name
+                }
+            },
+            shouldShowAdd: true
+        )
+    }
 
     lazy var amountField = {
         let field = AddExpenseField(name: "Amount") { textField in
@@ -65,6 +88,7 @@ class AddExpenseForm: UIView {
     weak var delegate: UITextFieldDelegate?
     var transType: ExpenseType = .expense
     var textFieldOnChange: (() -> Void)?
+    weak var controller: UIViewController?
 
     private lazy var stackView: UIStackView = .build { [self] stackView in
         stackView.axis = .vertical
@@ -76,14 +100,16 @@ class AddExpenseForm: UIView {
         }
     }
 
-    init(delegate: UITextFieldDelegate? = nil, transType: ExpenseType = .expense, textFieldOnChange: (() -> Void)? = nil) {
+    init(controller: UIViewController, delegate: UITextFieldDelegate? = nil, transType: ExpenseType = .expense, textFieldOnChange: (() -> Void)? = nil) {
         super.init(frame: .zero)
 
+        self.controller = controller
         self.delegate = delegate
         self.transType = transType
         self.textFieldOnChange = textFieldOnChange
 
         setupView()
+        setCategoryField()
     }
 
     @available(*, unavailable)
@@ -148,7 +174,7 @@ class AddExpenseForm: UIView {
     func fillTransaction(_ transaction: Expense) {
         curDate = transaction.occuredOn
         curTag = transaction.tag
-        
+
         dateField.text = DateFormatter.dmy().string(from: transaction.occuredOn)
         categoryField.text = transaction.tag?.name
         amountField.text = String(transaction.amount)
@@ -163,6 +189,14 @@ class AddExpenseForm: UIView {
         // TODO: validate amount field
 
         completion(nil)
+    }
+
+    private func createNewTag(completion: @escaping ((TransactionTag) -> Void)) {
+        let newTagVC = NewTagViewController()
+        newTagVC.onSaveTag = { tag in
+            completion(tag)
+        }
+        controller?.present(newTagVC, animated: true)
     }
 }
 

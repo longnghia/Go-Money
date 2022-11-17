@@ -48,6 +48,10 @@
 		085F7539291278100094A026 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F7538291278100094A026 /* ConnectionService.swift */; };
 		086B4FB5291FFF01005C61F6 /* CountryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086B4FB4291FFF01005C61F6 /* CountryData.plist */; };
 		086C5D1A29150B2E00B6DE49 /* calculator.json in Resources */ = {isa = PBXBuildFile; fileRef = 086C5D1929150B2E00B6DE49 /* calculator.json */; };
+		0878DBA12924939D004E3FFD /* NewTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA02924939D004E3FFD /* NewTagViewController.swift */; };
+		0878DBA42924AA15004E3FFD /* IconCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA32924AA15004E3FFD /* IconCollectionVC.swift */; };
+		0878DBA62924AC43004E3FFD /* IconPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA52924AC43004E3FFD /* IconPickerCell.swift */; };
+		0878DBA82924AD6E004E3FFD /* IconCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA72924AD6E004E3FFD /* IconCollectionViewModel.swift */; };
 		088149242911682C00BB3A79 /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ADD0F290F7031005DCF86 /* ToolsViewController.swift */; };
 		0888241B2923250F00660A9E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0888241A2923250F00660A9E /* UserManager.swift */; };
 		088D691C29015865003D0660 /* AddExpenseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D691B29015865003D0660 /* AddExpenseField.swift */; };
@@ -206,6 +210,10 @@
 		085F7538291278100094A026 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		086B4FB4291FFF01005C61F6 /* CountryData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = CountryData.plist; sourceTree = "<group>"; };
 		086C5D1929150B2E00B6DE49 /* calculator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calculator.json; sourceTree = "<group>"; };
+		0878DBA02924939D004E3FFD /* NewTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagViewController.swift; sourceTree = "<group>"; };
+		0878DBA32924AA15004E3FFD /* IconCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionVC.swift; sourceTree = "<group>"; };
+		0878DBA52924AC43004E3FFD /* IconPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCell.swift; sourceTree = "<group>"; };
+		0878DBA72924AD6E004E3FFD /* IconCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewModel.swift; sourceTree = "<group>"; };
 		0888241A2923250F00660A9E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		088D691B29015865003D0660 /* AddExpenseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseField.swift; sourceTree = "<group>"; };
 		088D691E29015FBC003D0660 /* DatePickerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputView.swift; sourceTree = "<group>"; };
@@ -471,6 +479,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		0878DB9D29248C54004E3FFD /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				0878DBA32924AA15004E3FFD /* IconCollectionVC.swift */,
+				0878DBA02924939D004E3FFD /* NewTagViewController.swift */,
+				0878DBA52924AC43004E3FFD /* IconPickerCell.swift */,
+				0878DBA72924AD6E004E3FFD /* IconCollectionViewModel.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
 		0881492B2911768300BB3A79 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +657,7 @@
 		08C872B828F658A300DC859D /* Scences */ = {
 			isa = PBXGroup;
 			children = (
+				0878DB9D29248C54004E3FFD /* Tags */,
 				08F0689A2921F6E7005C58EC /* Calculator */,
 				08C54525291F9D1600CAD0DF /* Exchange */,
 				089CC7522919FDCB0070A108 /* BioAuth */,
@@ -1114,6 +1134,8 @@
 				082BF94828FD01400094FE94 /* AuthService.swift in Sources */,
 				083EA33B2906933A0079605F /* StatLineChartCell.swift in Sources */,
 				081DC8982901A99C0005374F /* AddExpenseForm.swift in Sources */,
+				0878DBA82924AD6E004E3FFD /* IconCollectionViewModel.swift in Sources */,
+				0878DBA62924AC43004E3FFD /* IconPickerCell.swift in Sources */,
 				08F068B329224740005C58EC /* SignUpViewModel.swift in Sources */,
 				081CB31429077BF20007D426 /* DayAxisValueFormatter.swift in Sources */,
 				08C1F25628FE68EB00590512 /* MainNavigationController.swift in Sources */,
@@ -1137,6 +1159,7 @@
 				08C8731228F8021100DC859D /* GMTextField.swift in Sources */,
 				08F068B629225526005C58EC /* ProfileViewModel.swift in Sources */,
 				08C8731628F81E0D00DC859D /* GMLabelSpan.swift in Sources */,
+				0878DBA12924939D004E3FFD /* NewTagViewController.swift in Sources */,
 				081E124F291B52FB007BD5FB /* CurrencyUnit.swift in Sources */,
 				08C1F25B28FE8B2A00590512 /* Expense.swift in Sources */,
 				08C6894B2913AF06002071CC /* TransactionTracking.swift in Sources */,
@@ -1174,6 +1197,7 @@
 				08F068AD29221C79005C58EC /* AsyncImageView.swift in Sources */,
 				08F068AC29221C79005C58EC /* ImageLoader.swift in Sources */,
 				08DB56E928F9035800170C60 /* StackView+Extension.swift in Sources */,
+				0878DBA42924AA15004E3FFD /* IconCollectionVC.swift in Sources */,
 				08C1F24E28FE68A100590512 /* RecentExpenseCell.swift in Sources */,
 				08C1F24F28FE68A100590512 /* HomeViewController.swift in Sources */,
 				08F0688A2921DBEE005C58EC /* Exchange.swift in Sources */,
