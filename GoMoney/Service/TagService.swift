@@ -57,20 +57,33 @@ class TagService {
             try realm.write {
                 realm.delete(tag)
             }
+            getAllTags()
             completion(nil)
         } catch {
             completion(error)
         }
     }
 
-    func add(tag: TransactionTag, completion: @escaping (Error?)->Void) {
+    func tagExist(_ name: String?)-> Bool {
+        all.first(
+            where: { $0.name == name }
+        ) != nil
+    }
+
+    func add(tag: TransactionTag, completion: @escaping (String?)->Void) {
+        if tagExist(tag.name) {
+            completion("\(tag.name) existed!")
+            return
+        }
+
         do {
             try realm.write {
                 realm.add(tag)
             }
+            getAllTags()
             completion(nil)
         } catch {
-            completion(error)
+            completion(error.localizedDescription)
         }
     }
 }

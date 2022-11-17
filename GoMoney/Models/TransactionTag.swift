@@ -45,11 +45,21 @@ extension TransactionTag {
         TransactionTag(name: "Gift", icon: "trans_type_gift", type: .expense),
         TransactionTag(name: "Beauty", icon: "trans_type_beauty", type: .expense),
         TransactionTag(name: "Education", icon: "trans_type_education", type: .expense),
-        TransactionTag(name: "Other", icon: "trans_type_other", type: .expense),
 
         TransactionTag(name: "Salary", icon: "trans_type_salary", type: .income),
         TransactionTag(name: "Allowance", icon: "trans_type_allowance", type: .income),
-        TransactionTag(name: "Bonus", icon: "trans_type_bonus", type: .income),
-        TransactionTag(name: "Other", icon: "trans_type_other", type: .income),
+        TransactionTag(name: "Bonus", icon: "trans_type_bonus", type: .income)
     ]
+
+    // for custom category with local icons
+    static let extras: [String] = ["tag_avocado", "tag_bag", "tag_bank_card", "tag_best_sale", "tag_box", "tag_cactus", "tag_card_exchange", "tag_card_security", "tag_clothes", "tag_commercial", "tag_confectionery", "tag_delivery_boy", "tag_drop_shipping", "tag_furniture_store", "tag_grapes", "tag_handshake", "tag_invoice", "tag_laptop", "tag_mastercard", "tag_shipping", "tag_strawberry", "tag_trolley", "tag_van"]
+
+    // all local icons for tags
+    static let localIcons = {
+        let defaultsName = defaults
+            .filter { $0.name != "Other" }
+            .map { $0.icon }
+
+        return defaultsName + extras
+    }()
 }

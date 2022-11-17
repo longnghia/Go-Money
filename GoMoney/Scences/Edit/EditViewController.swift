@@ -88,9 +88,12 @@ class EditViewController: GMMainViewController {
 
     private func setView(with transaction: Expense) {
         let type: ExpenseType = transaction.type == ExpenseType.expense.rawValue ? .expense : .income
-        form = AddExpenseForm(transType: type, textFieldOnChange: { [weak self] in
-            self?.errorLabel.text = nil
-        })
+        form = AddExpenseForm(
+            controller: self,
+            transType: type,
+            textFieldOnChange: { [weak self] in
+                self?.errorLabel.text = nil
+            })
         form?.fillTransaction(transaction)
     }
 }

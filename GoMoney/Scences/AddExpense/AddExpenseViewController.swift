@@ -14,6 +14,7 @@ class AddExpenseViewController: GMMainViewController {
     }
 
     lazy var addExpenseForm = AddExpenseForm(
+        controller: self,
         delegate: self,
         transType: type,
         textFieldOnChange: { [weak self] in

@@ -1,6 +1,12 @@
 import UIKit
 
 class GMExpenseIcon: UIView {
+    var imageSrc: String? {
+        didSet {
+            loadIcon(src: imageSrc)
+        }
+    }
+
     lazy var icon: AsyncImageView = {
         let image = AsyncImageView()
         image.layer.cornerRadius = 4
