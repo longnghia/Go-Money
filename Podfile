@@ -21,4 +21,6 @@ pod 'BiometricAuthentication'
 pod 'SCLAlertView'
 pod 'RadioGroup'
 
+pod 'GoogleSignIn'
+
 end

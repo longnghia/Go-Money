@@ -16,7 +16,7 @@ class UserManager {
     func saveUserInfo(user: User) {
         UserDefaults.standard.set(user.uid, forKey: "userId")
         UserDefaults.standard.set(user.email, forKey: "userEmail")
-        UserDefaults.standard.set(user.photoURL, forKey: "userPhotoUrl")
+        UserDefaults.standard.set(user.photoURL?.absoluteString, forKey: "userPhotoUrl")
         UserDefaults.standard.set(user.displayName, forKey: "userName")
     }
 
