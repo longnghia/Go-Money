@@ -16,7 +16,7 @@ class GMLoadingView {
         return indicatorView
     }()
 
-    private lazy var loadingLabel = GMLabel(style: .regular) {
+     var loadingLabel = GMLabel(style: .regular) {
         $0.textColor = .primary
     }
 
