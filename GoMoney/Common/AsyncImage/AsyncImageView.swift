@@ -64,4 +64,16 @@ public class AsyncImageView: UIView {
             }
         }
     }
+
+    public func load(imageURL: String?, defaultImage: UIImage? = nil) {
+        if let imageURL = imageURL {
+            if let url = URL(string: imageURL) {
+                load(imageURL: url, defaultImage: defaultImage)
+            } else {
+                imageView.image = defaultImage
+            }
+        } else {
+            imageView.image = defaultImage
+        }
+    }
 }
