@@ -46,7 +46,10 @@ class AuthService {
     }
 
     func signInGoogle(with viewController: UIViewController, completion: @escaping (String?) -> Void) {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            completion("FirebaseApp clientID nil.")
+            return
+        }
 
         let config = GIDConfiguration(clientID: clientID)
 
@@ -70,13 +73,13 @@ class AuthService {
                 accessToken: authentication.accessToken
             )
 
-            Auth.auth().signIn(with: credential) { _, error in
+            Auth.auth().signIn(with: credential) { [weak self] _, error in
                 if let error = error {
                     completion(error.localizedDescription)
                     return
                 }
 
-                self.saveUserInfo()
+                self?.saveUserInfo()
                 completion(nil)
             }
         }
