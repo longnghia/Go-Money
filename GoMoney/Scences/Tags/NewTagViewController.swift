@@ -8,7 +8,9 @@ class NewTagViewController: GMMainViewController {
 
     private let viewModel = NewTagViewModel()
 
-    private lazy var label = GMLabel(text: "New category", style: .largeBold)
+    private lazy var label = GMLabel(text: "New category", style: .largeBold) {
+        $0.textColor = .action
+    }
 
     private lazy var tagImage: GMExpenseIcon = {
         let icon = GMExpenseIcon()
@@ -24,7 +26,13 @@ class NewTagViewController: GMMainViewController {
         let textField = ExpenseTextField(frame: .zero)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = .nova(24)
-        textField.placeholder = "Enter category name"
+
+        let attributes = [
+            NSAttributedString.Key.font: UIFont.nova(20),
+        ]
+
+        textField.attributedPlaceholder = NSAttributedString(string: "Enter category name", attributes: attributes)
+
         textField.delegate = self
         textField.becomeFirstResponder()
         textField.focusedborderColor = K.Color.actionBackground
@@ -43,6 +51,7 @@ class NewTagViewController: GMMainViewController {
         radioGroup.selectedTintColor = .action
 
         radioGroup.titleFont = .nova(24)
+        radioGroup.itemSpacing = 16
 
         radioGroup.translatesAutoresizingMaskIntoConstraints = false
         return radioGroup
@@ -51,7 +60,7 @@ class NewTagViewController: GMMainViewController {
     // TODO: Expense Limit
 
     private lazy var saveBtn = GMButton(
-        text: "Save",
+        text: "Add",
         color: K.Color.actionBackground,
         tapAction: { [weak self] in
             guard let src = self?.tagImage.imageSrc,
@@ -93,13 +102,13 @@ class NewTagViewController: GMMainViewController {
         saveBtn.anchor(
             top: label.topAnchor,
             right: view.rightAnchor,
-            paddingRight: 16)
+            paddingRight: 24)
 
         tagImage.anchor(
             top: label.bottomAnchor,
             left: view.leftAnchor,
-            paddingTop: 32,
-            paddingLeft: 16,
+            paddingTop: 48,
+            paddingLeft: 24,
             width: 65,
             height: 65)
 
@@ -107,22 +116,22 @@ class NewTagViewController: GMMainViewController {
             top: tagImage.topAnchor,
             left: tagImage.rightAnchor,
             right: saveBtn.rightAnchor,
-            paddingLeft: 32,
+            paddingLeft: 24,
             height: 65)
 
         radioGroup.anchor(
             top: tagName.bottomAnchor,
-            left: tagName.leftAnchor,
+            left: tagImage.leftAnchor,
             right: tagName.rightAnchor,
-            paddingTop: 16)
+            paddingTop: 24)
     }
 
     @objc
     private func openIconCollection() {
         let vc = IconCollectionVC()
 
-        vc.didSelect = { iconSrc in
-            self.tagImage.imageSrc = iconSrc
+        vc.didSelect = { [weak self] iconSrc in
+            self?.tagImage.imageSrc = iconSrc
         }
 
         present(vc, animated: true)

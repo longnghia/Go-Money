@@ -50,7 +50,7 @@ class AddExpenseForm: UIView {
                         if tag.type != self?.transType.rawValue {
                             self?.controller?.title = "Add \(tag.type)"
                             if let changedType = ExpenseType(rawValue: tag.type) {
-                                print("change type: \(inputView.type)-\(changedType)")
+                                self?.transType = changedType
                                 inputView.type = changedType
                             }
                         }
