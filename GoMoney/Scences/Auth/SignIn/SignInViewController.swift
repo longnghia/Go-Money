@@ -103,6 +103,23 @@ class SignInViewController: GMViewController {
     }
     
     private func didTapSignInGoogle() {
-        print("go to google")
+        GMLoadingView.shared.startLoadingAnimation(with: "Logging in ...")
+        AuthService.shared.signInGoogle(
+            with: self,
+            completion: { [weak self] err in
+                if let err = err {
+                    self?.errorAlert(message: err)
+                } else {
+                    self?.navigateToMainVC()
+                }
+            }
+        )
+    }
+    
+    private func navigateToMainVC() {
+        let homeVC = GMTabBarViewController()
+        if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
+            delegate.window?.rootViewController = homeVC
+        }
     }
 }

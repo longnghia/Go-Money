@@ -1,4 +1,6 @@
 import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
 import UIKit
 
 typealias AuthServiceResult = (Result<AuthDataResult, Error>) -> Void
@@ -39,6 +41,44 @@ class AuthService {
             }
             else {
                 print("Unknown Error")
+            }
+        }
+    }
+
+    func signInGoogle(with viewController: UIViewController, completion: @escaping (String?) -> Void) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        let config = GIDConfiguration(clientID: clientID)
+
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: viewController) { user, error in
+
+            if let error = error {
+                print(error)
+                completion(error.localizedDescription)
+                return
+            }
+
+            guard
+                let authentication = user?.authentication,
+                let idToken = authentication.idToken
+            else {
+                completion("Google token error.")
+                return
+            }
+
+            let credential = GoogleAuthProvider.credential(
+                withIDToken: idToken,
+                accessToken: authentication.accessToken
+            )
+
+            Auth.auth().signIn(with: credential) { _, error in
+                if let error = error {
+                    completion(error.localizedDescription)
+                    return
+                }
+
+                self.saveUserInfo()
+                completion(nil)
             }
         }
     }

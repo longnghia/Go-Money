@@ -5,7 +5,15 @@ class ProfileView: UIView {
         static let height: CGFloat = 40
     }
 
-    lazy var avatar: GMCircleImage = .init(size: Constant.height)
+    lazy var avatar: AsyncImageView = {
+        let image = AsyncImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 20
+        image.anchor(width: 40, height: 40)
+        return image
+    }()
 
     lazy var name: GMLabel = .init(style: .regularBold, isCenter: false)
 
@@ -44,6 +52,6 @@ class ProfileView: UIView {
     func bindUserData(user: GMUser) {
         name.text = user.name ?? "user_\(user.uid.prefix(4))"
         email.text = user.email
-        // TODO: Set avatar with AsyncImage
+        avatar.load(imageURL: user.photoUrl, defaultImage: K.Image.user)
     }
 }
