@@ -53,7 +53,6 @@ class AuthService {
         GIDSignIn.sharedInstance.signIn(with: config, presenting: viewController) { user, error in
 
             if let error = error {
-                print(error)
                 completion(error.localizedDescription)
                 return
             }
