@@ -6,17 +6,14 @@ class RecentExpenseCell: UITableViewCell {
     var expense: Expense? {
         didSet {
             if let expense = expense {
-                icon.loadIcon(src: expense.tag?.icon)
-                labelName.text = expense.tag?.name
-                labelDate.text = expense.getDate(.occuredOn)
-                labelPrice.text = String(expense.amount)
+                bindView(transaction: expense)
             }
         }
     }
 
     lazy var icon = GMExpenseIcon()
-    lazy var labelName = GMLabel(text: "Gas", style: .regularBold)
-    lazy var labelDate = GMLabel(text: "20/10/2022", style: .small)
+    lazy var labelName = GMLabel(style: .regularBold)
+    lazy var labelDate = GMLabel(style: .small)
     lazy var labelPrice = GMLabel(style: .regularBold)
 
     lazy var stackInfo: UIStackView = {
@@ -58,5 +55,21 @@ class RecentExpenseCell: UITableViewCell {
 
         labelPrice.centerYToView(self)
         labelPrice.anchor(top: topAnchor, right: rightAnchor, paddingRight: 4)
+    }
+
+    func bindView(transaction: Expense) {
+        icon.loadIcon(src: transaction.tag?.icon)
+        labelName.text = transaction.tag?.name
+        labelDate.text = transaction.getDate(.occuredOn)
+        let currency = SettingsManager.shared.getValue(for: .currencyUnit)
+        labelPrice.text = "\(transaction.amount.formatWithCommas()) \(currency)"
+        switch transaction.type {
+        case ExpenseType.income.rawValue:
+            labelPrice.textColor = K.Color.saving
+        case ExpenseType.expense.rawValue:
+            labelPrice.textColor = K.Color.debt
+        default:
+            break
+        }
     }
 }

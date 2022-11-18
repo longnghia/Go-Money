@@ -48,6 +48,7 @@
 		085F7539291278100094A026 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F7538291278100094A026 /* ConnectionService.swift */; };
 		086B4FB5291FFF01005C61F6 /* CountryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086B4FB4291FFF01005C61F6 /* CountryData.plist */; };
 		086C5D1A29150B2E00B6DE49 /* calculator.json in Resources */ = {isa = PBXBuildFile; fileRef = 086C5D1929150B2E00B6DE49 /* calculator.json */; };
+		0875F3092927778000D122C3 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875F3082927778000D122C3 /* Double+Extension.swift */; };
 		0878DBA12924939D004E3FFD /* NewTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA02924939D004E3FFD /* NewTagViewController.swift */; };
 		0878DBA42924AA15004E3FFD /* IconCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA32924AA15004E3FFD /* IconCollectionVC.swift */; };
 		0878DBA62924AC43004E3FFD /* IconPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA52924AC43004E3FFD /* IconPickerCell.swift */; };
@@ -210,6 +211,7 @@
 		085F7538291278100094A026 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		086B4FB4291FFF01005C61F6 /* CountryData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = CountryData.plist; sourceTree = "<group>"; };
 		086C5D1929150B2E00B6DE49 /* calculator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calculator.json; sourceTree = "<group>"; };
+		0875F3082927778000D122C3 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		0878DBA02924939D004E3FFD /* NewTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagViewController.swift; sourceTree = "<group>"; };
 		0878DBA32924AA15004E3FFD /* IconCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionVC.swift; sourceTree = "<group>"; };
 		0878DBA52924AC43004E3FFD /* IconPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCell.swift; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 				08C872EF28F6CAAB00DC859D /* UIView+Constraint.swift */,
 				08DB56E828F9035800170C60 /* StackView+Extension.swift */,
 				08DB56EA28F9053700170C60 /* UIColor+Extension.swift */,
+				0875F3082927778000D122C3 /* Double+Extension.swift */,
 				08C1F25C28FE93E900590512 /* DateFormatter+Extension.swift */,
 				08C1F26928FFBAD500590512 /* UIImage+Extension.swift */,
 				08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */,
@@ -1148,6 +1151,7 @@
 				089CC756291A0C0A0070A108 /* BiometricService.swift in Sources */,
 				08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */,
 				08C8731928F865CA00DC859D /* SignUpPasswordVC.swift in Sources */,
+				0875F3092927778000D122C3 /* Double+Extension.swift in Sources */,
 				08EEA00E291CC374003B35B8 /* Widget+Kind.swift in Sources */,
 				082BF97D28FD68480094FE94 /* Notification+Name.swift in Sources */,
 				083EA336290659660079605F /* TransactionTag.swift in Sources */,
