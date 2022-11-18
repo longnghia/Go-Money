@@ -2,7 +2,10 @@ import UIKit
 
 class MonthlyExpenseView: UIView {
     lazy var label = GMLabel(style: .small)
-    lazy var amount = GMLabel(style: .largeBold)
+    lazy var amount = GMLabel(style: .largeBold) {
+        $0.textAlignment = .right
+    }
+
     lazy var stackView: UIStackView = .build { [self] in
         $0.axis = .vertical
         $0.spacing = 8
