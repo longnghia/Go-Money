@@ -57,6 +57,7 @@ class TagService {
             try realm.write {
                 realm.delete(tag)
             }
+            requireSync()
             getAllTags()
             completion(nil)
         } catch {
@@ -80,10 +81,15 @@ class TagService {
             try realm.write {
                 realm.add(tag)
             }
+            requireSync()
             getAllTags()
             completion(nil)
         } catch {
             completion(error.localizedDescription)
         }
+    }
+
+    private func requireSync() {
+        UserDefaults.standard.set(true, forKey: UserDefaultKey.needSyncTag)
     }
 }
