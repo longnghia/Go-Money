@@ -49,6 +49,7 @@
 		086B4FB5291FFF01005C61F6 /* CountryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086B4FB4291FFF01005C61F6 /* CountryData.plist */; };
 		086C5D1A29150B2E00B6DE49 /* calculator.json in Resources */ = {isa = PBXBuildFile; fileRef = 086C5D1929150B2E00B6DE49 /* calculator.json */; };
 		0875F3092927778000D122C3 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875F3082927778000D122C3 /* Double+Extension.swift */; };
+		0875F30D292783E200D122C3 /* MoneyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875F30C292783E200D122C3 /* MoneyFormatter.swift */; };
 		0878DBA12924939D004E3FFD /* NewTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA02924939D004E3FFD /* NewTagViewController.swift */; };
 		0878DBA42924AA15004E3FFD /* IconCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA32924AA15004E3FFD /* IconCollectionVC.swift */; };
 		0878DBA62924AC43004E3FFD /* IconPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878DBA52924AC43004E3FFD /* IconPickerCell.swift */; };
@@ -212,6 +213,7 @@
 		086B4FB4291FFF01005C61F6 /* CountryData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = CountryData.plist; sourceTree = "<group>"; };
 		086C5D1929150B2E00B6DE49 /* calculator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calculator.json; sourceTree = "<group>"; };
 		0875F3082927778000D122C3 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		0875F30C292783E200D122C3 /* MoneyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyFormatter.swift; sourceTree = "<group>"; };
 		0878DBA02924939D004E3FFD /* NewTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagViewController.swift; sourceTree = "<group>"; };
 		0878DBA32924AA15004E3FFD /* IconCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionVC.swift; sourceTree = "<group>"; };
 		0878DBA52924AC43004E3FFD /* IconPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCell.swift; sourceTree = "<group>"; };
@@ -479,6 +481,14 @@
 				08E4EAAA291DEEA1006D5C58 /* SettingFooterView.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0875F30B292783DB00D122C3 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				0875F30C292783E200D122C3 /* MoneyFormatter.swift */,
+			);
+			path = Currency;
 			sourceTree = "<group>";
 		};
 		0878DB9D29248C54004E3FFD /* Tags */ = {
@@ -778,6 +788,7 @@
 		08C8730B28F7B1BD00DC859D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0875F30B292783DB00D122C3 /* Currency */,
 				08F068A929221C79005C58EC /* AsyncImage */,
 				089CC74A2919D9580070A108 /* FileHelper */,
 				08DDEB402918A0FE00327474 /* RealmConverter */,
@@ -1210,6 +1221,7 @@
 				08C872CA28F6681600DC859D /* UIViewController+Extension.swift in Sources */,
 				08C872EA28F6C51200DC859D /* UserDefaultKey.swift in Sources */,
 				08C872A528F655CD00DC859D /* SceneDelegate.swift in Sources */,
+				0875F30D292783E200D122C3 /* MoneyFormatter.swift in Sources */,
 				081DC8A2290274990005374F /* CategoryPickerInputView.swift in Sources */,
 				085F753129124DF50094A026 /* SettingsTableViewAccessoryCell.swift in Sources */,
 			);
