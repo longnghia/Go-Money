@@ -88,9 +88,19 @@ class ChartView: UIView {
         {
             let savings = incomeSum - expenseSum
 
-            monthlyIncomes.amount.text = String(incomeSum)
-            monthlyExpenses.amount.text = String(expenseSum)
-            monthlySavings.amount.text = String(savings)
+            guard
+                let currency = SettingsManager.shared.getValue(for: .currencyUnit) as? String,
+                let unit = CurrencyUnit(rawValue: currency)
+            else {
+                return
+            }
+
+            monthlyIncomes.amount.text =
+                "\(MoneyFormatter.formatShorter(amount: incomeSum, currency: unit)) \(currency)"
+            monthlyExpenses.amount.text =
+                "\(MoneyFormatter.formatShorter(amount: expenseSum, currency: unit)) \(currency)"
+            monthlySavings.amount.text =
+                "\(MoneyFormatter.formatShorter(amount: savings, currency: unit)) \(currency)"
 
             if savings >= 0 {
                 monthlySavings.amount.textColor = K.Color.saving
