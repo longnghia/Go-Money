@@ -112,12 +112,12 @@ class AuthService {
 
         // remove setting
 
-        if let appDomain = Bundle.main.bundleIdentifier {
-            if let pref = UserDefaults(suiteName: "com.kappa.expense.settings") {
-                pref.removePersistentDomain(forName: appDomain)
-            }
+        let settingDomain = "com.kappa.expense.settings"
+        if let pref = UserDefaults(suiteName: settingDomain) {
+            pref.removePersistentDomain(forName: settingDomain)
         }
 
-        // TODO: remove realm
+        // remove realm
+        DataService.shared.dropAllTable()
     }
 }
