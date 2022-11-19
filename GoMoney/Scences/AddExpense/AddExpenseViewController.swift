@@ -95,7 +95,7 @@ class AddExpenseViewController: GMMainViewController {
             top: addExpenseForm.bottomAnchor,
             left: addExpenseForm.leftAnchor,
             right: addExpenseForm.rightAnchor,
-            paddingTop: 24)
+            paddingTop: 32)
 
         saveButton.anchor(
             right: view.rightAnchor,

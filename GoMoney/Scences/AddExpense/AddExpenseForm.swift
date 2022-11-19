@@ -2,7 +2,11 @@ import UIKit
 
 class AddExpenseForm: UIView {
     private(set) var curDate = Date()
-    private(set) var curTag: TransactionTag?
+    private(set) var curTag: TransactionTag? {
+        didSet {
+            fillTag()
+        }
+    }
 
     lazy var dateField = {
         let field = AddExpenseField(
@@ -23,7 +27,7 @@ class AddExpenseForm: UIView {
         return field
     }()
 
-    lazy var categoryField = AddExpenseField(name: "Category")
+    lazy var categoryField = AddExpenseField(name: "Category", placeHolder: "Enter Category")
 
     private func setCategoryField() {
         let field = categoryField.inputField
@@ -32,7 +36,6 @@ class AddExpenseForm: UIView {
             type: transType,
             didSelect: { [weak field, weak self] tag in
                 self?.curTag = tag
-                field?.text = tag.name
                 field?.resignFirstResponder()
             }
         )
@@ -66,7 +69,7 @@ class AddExpenseForm: UIView {
     }
 
     lazy var amountField = {
-        let field = AddExpenseField(name: "Amount") { textField in
+        let field = AddExpenseField(name: "Amount", placeHolder: "Enter Amount") { textField in
             // TODO: Custom Keyboard InputView, use default keyboard temporarily.
             textField.keyboardType = .numberPad
             textField.inputAccessoryView = AccessoryView("Select Amount", doneTapped: { [weak textField] in
@@ -77,7 +80,7 @@ class AddExpenseForm: UIView {
     }()
 
     lazy var noteField = {
-        let field = AddExpenseField(name: "Note") { textField in
+        let field = AddExpenseField(name: "Note", placeHolder: "Enter Note") { textField in
             textField.inputAccessoryView = AccessoryView("Note", doneTapped: { [weak textField] in
                 textField?.resignFirstResponder()
             })
@@ -197,6 +200,19 @@ class AddExpenseForm: UIView {
             completion(tag)
         }
         controller?.present(newTagVC, animated: true)
+    }
+
+    private func fillTag() {
+        if let tag = curTag {
+            let field = categoryField.inputField
+            field.text = tag.name
+            let img = GMExpenseIcon()
+            img.loadIcon(src: tag.icon)
+            img.backgroundColor = K.Color.background
+            img.anchor(width: 42, height: 42)
+            field.rightView = img
+            field.rightViewMode = .always
+        }
     }
 }
 

@@ -127,6 +127,7 @@ class DataService {
     func updateExpense(oldTrans: Expense, newTrans: Expense, completion: ((Error?) -> Void)? = nil) {
         do {
             try realm.write {
+                oldTrans.type = newTrans.type
                 oldTrans.amount = newTrans.amount
                 oldTrans.tag = newTrans.tag
                 oldTrans.note = newTrans.note
