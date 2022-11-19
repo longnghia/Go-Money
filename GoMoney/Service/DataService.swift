@@ -149,4 +149,14 @@ class DataService {
             .first(where: { $0._id.stringValue == id })
         completion?(transaction)
     }
+
+    func dropAllTable() {
+        do {
+            try realm.write {
+                realm.deleteAll()
+            }
+        } catch {
+            print("[dropAllTable] Error \(error)")
+        }
+    }
 }
