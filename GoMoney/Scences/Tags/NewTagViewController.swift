@@ -14,7 +14,7 @@ class NewTagViewController: GMMainViewController {
 
     private lazy var tagImage: GMExpenseIcon = {
         let icon = GMExpenseIcon()
-        icon.loadIcon(src: "logo")
+        icon.loadIcon(src: "ic_question")
         icon.layer.borderWidth = 1
         icon.layer.borderColor = K.Color.actionBackground.cgColor
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openIconCollection))
