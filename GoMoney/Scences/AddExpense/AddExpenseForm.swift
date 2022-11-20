@@ -51,7 +51,7 @@ class AddExpenseForm: UIView {
                     if let inputView = field?.inputView as? CategoryPickerInputView {
                         // change category type if user create different icon type.
                         if tag.type != self?.transType.rawValue {
-                            self?.controller?.title = "Add \(tag.type)"
+                            self?.controller?.title = "Add \(tag.type.capitalized)"
                             if let changedType = ExpenseType(rawValue: tag.type) {
                                 self?.transType = changedType
                                 inputView.type = changedType

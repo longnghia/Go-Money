@@ -41,8 +41,8 @@ class NewTagViewController: GMMainViewController {
 
     private lazy var radioGroup: RadioGroup = {
         let radioGroup = RadioGroup(titles: [
-            ExpenseType.expense.rawValue,
-            ExpenseType.income.rawValue,
+            ExpenseType.expense.rawValue.capitalized,
+            ExpenseType.income.rawValue.capitalized,
         ])
         radioGroup.selectedIndex = 0
 
