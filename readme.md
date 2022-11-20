@@ -125,7 +125,9 @@ A Simple Expense Tracker App 📱 built to demonstrate the use of AutoLayout, Re
 - https://github.dev/vitaliy-paliy/Messenger
 
 <br />
+
 ## License
+
 ```
     Apache 2.0 License
 
