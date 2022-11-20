@@ -15,14 +15,16 @@ class RemoteService {
 
     private let db = Firestore.firestore()
 
-    let userId = Auth.auth().currentUser?.uid
+    let userId = { Auth.auth().currentUser?.uid }
 
     /// Get all remote transaction on first login.
     func getAllTransactions(completion: @escaping ((Result<[Expense], Error>) -> Void)) {
-        guard let userId = userId else {
+        guard let userId = userId() else {
             completion(.failure(DataError.userNotFound))
             return
         }
+
+        print("userId=\(userId)")
 
         self.db.collection("transactions")
             .document(userId)
@@ -47,7 +49,7 @@ class RemoteService {
     /// set transaction to firebase.
     /// query transaction in main-table, use id in temp-table
     func setTransaction(by id: String, completion: @escaping RemoteCompletion) {
-        guard let userId = userId else {
+        guard let userId = userId() else {
             completion(DataError.userNotFound)
             return
         }
@@ -73,7 +75,7 @@ class RemoteService {
 
     /// remove transaction to firebase.
     func deleteTransation(by id: String, completion: @escaping RemoteCompletion) {
-        guard let userId = userId else {
+        guard let userId = userId() else {
             completion(DataError.userNotFound)
             return
         }
@@ -105,11 +107,12 @@ class RemoteService {
 extension RemoteService {
     /// Get all remote tag
     func getAllTags(completion: @escaping ((Result<[TransactionTag], Error>) -> Void)) {
-        guard let userId = userId else {
+        guard let userId = userId() else {
             completion(.failure(DataError.userNotFound))
             return
         }
 
+        print("userId=\(userId)")
         let doc = self.db
             .collection("tags")
             .document(userId)
@@ -126,7 +129,7 @@ extension RemoteService {
 
     /// set tags on firebase:
     func setTags(tags: [TransactionTag], completion: @escaping RemoteCompletion) {
-        guard let userId = userId else {
+        guard let userId = userId() else {
             completion(DataError.userNotFound)
             return
         }
@@ -158,7 +161,7 @@ extension RemoteService {
 // remote user table
 extension RemoteService {
     func getUserData(completion: @escaping ((Result<GMUser, Error>) -> Void)) {
-        guard let userId = userId else {
+        guard let userId = userId() else {
             completion(.failure(DataError.userNotFound))
             return
         }
@@ -177,7 +180,7 @@ extension RemoteService {
     }
 
     func checkIfUserExist(completion: @escaping (Result<Bool, Error>) -> Void) {
-        guard let userId = userId else {
+        guard let userId = userId() else {
             completion(.failure(DataError.userNotFound))
             return
         }
