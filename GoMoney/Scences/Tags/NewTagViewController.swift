@@ -81,7 +81,8 @@ class NewTagViewController: GMMainViewController {
                     self?.dismiss(animated: true)
                 }
             }
-        })
+        }
+    )
 
     override func setupLayout() {
         super.setupLayout()
@@ -92,17 +93,20 @@ class NewTagViewController: GMMainViewController {
             saveBtn,
             tagImage,
             tagName,
-            radioGroup)
+            radioGroup
+        )
 
         label.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
-            paddingTop: 16)
+            paddingTop: 16
+        )
         label.centerX(inView: view)
 
         saveBtn.anchor(
             top: label.topAnchor,
             right: view.rightAnchor,
-            paddingRight: 24)
+            paddingRight: 24
+        )
 
         tagImage.anchor(
             top: label.bottomAnchor,
@@ -110,20 +114,23 @@ class NewTagViewController: GMMainViewController {
             paddingTop: 48,
             paddingLeft: 24,
             width: 65,
-            height: 65)
+            height: 65
+        )
 
         tagName.anchor(
             top: tagImage.topAnchor,
             left: tagImage.rightAnchor,
             right: saveBtn.rightAnchor,
             paddingLeft: 24,
-            height: 65)
+            height: 65
+        )
 
         radioGroup.anchor(
             top: tagName.bottomAnchor,
             left: tagImage.leftAnchor,
             right: tagName.rightAnchor,
-            paddingTop: 24)
+            paddingTop: 24
+        )
     }
 
     @objc

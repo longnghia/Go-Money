@@ -44,13 +44,13 @@ enum GMLabelStyle {
 class GMLabel: UILabel {
     var gmStyle: GMLabelStyle = .regular {
         didSet {
-            self.update()
+            update()
         }
     }
 
     private func update() {
-        self.font = UIFont(name: self.gmStyle.getFont(), size: self.gmStyle.getSize())
-        self.textColor = self.gmStyle.getColor()
+        font = UIFont(name: gmStyle.getFont(), size: gmStyle.getSize())
+        textColor = gmStyle.getColor()
     }
 
     required init?(coder: NSCoder) {
@@ -60,18 +60,18 @@ class GMLabel: UILabel {
     init(
         text: String = "",
         style: GMLabelStyle = .regular,
-        numberOfLines: Int = 0,
+        numberOfLines _: Int = 0,
         isCenter: Bool = false,
         builder: ((GMLabel) -> Void)? = nil
     ) {
         super.init(frame: .zero)
 
         self.text = text
-        self.textAlignment = isCenter ? .center : .natural
-        self.gmStyle = style
+        textAlignment = isCenter ? .center : .natural
+        gmStyle = style
 
-        self.setup()
-        self.update()
+        setup()
+        update()
         builder?(self)
     }
 

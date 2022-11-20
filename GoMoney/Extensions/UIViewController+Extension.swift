@@ -1,10 +1,3 @@
-//
-//  UIViewController+Extension.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 12/10/2022.
-//
-
 import TTGSnackbar
 import UIKit
 

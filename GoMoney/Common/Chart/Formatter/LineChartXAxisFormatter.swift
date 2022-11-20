@@ -10,7 +10,7 @@ class LineChartXAxisFormatter: IndexAxisValueFormatter {
         self.dateType = dateType
     }
 
-    override func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+    override func stringForValue(_ value: Double, axis _: AxisBase?) -> String {
         guard
             let dateAmount = dateAmount,
             let dateType = dateType,

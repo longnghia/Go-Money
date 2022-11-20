@@ -5,7 +5,7 @@ enum TrackingError: Error {
 
     var localizedDescription: String {
         switch self {
-        case .transactionNotFound(let id):
+        case let .transactionNotFound(id):
             return "Transaction \(id.stringValue) not found."
         }
     }

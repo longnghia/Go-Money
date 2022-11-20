@@ -20,12 +20,12 @@ public class DatePickerInputView: UIView {
     ) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
         self.didSelect = didSelect
-        self.pickerMode = mode
+        pickerMode = mode
         setupView()
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

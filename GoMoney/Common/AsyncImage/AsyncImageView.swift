@@ -44,7 +44,7 @@ public class AsyncImageView: UIView {
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
 
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 
@@ -53,13 +53,13 @@ public class AsyncImageView: UIView {
         loader.loadImage(imageURL) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
-                    case .success(let image):
-                        self?.activityIndicator.stopAnimating()
-                        self?.imageView.image = image
+                case let .success(image):
+                    self?.activityIndicator.stopAnimating()
+                    self?.imageView.image = image
 
-                    case .failure:
-                        self?.activityIndicator.stopAnimating()
-                        self?.imageView.image = defaultImage
+                case .failure:
+                    self?.activityIndicator.stopAnimating()
+                    self?.imageView.image = defaultImage
                 }
             }
         }

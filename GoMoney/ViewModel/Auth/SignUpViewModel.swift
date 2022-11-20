@@ -5,8 +5,8 @@ class SignUpViewModel {
     func signUpWithEmailAndPassword(
         email: String,
         password: String,
-        completion: @escaping (Error?) -> Void)
-    {
+        completion: @escaping (Error?) -> Void
+    ) {
         AuthService.shared.signUp(with: email, and: password) { authResult in
             switch authResult {
             case .success:

@@ -22,7 +22,7 @@ typealias ExchangeCompletion = (Result<ExchangeResult, Error>) -> Void
 class ExchangeService {
     let cache = URLCache.shared
 
-    func getExchangeRate(from base: String, to: [CurrencyUnit], completion: @escaping ExchangeCompletion) {
+    func getExchangeRate(from base: String, to _: [CurrencyUnit], completion: @escaping ExchangeCompletion) {
         guard let url = URL(string: String(format: "%@?base=%@", ServiceResources.exchangeUri, base)) else { return }
 
         var request = URLRequest(url: url)
@@ -34,7 +34,7 @@ class ExchangeService {
         print(reachable)
 
         if !reachable {
-            let data = self.cache.cachedResponse(for: request)?.data
+            let data = cache.cachedResponse(for: request)?.data
 
             if let data = data {
                 do {

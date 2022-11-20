@@ -142,7 +142,7 @@ class ExchangeViewController: GMMainViewController {
 }
 
 extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return viewModel.exchanges.count
     }
 
@@ -157,7 +157,7 @@ extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return 72
     }
 

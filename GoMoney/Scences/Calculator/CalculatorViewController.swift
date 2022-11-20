@@ -21,7 +21,7 @@ class CalculatorViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
-    
+
     @IBOutlet var displayLabel: UILabel!
     var firstTyping = false
     var firstOperand: Double = 0
@@ -48,7 +48,7 @@ class CalculatorViewController: UIViewController {
             firstTyping = false
         }
     }
-    
+
     @IBAction func numberPressed(_ sender: UIButton) {
         let number = sender.currentTitle!
         if firstTyping {
@@ -60,19 +60,19 @@ class CalculatorViewController: UIViewController {
             firstTyping = true
         }
     }
-    
+
     @IBAction func numberActionPressed(_ sender: UIButton) {
         firstOperand = currentInput
         actionSign = sender.currentTitle ?? ""
         firstTyping = false
         dotIsHere = false
     }
-    
+
     func operandsAction(operation: (Double, Double) -> Double) {
         currentInput = operation(firstOperand, secondOperand)
         firstTyping = false
     }
-    
+
     @IBAction func equality(_ sender: UIButton) {
         if firstTyping {
             secondOperand = currentInput
@@ -96,14 +96,14 @@ class CalculatorViewController: UIViewController {
             break
         }
     }
-    
-    @IBAction func plusMinus(_ sender: UIButton) {
+
+    @IBAction func plusMinus(_: UIButton) {
         if displayLabel.text != "0" {
             currentInput = -currentInput
         }
     }
-    
-    @IBAction func clear(_ sender: UIButton) {
+
+    @IBAction func clear(_: UIButton) {
         firstOperand = 0
         secondOperand = 0
         currentInput = 0
@@ -112,8 +112,8 @@ class CalculatorViewController: UIViewController {
         actionSign = ""
         dotIsHere = false
     }
-    
-    @IBAction func procent(_ sender: UIButton) {
+
+    @IBAction func procent(_: UIButton) {
         if firstOperand == 0 {
             currentInput = currentInput / 100
         } else {
@@ -121,8 +121,8 @@ class CalculatorViewController: UIViewController {
             firstTyping = false
         }
     }
-    
-    @IBAction func dot(_ sender: UIButton) {
+
+    @IBAction func dot(_: UIButton) {
         if firstTyping, !dotIsHere {
             displayLabel.text = displayLabel.text! + "."
             dotIsHere = true

@@ -25,7 +25,7 @@ class CountryPickerViewController: GMMainViewController {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -39,7 +39,7 @@ class CountryPickerViewController: GMMainViewController {
 }
 
 extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let country = countries[indexPath.row]
         let cell = UITableViewCell()
         cell.textLabel?.text = country.country
@@ -48,7 +48,7 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return countries.count
     }
 

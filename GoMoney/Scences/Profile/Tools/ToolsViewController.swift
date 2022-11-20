@@ -12,7 +12,8 @@ class ToolsViewController: GMMainViewController {
             let storyBoard: UIStoryboard = .init(name: "Calculator", bundle: nil)
             let calculatorVC = storyBoard.instantiateViewController(withIdentifier: "calculatorStoryboardID")
             self?.present(calculatorVC, animated: true)
-        })
+        }
+    )
 
     private lazy var currencyActionViews: GMLabelActionView = .init(
         text: "Currency Exchanger",
@@ -20,7 +21,8 @@ class ToolsViewController: GMMainViewController {
         action: { [weak self] in
             let exchangerVC = ExchangeViewController()
             self?.present(exchangerVC, animated: true)
-        })
+        }
+    )
 
     private lazy var exportActionViews: GMLabelActionView = .init(
         text: "Export Data",
@@ -28,7 +30,8 @@ class ToolsViewController: GMMainViewController {
         action: { [weak self] in
             let exportVC = ExportViewController()
             self?.navigationController?.pushViewController(exportVC, animated: true)
-        })
+        }
+    )
 
     private lazy var stackActionViews: UIStackView = {
         let stackView = UIStackView()
@@ -38,7 +41,8 @@ class ToolsViewController: GMMainViewController {
         stackView.addArrangedSubviews(
             calculatorActionViews,
             currencyActionViews,
-            exportActionViews)
+            exportActionViews
+        )
         return stackView
     }()
 
@@ -67,13 +71,15 @@ class ToolsViewController: GMMainViewController {
             right: view.rightAnchor,
             paddingTop: Constant.padding,
             paddingLeft: Constant.padding,
-            paddingRight: Constant.padding)
+            paddingRight: Constant.padding
+        )
 
         animationView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             paddingTop: Constant.padding,
             width: 150,
-            height: 150)
+            height: 150
+        )
         animationView.centerXToView(view)
     }
 }

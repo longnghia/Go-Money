@@ -44,9 +44,10 @@ class StatViewController: GMMainViewController {
         text: ExpenseFilter.week.getName(),
         tapAction: { [weak self] in
             self?.dropDown.show()
-        }) {
-            $0.backgroundColor = .clear
         }
+    ) {
+        $0.backgroundColor = .clear
+    }
 
     private var emptyView: EmptyTransactionView?
 
@@ -55,7 +56,8 @@ class StatViewController: GMMainViewController {
     override func configureBackButton() {
         configureRootTitle(
             leftImage: K.Image.statistic,
-            leftTitle: "Stats")
+            leftTitle: "Stats"
+        )
     }
 
     // MARK: LifeCircle
@@ -97,13 +99,15 @@ class StatViewController: GMMainViewController {
             bottom: view.bottomAnchor,
             right: view.rightAnchor,
             paddingLeft: Constant.padding,
-            paddingRight: Constant.padding)
+            paddingRight: Constant.padding
+        )
 
         filterBtn.anchor(
             top: tableView.topAnchor,
             right: tableView.rightAnchor,
             paddingTop: 28,
-            width: 90)
+            width: 90
+        )
     }
 
     // MARK: Methods
@@ -137,8 +141,7 @@ class StatViewController: GMMainViewController {
                 view.addSubview(emptyView)
                 emptyView.fillSuperview()
             }
-        }
-        else {
+        } else {
             contents.forEach { $0.isHidden = false }
             emptyView?.removeFromSuperview()
             emptyView = nil
@@ -149,11 +152,11 @@ class StatViewController: GMMainViewController {
 // MARK: TableView DataSource
 
 extension StatViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         return sections.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 2 {
             return viewModel.topExpenses?.count ?? 0
         }
@@ -184,7 +187,7 @@ extension StatViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
             return Constant.chartHeight
@@ -195,7 +198,7 @@ extension StatViewController: UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section]
     }
 }

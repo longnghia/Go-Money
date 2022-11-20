@@ -1,10 +1,3 @@
-//
-//  GMViewController.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 12/10/2022.
-//
-
 import UIKit
 
 class GMViewController: UIViewController {
@@ -70,8 +63,8 @@ class GMViewController: UIViewController {
     func setupKeyboard(
         onKeyboardWillShow: ((CGFloat, Double) -> Void)?,
         onKeyboardWillHide: ((CGFloat, Double) -> Void)?,
-        hideKeyboarOnTap: Bool = true)
-    {
+        hideKeyboarOnTap: Bool = true
+    ) {
         self.onKeyboardWillShow = onKeyboardWillShow
         self.onKeyboardWillHide = onKeyboardWillHide
 
@@ -79,13 +72,15 @@ class GMViewController: UIViewController {
             self,
             selector: #selector(handleKeyboardWillShow(notification:)),
             name: UIResponder.keyboardWillShowNotification,
-            object: nil)
+            object: nil
+        )
 
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleKeyboardWillHide(notification:)),
             name: UIResponder.keyboardWillHideNotification,
-            object: nil)
+            object: nil
+        )
 
         if hideKeyboarOnTap {
             hideKeyboardOnTap()

@@ -44,7 +44,7 @@ class StatBarChartCell: UITableViewCell {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -56,7 +56,8 @@ class StatBarChartCell: UITableViewCell {
             top: topAnchor,
             left: leftAnchor,
             bottom: bottomAnchor,
-            right: rightAnchor)
+            right: rightAnchor
+        )
     }
 
     private func setBarChart() {
@@ -81,7 +82,7 @@ class StatBarChartCell: UITableViewCell {
 }
 
 extension StatBarChartCell: ChartViewDelegate {
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+    func chartValueSelected(_ chartView: ChartViewBase, entry _: ChartDataEntry, highlight _: Highlight) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             chartView.highlightValue(nil)
         }

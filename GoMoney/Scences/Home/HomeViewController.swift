@@ -81,7 +81,8 @@ class HomeViewController: GMMainViewController {
         configureRootTitle(
             leftImage: K.Image.note,
             leftTitle: Content.myExpense,
-            rightImage: K.Image.bell)
+            rightImage: K.Image.bell
+        )
     }
 
     // MARK: - Setup layout
@@ -97,33 +98,38 @@ class HomeViewController: GMMainViewController {
             top: view.safeAreaLayoutGuide.topAnchor,
             paddingTop: Constant.chartPaddingTop,
             width: chartSize,
-            height: chartSize * 2 / 3)
+            height: chartSize * 2 / 3
+        )
         chartView.centerX(inView: view)
 
         backImage.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            height: (chartSize * 2 / 3 + Constant.chartPaddingTop) / 2)
+            height: (chartSize * 2 / 3 + Constant.chartPaddingTop) / 2
+        )
 
         recentExpenseLabel.anchor(
             top: chartView.bottomAnchor,
             left: chartView.leftAnchor,
-            paddingTop: 16)
+            paddingTop: 16
+        )
 
         tableView.anchor(
             top: recentExpenseLabel.topAnchor,
             left: chartView.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             right: chartView.rightAnchor,
-            paddingTop: 32)
+            paddingTop: 32
+        )
 
         floatingButton.anchor(
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             right: view.rightAnchor,
             paddingRight: Constant.padding,
             width: Constant.buttonSize,
-            height: Constant.buttonSize)
+            height: Constant.buttonSize
+        )
     }
 
     // MARK: Actions
@@ -142,7 +148,8 @@ class HomeViewController: GMMainViewController {
         chartView.setData(
             viewModel.groupedExpenses,
             incomeSum: viewModel.incomeSum,
-            expenseSum: viewModel.expenseSum)
+            expenseSum: viewModel.expenseSum
+        )
     }
 
     // MARK: Methods
@@ -159,7 +166,7 @@ class HomeViewController: GMMainViewController {
 // MARK: - Table Delegate
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return viewModel.transactions?.count ?? 0
     }
 
@@ -184,14 +191,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { _, _, completionHandler in
             completionHandler(true)
             if let transaction = self.viewModel.transactions?[indexPath.row] {
                 self.alertDeleteTransaction(
                     transaction: transaction,
                     indexPath: indexPath,
-                    handler: completionHandler)
+                    handler: completionHandler
+                )
             }
         }
 
@@ -203,7 +211,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return swipe
     }
 
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_: UITableView, leadingSwipeActionsConfigurationForRowAt _: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
             // TODO: Go to edit
             let vc = GMMainViewController()
@@ -242,11 +250,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - Alert
 
 extension HomeViewController {
-    func alertDeleteTransaction(transaction: Expense, indexPath: IndexPath, handler: @escaping (Bool) -> Void) {
+    func alertDeleteTransaction(transaction: Expense, indexPath: IndexPath, handler _: @escaping (Bool) -> Void) {
         let alert = UIAlertController(
             title: "Delete Transaction",
             message: "Are you sure to delete \(transaction.tag?.name ?? "transaction")?",
-            preferredStyle: .alert)
+            preferredStyle: .alert
+        )
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 

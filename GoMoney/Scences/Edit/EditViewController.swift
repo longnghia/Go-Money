@@ -26,7 +26,8 @@ class EditViewController: GMMainViewController {
         color: K.Color.primaryColor,
         tapAction: { [weak self] in
             self?.dismiss(animated: true)
-        })
+        }
+    )
 
     private lazy var applyBtn = GMButton(
         text: "Apply",
@@ -49,7 +50,8 @@ class EditViewController: GMMainViewController {
                 self?.onApply?(updated)
                 self?.dismiss(animated: true)
             }
-        })
+        }
+    )
 
     override func setupLayout() {
         super.setupLayout()
@@ -65,25 +67,29 @@ class EditViewController: GMMainViewController {
             right: view.rightAnchor,
             paddingTop: 32,
             paddingLeft: 16,
-            paddingRight: 16)
+            paddingRight: 16
+        )
 
         errorLabel.anchor(
             top: form.bottomAnchor,
             left: form.leftAnchor,
             right: form.rightAnchor,
-            paddingTop: 24)
+            paddingTop: 24
+        )
 
         cancelBtn.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             paddingTop: 16,
-            paddingLeft: 16)
+            paddingLeft: 16
+        )
 
         applyBtn.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             right: view.rightAnchor,
             paddingTop: 16,
-            paddingRight: 16)
+            paddingRight: 16
+        )
     }
 
     private func setView(with transaction: Expense) {
@@ -93,7 +99,8 @@ class EditViewController: GMMainViewController {
             transType: type,
             textFieldOnChange: { [weak self] in
                 self?.errorLabel.text = nil
-            })
+            }
+        )
         form?.fillTransaction(transaction)
     }
 }

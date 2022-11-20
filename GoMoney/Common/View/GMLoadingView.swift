@@ -16,7 +16,7 @@ class GMLoadingView {
         return indicatorView
     }()
 
-     var loadingLabel = GMLabel(style: .regular) {
+    var loadingLabel = GMLabel(style: .regular) {
         $0.textColor = .primary
     }
 
@@ -42,6 +42,7 @@ class GMLoadingView {
         loadingLabel.centerX(inView: blurView)
         loadingLabel.anchor(
             top: indicatorView.bottomAnchor,
-            paddingTop: 16)
+            paddingTop: 16
+        )
     }
 }

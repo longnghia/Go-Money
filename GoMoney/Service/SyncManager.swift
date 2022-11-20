@@ -99,6 +99,7 @@ class SyncManager {
     private func setSyncTime() {
         SettingsManager.shared.setValue(
             Date().timeIntervalSince1970,
-            for: .lastSync)
+            for: .lastSync
+        )
     }
 }

@@ -36,13 +36,14 @@ class EmptyTransactionView: UIView {
     private lazy var noTransLabel = GMLabel(
         text: label,
         style: .largeBold,
-        isCenter: true)
+        isCenter: true
+    )
 
     private lazy var noTransDetailLabel = GMLabel(
         text: detailLabel,
         style: .regular,
-        isCenter: true)
-    {
+        isCenter: true
+    ) {
         $0.numberOfLines = 0
     }
 
@@ -51,7 +52,8 @@ class EmptyTransactionView: UIView {
         text: "Add",
         onTap: { [weak self] in
             self?.didTapAddTransaction()
-        })
+        }
+    )
 
     init(viewController: UIViewController) {
         super.init(frame: .zero)
@@ -62,7 +64,7 @@ class EmptyTransactionView: UIView {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -79,18 +81,21 @@ class EmptyTransactionView: UIView {
             left: leftAnchor,
             right: rightAnchor,
             paddingLeft: 24,
-            paddingRight: 24)
+            paddingRight: 24
+        )
 
         noTransDetailLabel.anchor(
             top: noTransLabel.bottomAnchor,
             left: noTransLabel.leftAnchor,
             right: noTransLabel.rightAnchor,
-            paddingTop: 24)
+            paddingTop: 24
+        )
 
         addButton.centerX(inView: self)
         addButton.anchor(
             bottom: bottomAnchor,
-            paddingBottom: 24)
+            paddingBottom: 24
+        )
     }
 
     private func didTapAddTransaction() {
@@ -114,6 +119,7 @@ class EmptyTransactionView: UIView {
             type: .actionSheet,
             with: "GoMoney",
             message: "Add transaction",
-            actions: [expenseBtn, incomeBtn])
+            actions: [expenseBtn, incomeBtn]
+        )
     }
 }

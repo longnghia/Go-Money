@@ -60,14 +60,14 @@ class BioLockViewController: UIViewController {
         BiometricService.shared.authenticate { [weak self] error in
             if let error = error {
                 switch error {
-                    case .biometryNotEnrolled:
-                        self?.showGotoSettingsAlert(message: error.message())
-                    case .canceledBySystem, .canceledByUser:
-                        break
-                    default:
-                        print(error)
-                        print(error.message())
-                        self?.errorAlert(message: error.message())
+                case .biometryNotEnrolled:
+                    self?.showGotoSettingsAlert(message: error.message())
+                case .canceledBySystem, .canceledByUser:
+                    break
+                default:
+                    print(error)
+                    print(error.message())
+                    self?.errorAlert(message: error.message())
                 }
             } else {
                 let tabBarVC = GMTabBarViewController()

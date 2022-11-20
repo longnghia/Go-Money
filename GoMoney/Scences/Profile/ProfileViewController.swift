@@ -36,7 +36,8 @@ class ProfileViewController: GMMainViewController {
 
     private lazy var notificationActionView: GMLabelActionView = .init(
         text: Content.notification,
-        icLeft: UIImage(systemName: "bell"))
+        icLeft: UIImage(systemName: "bell")
+    )
 
     private lazy var settingsActionView: GMLabelActionView = .init(
         text: Content.settings,
@@ -44,7 +45,8 @@ class ProfileViewController: GMMainViewController {
         action: { [weak self] in
             let toolVC = SettingsViewController()
             self?.navigationController?.pushViewController(toolVC, animated: true)
-        })
+        }
+    )
 
     private lazy var toolsActionView: GMLabelActionView = .init(
         text: Content.tool,
@@ -52,16 +54,19 @@ class ProfileViewController: GMMainViewController {
         action: { [weak self] in
             let toolVC = ToolsViewController()
             self?.navigationController?.pushViewController(toolVC, animated: true)
-        })
+        }
+    )
 
     private lazy var aboutActionView: GMLabelActionView = .init(
         text: Content.aboutUs,
-        icLeft: UIImage(systemName: "info.circle"))
+        icLeft: UIImage(systemName: "info.circle")
+    )
 
     private lazy var helpActionView: GMLabelActionView = .init(
         text: Content.help,
         icLeft: UIImage(systemName: "questionmark.circle"),
-        icRight: nil)
+        icRight: nil
+    )
 
     private lazy var stackActions: UIStackView = {
         let stackView = UIStackView()
@@ -73,7 +78,8 @@ class ProfileViewController: GMMainViewController {
             settingsActionView,
             toolsActionView,
             aboutActionView,
-            helpActionView)
+            helpActionView
+        )
         return stackView
     }()
 
@@ -95,7 +101,8 @@ class ProfileViewController: GMMainViewController {
     override func configureBackButton() {
         configureRootTitle(
             leftImage: K.Image.profile,
-            leftTitle: Content.title)
+            leftTitle: Content.title
+        )
     }
 
     // MARK: - LifeCircle
@@ -116,37 +123,43 @@ class ProfileViewController: GMMainViewController {
             editButton,
             stackActions,
             logoutLabel,
-            logoutButton)
+            logoutButton
+        )
 
         profileView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             paddingTop: 32,
-            paddingLeft: Constant.padding)
+            paddingLeft: Constant.padding
+        )
 
         editButton.anchor(
             right: view.rightAnchor,
             paddingRight: Constant.padding,
             width: 30,
-            height: 30)
+            height: 30
+        )
         editButton.centerYToView(profileView)
 
         stackActions.anchor(
             top: profileView.bottomAnchor,
             left: profileView.leftAnchor,
             right: editButton.rightAnchor,
-            paddingTop: 32)
+            paddingTop: 32
+        )
 
         logoutLabel.anchor(
             top: stackActions.bottomAnchor,
             left: stackActions.leftAnchor,
-            paddingTop: 32)
+            paddingTop: 32
+        )
 
         logoutButton.anchor(
             top: logoutLabel.topAnchor,
             right: stackActions.rightAnchor,
             width: 30,
-            height: 30)
+            height: 30
+        )
         logoutButton.centerYToView(logoutLabel)
     }
 
@@ -179,7 +192,8 @@ class ProfileViewController: GMMainViewController {
                     duration: duration,
                     options: options,
                     animations: {},
-                    completion: { _ in })
+                    completion: { _ in }
+                )
             }
         }
     }

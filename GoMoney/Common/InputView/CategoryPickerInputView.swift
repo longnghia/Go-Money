@@ -46,7 +46,7 @@ public class CategoryPickerInputView: UIView {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -69,7 +69,7 @@ public class CategoryPickerInputView: UIView {
 }
 
 extension CategoryPickerInputView: UICollectionViewDelegate, UICollectionViewDataSource {
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return type == .expense ? expenseTags.count : incomeTags.count
     }
 
@@ -82,7 +82,7 @@ extension CategoryPickerInputView: UICollectionViewDelegate, UICollectionViewDat
         return UICollectionViewCell()
     }
 
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let tag = type == .expense ? expenseTags[indexPath.row] : incomeTags[indexPath.row]
         didSelect?(tag)
     }
@@ -110,7 +110,7 @@ class CategoryPickerCell: UICollectionViewCell {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

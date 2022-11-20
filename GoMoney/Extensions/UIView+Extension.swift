@@ -1,10 +1,3 @@
-//
-//  UIView+Extension.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 12/10/2022.
-//
-
 import UIKit
 
 extension UIView {
@@ -34,7 +27,7 @@ extension UIView {
             blurEffectView.leadingAnchor.constraint(equalTo: leadingAnchor),
             blurEffectView.trailingAnchor.constraint(equalTo: trailingAnchor),
             blurEffectView.topAnchor.constraint(equalTo: topAnchor),
-            blurEffectView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            blurEffectView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 
@@ -52,8 +45,8 @@ extension UIView {
         shadowColor: CGColor = UIColor.darkGray.cgColor,
         shadowOffset: CGSize = CGSize(width: 3, height: 3),
         shadowOpacity: Float = 0.4,
-        shadowRadius: CGFloat = 3)
-    {
+        shadowRadius: CGFloat = 3
+    ) {
         layer.masksToBounds = false
         layer.shadowColor = shadowColor
         layer.shadowOffset = shadowOffset

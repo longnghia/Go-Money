@@ -1,10 +1,3 @@
-//
-//  GMButton.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 13/10/2022.
-//
-
 import UIKit
 
 class GMButton: UIButton {
@@ -19,13 +12,13 @@ class GMButton: UIButton {
         builder: ((GMButton) -> Void)? = nil
     ) {
         self.init(frame: .zero)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.setTitle(text, for: .normal)
-        self.titleLabel?.textAlignment = .center
-        self.setTitleColor(color, for: .normal)
-        self.titleLabel?.font = UIFont(name: font, size: size)
+        translatesAutoresizingMaskIntoConstraints = false
+        setTitle(text, for: .normal)
+        titleLabel?.textAlignment = .center
+        setTitleColor(color, for: .normal)
+        titleLabel?.font = UIFont(name: font, size: size)
         self.tapAction = tapAction
-        self.addTarget(self, action: #selector(self.didTapButton), for: .touchUpInside)
+        addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         builder?(self)
     }
 
@@ -39,6 +32,6 @@ class GMButton: UIButton {
 
     @objc
     private func didTapButton() {
-        self.tapAction?()
+        tapAction?()
     }
 }

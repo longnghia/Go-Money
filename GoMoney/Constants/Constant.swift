@@ -1,10 +1,3 @@
-//
-//  Constant.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 12/10/2022.
-//
-
 import UIKit
 
 struct K {
