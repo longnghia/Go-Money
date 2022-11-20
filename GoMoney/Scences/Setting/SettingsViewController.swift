@@ -51,7 +51,8 @@ class SettingsViewController: GMMainViewController {
             title: "Done",
             style: .plain,
             target: self,
-            action: #selector(dismissSettings))
+            action: #selector(dismissSettings)
+        )
 
         doneButton.setTextAttributes(font: .nova(), color: .white)
         return doneButton
@@ -122,7 +123,8 @@ class SettingsViewController: GMMainViewController {
                 toggle.addTarget(
                     self,
                     action: #selector(toggleSwitched(_:)),
-                    for: .valueChanged)
+                    for: .valueChanged
+                )
                 toggle.isOn = settings.getValue(for: blockerToggle.setting) as? Bool ?? false
                 toggles[sectionIndex]?[cellIndex] = blockerToggle
             }
@@ -197,7 +199,8 @@ class SettingsViewController: GMMainViewController {
             type: .actionSheet,
             with: nil,
             message: "Please Select a Currency Unit",
-            actions: actions)
+            actions: actions
+        )
     }
 
     private func selectDateFormat(at indexPath: IndexPath) {
@@ -223,7 +226,8 @@ class SettingsViewController: GMMainViewController {
             type: .actionSheet,
             with: nil,
             message: "Please Select a Day Format",
-            actions: actions)
+            actions: actions
+        )
     }
 
     @objc private func dismissSettings() {
@@ -234,11 +238,11 @@ class SettingsViewController: GMMainViewController {
 // MARK: TableView
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         return sections.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         numberOfRows(for: sections[section])
     }
 
@@ -251,7 +255,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
 
         switch sections[indexPath.section] {
@@ -314,7 +318,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if sections[section] == .database {
             let lastSync = getLastSync()
 
@@ -344,11 +348,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return toggle
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].headerText
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch sections[section] {
         case .display:
             return 70
@@ -414,6 +418,7 @@ extension SettingsViewController {
             with: nil,
             message: "Choose sync interval time",
             actions: actions,
-            showCancel: true)
+            showCancel: true
+        )
     }
 }

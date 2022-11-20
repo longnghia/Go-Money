@@ -15,12 +15,10 @@ class AuthService {
 
             if let error = error {
                 completion(.failure(error))
-            }
-            else if let authResult = authResult {
+            } else if let authResult = authResult {
                 self.saveUserInfo()
                 completion(.success(authResult))
-            }
-            else {
+            } else {
                 print("Unknown Error")
             }
         }
@@ -33,13 +31,11 @@ class AuthService {
 
             if let error = error {
                 completion(.failure(error))
-            }
-            else
+            } else
             if let authResult = authResult {
                 self.saveUserInfo()
                 completion(.success(authResult))
-            }
-            else {
+            } else {
                 print("Unknown Error")
             }
         }
@@ -91,8 +87,7 @@ class AuthService {
 
             clearData()
             completion(.success(true))
-        }
-        catch let signOutError as NSError {
+        } catch let signOutError as NSError {
             completion(.failure(signOutError))
         }
     }
@@ -124,23 +119,22 @@ class AuthService {
     func restoreUserData(completion: @escaping (Error?) -> Void) {
         RemoteService.shared.getAllTags { result in
             switch result {
-            case .failure(let err):
+            case let .failure(err):
                 completion(err)
-            case .success(let tags):
+            case let .success(tags):
                 TagService.shared.setTags(tags: tags) { err in
                     if let err = err {
                         completion(err)
-                    }
-                    else {
+                    } else {
                         print("[restore] \(tags.count) tags")
                         RemoteService.shared.getAllTransactions { result in
                             switch result {
-                            case .success(let transactions):
+                            case let .success(transactions):
                                 print("[restore] \(transactions.count) transactions")
                                 DataService.shared.addTransactions(transactions) { err in
                                     completion(err)
                                 }
-                            case .failure(let err):
+                            case let .failure(err):
                                 completion(err)
                             }
                         }

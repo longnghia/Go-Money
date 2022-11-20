@@ -36,7 +36,8 @@ class GMAuthViewController: GMViewController {
                     duration: duration,
                     options: options,
                     animations: {},
-                    completion: { _ in })
+                    completion: { _ in }
+                )
             }
         }
     }
@@ -62,9 +63,9 @@ class GMAuthViewController: GMViewController {
     func checkIfNewUser(completion: @escaping (Bool) -> Void) {
         RemoteService.shared.checkIfUserExist { result in
             switch result {
-            case .success(let exist):
+            case let .success(exist):
                 completion(!exist)
-            case .failure(let err):
+            case let .failure(err):
                 self.errorAlert(message: err.localizedDescription)
             }
         }

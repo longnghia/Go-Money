@@ -14,8 +14,8 @@ class GMLabelSpan: UILabel {
         span: String,
         style: GMLabelStyle,
         underline: Bool = false,
-        builder: ((GMLabelSpan) -> Void)? = nil)
-    {
+        builder: ((GMLabelSpan) -> Void)? = nil
+    ) {
         super.init(frame: .zero)
 
         let link = NSMutableAttributedString(string: text)
@@ -24,11 +24,13 @@ class GMLabelSpan: UILabel {
             link.addAttribute(
                 NSAttributedString.Key.underlineStyle,
                 value: NSUnderlineStyle.single.rawValue,
-                range: range)
+                range: range
+            )
         }
         link.addAttribute(NSAttributedString.Key.font, value: UIFont(
             name: style.getFont(),
-            size: style.getSize()) ?? .nova(),
+            size: style.getSize()
+        ) ?? .nova(),
         range: NSRangeFromString(text))
         link.addAttribute(NSAttributedString.Key.foregroundColor, value: K.Color.primaryColor, range: range)
         attributedText = link
@@ -40,7 +42,7 @@ class GMLabelSpan: UILabel {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

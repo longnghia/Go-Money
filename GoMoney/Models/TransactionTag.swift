@@ -48,7 +48,7 @@ extension TransactionTag {
 
         TransactionTag(name: "Salary", icon: "trans_type_salary", type: .income),
         TransactionTag(name: "Allowance", icon: "trans_type_allowance", type: .income),
-        TransactionTag(name: "Bonus", icon: "trans_type_bonus", type: .income)
+        TransactionTag(name: "Bonus", icon: "trans_type_bonus", type: .income),
     ]
 
     // for custom category with local icons

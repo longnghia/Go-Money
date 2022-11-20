@@ -15,7 +15,8 @@ class DetailViewModel {
             newTrans: newTrans,
             completion: { err in
                 completion?(err)
-            })
+            }
+        )
     }
 
     func deleteTransaction(_ expense: Expense, completion: ((Error?) -> Void)? = nil) {

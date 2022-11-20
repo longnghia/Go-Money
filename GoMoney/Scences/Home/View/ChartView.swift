@@ -33,7 +33,7 @@ class ChartView: UIView {
             pieChartView.topAnchor.constraint(equalTo: topAnchor),
             pieChartView.leftAnchor.constraint(equalTo: leftAnchor),
             pieChartView.widthAnchor.constraint(equalTo: heightAnchor),
-            pieChartView.heightAnchor.constraint(equalTo: pieChartView.widthAnchor)
+            pieChartView.heightAnchor.constraint(equalTo: pieChartView.widthAnchor),
         ])
 
         monthlyStackView.anchor(
@@ -111,7 +111,7 @@ class ChartView: UIView {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

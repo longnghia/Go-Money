@@ -53,9 +53,9 @@ class ExchangeViewModel {
     func getLastestRate(from: CurrencyItem, completion: @escaping (Error?) -> Void) {
         service.getExchangeRate(from: from.code, to: [.dollar], completion: { result in
             switch result {
-            case .failure(let error):
+            case let .failure(error):
                 completion(error)
-            case .success(let exchange):
+            case let .success(exchange):
                 let rates = exchange.rates
 
                 self.rates = rates

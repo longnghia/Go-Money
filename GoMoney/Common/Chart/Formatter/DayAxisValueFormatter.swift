@@ -8,7 +8,7 @@ class BarChartXAxisFormatter: IndexAxisValueFormatter {
         self.tagExpenses = tagExpenses
     }
 
-    override func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+    override func stringForValue(_ value: Double, axis _: AxisBase?) -> String {
         guard let
             tagExpenses = tagExpenses,
             tagExpenses.count > 0,

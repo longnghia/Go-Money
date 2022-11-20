@@ -26,7 +26,7 @@ class RemoteService {
 
         print("userId=\(userId)")
 
-        self.db.collection("transactions")
+        db.collection("transactions")
             .document(userId)
             .collection("transactions")
             .getDocuments { snapshot, err in
@@ -54,7 +54,7 @@ class RemoteService {
             return
         }
 
-        self.local.getTransaction(by: id) { transaction in
+        local.getTransaction(by: id) { transaction in
             guard let transaction = transaction else {
                 print("Transaction \(id) not found at local.")
                 return
@@ -80,7 +80,7 @@ class RemoteService {
             return
         }
 
-        self.db.collection("transactions")
+        db.collection("transactions")
             .document(userId)
             .collection("transactions")
             .document(id)
@@ -113,7 +113,7 @@ extension RemoteService {
         }
 
         print("userId=\(userId)")
-        let doc = self.db
+        let doc = db
             .collection("tags")
             .document(userId)
 
@@ -134,7 +134,7 @@ extension RemoteService {
             return
         }
 
-        let doc = self.db
+        let doc = db
             .collection("tags")
             .document(userId)
 
@@ -166,14 +166,14 @@ extension RemoteService {
             return
         }
 
-        self.db.collection("info")
+        db.collection("info")
             .document(userId)
             .getDocument(as: GMUser.self) { result in
                 completion(result)
                 switch result {
-                case .success(let user):
+                case let .success(user):
                     print("City: \(user)")
-                case .failure(let error):
+                case let .failure(error):
                     print("Error decoding city: \(error)")
                 }
             }
@@ -184,7 +184,7 @@ extension RemoteService {
             completion(.failure(DataError.userNotFound))
             return
         }
-        let ref = self.db.collection("tags")
+        let ref = db.collection("tags")
             .document(userId)
 
         ref.getDocument { snapShot, err in

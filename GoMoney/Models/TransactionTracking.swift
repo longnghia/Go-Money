@@ -9,7 +9,7 @@ class TransactionTracking: Object {
 
     convenience init(id: ObjectId, status: Status) {
         self.init()
-        self._id = id
+        _id = id
         self.status = status.rawValue
     }
 

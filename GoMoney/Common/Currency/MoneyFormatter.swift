@@ -1,4 +1,4 @@
-class MoneyFormatter {
+enum MoneyFormatter {
     static func formatShorter(amount: Double, currency: CurrencyUnit) -> String {
         switch currency {
         case .dong:

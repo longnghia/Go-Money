@@ -19,7 +19,7 @@ class StatTableCell: UITableViewCell {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -29,12 +29,13 @@ class StatTableCell: UITableViewCell {
             top: topAnchor,
             left: leftAnchor,
             bottom: bottomAnchor,
-            right: rightAnchor)
+            right: rightAnchor
+        )
     }
 }
 
 extension StatTableCell: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return expenses.count
     }
 

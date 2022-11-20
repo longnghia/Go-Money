@@ -29,7 +29,7 @@ private class DetailCell: UIView {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -40,7 +40,8 @@ private class DetailCell: UIView {
             top: topAnchor,
             left: leftAnchor,
             bottom: bottomAnchor,
-            right: rightAnchor)
+            right: rightAnchor
+        )
     }
 
     func setDetail(key: String, value: String) {
@@ -77,7 +78,7 @@ class DetailView: UIView {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -113,7 +114,8 @@ class DetailView: UIView {
             DetailCell(key: "Tag", value: tag.name),
             DetailCell(key: "Amount", value: amount),
             DetailCell(key: "When", value: DateFormatter.dmy().string(from: transaction.occuredOn)),
-            DetailCell(key: "Note", value: transaction.note))
+            DetailCell(key: "Note", value: transaction.note)
+        )
 
         if let createdAt = transaction.createdAt {
             stackView.addArrangedSubview(

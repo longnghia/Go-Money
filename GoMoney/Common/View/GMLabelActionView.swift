@@ -28,7 +28,7 @@ class GMLabelActionView: UIControl {
         text: String,
         icLeft: UIImage?,
         icRight: UIImage? = UIImage(systemName: "chevron.right"),
-        background: UIColor = .gray,
+        background _: UIColor = .gray,
         textColor: UIColor = K.Color.boxLabel,
         action: (() -> Void)? = nil
     ) {
@@ -83,7 +83,7 @@ class GMLabelActionView: UIControl {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

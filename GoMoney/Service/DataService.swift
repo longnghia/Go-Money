@@ -17,7 +17,7 @@ enum DataError: Error {
 
     var localizedDescription: String {
         switch self {
-        case .transactionNotFound(let transaction):
+        case let .transactionNotFound(transaction):
             return "Transaction \(transaction._id) not found!"
         case .noTransactions:
             return "There is no transactions!"
@@ -44,7 +44,7 @@ class DataService {
         let expenses = realm.objects(Expense.self)
         itemsToken = expenses.observe { changes in
             switch changes {
-            case .update(_, let deletions, let insertions, let updates):
+            case let .update(_, deletions, insertions, updates):
                 print("deletions:\(deletions)")
                 print("insertions:\(insertions)")
                 print("updates:\(updates)")
@@ -85,13 +85,15 @@ class DataService {
                 .where { $0.type == type.rawValue && $0.occuredOn >= startDate && $0.occuredOn <= endDate }
                 .sorted(
                     byKeyPath: sortBy.rawValue,
-                    ascending: ascending)
+                    ascending: ascending
+                )
         } else {
             expenses = realm.objects(Expense.self)
                 .where { $0.occuredOn >= startDate && $0.occuredOn <= endDate }
                 .sorted(
                     byKeyPath: sortBy.rawValue,
-                    ascending: ascending)
+                    ascending: ascending
+                )
         }
 
         if let expense = expenses {

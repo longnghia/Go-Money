@@ -84,7 +84,7 @@ class IconCollectionVC: GMMainViewController {
 }
 
 extension IconCollectionVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return viewModel.defaultIcons.count
     }
 
@@ -98,7 +98,7 @@ extension IconCollectionVC: UICollectionViewDelegate, UICollectionViewDataSource
         return UICollectionViewCell()
     }
 
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let src = viewModel.defaultIcons[indexPath.row]
         didSelect?(src)
         dismiss(animated: true)
@@ -106,7 +106,7 @@ extension IconCollectionVC: UICollectionViewDelegate, UICollectionViewDataSource
 }
 
 extension IconCollectionVC: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_: UISearchBar, textDidChange searchText: String) {
         viewModel.filterTags(by: searchText) { [weak self] in
             self?.collectionView.reloadData()
         }

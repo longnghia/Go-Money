@@ -1,10 +1,3 @@
-//
-//  GMViewController.swift
-//  GoMoney
-//
-//  Created by Golden Owl on 12/10/2022.
-//
-
 import Reachability
 import UIKit
 
@@ -55,17 +48,20 @@ class GMMainViewController: GMViewController {
                 image: leftBarImage,
                 style: .done,
                 target: self,
-                action: nil)
+                action: nil
+            )
 
             let leftBarTitle = UIBarButtonItem(
                 title: leftTitle,
                 style: .plain,
                 target: self,
-                action: nil)
+                action: nil
+            )
 
             leftBarTitle.setTitleTextAttributes(
                 [.foregroundColor: UIColor.white, .font: K.Theme.titleFont],
-                for: .disabled)
+                for: .disabled
+            )
 
             leftBarIcon.isEnabled = false
             leftBarTitle.isEnabled = false
@@ -77,7 +73,8 @@ class GMMainViewController: GMViewController {
                 image: rightBarImage,
                 style: .done,
                 target: self,
-                action: nil)
+                action: nil
+            )
             navigationItem.rightBarButtonItem = rightBarIcon
         }
 
@@ -106,7 +103,8 @@ class GMMainViewController: GMViewController {
             if self?.networkAvailable == false {
                 self?.snackBar(
                     message: "Connection restored",
-                    actionIcon: UIImage(named: "ic_wifi")?.color(.green))
+                    actionIcon: UIImage(named: "ic_wifi")?.color(.green)
+                )
                 self?.networkAvailable = true
             }
         }
@@ -119,7 +117,8 @@ class GMMainViewController: GMViewController {
 
             self?.snackBar(
                 message: "Connection lost",
-                actionIcon: UIImage(named: "ic_wifi_off")?.color(.red))
+                actionIcon: UIImage(named: "ic_wifi_off")?.color(.red)
+            )
         }
     }
 

@@ -11,58 +11,58 @@ class ButtonAuth: UIButton {
     private lazy var btnImg: UIImageView = .build { icon in
         icon.contentMode = .scaleAspectFill
     }
-    
+
     private lazy var btnText: GMLabel = .init(style: .regular, isCenter: true) {
         $0.textColor = .white
     }
-    
+
     private lazy var stackView: UIStackView = .build { stackView in
         stackView.axis = .horizontal
         stackView.spacing = Constants.spacing
         stackView.addArrangedSubviews(self.btnImg, self.btnText)
         stackView.isUserInteractionEnabled = false
     }
-    
+
     private var tapAction: (() -> Void)?
-    
+
     init(icon: String, text: String, background: UIColor, textColor: UIColor = .white, tapAction: @escaping () -> Void, builder: ((ButtonAuth) -> Void)? = nil) {
         super.init(frame: .zero)
         setup()
-        
+
         if background == .white {
             layer.borderColor = UIColor.action.cgColor
         }
-        
+
         backgroundColor = background
-        
+
         addSubviews(stackView)
-        
+
         stackView.centerXToSuperview()
-        
+
         btnImg.image = UIImage(named: icon)
         btnImg.anchor(width: Constants.buttonAuthSize, height: Constants.buttonAuthSize)
-        
+
         btnText.text = text
         btnText.textColor = textColor
-        
+
         self.tapAction = tapAction
         addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        
+
         builder?(self)
     }
-    
+
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setup() {
         layer.cornerRadius = Constants.cornerRadius
         layer.borderWidth = Constants.borderWidth
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = true
     }
-    
+
     @objc
     private func didTapButton() {
         tapAction?()

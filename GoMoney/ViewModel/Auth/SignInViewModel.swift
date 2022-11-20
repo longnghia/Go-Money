@@ -10,8 +10,8 @@ class SignInViewModel {
     func signInWithEmailAndPassword(
         email: String,
         password: String,
-        completion: @escaping (Error?) -> Void)
-    {
+        completion: @escaping (Error?) -> Void
+    ) {
         AuthService.shared.signIn(with: email, and: password) { [weak self] authResult in
             switch authResult {
             case .success:

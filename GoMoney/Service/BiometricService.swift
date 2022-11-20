@@ -13,7 +13,7 @@ class BiometricService {
             case .success:
                 completion(nil)
 
-            case .failure(let error):
+            case let .failure(error):
                 if error == .biometryLockedout {
                     self?.showPasscodeAuthentication(message: error.message(), completion: completion)
                 } else {
@@ -29,7 +29,7 @@ class BiometricService {
             switch result {
             case .success:
                 completion(nil)
-            case .failure(let error):
+            case let .failure(error):
                 completion(error)
             }
         }

@@ -14,7 +14,7 @@ class SettingsTableViewToggleCell: SettingsTableViewCell {
     }
 
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
@@ -29,7 +29,8 @@ private class PaddedSwitch: UIView {
 
         frame.size = CGSize(
             width: switchView.frame.width + PaddedSwitch.Padding,
-            height: switchView.frame.height)
+            height: switchView.frame.height
+        )
         switchView.frame.origin = CGPoint(x: PaddedSwitch.Padding, y: 0)
     }
 }

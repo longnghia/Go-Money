@@ -19,7 +19,8 @@ class AddExpenseViewController: GMMainViewController {
         transType: type,
         textFieldOnChange: { [weak self] in
             self?.errorLabel.text = nil
-        })
+        }
+    )
 
     lazy var errorLabel: GMLabel = .init(style: .smallBold, isCenter: true) {
         $0.textColor = K.Color.error
@@ -28,8 +29,8 @@ class AddExpenseViewController: GMMainViewController {
 
     lazy var saveButton = GMFloatingButton(
         image: UIImage(systemName: "plus.circle")?.color(.white),
-        text: "Save")
-    { [weak self] in
+        text: "Save"
+    ) { [weak self] in
         self?.saveExpense()
     }
 
@@ -81,7 +82,8 @@ class AddExpenseViewController: GMMainViewController {
         view.addSubviews(
             addExpenseForm,
             errorLabel,
-            saveButton)
+            saveButton
+        )
 
         addExpenseForm.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
@@ -89,21 +91,25 @@ class AddExpenseViewController: GMMainViewController {
             right: view.rightAnchor,
             paddingTop: 32,
             paddingLeft: Constant.padding,
-            paddingRight: Constant.padding)
+            paddingRight: Constant.padding
+        )
 
         errorLabel.anchor(
             top: addExpenseForm.bottomAnchor,
             left: addExpenseForm.leftAnchor,
             right: addExpenseForm.rightAnchor,
-            paddingTop: 32)
+            paddingTop: 32
+        )
 
         saveButton.anchor(
             right: view.rightAnchor,
-            paddingRight: 16)
+            paddingRight: 16
+        )
 
         saveButtonAnchor = saveButton.bottomAnchor.constraint(
             equalTo: view.bottomAnchor,
-            constant: -bottomInset)
+            constant: -bottomInset
+        )
 
         saveButtonAnchor?.isActive = true
     }
@@ -145,7 +151,8 @@ class AddExpenseViewController: GMMainViewController {
             kTextFont: .nova(14),
             kButtonFont: .novaBold(14),
             showCloseButton: false,
-            circleBackgroundColor: .action)
+            circleBackgroundColor: .action
+        )
 
         let btnColor = UIColor.action.withAlphaComponent(0.8)
 
@@ -158,8 +165,8 @@ class AddExpenseViewController: GMMainViewController {
         let doneBtn = alert.addButton(
             "Done",
             backgroundColor: .white,
-            textColor: .action)
-        {
+            textColor: .action
+        ) {
             self.didTapBack()
         }
 
@@ -171,7 +178,8 @@ class AddExpenseViewController: GMMainViewController {
             subTitle: "Transaction saved.",
             style: .success,
             colorStyle: 0xEFF3F6,
-            colorTextButton: 0xFFFFFF)
+            colorTextButton: 0xFFFFFF
+        )
     }
 }
 
@@ -182,7 +190,7 @@ extension AddExpenseViewController {
 }
 
 extension AddExpenseViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidBeginEditing(_: UITextField) {
         // TODO: Editting animation
     }
 }

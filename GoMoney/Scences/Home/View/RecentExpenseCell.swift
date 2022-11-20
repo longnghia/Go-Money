@@ -32,7 +32,7 @@ class RecentExpenseCell: UITableViewCell {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -44,7 +44,7 @@ class RecentExpenseCell: UITableViewCell {
         icon.centerYToView(self)
         NSLayoutConstraint.activate([
             icon.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
-            icon.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
+            icon.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
         ])
 
         stackInfo.centerYToView(self)
@@ -66,7 +66,7 @@ class RecentExpenseCell: UITableViewCell {
         switch transaction.type {
         case ExpenseType.income.rawValue:
             labelPrice.textColor = K.Color.saving
-        case ExpenseType.expense.rawValue:
+        case ExpenseType.expense.rawValue:
             labelPrice.textColor = K.Color.debt
         default:
             break

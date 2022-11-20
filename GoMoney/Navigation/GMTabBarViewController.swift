@@ -16,9 +16,9 @@ class GMTabBarViewController: UITabBarController {
         tabBar.marginBottom = 0
         return tabBar
     }()
-    
+
     // MARK: - TabBar Icon
-    
+
     private let statBlackIcon = K.Image.statistic.black()
     private let statWhiteIcon = K.Image.statistic.white()
     private let homeBlackIcon = K.Image.dashboard.black()
@@ -30,29 +30,32 @@ class GMTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let statisticVC = MainNavigationController(rootViewController: StatViewController())
         statisticVC.tabBarItem = UITabBarItem(
             title: "",
             image: statBlackIcon,
-            selectedImage: statWhiteIcon)
-        
+            selectedImage: statWhiteIcon
+        )
+
         let homeVC = MainNavigationController(rootViewController: HomeViewController())
         homeVC.tabBarItem = UITabBarItem(
             title: "",
             image: homeBlackIcon,
-            selectedImage: homeWhiteIcon)
-        
+            selectedImage: homeWhiteIcon
+        )
+
         let profileVC = MainNavigationController(rootViewController: ProfileViewController())
         profileVC.tabBarItem = UITabBarItem(
             title: "",
             image: profileBlackIcon,
-            selectedImage: profileWhiteIcon)
-        
+            selectedImage: profileWhiteIcon
+        )
+
         setValue(customTabBar, forKey: "tabBar")
-        
+
         viewControllers = [statisticVC, homeVC, profileVC]
-        
+
         selectedIndex = 1
     }
 }
