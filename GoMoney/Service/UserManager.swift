@@ -1,6 +1,6 @@
 import FirebaseAuth
 
-struct GMUser {
+struct GMUser: Codable {
     let uid: String
     var email: String?
     var name: String?
@@ -37,5 +37,9 @@ class UserManager {
             return nil
         }
         return GMUser(uid: id, email: email, name: name, photoUrl: photo)
+    }
+
+    func getUserId() -> String? {
+        return UserDefaults.standard.string(forKey: "userId")
     }
 }

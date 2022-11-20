@@ -3,7 +3,6 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import RealmSwift
-import UIKit
 
 typealias RemoteCompletion = (Error?) -> Void
 
@@ -33,13 +32,11 @@ class RemoteService {
                     completion(.failure(err))
                 } else {
                     var list = [Expense]()
-
                     snapshot?.documents.forEach {
-                        let id = $0.documentID
-                        let data = try? $0.data(as: Expense.self)
-                        if let data = data {
-                            data._id = try! ObjectId(string: String(id))
-                            list.append(data)
+                        if let data = try? $0.data(as: RemoteTransaction.self) {
+                            if let transaction = self.remoteTransactionToRealmTransaction(remote: data) {
+                                list.append(transaction)
+                            }
                         }
                     }
                     completion(.success(list))
@@ -90,6 +87,43 @@ class RemoteService {
             }
     }
 
+    private func remoteTransactionToRealmTransaction(remote: RemoteTransaction) -> Expense? {
+        guard
+            let type = ExpenseType(rawValue: remote.type)
+        else {
+            return nil
+        }
+
+        if let tag = TagService.shared.getTagById(remote.tag) {
+            return Expense(type: type, tag: tag, amount: remote.amount, note: remote.note, occuredOn: remote.occuredOn, createdAt: remote.createdAt, updatedAt: remote.updatedAt)
+        }
+        return nil
+    }
+}
+
+// remote tag table
+extension RemoteService {
+    /// Get all remote tag
+    func getAllTags(completion: @escaping ((Result<[TransactionTag], Error>) -> Void)) {
+        guard let userId = userId else {
+            completion(.failure(DataError.userNotFound))
+            return
+        }
+
+        let doc = self.db
+            .collection("tags")
+            .document(userId)
+
+        doc.getDocument { snapshot, err in
+            if let err = err {
+                completion(.failure(err))
+            } else {
+                let list = try? snapshot?.data(as: [String: [TransactionTag]].self)
+                completion(.success(list?["tags"] ?? TransactionTag.defaults))
+            }
+        }
+    }
+
     /// set tags on firebase:
     func setTags(tags: [TransactionTag], completion: @escaping RemoteCompletion) {
         guard let userId = userId else {
@@ -119,4 +153,51 @@ class RemoteService {
             }
         }
     }
+}
+
+// remote user table
+extension RemoteService {
+    func getUserData(completion: @escaping ((Result<GMUser, Error>) -> Void)) {
+        guard let userId = userId else {
+            completion(.failure(DataError.userNotFound))
+            return
+        }
+
+        self.db.collection("info")
+            .document(userId)
+            .getDocument(as: GMUser.self) { result in
+                completion(result)
+                switch result {
+                case .success(let user):
+                    print("City: \(user)")
+                case .failure(let error):
+                    print("Error decoding city: \(error)")
+                }
+            }
+    }
+
+    func checkIfUserExist(completion: @escaping (Result<Bool, Error>) -> Void) {
+        guard let userId = userId else {
+            completion(.failure(DataError.userNotFound))
+            return
+        }
+        let ref = self.db.collection("tags")
+            .document(userId)
+
+        ref.getDocument { snapShot, err in
+            if let err = err {
+                completion(.failure(err))
+            } else {
+                if let snapShot = snapShot {
+                    completion(.success(snapShot.exists))
+                } else {
+                    print("Unknown error")
+                }
+            }
+        }
+    }
+
+    func setUserData() {}
+
+    func restoreUserData() {}
 }

@@ -13,6 +13,7 @@ enum DataError: Error {
     case transactionNotFound(_ transaction: Expense)
     case noTransactions
     case userNotFound
+    case tagNotFound
 
     var localizedDescription: String {
         switch self {
@@ -22,6 +23,8 @@ enum DataError: Error {
             return "There is no transactions!"
         case .userNotFound:
             return "User not found!"
+        case .tagNotFound:
+            return "Tag not found!"
         }
     }
 }
@@ -108,6 +111,17 @@ class DataService {
             completion?(nil)
         } catch {
             completion?(error)
+        }
+    }
+
+    func addTransactions(_ transactions: [Expense], completion: (Error?) -> Void) {
+        do {
+            try realm.write {
+                realm.add(transactions)
+            }
+            completion(nil)
+        } catch {
+            completion(error)
         }
     }
 

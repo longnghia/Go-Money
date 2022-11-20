@@ -169,7 +169,18 @@ class ProfileViewController: GMMainViewController {
         let navVC = UINavigationController(rootViewController: signInVC)
 
         if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
-            delegate.window?.rootViewController = navVC
+            if let window = delegate.window {
+                window.rootViewController = navVC
+
+                let options: UIView.AnimationOptions = .transitionCrossDissolve
+                let duration: TimeInterval = 0.5
+                UIView.transition(
+                    with: window,
+                    duration: duration,
+                    options: options,
+                    animations: {},
+                    completion: { _ in })
+            }
         }
     }
 
