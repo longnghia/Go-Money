@@ -39,6 +39,7 @@
 		083EA336290659660079605F /* TransactionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA335290659660079605F /* TransactionTag.swift */; };
 		083EA339290676EB0079605F /* StatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA338290676EB0079605F /* StatViewModel.swift */; };
 		083EA33B2906933A0079605F /* StatLineChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA33A2906933A0079605F /* StatLineChartCell.swift */; };
+		083EDBAE292A3ED50058F5D7 /* GMAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EDBAD292A3ED40058F5D7 /* GMAuthViewController.swift */; };
 		085F7526291215B80094A026 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F7525291215B80094A026 /* SettingsViewController.swift */; };
 		085F752A2912490E0094A026 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F75292912490E0094A026 /* SettingsTableViewCell.swift */; };
 		085F752C29124CEC0094A026 /* BlockerToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F752B29124CEC0094A026 /* BlockerToggle.swift */; };
@@ -203,6 +204,7 @@
 		083EA335290659660079605F /* TransactionTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTag.swift; sourceTree = "<group>"; };
 		083EA338290676EB0079605F /* StatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewModel.swift; sourceTree = "<group>"; };
 		083EA33A2906933A0079605F /* StatLineChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatLineChartCell.swift; sourceTree = "<group>"; };
+		083EDBAD292A3ED40058F5D7 /* GMAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAuthViewController.swift; sourceTree = "<group>"; };
 		085F7525291215B80094A026 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		085F75292912490E0094A026 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		085F752B29124CEC0094A026 /* BlockerToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockerToggle.swift; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 				08DB56E528F8FC7D00170C60 /* View */,
 				08C8731728F865B200DC859D /* SignUp */,
 				08C872EC28F6C5DE00DC859D /* SignIn */,
+				083EDBAD292A3ED40058F5D7 /* GMAuthViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1128,6 +1131,7 @@
 				083EA339290676EB0079605F /* StatViewModel.swift in Sources */,
 				082BF96828FD1D510094FE94 /* Podfile in Sources */,
 				088D691C29015865003D0660 /* AddExpenseField.swift in Sources */,
+				083EDBAE292A3ED50058F5D7 /* GMAuthViewController.swift in Sources */,
 				08F0688D2921DBEE005C58EC /* ExchangeCell.swift in Sources */,
 				083B14DF2914EF300058E36E /* SyncManager.swift in Sources */,
 				08C6894D2913B01C002071CC /* TrackingService.swift in Sources */,

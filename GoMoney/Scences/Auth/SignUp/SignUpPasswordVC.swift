@@ -1,6 +1,6 @@
 import UIKit
 
-class SignUpPasswordVC: GMViewController {
+class SignUpPasswordVC: GMAuthViewController {
     private enum Constant {
         static let padding: CGFloat = 16
     }
@@ -121,7 +121,7 @@ class SignUpPasswordVC: GMViewController {
                         self?.errorLabel.text = error?.localizedDescription
                     } else {
                         // TODO: navigateToDetailVC
-                        self?.navigateToMainVC()
+                        self?.initDataAndGoHome()
                     }
                 }
             }
@@ -131,13 +131,6 @@ class SignUpPasswordVC: GMViewController {
     @objc
     private func textFieldDidChanged() {
         errorLabel.text = ""
-    }
-    
-    private func navigateToMainVC() {
-        let homeVC = GMTabBarViewController()
-        if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
-            delegate.window?.rootViewController = homeVC
-        }
     }
     
     private func navigateToDetailVC() {

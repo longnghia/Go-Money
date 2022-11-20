@@ -1,6 +1,6 @@
 import UIKit
 
-class SignInPasswordVC: GMViewController {
+class SignInPasswordVC: GMAuthViewController {
     // MARK: - Content
 
     private enum Content {
@@ -116,23 +116,16 @@ class SignInPasswordVC: GMViewController {
                 errorLabel.text = error
             } else {
                 errorLabel.text = ""
-                GMLoadingView.shared.startLoadingAnimation()
+                GMLoadingView.shared.startLoadingAnimation(with: "Logging in ...")
                 viewModel.signInWithEmailAndPassword(email: email, password: password) { [weak self] error in
-                    GMLoadingView.shared.endLoadingAnimation()
                     if error != nil {
+                        GMLoadingView.shared.endLoadingAnimation()
                         self?.errorLabel.text = error?.localizedDescription
                     } else {
-                        self?.onSuccessLogin()
+                        self?.restoreDataAndGoHome()
                     }
                 }
             }
-        }
-    }
-    
-    private func navigateToMainVC() {
-        let homeVC = GMTabBarViewController()
-        if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
-            delegate.window?.rootViewController = homeVC
         }
     }
 }

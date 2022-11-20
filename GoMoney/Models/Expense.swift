@@ -87,3 +87,15 @@ struct DateAmount {
     let date: Date
     var totalAmount: Double
 }
+
+/// Transaction structure on firestore.
+struct RemoteTransaction: Codable {
+    var _id: String
+    var type: String
+    var tag: String
+    var amount: Double
+    var note: String
+    var occuredOn: Date
+    var createdAt: Date?
+    var updatedAt: Date?
+}

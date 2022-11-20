@@ -120,4 +120,33 @@ class AuthService {
         // remove realm
         DataService.shared.dropAllTable()
     }
+
+    func restoreUserData(completion: @escaping (Error?) -> Void) {
+        RemoteService.shared.getAllTags { result in
+            switch result {
+            case .failure(let err):
+                completion(err)
+            case .success(let tags):
+                TagService.shared.setTags(tags: tags) { err in
+                    if let err = err {
+                        completion(err)
+                    }
+                    else {
+                        print("[restore] \(tags.count) tags")
+                        RemoteService.shared.getAllTransactions { result in
+                            switch result {
+                            case .success(let transactions):
+                                print("[restore] \(transactions.count) transactions")
+                                DataService.shared.addTransactions(transactions) { err in
+                                    completion(err)
+                                }
+                            case .failure(let err):
+                                completion(err)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

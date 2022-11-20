@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: GMViewController {
+class SignInViewController: GMAuthViewController {
     private lazy var img: UIImageView = .build { view in
         view.image = UIImage(named: "onboard_1")
     }
@@ -108,18 +108,18 @@ class SignInViewController: GMViewController {
             with: self,
             completion: { [weak self] err in
                 if let err = err {
+                    GMLoadingView.shared.endLoadingAnimation()
                     self?.errorAlert(message: err)
                 } else {
-                    self?.navigateToMainVC()
+                    self?.checkIfNewUser { isNew in
+                        if isNew {
+                            self?.initDataAndGoHome()
+                        } else {
+                            self?.restoreDataAndGoHome()
+                        }
+                    }
                 }
             }
         )
-    }
-    
-    private func navigateToMainVC() {
-        let homeVC = GMTabBarViewController()
-        if let delegate = view.window?.windowScene?.delegate as? SceneDelegate {
-            delegate.window?.rootViewController = homeVC
-        }
     }
 }
