@@ -105,10 +105,13 @@ class DetailView: UIView {
             $0.removeFromSuperview()
         }
 
+        let currency = SettingsManager.shared.getValue(for: .currencyUnit)
+        let amount = "\(transaction.amount.formatWithCommas()) \(currency)"
+
         stackView.addArrangedSubviews(
-            DetailCell(key: "Transaction type", value: transaction.type),
+            DetailCell(key: "Transaction type", value: transaction.type.capitalized),
             DetailCell(key: "Tag", value: tag.name),
-            DetailCell(key: "Amount", value: String(transaction.amount)),
+            DetailCell(key: "Amount", value: amount),
             DetailCell(key: "When", value: DateFormatter.dmy().string(from: transaction.occuredOn)),
             DetailCell(key: "Note", value: transaction.note))
 

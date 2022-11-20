@@ -275,8 +275,8 @@ extension HomeViewController {
 
 extension HomeViewController {
     private enum Content {
-        static let myExpense = "My Expenses"
-        static let recentExpense = "Recent Expenses"
+        static let myExpense = "My Transactions"
+        static let recentExpense = "Recent Transactions"
     }
 
     private enum Constant {
