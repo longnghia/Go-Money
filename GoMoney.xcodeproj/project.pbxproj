@@ -12,6 +12,8 @@
 		080ADD26290F8CAF005DCF86 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ADD25290F8CAF005DCF86 /* EditViewController.swift */; };
 		080ADD2B290FA4F3005DCF86 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ADD2A290FA4F3005DCF86 /* DetailViewModel.swift */; };
 		080ADD30290FB068005DCF86 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ADD2F290FB068005DCF86 /* DetailView.swift */; };
+		0816CEED292BE5BB00C17626 /* ViewAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816CEEC292BE5BB00C17626 /* ViewAllViewController.swift */; };
+		0816CEEF292BE66300C17626 /* ViewAllViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816CEEE292BE66300C17626 /* ViewAllViewModel.swift */; };
 		081CB3112906F5310007D426 /* LineChartXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB3102906F5310007D426 /* LineChartXAxisFormatter.swift */; };
 		081CB31429077BF20007D426 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB31329077BF20007D426 /* DayAxisValueFormatter.swift */; };
 		081CB3162907829C0007D426 /* Expense+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB3152907829C0007D426 /* Expense+Extension.swift */; };
@@ -179,6 +181,8 @@
 		080ADD25290F8CAF005DCF86 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		080ADD2A290FA4F3005DCF86 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		080ADD2F290FB068005DCF86 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		0816CEEC292BE5BB00C17626 /* ViewAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllViewController.swift; sourceTree = "<group>"; };
+		0816CEEE292BE66300C17626 /* ViewAllViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllViewModel.swift; sourceTree = "<group>"; };
 		081CB3102906F5310007D426 /* LineChartXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartXAxisFormatter.swift; sourceTree = "<group>"; };
 		081CB31329077BF20007D426 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
 		081CB3152907829C0007D426 /* Expense+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+Extension.swift"; sourceTree = "<group>"; };
@@ -379,6 +383,15 @@
 				080ADD2A290FA4F3005DCF86 /* DetailViewModel.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		0816CEEB292BE5B000C17626 /* ViewAll */ = {
+			isa = PBXGroup;
+			children = (
+				0816CEEC292BE5BB00C17626 /* ViewAllViewController.swift */,
+				0816CEEE292BE66300C17626 /* ViewAllViewModel.swift */,
+			);
+			path = ViewAll;
 			sourceTree = "<group>";
 		};
 		081CB30F2906F5290007D426 /* Chart */ = {
@@ -674,6 +687,7 @@
 		08C872B828F658A300DC859D /* Scences */ = {
 			isa = PBXGroup;
 			children = (
+				0816CEEB292BE5B000C17626 /* ViewAll */,
 				0878DB9D29248C54004E3FFD /* Tags */,
 				08F0689A2921F6E7005C58EC /* Calculator */,
 				08C54525291F9D1600CAD0DF /* Exchange */,
@@ -1206,6 +1220,7 @@
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
 				08EEA00C291CC359003B35B8 /* UserDefaults+AppGroup.swift in Sources */,
 				0888241B2923250F00660A9E /* UserManager.swift in Sources */,
+				0816CEED292BE5BB00C17626 /* ViewAllViewController.swift in Sources */,
 				08C1F26A28FFBAD500590512 /* UIImage+Extension.swift in Sources */,
 				081E1253291B8392007BD5FB /* EmptyTransactionView.swift in Sources */,
 				089CC73C29190C080070A108 /* ExportViewModel.swift in Sources */,
@@ -1217,6 +1232,7 @@
 				080ADD2B290FA4F3005DCF86 /* DetailViewModel.swift in Sources */,
 				088D692029015FBC003D0660 /* DatePickerInputView.swift in Sources */,
 				08F0688C2921DBEE005C58EC /* ExchangeViewmodel.swift in Sources */,
+				0816CEEF292BE66300C17626 /* ViewAllViewModel.swift in Sources */,
 				08E4EAAD291DFD91006D5C58 /* SyncInterval.swift in Sources */,
 				08F068AD29221C79005C58EC /* AsyncImageView.swift in Sources */,
 				08F068AC29221C79005C58EC /* ImageLoader.swift in Sources */,

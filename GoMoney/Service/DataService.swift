@@ -58,6 +58,10 @@ class DataService {
         itemsToken?.invalidate()
     }
 
+    func getAllTransactions(completion: @escaping ([Expense]) -> Void) {
+        getExpenses(type: nil, filerBy: .all, completion: completion)
+    }
+
     func getExpenses(type: ExpenseType? = .expense, filerBy: ExpenseFilter = .month, sortBy: ExpenseSort = .occuredOn, ascending: Bool = false, completion: @escaping ([Expense]) -> Void) {
         let endDate = Date()
         let startDate: Date?
