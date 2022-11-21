@@ -21,14 +21,35 @@ extension Expense {
     func createShareText() -> String {
         return """
         ~~~~~~~~~~~~~~~~~
-        Transaction type: \(type)
-        Category:         \(tag)
-        Amount:           \(String(amount))
-        Date:             \(DateFormatter.date.string(from: occuredOn))
-        Note:             \(note)
+        Transaction type:
+        \(type.capitalized)
+
+        Category
+        \(tag?.name ?? "")
+
+        Amount
+        \(String(amount))
+
+        Date
+        \(DateFormatter.date.string(from: occuredOn))
+
+        Note:
+        \(note)
         ~~~~~~~~~~~~~~~~~
         Shared from GoMoney with ❤️
         """
+    }
+
+    func toRemoteTransaction() -> RemoteTransaction {
+        return RemoteTransaction(
+            _id: _id.stringValue,
+            type: type,
+            tag: tag?.name ?? "",
+            amount: amount,
+            note: note,
+            occuredOn: occuredOn,
+            createdAt: createdAt,
+            updatedAt: updatedAt)
     }
 }
 

@@ -25,7 +25,7 @@ enum Setting: String, Equatable {
         case .enablePassword: return false
         case .syncOnWifi: return false
         case .lastSync: return 0
-        case .currencyUnit: return CurrencyUnit.dollar.rawValue
+        case .currencyUnit: return CurrencyUnit.dong.rawValue
         case .dateFormat: return DateFormat.dmy.rawValue
         case .intervalSync: return SyncInterval.min1.rawValue
         }

@@ -1,8 +1,8 @@
 import UIKit
 
 class MonthlyExpenseView: UIView {
-    lazy var label = GMLabel(style: .small)
-    lazy var amount = GMLabel(style: .largeBold) {
+    lazy var label = GMLabel(style: .small, isCenter: true)
+    lazy var amount = GMLabel(style: .regularBold) {
         $0.textAlignment = .right
     }
 

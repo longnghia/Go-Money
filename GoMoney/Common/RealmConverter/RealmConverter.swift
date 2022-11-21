@@ -34,7 +34,10 @@ class RealmConverter {
         // Loop through each object in the table
         for object in objects {
             let row = objectSchema.properties.map { property in
-                let value = object[property.name] as AnyObject
+                var value = object[property.name] as AnyObject
+                if property.name == "tag" {
+                    value = object.tag?.name as AnyObject
+                }
                 return sanitizedValue(value.description!)
             }
             let rowString: String = row.joined(separator: delimiter) + "\n"
@@ -61,7 +64,7 @@ class RealmConverter {
         let objects = realm.objects(Expense.self)
 
         for object in objects {
-            let rowString = "\(object)\n"
+            let rowString = "\(object.toRemoteTransaction())\n"
             fileHandle?.write(rowString.data(using: .utf8)!)
         }
         fileHandle?.closeFile()
@@ -97,7 +100,10 @@ class RealmConverter {
         for object in objects {
             var jsonObject = [AnyHashable: Any]()
             objectSchema.properties.forEach { property in
-                let value = object[property.name] as AnyObject
+                var value = object[property.name] as AnyObject
+                if property.name == "tag" {
+                    value = object.tag?.name as AnyObject
+                }
                 jsonObject[property.name] = value.description!
             }
             arrayJson.append(jsonObject)
