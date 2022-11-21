@@ -160,10 +160,14 @@ class DataService {
     }
 
     /// get Transaction by id.
-    func getTransaction(by id: String, completion: ((Expense?) -> Void)? = nil) {
-        let transaction = realm.objects(Expense.self)
-            .first(where: { $0._id.stringValue == id })
-        completion?(transaction)
+    func getTransaction(by id: String) -> Expense? {
+        guard let objectId = try? ObjectId(string: id) else {
+            return nil
+        }
+        return realm.object(
+            ofType: Expense.self,
+            forPrimaryKey: objectId
+        )
     }
 
     func dropAllTable() {
