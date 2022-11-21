@@ -13,41 +13,34 @@ A Simple Expense Tracker App 📱 built to demonstrate the use of AutoLayout, Re
 [![GoMoney](https://img.shields.io/badge/GoMoney-FIGMA-black.svg?style=for-the-badge&logo=figma)](https://www.behance.net/gallery/150426215/My-Expense-Mobile-App-Case-Study)
 
 <br />
+
 ## Screenshot 📸
 
-| Home                 | Profile                 | Statitics            | Add                 | Detail                 |
-| -------------------- | ----------------------- | -------------------- | ------------------- | ---------------------- |
+| Home                                  | Profile                                  | Statitics                             | Add                                  | Detail                                  |
+| ------------------------------------- | ---------------------------------------- | ------------------------------------- | ------------------------------------ | --------------------------------------- |
 | ![](Docs/Screenshots/home_framed.png) | ![](Docs/Screenshots/profile_framed.png) | ![](Docs/Screenshots/stat_framed.png) | ![](Docs/Screenshots/add_framed.png) | ![](Docs/Screenshots/detail_framed.png) |
 
-| Biometric                 | Custom Category                 | Widget                 | Sharing                 | Sync                 |
-| ------------------------- | ------------------------------- | ---------------------- | ----------------------- | -------------------- |
+| Biometric                                  | Custom Category                                  | Widget                                  | Sharing                                  | Sync                                  |
+| ------------------------------------------ | ------------------------------------------------ | --------------------------------------- | ---------------------------------------- | ------------------------------------- |
 | ![](Docs/Screenshots/biometric_framed.png) | ![](Docs/Screenshots/custom_category_framed.png) | ![](Docs/Screenshots/widget_framed.png) | ![](Docs/Screenshots/sharing_framed.png) | ![](Docs/Screenshots/sync_framed.png) |
 
-| Settings                | Tools                 | Caculator                  | Exchanger              | Export                    |
-| ----------------------- | --------------------- | -------------------------- | ---------------------- | ------------------------- |
+| Settings                                 | Tools                                  | Caculator                                   | Exchanger                               | Export                                     |
+| ---------------------------------------- | -------------------------------------- | ------------------------------------------- | --------------------------------------- | ------------------------------------------ |
 | ![](Docs/Screenshots/setting_framed.png) | ![](Docs/Screenshots/tools_framed.png) | ![](Docs/Screenshots/calculator_framed.png) | ![](Docs/Screenshots/export_framed.png) | ![](Docs/Screenshots/exchanger_framed.png) |
 
 
 
 
 <br />
+
 ## Project Structure 🏗
 
     ├── GoMoney
-    │   ├── Base
-    │   │   ├── GMMainViewController.swift
-    │   │   └── GMViewController.swift
-    │   ├── Base.lproj
-    │   │   └── LaunchScreen.storyboard
     │   ├── Common
-    │   │   ├── AsyncImage
     │   │   ├── Chart
     │   │   ├── FileHelper
     │   │   ├── TabBar
     │   │   └── View
-    │   ├── Constants
-    │   │   ├── Constant.swift
-    │   │   └── UserDefaultKey.swift
     │   ├── Extensions
     │   │   ├── Date+Extension.swift
     │   │   ├── UIView+Constraint.swift
@@ -58,9 +51,6 @@ A Simple Expense Tracker App 📱 built to demonstrate the use of AutoLayout, Re
     │   │   ├── Expense.swift
     │   │   ├── TransactionTag.swift
     │   │   └── TransactionTracking.swift
-    │   ├── Navigation
-    │   │   ├── GMTabBarViewController.swift
-    │   │   └── MainNavigationController.swift
     │   ├── Scences
     │   │   ├── AddExpense
     │   │   ├── Auth
@@ -82,17 +72,12 @@ A Simple Expense Tracker App 📱 built to demonstrate the use of AutoLayout, Re
     │       ├── Auth
     │       ├── Detail
     │       ├── Home
-    │       └── Stat
-    ├── Podfile
-    ├── Shared
-    │   └── Model
-    │       ├── UserDefaults+AppGroup.swift
-    │       └── Widget+Kind.swift
+    │       └── Statswift
     ├── WidgetExtension
     │   ├── IncomeWidget
     │   │   └── IncomeWidget.swift
     │   └── WidgetBundle.swift
-    └── readme.md
+    └── 
 
 <br />
 
