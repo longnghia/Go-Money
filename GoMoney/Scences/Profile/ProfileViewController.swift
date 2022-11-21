@@ -107,6 +107,22 @@ class ProfileViewController: GMMainViewController {
 
     // MARK: - LifeCircle
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        profileView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        stackActions.transform = CGAffineTransform(translationX: 10, y: 0)
+        logoutLabel.transform = CGAffineTransform(translationX: 10, y: 0)
+        logoutButton.transform = CGAffineTransform(translationX: 0, y: 10)
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.profileView.transform = .identity
+            self.stackActions.transform = .identity
+            self.logoutLabel.transform = .identity
+            self.logoutButton.transform = .identity
+        })
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

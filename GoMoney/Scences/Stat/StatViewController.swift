@@ -87,6 +87,18 @@ class StatViewController: GMMainViewController {
         loadData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        tableView.transform = CGAffineTransform(translationX: -10, y: 0)
+        filterBtn.transform = CGAffineTransform(translationX: 10, y: 0)
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.tableView.transform = .identity
+            self.filterBtn.transform = .identity
+        })
+    }
+
     // MARK: Setup Layout
 
     override func setupLayout() {

@@ -56,6 +56,20 @@ class HomeViewController: GMMainViewController {
 
     // MARK: - LyfeCircle
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        chartView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        tableView.transform = CGAffineTransform(translationX: 10, y: 0)
+        floatingButton.transform = CGAffineTransform(translationX: 0, y: 10)
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.chartView.transform = .identity
+            self.tableView.transform = .identity
+            self.floatingButton.transform = .identity
+        })
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
