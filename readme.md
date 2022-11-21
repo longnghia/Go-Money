@@ -111,6 +111,16 @@ A Simple Expense Tracker App 📱 built to demonstrate the use of AutoLayout, Re
 
 <br />
 
+
+## Resources 🥖
+
+- https://icons8.com/
+- https://lottiefiles.com/
+- https://www.canva.com/
+
+<br />
+
+
 ## License
 
 ```
