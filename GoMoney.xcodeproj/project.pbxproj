@@ -69,6 +69,8 @@
 		089CC756291A0C0A0070A108 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089CC755291A0C0A0070A108 /* BiometricService.swift */; };
 		08A272AB290FD780002B3574 /* GMFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A272AA290FD780002B3574 /* GMFloatingButton.swift */; };
 		08B48B7C290293AE00344650 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */; };
+		08C0DB28292B6FA4005A8973 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875F3082927778000D122C3 /* Double+Extension.swift */; };
+		08C0DB2A292B7608005A8973 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C0DB29292B7608005A8973 /* String+Extension.swift */; };
 		08C1F24D28FE68A100590512 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F24A28FE68A000590512 /* ChartView.swift */; };
 		08C1F24E28FE68A100590512 /* RecentExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F24B28FE68A000590512 /* RecentExpenseCell.swift */; };
 		08C1F24F28FE68A100590512 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1F24C28FE68A000590512 /* HomeViewController.swift */; };
@@ -233,6 +235,7 @@
 		089CC755291A0C0A0070A108 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
 		08A272AA290FD780002B3574 /* GMFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMFloatingButton.swift; sourceTree = "<group>"; };
 		08B48B7B290293AE00344650 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		08C0DB29292B7608005A8973 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		08C1F1C528FE662600590512 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		08C1F1C728FE662600590512 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		08C1F24228FE67CE00590512 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -742,6 +745,7 @@
 				08DB56E828F9035800170C60 /* StackView+Extension.swift */,
 				08DB56EA28F9053700170C60 /* UIColor+Extension.swift */,
 				0875F3082927778000D122C3 /* Double+Extension.swift */,
+				08C0DB29292B7608005A8973 /* String+Extension.swift */,
 				08C1F25C28FE93E900590512 /* DateFormatter+Extension.swift */,
 				08C1F26928FFBAD500590512 /* UIImage+Extension.swift */,
 				08DEE9C52900FC4C00EA9A2A /* Date+Extension.swift */,
@@ -1197,6 +1201,7 @@
 				085F753329124E390094A026 /* SettingsTableViewToggleCell.swift in Sources */,
 				088149242911682C00BB3A79 /* ToolsViewController.swift in Sources */,
 				089CC74C2919D9660070A108 /* FileHelper.swift in Sources */,
+				08C0DB2A292B7608005A8973 /* String+Extension.swift in Sources */,
 				08C872C828F6671B00DC859D /* UIView+Extension.swift in Sources */,
 				08C1F25D28FE93E900590512 /* DateFormatter+Extension.swift in Sources */,
 				08EEA00C291CC359003B35B8 /* UserDefaults+AppGroup.swift in Sources */,
@@ -1238,6 +1243,7 @@
 				08EEA017291CD39E003B35B8 /* IncomeWidget.swift in Sources */,
 				08EEA018291CD3E4003B35B8 /* UserDefaults+AppGroup.swift in Sources */,
 				08EEA016291CD397003B35B8 /* WidgetBundle.swift in Sources */,
+				08C0DB28292B6FA4005A8973 /* Double+Extension.swift in Sources */,
 				08EEA019291CD3E7003B35B8 /* Widget+Kind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

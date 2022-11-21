@@ -29,6 +29,23 @@ class AddExpenseForm: UIView {
 
     lazy var categoryField = AddExpenseField(name: "Category", placeHolder: "Enter Category")
 
+    private func setAmountField() {
+        let field = amountField.inputField
+
+        guard let currency = SettingsManager.shared.getValue(for: .currencyUnit) as? String else {
+            return
+        }
+
+        let label = GMLabel(text: currency, style: .regularBold, isCenter: true)
+
+        label.anchor(width: 42, height: 42)
+        field.rightView = label
+        field.rightViewMode = .always
+
+        let selector = #selector(didChangeAmount)
+        field.addTarget(self, action: selector, for: .editingChanged)
+    }
+
     private func setCategoryField() {
         let field = categoryField.inputField
 
@@ -113,6 +130,7 @@ class AddExpenseForm: UIView {
 
         setupView()
         setCategoryField()
+        setAmountField()
     }
 
     @available(*, unavailable)
@@ -139,7 +157,7 @@ class AddExpenseForm: UIView {
     // MARK: Actions
 
     func getAmount() -> String {
-        return amountField.inputField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        return amountField.inputField.text?.replacingOccurrences(of: ",", with: "") ?? ""
     }
 
     func getNote() -> String {
@@ -213,6 +231,16 @@ class AddExpenseForm: UIView {
             field.rightView = img
             field.rightViewMode = .always
         }
+    }
+
+    private let maxAmount: Double = 1_000_000_000
+
+    @objc
+    private func didChangeAmount(sender: UITextField) {
+        let text = sender.text ?? ""
+        let amountString = text.replacingOccurrences(of: ",", with: "")
+        let formated = amountString.splitFromEnd(by: 3).joined(separator: ",")
+        sender.text = formated
     }
 }
 
