@@ -54,22 +54,23 @@ class RemoteService {
             return
         }
 
-        local.getTransaction(by: id) { transaction in
-            guard let transaction = transaction else {
-                print("Transaction \(id) not found at local.")
-                return
-            }
-            do {
-                try self.db.collection("transactions")
-                    .document(userId)
-                    .collection("transactions")
-                    .document(id)
-                    .setData(from: transaction)
+        let transaction = local.getTransaction(by: id)
 
-                completion(nil)
-            } catch {
-                completion(error)
-            }
+        guard let transaction = transaction else {
+            print("Transaction \(id) not found at local.")
+            return
+        }
+
+        do {
+            try db.collection("transactions")
+                .document(userId)
+                .collection("transactions")
+                .document(id)
+                .setData(from: transaction)
+
+            completion(nil)
+        } catch {
+            completion(error)
         }
     }
 
