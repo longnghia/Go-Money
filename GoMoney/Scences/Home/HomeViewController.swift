@@ -17,6 +17,15 @@ class HomeViewController: GMMainViewController {
 
     private lazy var recentExpenseLabel = GMLabel(text: Content.recentExpense, style: .regularBold)
 
+    private lazy var viewAllLabel = GMButton(
+        text: Content.viewAll,
+        font: K.Font.nova,
+        tapAction: { [weak self] in
+            let vc = ViewAllViewController()
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    )
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -104,7 +113,14 @@ class HomeViewController: GMMainViewController {
     override func setupLayout() {
         super.setupLayout()
 
-        view.addSubviews(backImage, chartView, recentExpenseLabel, tableView, floatingButton)
+        view.addSubviews(
+            backImage,
+            chartView,
+            recentExpenseLabel,
+            tableView,
+            floatingButton,
+            viewAllLabel
+        )
 
         let chartSize = view.bounds.size.width - 2 * Constant.padding
 
@@ -127,6 +143,11 @@ class HomeViewController: GMMainViewController {
             top: chartView.bottomAnchor,
             left: chartView.leftAnchor,
             paddingTop: 16
+        )
+
+        viewAllLabel.anchor(
+            top: recentExpenseLabel.topAnchor,
+            right: chartView.rightAnchor
         )
 
         tableView.anchor(
@@ -325,6 +346,7 @@ extension HomeViewController {
     private enum Content {
         static let myExpense = "My Transactions"
         static let recentExpense = "Recent Transactions"
+        static let viewAll = "View All"
     }
 
     private enum Constant {

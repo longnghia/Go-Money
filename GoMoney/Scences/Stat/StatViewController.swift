@@ -188,13 +188,15 @@ extension StatViewController: UITableViewDataSource {
                 cell.tagExpenses = viewModel.tagExpenses ?? []
                 return cell
             }
-        default:
+        case 2:
             if let cell = tableView.dequeueReusableCell(withIdentifier: RecentExpenseCell.identifier, for: indexPath) as? RecentExpenseCell {
                 if let expense = viewModel.topExpenses?[indexPath.row] {
                     cell.expense = expense
                     return cell
                 }
             }
+        default:
+            break
         }
         return UITableViewCell()
     }
@@ -220,6 +222,14 @@ extension StatViewController: UITableViewDataSource {
 extension StatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        if indexPath.section == 2 {
+            if let transaction = viewModel.topExpenses?[indexPath.row] {
+                let vc = DetailViewController()
+                vc.transaction = transaction
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
 }
 
