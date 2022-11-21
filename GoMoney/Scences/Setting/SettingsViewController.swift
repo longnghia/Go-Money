@@ -385,9 +385,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case .about:
             switch indexPath.row {
             case 0:
-                print("About us")
+                openURL(K.URL.github)
             default:
-                print("Rate us")
+                openURL(K.URL.testFlight)
             }
         }
     }

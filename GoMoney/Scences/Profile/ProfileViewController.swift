@@ -59,13 +59,19 @@ class ProfileViewController: GMMainViewController {
 
     private lazy var aboutActionView: GMLabelActionView = .init(
         text: Content.aboutUs,
-        icLeft: UIImage(systemName: "info.circle")
+        icLeft: UIImage(systemName: "info.circle"),
+        action: { [weak self] in
+            self?.openURL(K.URL.github)
+        }
     )
 
     private lazy var helpActionView: GMLabelActionView = .init(
         text: Content.help,
         icLeft: UIImage(systemName: "questionmark.circle"),
-        icRight: nil
+        icRight: nil,
+        action: { [weak self] in
+            self?.openURL(K.URL.github)
+        }
     )
 
     private lazy var stackActions: UIStackView = {
