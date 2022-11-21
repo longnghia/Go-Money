@@ -68,4 +68,14 @@ class HomeViewModel {
         }
         completion?(nil)
     }
+
+    func applyTransaction(transaction: Expense, newTrans: Expense, completion: @escaping (Error?) -> Void) {
+        DataService.shared.updateExpense(
+            oldTrans: transaction,
+            newTrans: newTrans,
+            completion: { err in
+                completion(err)
+            }
+        )
+    }
 }

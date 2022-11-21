@@ -198,7 +198,13 @@ class AddExpenseForm: UIView {
 
         dateField.text = DateFormatter.dmy().string(from: transaction.occuredOn)
         categoryField.text = transaction.tag?.name
-        amountField.text = String(transaction.amount)
+
+        let amountString = String(Int(transaction.amount))
+            .replacingOccurrences(of: ",", with: "")
+            .replacingOccurrences(of: ".", with: "")
+        let formated = amountString.splitFromEnd(by: 3).joined(separator: ",")
+        amountField.text = formated
+
         noteField.text = transaction.note
     }
 

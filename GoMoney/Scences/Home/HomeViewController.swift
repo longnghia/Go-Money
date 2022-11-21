@@ -211,14 +211,19 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return swipe
     }
 
-    func tableView(_: UITableView, leadingSwipeActionsConfigurationForRowAt _: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "Edit") { _, _, completionHandler in
-            // TODO: Go to edit
-            let vc = GMMainViewController()
+            if let transaction = self.viewModel.transactions?[indexPath.row] {
+                let vc = EditViewController()
+                vc.transaction = transaction
+                vc.onApply = { [weak self] newTrans in
+                    self?.applyTransaction(transaction: transaction, newTrans: newTrans)
+                }
 
-            self.navigationController?.pushViewController(vc, animated: true)
+                self.present(vc, animated: true)
 
-            completionHandler(true)
+                completionHandler(true)
+            }
         }
 
         edit.image = UIImage(systemName: "highlighter")
@@ -227,6 +232,26 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let swipe = UISwipeActionsConfiguration(actions: [edit])
 
         return swipe
+    }
+
+    private func applyTransaction(transaction: Expense, newTrans: Expense) {
+        viewModel.applyTransaction(transaction: transaction, newTrans: newTrans) { [weak self] err in
+            DispatchQueue.main.async {
+                if let err = err {
+                    self?.alert(
+                        title: "Error",
+                        message: err.localizedDescription,
+                        actionTitle: "Cancel"
+                    )
+                } else {
+                    self?.loadData()
+                    self?.snackBar(
+                        message: "Transaction updated successfully!",
+                        actionText: "OK"
+                    )
+                }
+            }
+        }
     }
 
     private func toggleEmptyView() {
