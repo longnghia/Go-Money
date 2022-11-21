@@ -8,6 +8,7 @@ pod 'FirebaseCore'
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
 pod 'FirebaseFirestoreSwift'
+pod 'FirebaseMessaging'
 
 pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
 pod 'RealmSwift', '~> 10.32'
