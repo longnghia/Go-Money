@@ -113,4 +113,17 @@ class GMViewController: UIViewController {
     func hideKeyboard() {
         view.endEditing(true)
     }
+
+    func openURL(_ url: String) {
+        guard let url = URL(string: url) else {
+            errorAlert(message: "Can't open \(url)")
+            return
+        }
+
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
 }

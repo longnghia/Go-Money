@@ -52,4 +52,9 @@ struct K {
     enum Animation {
         static let calculator = "calculator"
     }
+
+    enum URL {
+        static let github = "https://github.com/paul-nguyen-goldenowl/Go-Money"
+        static let testFlight = "https://testflight.apple.com/join/FQgdoKR0"
+    }
 }
