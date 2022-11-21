@@ -244,7 +244,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                         actionTitle: "Cancel"
                     )
                 } else {
-                    self?.notifyDataDidChange()
+                    self?.loadData()
                     self?.snackBar(
                         message: "Transaction updated successfully!",
                         actionText: "OK"
