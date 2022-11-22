@@ -30,6 +30,7 @@ class HomeViewModel {
             expenseSum = expenses.reduce(0) { $0 + $1.amount }
 
             widgetService.updateIncomeWidget(income: incomeSum ?? 0, expense: expenseSum ?? 0)
+            widgetService.updateChartWidget()
 
             groupedExpenses = expenses.groupExpensesByTag()
         }

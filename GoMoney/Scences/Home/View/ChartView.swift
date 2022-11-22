@@ -114,4 +114,23 @@ class ChartView: UIView {
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func saveImage() {
+        let image = pieChartView.getChartImage(transparent: false)
+
+        guard
+            let image = image,
+            let data = image.jpegData(compressionQuality: 1) ?? image.pngData()
+        else {
+            return
+        }
+        guard let directory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.kappa.expense")?.appendingPathComponent("chart.png") as? URL else {
+            return
+        }
+        do {
+            try data.write(to: directory)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
