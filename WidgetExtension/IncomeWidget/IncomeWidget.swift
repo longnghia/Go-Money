@@ -51,34 +51,33 @@ private struct IncomeWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            HStack(alignment: .firstTextBaseline, spacing: 4) {
+        HStack {
+            VStack {
                 Text("\(Int(income))")
-                    .font(.callout)
-                    .padding(.leading, 16)
+                    .font(.system(size: 12))
+                    .padding(.top, 8)
 
-                Spacer()
-
-                Text("\(Int(expense))")
-                    .font(.callout)
-                    .padding(.trailing, 16)
-            }
-
-            HStack {
                 Bar(percent: income / self.maxValue, color: .green, width: 20)
-                Bar(percent: expense / self.maxValue, color: .red, width: 20)
-            }
-            .background(Color.pink.opacity(0.1))
 
-            HStack {
                 Text("Income")
-                    .padding(.leading, 8)
-                Spacer()
+                    .padding(.bottom, 8)
+            }
+
+            VStack {
+                Text("\(Int(expense))")
+                    .font(.system(size: 12))
+                    .padding(.top, 8)
+
+                Bar(percent: expense / self.maxValue, color: .red, width: 20)
+
                 Text("Expense")
-                    .padding(.trailing, 8)
+                    .padding(.bottom, 8)
             }
         }
         .font(.footnote)
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.white, .blue]), startPoint: .top, endPoint: .bottom)
+        )
     }
 
     private var income: Double {
