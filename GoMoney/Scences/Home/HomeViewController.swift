@@ -185,6 +185,8 @@ class HomeViewController: GMMainViewController {
             incomeSum: viewModel.incomeSum,
             expenseSum: viewModel.expenseSum
         )
+
+        chartView.saveImage()
     }
 
     // MARK: Methods

@@ -14,6 +14,8 @@
 		080ADD30290FB068005DCF86 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080ADD2F290FB068005DCF86 /* DetailView.swift */; };
 		0816CEED292BE5BB00C17626 /* ViewAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816CEEC292BE5BB00C17626 /* ViewAllViewController.swift */; };
 		0816CEEF292BE66300C17626 /* ViewAllViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816CEEE292BE66300C17626 /* ViewAllViewModel.swift */; };
+		0816CEF1292C66FF00C17626 /* ChartWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816CEF0292C66FF00C17626 /* ChartWidget.swift */; };
+		0816CEF2292C68C600C17626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C872AB28F655CF00DC859D /* Assets.xcassets */; };
 		081CB3112906F5310007D426 /* LineChartXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB3102906F5310007D426 /* LineChartXAxisFormatter.swift */; };
 		081CB31429077BF20007D426 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB31329077BF20007D426 /* DayAxisValueFormatter.swift */; };
 		081CB3162907829C0007D426 /* Expense+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CB3152907829C0007D426 /* Expense+Extension.swift */; };
@@ -183,6 +185,7 @@
 		080ADD2F290FB068005DCF86 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0816CEEC292BE5BB00C17626 /* ViewAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllViewController.swift; sourceTree = "<group>"; };
 		0816CEEE292BE66300C17626 /* ViewAllViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllViewModel.swift; sourceTree = "<group>"; };
+		0816CEF0292C66FF00C17626 /* ChartWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartWidget.swift; sourceTree = "<group>"; };
 		081CB3102906F5310007D426 /* LineChartXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartXAxisFormatter.swift; sourceTree = "<group>"; };
 		081CB31329077BF20007D426 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
 		081CB3152907829C0007D426 /* Expense+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+Extension.swift"; sourceTree = "<group>"; };
@@ -925,6 +928,7 @@
 			isa = PBXGroup;
 			children = (
 				08EEA014291CD373003B35B8 /* IncomeWidget.swift */,
+				0816CEF0292C66FF00C17626 /* ChartWidget.swift */,
 			);
 			path = IncomeWidget;
 			sourceTree = "<group>";
@@ -1074,6 +1078,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0816CEF2292C68C600C17626 /* Assets.xcassets in Resources */,
 				08EEA000291CC29E003B35B8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1260,6 +1265,7 @@
 				08EEA018291CD3E4003B35B8 /* UserDefaults+AppGroup.swift in Sources */,
 				08EEA016291CD397003B35B8 /* WidgetBundle.swift in Sources */,
 				08C0DB28292B6FA4005A8973 /* Double+Extension.swift in Sources */,
+				0816CEF1292C66FF00C17626 /* ChartWidget.swift in Sources */,
 				08EEA019291CD3E7003B35B8 /* Widget+Kind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
