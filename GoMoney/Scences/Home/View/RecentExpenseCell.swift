@@ -15,6 +15,11 @@ class RecentExpenseCell: UITableViewCell {
     lazy var labelName = GMLabel(style: .regularBold)
     lazy var labelDate = GMLabel(style: .small)
     lazy var labelPrice = GMLabel(style: .regularBold)
+    lazy var labelNote = {
+        let lbl = GMLabel(style: .small)
+        lbl.textAlignment = .right
+        return lbl
+    }()
 
     lazy var stackInfo: UIStackView = {
         let stackView = UIStackView()
@@ -38,7 +43,7 @@ class RecentExpenseCell: UITableViewCell {
 
     private func setView() {
         backgroundColor = K.Color.background
-        addSubviews(icon, stackInfo, labelPrice)
+        addSubviews(icon, stackInfo, labelPrice, labelNote)
 
         icon.anchor(left: leftAnchor, paddingLeft: 4)
         icon.centerYToView(self)
@@ -54,7 +59,11 @@ class RecentExpenseCell: UITableViewCell {
         )
 
         labelPrice.centerYToView(self)
-        labelPrice.anchor(top: topAnchor, right: rightAnchor, paddingRight: 4)
+        labelPrice.anchor(right: rightAnchor, paddingRight: 4)
+        labelNote.anchor(top: labelPrice.bottomAnchor,
+                         right: labelPrice.rightAnchor,
+                         paddingTop: 4,
+                         width: 100)
     }
 
     func bindView(transaction: Expense) {
@@ -63,6 +72,7 @@ class RecentExpenseCell: UITableViewCell {
         labelDate.text = transaction.getDate(.occuredOn)
         let currency = SettingsManager.shared.getValue(for: .currencyUnit)
         labelPrice.text = "\(transaction.amount.formatWithCommas()) \(currency)"
+        labelNote.text = transaction.note
         switch transaction.type {
         case ExpenseType.income.rawValue:
             labelPrice.textColor = K.Color.saving
