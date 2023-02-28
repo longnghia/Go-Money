@@ -366,6 +366,7 @@
 		080ADD19290F7C5A005DCF86 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				080ADD2A290FA4F3005DCF86 /* DetailViewModel.swift */,
 				080ADD23290F8AD9005DCF86 /* DetailViewController.swift */,
 				080ADD2F290FB068005DCF86 /* DetailView.swift */,
 			);
@@ -378,14 +379,6 @@
 				080ADD25290F8CAF005DCF86 /* EditViewController.swift */,
 			);
 			path = Edit;
-			sourceTree = "<group>";
-		};
-		080ADD29290FA4E9005DCF86 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				080ADD2A290FA4F3005DCF86 /* DetailViewModel.swift */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		0816CEEB292BE5B000C17626 /* ViewAll */ = {
@@ -417,6 +410,7 @@
 		0828A813290639A600243CB4 /* Stat */ = {
 			isa = PBXGroup;
 			children = (
+				083EA338290676EB0079605F /* StatViewModel.swift */,
 				0828A814290639B500243CB4 /* StatViewController.swift */,
 				0828A81829063BB600243CB4 /* StatBarChartCell.swift */,
 				0828A81A29063BCF00243CB4 /* StatTableCell.swift */,
@@ -441,44 +435,6 @@
 				08EEA01B291CF94C003B35B8 /* WidgetService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		082BF97828FD65910094FE94 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				08F068B429225519005C58EC /* Profile */,
-				080ADD29290FA4E9005DCF86 /* Detail */,
-				08357BC02909173D00007F88 /* AddExpense */,
-				083EA337290676DC0079605F /* Stat */,
-				08C1F25E28FE946F00590512 /* Home */,
-				082BF97928FD65CD0094FE94 /* Auth */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		082BF97928FD65CD0094FE94 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				082BF97628FD64A60094FE94 /* SignInViewModel.swift */,
-				08F068B229224740005C58EC /* SignUpViewModel.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		08357BC02909173D00007F88 /* AddExpense */ = {
-			isa = PBXGroup;
-			children = (
-				08357BC12909174E00007F88 /* AddExpenseViewModel.swift */,
-			);
-			path = AddExpense;
-			sourceTree = "<group>";
-		};
-		083EA337290676DC0079605F /* Stat */ = {
-			isa = PBXGroup;
-			children = (
-				083EA338290676EB0079605F /* StatViewModel.swift */,
-			);
-			path = Stat;
 			sourceTree = "<group>";
 		};
 		085F75242912158E0094A026 /* Setting */ = {
@@ -592,14 +548,6 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		08C1F25E28FE946F00590512 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				08C1F25F28FE947E00590512 /* HomeViewModel.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		08C1F26628FEA3EB00590512 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,7 +598,6 @@
 			children = (
 				08EEA00F291CC39D003B35B8 /* GoMoney.entitlements */,
 				08C1F25228FE68EB00590512 /* Navigation */,
-				082BF97828FD65910094FE94 /* ViewModel */,
 				082BF94628FD012B0094FE94 /* Service */,
 				08C8730B28F7B1BD00DC859D /* Common */,
 				08C872CB28F66C0300DC859D /* Base */,
@@ -713,6 +660,7 @@
 		08C872B928F658C600DC859D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				08C1F25F28FE947E00590512 /* HomeViewModel.swift */,
 				08C1F24C28FE68A000590512 /* HomeViewController.swift */,
 				08C1F24928FE68A000590512 /* View */,
 			);
@@ -733,7 +681,6 @@
 		08C872BC28F65CB700DC859D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				08C872DA28F680A100DC859D /* OnboardPage.swift */,
 				08C1F25A28FE8B2A00590512 /* Expense.swift */,
 				08C6894A2913AF06002071CC /* TransactionTracking.swift */,
 				083EA335290659660079605F /* TransactionTag.swift */,
@@ -794,6 +741,7 @@
 		08C872D728F67F7C00DC859D /* Onboard */ = {
 			isa = PBXGroup;
 			children = (
+				08C872DA28F680A100DC859D /* OnboardPage.swift */,
 				08C872D828F67F8F00DC859D /* OnboardViewController.swift */,
 				08C872DF28F6866000DC859D /* OnboardCell.swift */,
 			);
@@ -803,6 +751,7 @@
 		08C872EC28F6C5DE00DC859D /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				082BF97628FD64A60094FE94 /* SignInViewModel.swift */,
 				08C872ED28F6C5F600DC859D /* SignInViewController.swift */,
 				082BF94428FCF0D00094FE94 /* SignInPasswordVC.swift */,
 			);
@@ -844,6 +793,7 @@
 		08C8731728F865B200DC859D /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				08F068B229224740005C58EC /* SignUpViewModel.swift */,
 				08C8731828F865CA00DC859D /* SignUpPasswordVC.swift */,
 				08DB56EC28F916D500170C60 /* SignUpDetailViewController.swift */,
 			);
@@ -862,6 +812,7 @@
 		08DB56F128F9255500170C60 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				08F068B529225526005C58EC /* ProfileViewModel.swift */,
 				08DB56F228F9256A00170C60 /* ProfileViewController.swift */,
 				08DB56F828F9637200170C60 /* ProfileView.swift */,
 			);
@@ -889,6 +840,7 @@
 		08DEE9C929013E2A00EA9A2A /* AddExpense */ = {
 			isa = PBXGroup;
 			children = (
+				08357BC12909174E00007F88 /* AddExpenseViewModel.swift */,
 				08DEE9CA29013E3D00EA9A2A /* AddExpenseViewController.swift */,
 				088D691B29015865003D0660 /* AddExpenseField.swift */,
 				081DC8972901A99C0005374F /* AddExpenseForm.swift */,
@@ -949,14 +901,6 @@
 				08F068AB29221C79005C58EC /* AsyncImageView.swift */,
 			);
 			path = AsyncImage;
-			sourceTree = "<group>";
-		};
-		08F068B429225519005C58EC /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				08F068B529225526005C58EC /* ProfileViewModel.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		2A40CADA7D1F29A21E4B01AF /* Frameworks */ = {
